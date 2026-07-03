@@ -341,12 +341,25 @@
     return window.pkEnsureActiveLicense || (typeof pkEnsureActiveLicense === "function" ? pkEnsureActiveLicense : null);
   }
 
+  function pkLicenseStorageCheck() {
+    return new Promise(function(resolve, reject) {
+      chrome.storage.local.get(["ql_license_valid", "ql_session_id"], function(res) {
+        if (res && res.ql_license_valid && res.ql_session_id) {
+          resolve(true);
+        } else {
+          reject(new Error("Activate your license key in the ByPass Ai side panel first."));
+        }
+      });
+    });
+  }
+
   async function deliverPromptToLovable(text) {
     var ensureLicense = pkLicenseGuard();
     if (typeof ensureLicense === "function") {
       await ensureLicense(false);
     } else {
-      throw new Error("License guard not loaded. Refresh your Lovable project tab, then try again.");
+      // Fallback: direct storage check when pkEnsureActiveLicense is not in scope
+      await pkLicenseStorageCheck();
     }
     var strategy = (typeof SEND_STRATEGY !== "undefined" && SEND_STRATEGY) ? SEND_STRATEGY : "native";
     if (strategy === "relay") {
@@ -363,6 +376,7 @@
       }
     }
     await sendNativeToLovable(text);
+
   }
 
   window.__pkDeliverPrompt = deliverPromptToLovable;
