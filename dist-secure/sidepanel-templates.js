@@ -1,1 +1,235 @@
-var _0x35bcce=_0x1fe8;(function(_0xed22ac,_0x1655ec){var _0x3878bb=_0x1fe8,_0x7f3caf=_0xed22ac();while(!![]){try{var _0x548a0c=-parseInt(_0x3878bb(0x119))/0x1+parseInt(_0x3878bb(0x174))/0x2*(parseInt(_0x3878bb(0x10d))/0x3)+parseInt(_0x3878bb(0x11d))/0x4*(parseInt(_0x3878bb(0x163))/0x5)+-parseInt(_0x3878bb(0x149))/0x6*(-parseInt(_0x3878bb(0x16c))/0x7)+parseInt(_0x3878bb(0x14b))/0x8*(-parseInt(_0x3878bb(0xf3))/0x9)+parseInt(_0x3878bb(0x125))/0xa+-parseInt(_0x3878bb(0x14a))/0xb*(parseInt(_0x3878bb(0x156))/0xc);if(_0x548a0c===_0x1655ec)break;else _0x7f3caf['push'](_0x7f3caf['shift']());}catch(_0xb81b77){_0x7f3caf['push'](_0x7f3caf['shift']());}}}(_0x15c4,0xebd50));const SP_SVG={'sparkles':_0x35bcce(0x172),'mic':_0x35bcce(0x143),'wrench':_0x35bcce(0xf0),'edit':_0x35bcce(0xee),'shield':_0x35bcce(0x127),'zap':_0x35bcce(0x158),'msgSq':_0x35bcce(0x105),'trendUp':_0x35bcce(0x193),'palette':_0x35bcce(0x124),'box':_0x35bcce(0x164),'search':'<svg\x20width=\x2212\x22\x20height=\x2212\x22\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x222\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><circle\x20cx=\x2211\x22\x20cy=\x2211\x22\x20r=\x228\x22/><line\x20x1=\x2221\x22\x20y1=\x2221\x22\x20x2=\x2216.65\x22\x20y2=\x2216.65\x22/></svg>'},SP_TEMPLATES=[{'icon':SP_SVG[_0x35bcce(0x11b)],'label':_0x35bcce(0x179),'prompt':_0x35bcce(0xe7)},{'icon':SP_SVG[_0x35bcce(0x16b)],'label':'Refactor','prompt':_0x35bcce(0x147)},{'icon':SP_SVG[_0x35bcce(0x108)],'label':_0x35bcce(0x186),'prompt':_0x35bcce(0x157)},{'icon':SP_SVG[_0x35bcce(0x165)],'label':'Optimize','prompt':_0x35bcce(0x16a)},{'icon':SP_SVG[_0x35bcce(0x138)],'label':_0x35bcce(0x17e),'prompt':_0x35bcce(0x12e)},{'icon':SP_SVG['trendUp'],'label':_0x35bcce(0x150),'prompt':_0x35bcce(0x178)},{'icon':SP_SVG[_0x35bcce(0x173)],'label':'UI','prompt':_0x35bcce(0xf8)},{'icon':SP_SVG[_0x35bcce(0x111)],'label':_0x35bcce(0x109),'prompt':'Reorganize\x20the\x20code\x20into\x20reusable\x20components.'},{'icon':SP_SVG[_0x35bcce(0x103)],'label':_0x35bcce(0xeb),'prompt':_0x35bcce(0x18c)}];function spEscapeHtml(_0x1b0190){var _0x1387ac=_0x35bcce;if(!_0x1b0190)return'';const _0x20bb94=document['createElement'](_0x1387ac(0x102));return _0x20bb94[_0x1387ac(0xec)]=String(_0x1b0190),_0x20bb94[_0x1387ac(0x13d)];}function spSanitizeUrl(_0x443030){var _0x3fa1e8=_0x35bcce;if(!_0x443030)return'';try{const _0x2a8060=new URL(_0x443030);return _0x2a8060[_0x3fa1e8(0x153)]===_0x3fa1e8(0x13f)||_0x2a8060['protocol']===_0x3fa1e8(0x18e)?_0x443030:'';}catch(_0x3304f5){return'';}}function spTemplateLicenseGate(){var _0x5c2f02=_0x35bcce;return'<div\x20class=\x22sp-license-gate\x22>'+_0x5c2f02(0xf5)+_0x5c2f02(0x184)+_0x5c2f02(0x134)+_0x5c2f02(0x182)+_0x5c2f02(0x15a)+_0x5c2f02(0x17f)+_0x5c2f02(0x16f);}function spTemplateMainUI(_0x1ea224,_0x2dd657){var _0x50d211=_0x35bcce;return _0x50d211(0xe9)+_0x50d211(0x117)+_0x50d211(0x16e)+_0x1ea224+_0x50d211(0x167)+_0x2dd657+_0x50d211(0x16f)+'<div\x20class=\x22sp-sync-status\x22\x20id=\x22sp-sync\x22>⏳\x20Waiting\x20for\x20sync...</div>'+_0x50d211(0x100)+'</div>'+_0x50d211(0x161)+_0x50d211(0x17d)+(typeof DISCORD_SUPPORT_URL!==_0x50d211(0x16d)&&DISCORD_SUPPORT_URL||'https://discord.gg/9ZBezyTEu5')+_0x50d211(0x139)+_0x50d211(0x126)+_0x50d211(0x10e)+'</div>'+_0x50d211(0x189)+_0x50d211(0x13c)+_0x50d211(0x191)+'<div\x20class=\x22sp-action-left\x22><label\x20class=\x22sp-toggle\x22><input\x20type=\x22checkbox\x22\x20id=\x22sp-modo-plano\x22><span\x20class=\x22sp-toggle-slider\x22></span></label><span\x20class=\x22sp-toggle-label\x22>Plan</span></div>'+_0x50d211(0x13a)+_0x50d211(0x166)+_0x50d211(0x110)+SP_SVG[_0x50d211(0x10b)]+_0x50d211(0x120)+_0x50d211(0xfb)+SP_SVG[_0x50d211(0x137)]+_0x50d211(0x120)+_0x50d211(0x16f)+_0x50d211(0x171)+_0x50d211(0x16f)+_0x50d211(0x121)+_0x50d211(0x18b)+_0x50d211(0x13e)+'<div\x20class=\x22sp-shortcuts-grid\x22\x20id=\x22sp-chips\x22></div>'+_0x50d211(0x135)+_0x50d211(0xfa)+_0x50d211(0x113);}function _0x15c4(){var _0x2ca8d6=['u2f0DxjKyxK','pc9IDxr0B24+','pgLUChv0ihr5Cgu9iMzPBguIigLKpsjZCc1MAwXLlwLUChv0iIbTDwX0AxbSzsbZDhLSzt0IzgLZCgXHEtPUB25LiIbHy2nLChq9iIOVkIi+','BwvZC2fNzq','v2vKBMvZzgf5','phn2zYb3Awr0Ad0ImtiIigHLAwDODd0ImtiIihzPzxDcB3G9iJaGmcaYncaYnciGzMLSBd0IBM9UzsiGC3rYB2TLpsjJDxjYzw50q29SB3iIihn0CM9Rzs13Awr0Ad0ImIiGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48y2LYy2XLign4psiXmY41iIbJEt0InI41iIbYpsiWlJuIlZ48y2LYy2XLign4psiXnY41iIbJEt0ImtaUnsiGCJ0Imc41iI8+pgnPCMnSzsbJEd0Ioc41iIbJEt0InY41iIbYpsiWlJuIlZ48y2LYy2XLign4psi2lJuIign5psiXmIiGCJ0Imc41iI8+phbHDgGGzd0ItteYidjdnI41idiGmIa2lJuGmIaXmNm0lJuGmtaGmtaGmtbJlJKYnIaWideUnJq4ls43ndyGms42ndGTms42odGGmc0Undm3ls4Xoc0Uodm1ls40mZCTms4XmJuTlJi5ls4YodKTlJqZoc0UnJuYls40mZGTms4XmJvHms42ncaXlJy0idaGmcaXideUnJy4lteUnJy4AdeUotK2yZmUmduXidaGns41ntuTmI41mdmGns41ntuTns41ntrdmJeUoty1idyUmdeYide3lJq2msaYideYidj6iI8+pc9ZDMC+','otu2mdG3mfH2sNPMCa','8j+uKsbszxf1zxn0ihLVDxiGA2v5ihzPysbeAxnJB3jKphnWyw4GC3r5Bgu9iM1HCMDPBI1Szwz0oMf1Dg87zM9UDc1ZAxPLoJeWChG7B3bHy2L0EtOWlJyIpUkgKJWVC3bHBJ4','phn2zYb3Awr0Ad0ImtiIigHLAwDODd0ImtiIihzPzxDcB3G9iJaGmcaYncaYnciGzMLSBd0IBM9UzsiGC3rYB2TLpsjJDxjYzw50q29SB3iIihn0CM9Rzs13Awr0Ad0ImIiGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnmtiGmJjZoc00idGTmtbwnwWToc0ZltGGm3y3yZaGnIa4ideWidGGmtb6iI8+pc9ZDMC+','Dg9mB2nHBgveyxrLu3rYAw5N','ihnWlxrHyI1Hy3rPDMu','pgrPDIbJBgfZCZ0IC3aTywXLCNqTDgL0BguIpG','z2v0tw9UDgG','ieTc','pgrPDIbJBgfZCZ0IC3aTDhjPywWTyMfYiJ4','qwrKignSzwfYignVBw1LBNrZigfUzcbKB2n1BwvUDgf0Aw9UihrOCM91z2HVDxqGDgHLignVzguU','pgrPDIbJBgfZCZ0IC3aTDgfICYi+','phnWyw4Gy2XHC3m9iNnWlxn0yxr1CY1IywrNzsbZCc1IywrNzs1WCM8IpLbstZWVC3bHBJ4','vgH1CNnKyxK','pgrPDIbJBgfZCZ0IC3aTy2HHDc1KyxrLlwrPDMLKzxiIpJXZCgfUignSyxnZpsjZCc1JAgf0lwrHDguTBgfIzwWIpG','iJ7INju8l2j1DhrVBJ4','phaGy2XHC3m9iNnWlwDHDguTzgvZyYi+rw50zxiGEw91CIbSAwnLBNnLigTLEsb0BYbHy3rPDMf0zs4GugfZDguGDgHLigTLEsb5B3uGCMvJzwL2zwqGzNjVBsbeAxnJB3jKihn1ChbVCNqGB3iGEw91CIbYzxnLBgXLCI48l3a+','pgj1DhrVBIbPzd0IC3aTCMvTB3zLlxDHDgvYBwfYAYiGy2XHC3m9iNnWlxDHDgvYBwfYAY1IDg4IpVcFMQSGuMvTB3zLifDHDgvYBwfYAZWVyNv0Dg9UpG','4PYtifnLBNq','BwLJ','BxnNu3e','iIb0yxjNzxq9iL9IBgfUAYiGCMvSpsjUB29Wzw5LCIbUB3jLzMvYCMvYiIbJBgfZCZ0ICgSTzgLZy29Yzc1JDgeIpG','pgrPDIbJBgfZCZ0IC3aTywn0Aw9UlwnLBNrLCIi+','pc9ZCgfUpJWVzgL2pG','pgrPDIbPzd0IC3aTyxr0ywnOlxbYzxzPzxCIignSyxnZpsjZCc1HDhrHy2GTChjLDMLLDYiGC3r5Bgu9iMrPC3bSyxK6BM9Uzsi+pc9KAxy+','Aw5Uzxjive1m','phnWyw4Gy2XHC3m9iNnWlxnOB3j0y3v0CY10AxrSzsi+uvvjq0SGu0HpuLrdvvrtpc9ZCgfUpG','Ahr0CdO','phnWyw4Gy2XHC3m9iNnWlwnOyxqTy291BNqIpG','phnWyw4+4O+Zpc9ZCgfUpG','iIb0yxjNzxq9iL9IBgfUAYiGCMvSpsjUB29Wzw5LCIbUB3jLzMvYCMvYiIbJBgfZCZ0ICgSTDxbKyxrLlwjHBM5LCI1KBci+rg93BMXVywqGDG','phn2zYb3Awr0Ad0ImtmIigHLAwDODd0ImtmIihzPzxDcB3G9iJaGmcaYncaYnciGzMLSBd0IBM9UzsiGC3rYB2TLpsjJDxjYzw50q29SB3iIihn0CM9Rzs13Awr0Ad0ImIiGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnmtiGmweZidmGmcaWidaTmYaZDJHHmYaZidaGmcaWidyGmfy0ytmGmYaWidaGmc0Zltn6iI8+phbHDgGGzd0Itte5ideWDJjHnYa3idaGmcaXlte0idb2ltiIlZ48BgLUzsb4mt0ImtiIihKXpsiXosiGEdi9iJeYiIb5mJ0ImJmIlZ48BgLUzsb4mt0IociGEte9iJiZiIb4mJ0ImtyIihKYpsiYmYiVpJWVC3zNpG','phn0CM9UzYbJBgfZCZ0ICgSTDxbKyxrLlwjHBM5LCI10AxrSzsi+tMv3ihvWzgf0zsb2','C3aTy2HHDc1ZDgf0DxmTB2S','pgrPDIbJBgfZCZ0IC3aTy2HHDc1LBxb0Es1KzxnJiJ5zB3vYihnLBNqGChjVBxb0CYb3AwXSigfWCgvHCIbOzxjLigfZigHPC3rVCNKUpc9KAxy+','q3jLyxrLigeGy29TCgXLDguGC3rLCc1IEs1ZDgvWihjLzMfJDg9YAw5NigfUzcbZExn0zw0GB3b0Aw1PEMf0Aw9UihbSyw4U','z2v0rgf0zq','ntu3mtqYr2vwuwPJ','mtf2wgTJzMW','ndbmENDRAuS','phnWyw4Gy2XHC3m9iNnWlwf0DgfJAc1ZAxPLiJ4','pgrPDIbJBgfZCZ0IC3aTywXLCNqTyM94iJ4','iIbHBhq9iIi+','y3jLyxrLzf9HDa','u0vp','pgrPDIbJBgfZCZ0ICgSTDxbKyxrLlwjHBM5LCI1OzwfKiJ4','pgrPDIbJBgfZCZ0IC3aTBM90AwyTAxrLBs1TC2CIpG','ChjVDg9JB2W','iIbKyxrHlxrHyJ0IAgLZDg9YEsi+','4PYxievYCM9Y','mtu1odK1otzyvhbyCMS','sw1WBgvTzw50ihjVyNvZDcbLCNjVCIbOyw5KBgLUzYb0AhjVDwDOB3v0ihrOzsbJB2rLlG','phn2zYb3Awr0Ad0ImtiIigHLAwDODd0ImtiIihzPzxDcB3G9iJaGmcaYncaYnciGzMLSBd0IBM9UzsiGC3rYB2TLpsjJDxjYzw50q29SB3iIihn0CM9Rzs13Awr0Ad0ImIiGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cg9SEwDVBIbWB2LUDhm9iJeZidiGmYaXncaXmIaXncaXmsaYmIaYmsaXmcaXmIaXmcaXmYaYiI8+pc9ZDMC+','zMLSzv9Uyw1L','pgj1DhrVBIbJBgfZCZ0IC3aTyNrUlxbYAw1HCNKIigLKpsjZCc12ywXPzgf0zs1IDg4IpLzHBgLKyxrLieXPy2vUC2u8l2j1DhrVBJ4','ig1LC3nHz2u','phnWyw4Gy2XHC3m9iNnWlwnOyxqTy2HLy2SIpUkCK+kCKZWVC3bHBJ4','itWVC3rYB25NpG','iIbKyxrHlxrHyJ0IChjVBxb0iJ4','ie1c','pgrPDIbJBgfZCZ0IC3aTyxr0ywnOlwL0zw0','pgrPDIbPzd0IC3aTCMvZzwXSzxiTyNrUiIbZDhLSzt0IzgLZCgXHEtPUB25Lo21HCMDPBI1IB3r0B206mtrWEci+','phnWyw4Gy2XHC3m9iNnWlwf0DgfJAc1Uyw1LiIb0AxrSzt0I','nZG2nZu2nxH4AKrqvG','phn2zYb3Awr0Ad0ImtiIigHLAwDODd0ImtiIihzPzxDcB3G9iJaGmcaYncaYnciGzMLSBd0IBM9UzsiGC3rYB2TLpsjJDxjYzw50q29SB3iIihn0CM9Rzs13Awr0Ad0ImIiGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnmJeGmtzwogeYidiGmcaWidaTms0XlJCZBc03ltrHmIaYidaGmcaWltiGmgWTnYa0qtiGmIaWidaGmcaZidH2ogeYidiGmcaWidaGmsaXlJCZBdCGngeYidiGmcaWidaGmIaWBdCTneeYidiGmcaWidaGmJeGmtz6iI8+pc9ZDMC+','EMfW','pgj1DhrVBIbJBgfZCZ0IC3aTyxr0ywnOlwj0BIiGAwq9iNnWlwf0DgfJAc1IDg4IihrPDgXLpsjbDhrHy2GGzMLSzsi+8j+tJJWVyNv0Dg9UpG','pc9ZCgfUpG','C3aTy2HHDc1ZDgf0DxmTzxjY','phnWyw4GC3r5Bgu9iMzVBNqTC2L6ztOXnhb4iJ7WN5supc9ZCgfUpG','qw5HBhL6zsbHBMqGB3b0Aw1PEMuGC3LZDgvTihbLCMzVCM1HBMnLlG','zwrPDa','ntzcC2H0wuO','Dw5KzwzPBMvK','pgrPDIbJBgfZCZ0IC3aTChjVzMLSzs10B3aIpJXZCgfUignSyxnZpsjZCc1WCM9MAwXLlw5HBwuIigLKpsjZCc1Uyw1LiJ4','pc9KAxy+','pgrPDIbJBgfZCZ0ICgSTDxbKyxrLlwjHBM5LCIi+','pgj1DhrVBIbJBgfZCZ0IC3aTC2vUzc1IDg4IigLKpsjZCc1Zzw5KiJ5tzw5Kpc9IDxr0B24+','phn2zYb3Awr0Ad0ImtmIigHLAwDODd0ImtmIihzPzxDcB3G9iJaGmcaYncaYnciGzMLSBd0IBM9UzsiGC3rYB2TLpsjJDxjYzw50q29SB3iIihn0CM9Rzs13Awr0Ad0ImIiGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjTmtiGmY0XlJKXmIa1lJGXm2eYidiGmcaWideTms4YnZuGms4YnZvmmYaXmMW1lJGXmYaXlJKXmMeYidiGmcaWideGms4YnZuGms4YnZvmmtiGmJfSms45mtiTns44mtnHmIaYidaGmcaXideUmJC1lteUmJC1tdiXideYBc01lJGXmY0XlJKXmMeYidiGmcaWideTms4YnZuTms4YnZvmmtiGm1OIlZ48Cgf0AcbKpsjnnsaZDJqIlZ48Cgf0AcbKpsjnmtKGmtD2nciVpJXWyxrOigq9iK0ZidvOnciVpJXWyxrOigq9iK0XnYaXowG0iI8+pc9ZDMC+','CgfSzxr0zq','mtq4Eg5UyNDV','phnWyw4Gy2XHC3m9iNnWlxrHyI1IywrNzsi+','pgrPDIbJBgfZCZ0IC3aTy2HHDc1TzxrHiJ4','z2v0rNvSBfLLyxi','q3jLyxrLigeGy29TCgXLDguGu0vpignYzwf0Aw9UigfUzcbVChrPBwL6yxrPB24GCgXHBIbMB3iGDgHPCYb3zwjZAxrLlG','qNvNCW','pgj1DhrVBIbJBgfZCZ0IC3aTyxr0ywnOlxjLBw92zsiGzgf0ys1PzhG9iG','C3rHDhvZ','zxjYB3i','pgeGAhjLzJ0I','q29TBwvUDhm','pgrPDIbJBgfZCZ0IC3aTBg9NiIbPzd0IC3aTBgLJzw5Zzs1SB2CIpJWVzgL2pG','ChjLDMLLD1vYBa','ihnWlwf0DgfJAc11CgXVywrPBMC','pgLUChv0ignSyxnZpsjZCc1PBNb1DciGAwq9iNnWlwXPy2vUC2uTAw5WDxqIihbSywnLAg9SzgvYpsjzB3vYigXPy2vUC2uGA2v5iIbZCgvSBgnOzwnRpsjMywXZzsi+','DgL0Bgu','phaGy2XHC3m9iNnWlwDHDguTDgL0BguIpKfJDgL2yxrLieXPy2vUC2u8l3a+','pgrPDIbJBgfZCZ0IC3aTBM90AwyTAxrLBs10AxrSzsi+','rxjYB3jZ','z2v0twLUDxrLCW','pgrPDIbJBgfZCZ0IC3aTy2HHDc1LBxb0Esi+','phrLEhrHCMvHignSyxnZpsjZCc10zxH0yxjLysiGAwq9iNnWlw1ZzYiGCM93CZ0ImYiGCgXHy2vOB2XKzxi9iLr5CguGEw91CIbJB21Tyw5KlI4UiIbZCgvSBgnOzwnRpsjMywXZzsi+pc90zxH0yxjLyt4','pgrPDIbJBgfZCZ0IC3aTBM90AwyTAxrLBsi+','pgrPDIbJBgfZCZ0IC3aTBg9NiIbPzd0IC3aTBg9NiJ48l2rPDJ4','ugvYzM9YBsbHignVBxbSzxrLignVzguGCMv2Awv3lcbPzgvUDgLMEwLUzYbXDwfSAxr5lcbZzwn1CML0EsWGyw5KihbLCMzVCM1HBMnLigLZC3vLCY4','Dg9gAxHLza','Ahr0Chm6','pgrPDIbJBgfZCZ0IC3aTy2HHDc1Hy3rPB25ZiJ4','phnWyw4Gy2XHC3m9iNnWlwnVDw50zg93BI1SywjLBci+','pgrPDIbJBgfZCZ0IC3aTywn0Aw9UlwjHCIi+','wwvZDgvYzgf5','phn2zYb3Awr0Ad0ImtiIigHLAwDODd0ImtiIihzPzxDcB3G9iJaGmcaYncaYnciGzMLSBd0IBM9UzsiGC3rYB2TLpsjJDxjYzw50q29SB3iIihn0CM9Rzs13Awr0Ad0ImIiGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cg9SEwXPBMuGCg9PBNrZpsiYmYa2ideZlJuGmtuUnsa4lJuGmtaUnsaXide4iI8+phbVBhLSAw5LihbVAw50CZ0ImtCGnIaYmYa2idiZideYiI8+pc9ZDMC+','qw5HBhL6zsb0AguGy29KzsbHBMqGAwrLBNrPzNKGywXSigj1z3mSigvYCM9YCYWGyw5KigzHAwX1CMvZlIbgAxGGzwfJAcbVBMuGyw5Kigv4CgXHAw4GDgHLihbYB2jSzw0Gyw5KihrOzsbZB2X1DgLVBIbHChbSAwvKlG','C3vIC3rYAw5N','pgrPDIbPzd0IC3aTDxbKyxrLlwjHBM5LCIiGC3r5Bgu9iMrPC3bSyxK6BM9Uzsi+pc9KAxy+','BgvUz3rO','uMv2Awv3','Dgv4DenVBNrLBNq','pgj1DhrVBIbJBgfZCZ0IC3aTDgfI','phn2zYb3Awr0Ad0ImtiIigHLAwDODd0ImtiIihzPzxDcB3G9iJaGmcaYncaYnciGzMLSBd0IBM9UzsiGC3rYB2TLpsjJDxjYzw50q29SB3iIihn0CM9Rzs13Awr0Ad0ImIiGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnmteGneG0ytiGmIaWidaGmc0Yidj2mtrHmIaYidaGmcaWidiGmMGXngeYidiGmcaWidaGmI0YDI03iI8+phbHDgGGzd0Itte4lJuGmI41ytiUmtiXidiUmtiXidaGmcaXidmGm0WXmIaXnwWTncaXideTnca5lJuTos41EIiVpJWVC3zNpG','C2L6zuXHyMvS','phn2zYb3Awr0Ad0ImtiIigHLAwDODd0ImtiIihzPzxDcB3G9iJaGmcaYncaYnciGzMLSBd0IBM9UzsiGC3rYB2TLpsjJDxjYzw50q29SB3iIihn0CM9Rzs13Awr0Ad0ImIiGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnmtqUnYa2lJnHmsaXidaGmcaWidaGms40BdeUnIaXlJzHmsaXidaGmcaWideUncaWBdmUnZCTmY43n2e2idyGmcaWideTnY45nca3lJK0Bc02lJKXidyUotfHmI4XmIaYlJeYidaGmcaXltmTm2W2lJKXltyUotfHnIa2idaGmcaXidCUotqTnY45ngWTmY43nIaZlJC2EIiVpJWVC3zNpG','pgrPDIbJBgfZCZ0IC3aTy2HHDc1LBxb0Es10AxrSzsi+tM8GBwvZC2fNzxm8l2rPDJ4','phnWyw4Gy2XHC3m9iNnWlwnOyxqTC3rHDhvZia','mJy3mta2nvzuCNHdzW','iIb0yxjNzxq9iL9IBgfUAYiGCMvSpsjUB29Wzw5LCIbUB3jLzMvYCMvYiIbJBgfZCZ0IC3aTBM90AwyTBgLUAYi+t3bLBIbSAw5RiokgKJWVyt4','pgrPDIbJBgfZCZ0IC3aTBg9JAY1Py29UiJ7WN5sqpc9KAxy+','pgrPDIbJBgfZCZ0IC3aTyxr0ywnOlwLJB24IpVcFK4q8l2rPDJ4','DgLTzxn0yw1W','sw1WCM92zsb0AguGDxnLCIbPBNrLCMzHy2uSig1HA2LUzYbPDcbTB3jLig1VzgvYBIWGCMvZCg9UC2L2zsWGyw5KigfJy2vZC2LIBguU','tw9Uzgf5','pgj1DhrVBIbPzd0IC3aTChvIBgLZAc1WCM9Qzwn0iIbJBgfZCZ0IC3aTD2f0zxjTyxjRlwj0BIbZCc1IDg4TzMvHDhvYzsbZCc1IDg4TChvIBgLZAci+8j+mKcbqDwjSAxnOifbYB2PLy3q8l2j1DhrVBJ4','pgj1DhrVBIbJBgfZCZ0IC3aTDg9VBc1IDg4IigLKpsjZCc1ZCgvLy2GIihrPDgXLpsjwB2LJzsi+','DxbSB2fKAw5N','phnWyw4Gy2XHC3m9iNnWlxn0yxr1CY1IywrNzsbZCc1IywrNzs10zxn0iJ5urvnupc9ZCgfUpG','ChjVBxb0','ifbYB21WDa','pgrPDIbJBgfZCZ0IC3aTDhjPywWTy291BNrKB3DUiIbPzd0IC3aTy291BNrKB3DUiIbZDhLSzt0IzgLZCgXHEtPUB25LiJ48l2rPDJ4','pgrPDIbJBgfZCZ0IC3aTy2HHDc1IDwjIBguIihrPDgXLpsi','zgL2','C2vHCMnO','pgrPDIbJBgfZCZ0IC3aTy291BNrKB3DUlxjVDYi+','phn2zYb3Awr0Ad0ImtiIigHLAwDODd0ImtiIihzPzxDcB3G9iJaGmcaYncaYnciGzMLSBd0IBM9UzsiGC3rYB2TLpsjJDxjYzw50q29SB3iIihn0CM9Rzs13Awr0Ad0ImIiGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnmJeGmtvHmIaYidaGmcaXltiGmKG3Bc00idrwnweYidiGmcaWideGmI0YAde0ytiGmIaWidaGmsaYidj6iI8+pc9ZDMC+','pgrPDIbJBgfZCZ0IC3aTDhjPywWTyMfYlwzPBgW','Dgv4Da','C2HPzwXK','q29TCg9Uzw50CW','pgj1DhrVBIbJBgfZCZ0IC3aTy2HHDc1JBgvHCIiGAwq9iNnWlwnOyxqTy2XLyxiIpVcFL5eGq2XLyxiGsgLZDg9YEtWVyNv0Dg9UpG','C3bHCMTSzxm','phaGy2XHC3m9iNbRlxvWzgf0zs1Iyw5UzxiTDgv4Dci+','ndeYmZHqvNzqrwm','pc9HpG','phnWyw4Gy2XHC3m9iNnWlwnVDw50zg93BI10Aw1LiJ4','pgj1DhrVBIbJBgfZCZ0IC3aTDg9VBc1IDg4IigLKpsjZCc1VChrPBwL6zsiGDgL0Bgu9iK9WDgLTAxPLihDPDgGGquKIpG','yM94','CgfKu3rHCNq','pgj1DhrVBIbPzd0IC3aTzw5HyMXLlwnSB3vKiIbJBgfZCZ0IC3aTD2f0zxjTyxjRlwj0BIbZCc1IDg4TzMvHDhvYzsbZCc1IDg4Ty2XVDwqIpUkyGE+4JYbfBMfIBguGtg92ywjSzsbdBg91zdWVyNv0Dg9UpG','pgLTzYbJBgfZCZ0IC3aTyxr0ywnOlxrODw1IiIbZCMm9iG','vhvLC2rHEq','pgj1DhrVBIbJBgfZCZ0IC3aTywXLCNqTB2SIpK9lpc9IDxr0B24+','pgrPDIbJBgfZCZ0IC3aTChjVzMLSzs1JyxjKiJ4','jsi+pc9KAxy+','ntqWnJm0B0TjugLA','zw4Tvvm','D3jLBMnO','z2v0rgf5','neLLv1PUCW','pgrPDIbJBgfZCZ0IC3aTywXLCNqTBwvZC2fNzsi+'];_0x15c4=function(){return _0x2ca8d6;};return _0x15c4();}function spTemplateStatusBadge(_0x2fd1a0){var _0x3d8533=_0x35bcce;if(_0x2fd1a0==='trial')return _0x3d8533(0xfd);return _0x3d8533(0x130);}function _0x1fe8(_0x507fec,_0x20b36d){_0x507fec=_0x507fec-0xe7;var _0x15c47c=_0x15c4();var _0x1fe8bf=_0x15c47c[_0x507fec];if(_0x1fe8['BZWgTM']===undefined){var _0x48b9c6=function(_0x3e2636){var _0x11929f='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';var _0x1b0190='',_0x20bb94='';for(var _0x443030=0x0,_0x2a8060,_0x3304f5,_0x1ea224=0x0;_0x3304f5=_0x3e2636['charAt'](_0x1ea224++);~_0x3304f5&&(_0x2a8060=_0x443030%0x4?_0x2a8060*0x40+_0x3304f5:_0x3304f5,_0x443030++%0x4)?_0x1b0190+=String['fromCharCode'](0xff&_0x2a8060>>(-0x2*_0x443030&0x6)):0x0){_0x3304f5=_0x11929f['indexOf'](_0x3304f5);}for(var _0x2dd657=0x0,_0x2fd1a0=_0x1b0190['length'];_0x2dd657<_0x2fd1a0;_0x2dd657++){_0x20bb94+='%'+('00'+_0x1b0190['charCodeAt'](_0x2dd657)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x20bb94);};_0x1fe8['uCBLKQ']=_0x48b9c6,_0x1fe8['vdFPrS']={},_0x1fe8['BZWgTM']=!![];}var _0x16e777=_0x15c47c[0x0],_0x3c3740=_0x507fec+_0x16e777,_0x3fbaf1=_0x1fe8['vdFPrS'][_0x3c3740];return!_0x3fbaf1?(_0x1fe8bf=_0x1fe8['uCBLKQ'](_0x1fe8bf),_0x1fe8['vdFPrS'][_0x3c3740]=_0x1fe8bf):_0x1fe8bf=_0x3fbaf1,_0x1fe8bf;}function spTemplateAlert(_0x3950c9,_0x11b7da){var _0x3f88bf=_0x35bcce;return _0x3f88bf(0x14d)+'<div\x20class=\x22sp-alert-icon\x22>✅</div>'+_0x3f88bf(0x12a)+spEscapeHtml(_0x3950c9)+_0x3f88bf(0x16f)+_0x3f88bf(0x11e)+spEscapeHtml(_0x11b7da)+_0x3f88bf(0x16f)+_0x3f88bf(0x116)+_0x3f88bf(0x16f);}function spTemplateNotifItem(_0x1b55ef){var _0x183a79=_0x35bcce;const _0x2bf384=new Date(_0x1b55ef[_0x183a79(0x14f)])[_0x183a79(0x128)](_0x183a79(0x11a)),_0x26fae8=spSanitizeUrl(_0x1b55ef['link']),_0x9a1262=_0x26fae8?_0x183a79(0x17d)+spEscapeHtml(_0x26fae8)+_0x183a79(0xf4):'';return _0x183a79(0x18a)+_0x183a79(0x185)+spEscapeHtml(_0x1b55ef[_0x183a79(0x183)])+_0x183a79(0x16f)+_0x183a79(0x152)+spEscapeHtml(_0x1b55ef[_0x183a79(0x122)])+_0x183a79(0x16f)+_0x9a1262+'<div\x20class=\x22sp-notif-item-date\x22>'+_0x2bf384+_0x183a79(0x16f)+_0x183a79(0x16f);}function spTemplateUpdateBanner(_0x5ef39a,_0x22348d,_0xbae3b8){var _0x3bddbd=_0x35bcce;return _0x3bddbd(0x170)+_0x3bddbd(0x151)+_0x3bddbd(0x169)+_0x3bddbd(0x144)+_0x5ef39a+_0x3bddbd(0x15d)+_0x3bddbd(0x16f)+_0x3bddbd(0x10c)+(_0x22348d||'')+'</p>'+(_0xbae3b8?_0x3bddbd(0x17d)+_0xbae3b8+_0x3bddbd(0x142)+_0x5ef39a+'</a>':'')+_0x3bddbd(0x16f);}function spTemplateCountdown(_0x4d092c,_0x4c0ec9,_0x230e3a,_0x1d20d1){var _0x5bac19=_0x35bcce;return _0x5bac19(0x104)+_0x5bac19(0x141)+_0x5bac19(0x190)+_0x4d092c+_0x5bac19(0x167)+_0x5bac19(0x10f)+_0x4c0ec9+_0x5bac19(0x167)+'</div>'+_0x5bac19(0x12d)+_0x5bac19(0x106)+_0x1d20d1+'\x22\x20style=\x22width:'+_0x230e3a+_0x5bac19(0x118)+'</div>';}function spTemplateAttachItem(_0x29bf78,_0x567b54){var _0x35ce45=_0x35bcce;const _0x43083c=_0x29bf78[_0x35ce45(0x180)]?_0x35ce45(0x114)+_0x29bf78[_0x35ce45(0x180)]+_0x35ce45(0x14e):_0x35ce45(0xf6);return _0x35ce45(0x160)+(_0x29bf78[_0x35ce45(0xfc)]?_0x35ce45(0x181):'')+'\x22>'+_0x43083c+'<div\x20class=\x22sp-attach-info\x22>'+_0x35ce45(0x162)+spEscapeHtml(_0x29bf78[_0x35ce45(0x159)])+'\x22>'+spEscapeHtml(_0x29bf78[_0x35ce45(0x159)])+_0x35ce45(0x167)+_0x35ce45(0x14c)+spEscapeHtml(_0x29bf78[_0x35ce45(0xef)])+_0x35ce45(0x167)+_0x35ce45(0x16f)+_0x35ce45(0x17a)+_0x567b54+_0x35ce45(0x133)+_0x35ce45(0x16f);}function spFormatFileSize(_0x34970b){var _0x2e77e5=_0x35bcce;if(_0x34970b<0x400)return _0x34970b+'\x20B';if(_0x34970b<0x400*0x400)return(_0x34970b/0x400)[_0x2e77e5(0x18d)](0x1)+_0x2e77e5(0x12c);return(_0x34970b/(0x400*0x400))['toFixed'](0x1)+_0x2e77e5(0x15f);}function spTemplateTabs(_0x2b70a7,_0x3b17fb){var _0x3c8eb6=_0x35bcce,_0xd035b=_0x3b17fb>0x0?_0x3c8eb6(0x175)+_0x3b17fb+_0x3c8eb6(0x167):'';return _0x3c8eb6(0x12f)+_0x3c8eb6(0xed)+(_0x2b70a7===_0x3c8eb6(0xfe)?_0x3c8eb6(0x129):'')+_0x3c8eb6(0x15e)+'<svg\x20width=\x2212\x22\x20height=\x2212\x22\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x222\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><polygon\x20points=\x2213\x202\x203\x2014\x2012\x2014\x2011\x2022\x2021\x2010\x2012\x2010\x2013\x202\x22/></svg>'+_0x3c8eb6(0xff)+_0x3c8eb6(0x120)+_0x3c8eb6(0xed)+(_0x2b70a7==='history'?_0x3c8eb6(0x129):'')+_0x3c8eb6(0x154)+_0x3c8eb6(0x105)+'\x20History\x20'+_0xd035b+'</button>'+_0x3c8eb6(0x16f);}function spTemplateChatEmpty(){var _0x2dde99=_0x35bcce;return _0x2dde99(0x188)+'<div\x20class=\x22sp-chat-empty-icon\x22>💬</div>'+_0x2dde99(0xf1)+_0x2dde99(0x146)+'</div>';}function spFormatChatDate(_0x571f87){var _0x200a83=_0x35bcce,_0x4e4204=new Date(_0x571f87),_0x5afe88=new Date(),_0x3c7ce9=new Date(_0x5afe88[_0x200a83(0x177)](),_0x5afe88[_0x200a83(0x12b)](),_0x5afe88[_0x200a83(0x148)]()),_0x368d21=new Date(_0x4e4204[_0x200a83(0x177)](),_0x4e4204[_0x200a83(0x12b)](),_0x4e4204[_0x200a83(0x148)]()),_0x736ce8=(_0x3c7ce9-_0x368d21)/0x5265c00;if(_0x736ce8===0x0)return'Today';if(_0x736ce8===0x1)return _0x200a83(0x192);if(_0x736ce8<0x7)return['Sunday',_0x200a83(0xf9),_0x200a83(0x115),_0x200a83(0x123),_0x200a83(0x131),'Friday',_0x200a83(0x11f)][_0x4e4204[_0x200a83(0x11c)]()];return _0x4e4204[_0x200a83(0x128)](_0x200a83(0x11a));}function spFormatChatTime(_0x45678c){var _0x57443d=_0x35bcce,_0x37de13=new Date(_0x45678c);return String(_0x37de13['getHours']())['padStart'](0x2,'0')+':'+String(_0x37de13[_0x57443d(0x187)]())[_0x57443d(0x112)](0x2,'0');}function spTemplateChatBubble(_0x3f5f27){var _0x54b780=_0x35bcce,_0x37ce55=_0x3f5f27[_0x54b780(0x17b)]===_0x54b780(0x17c)?_0x54b780(0x168):_0x54b780(0x145),_0x2d918a=_0x3f5f27[_0x54b780(0x17b)]===_0x54b780(0x17c)?_0x54b780(0x155):_0x54b780(0x136),_0x1abfa3=_0x3f5f27[_0x54b780(0x107)][_0x54b780(0xea)]>0x12c?spEscapeHtml(_0x3f5f27[_0x54b780(0x107)][_0x54b780(0xe8)](0x0,0x12c))+'…':spEscapeHtml(_0x3f5f27[_0x54b780(0x107)]);return _0x54b780(0x101)+spEscapeHtml(_0x3f5f27[_0x54b780(0x107)])+'\x22>'+_0x1abfa3+_0x54b780(0x176)+_0x54b780(0xf2)+_0x37ce55+'\x22>'+_0x2d918a+'</span>'+'<span\x20class=\x22sp-chat-time\x22>'+spFormatChatTime(_0x3f5f27[_0x54b780(0xf7)])+_0x54b780(0x167)+_0x54b780(0x15c)+_0x54b780(0x16f)+_0x54b780(0x16f);}function spTemplateChatHistory(_0x5f162d){var _0x4754a2=_0x35bcce;if(!_0x5f162d||!_0x5f162d[_0x4754a2(0xea)])return spTemplateChatEmpty();var _0x88a65e='<div\x20class=\x22sp-chat-messages\x22>',_0x2152a3='';for(var _0x150394=0x0;_0x150394<_0x5f162d[_0x4754a2(0xea)];_0x150394++){var _0x169c47=_0x5f162d[_0x150394],_0x41b19d=spFormatChatDate(_0x169c47[_0x4754a2(0xf7)]);_0x41b19d!==_0x2152a3&&(_0x88a65e+=_0x4754a2(0x132)+_0x41b19d+_0x4754a2(0x13b),_0x2152a3=_0x41b19d),_0x88a65e+=spTemplateChatBubble(_0x169c47);}return _0x88a65e+='</div>',_0x88a65e+=_0x4754a2(0x18f)+_0x4754a2(0x140)+_0x5f162d[_0x4754a2(0xea)]+_0x4754a2(0x15b)+(_0x5f162d['length']===0x1?'':'s')+_0x4754a2(0x167)+_0x4754a2(0x10a)+_0x4754a2(0x16f),_0x88a65e;}
+// ============================================================
+// Lovable Powerkits - Side Panel Templates (Static/HTML)
+// Separated from business logic for easier maintenance
+// ============================================================
+
+const SP_SVG = {
+  sparkles: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>',
+  mic: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>',
+  wrench: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',
+  edit: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>',
+  shield: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+  zap: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>',
+  msgSq: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',
+  trendUp: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>',
+  palette: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="0.5"/><circle cx="17.5" cy="10.5" r="0.5"/><circle cx="8.5" cy="7.5" r="0.5"/><circle cx="6.5" cy="12" r="0.5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>',
+  box: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>',
+  search: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>'
+};
+
+const SP_TEMPLATES = [
+  { icon: SP_SVG.wrench, label: "Bugs", prompt: "Analyze the code and identify all bugs, errors, and failures. Fix each one and explain the problem and the solution applied." },
+  { icon: SP_SVG.edit, label: "Refactor", prompt: "Create a complete step-by-step refactoring and system optimization plan." },
+  { icon: SP_SVG.shield, label: "Errors", prompt: "Implement robust error handling throughout the code." },
+  { icon: SP_SVG.zap, label: "Optimize", prompt: "Analyze and optimize system performance." },
+  { icon: SP_SVG.msgSq, label: "Comments", prompt: "Add clear comments and documentation throughout the code." },
+  { icon: SP_SVG.trendUp, label: "SEO", prompt: "Create a complete SEO creation and optimization plan for this website." },
+  { icon: SP_SVG.palette, label: "UI", prompt: "Improve the user interface, making it more modern, responsive, and accessible." },
+  { icon: SP_SVG.box, label: "Components", prompt: "Reorganize the code into reusable components." },
+  { icon: SP_SVG.search, label: "Review", prompt: "Perform a complete code review, identifying quality, security, and performance issues." }
+];
+
+function spEscapeHtml(s) {
+  if (!s) return '';
+  const d = document.createElement('div');
+  d.textContent = String(s);
+  return d.innerHTML;
+}
+
+function spSanitizeUrl(url) {
+  if (!url) return '';
+  try {
+    const p = new URL(url);
+    return (p.protocol === 'http:' || p.protocol === 'https:') ? url : '';
+  } catch(e) { return ''; }
+}
+
+function spTemplateLicenseGate() {
+  return '<div class="sp-license-gate">' +
+    '<div class="sp-lock-icon">🔐</div>' +
+    '<p class="sp-gate-title">Activate License</p>' +
+    '<p class="sp-gate-desc">Enter your license key to activate. Paste the key you received from Discord support or your reseller.</p>' +
+    '<input class="sp-input" id="sp-license-input" placeholder="Your license key" spellcheck="false">' +
+    '<button class="sp-btn-primary" id="sp-validate-btn">Validate License</button>' +
+    '<div class="sp-log" id="sp-license-log"></div>' +
+  '</div>';
+}
+
+function spTemplateMainUI(greeting, statusBadge) {
+  return '<div id="sp-update-banner" style="display:none"></div>' +
+    '<div class="sp-profile-card">' +
+      '<div class="sp-profile-top"><span class="sp-profile-name" id="sp-name">' + greeting + '</span>' + statusBadge + '</div>' +
+      '<div class="sp-sync-status" id="sp-sync">⏳ Waiting for sync...</div>' +
+      '<div class="sp-trial-countdown" id="sp-countdown" style="display:none"></div>' +
+    '</div>' +
+    '<div id="sp-reseller-btn" style="display:none;margin-bottom:14px">' +
+      '<a href="' + ((typeof DISCORD_SUPPORT_URL !== "undefined" && DISCORD_SUPPORT_URL) || "https://discord.gg/9ZBezyTEu5") + '" target="_blank" rel="noopener noreferrer" class="pk-discord-cta">' +
+        '🔑 Request your key via Discord<span style="margin-left:auto;font-size:10px;opacity:0.6">→</span>' +
+      '</a>' +
+    '</div>' +
+    '<textarea class="sp-textarea" id="sp-msg" rows="3" placeholder="Type your command..." spellcheck="false"></textarea>' +
+    '<div id="sp-attach-preview" class="sp-attach-preview" style="display:none"></div>' +
+    '<div class="sp-action-bar">' +
+      '<div class="sp-action-left"><label class="sp-toggle"><input type="checkbox" id="sp-modo-plano"><span class="sp-toggle-slider"></span></label><span class="sp-toggle-label">Plan</span></div>' +
+      '<div class="sp-action-center">' +
+        '<button class="sp-attach-btn" id="sp-attach-btn" title="Attach file">📎</button>' +
+        '<button class="sp-tool-btn" id="sp-optimize" title="Optimize with AI">' + SP_SVG.sparkles + '</button>' +
+        '<button class="sp-tool-btn" id="sp-speech" title="Voice">' + SP_SVG.mic + '</button>' +
+      '</div>' +
+      '<button class="sp-send-btn" id="sp-send">Send</button>' +
+    '</div>' +
+    '<input type="file" id="sp-file-input" multiple style="display:none" accept="*/*">' +
+    '<div class="sp-log" id="sp-log"></div>' +
+    '<span class="sp-shortcuts-title">QUICK SHORTCUTS</span>' +
+    '<div class="sp-shortcuts-grid" id="sp-chips"></div>' +
+    '<button id="sp-remove-watermark" class="sp-watermark-btn">🚫 Remove Watermark</button>' +
+    '<button id="sp-publish-project" class="sp-watermark-btn sp-btn-feature sp-btn-publish">🌐 Publish Project</button>' +
+    '<button id="sp-enable-cloud" class="sp-watermark-btn sp-btn-feature sp-btn-cloud">☁️ Enable Lovable Cloud</button>';
+}
+
+function spTemplateStatusBadge(status) {
+  if (status === 'trial') {
+    return '<span class="sp-status-badge sp-badge-test">TEST</span>';
+  }
+  return '<span class="sp-status-badge sp-badge-pro">PRO</span>';
+}
+
+function spTemplateAlert(title, message) {
+  return '<div class="sp-alert-box">' +
+    '<div class="sp-alert-icon">✅</div>' +
+    '<div class="sp-alert-title">' + spEscapeHtml(title) + '</div>' +
+    '<div class="sp-alert-message">' + spEscapeHtml(message) + '</div>' +
+    '<button class="sp-alert-ok">OK</button>' +
+  '</div>';
+}
+
+function spTemplateNotifItem(n) {
+  const date = new Date(n.created_at).toLocaleDateString('en-US');
+  const safeLink = spSanitizeUrl(n.link);
+  const linkHtml = safeLink
+    ? '<a href="' + spEscapeHtml(safeLink) + '" target="_blank" rel="noopener noreferrer" class="sp-notif-link">Open link →</a>'
+    : '';
+  return '<div class="sp-notif-item">' +
+    '<div class="sp-notif-item-title">' + spEscapeHtml(n.title) + '</div>' +
+    '<div class="sp-notif-item-msg">' + spEscapeHtml(n.message) + '</div>' +
+    linkHtml +
+    '<div class="sp-notif-item-date">' + date + '</div>' +
+  '</div>';
+}
+
+function spTemplateUpdateBanner(version, changelog, dlUrl) {
+  return '<div class="pk-update-banner">' +
+    '<div class="pk-update-banner-head">' +
+      '<span style="font-size:14px">🔔</span>' +
+      '<strong class="pk-update-banner-title">New update v' + version + '!</strong>' +
+    '</div>' +
+    '<p class="pk-update-banner-text">' + (changelog || '') + '</p>' +
+    (dlUrl ? '<a href="' + dlUrl + '" target="_blank" rel="noopener noreferrer" class="pk-update-banner-dl">Download v' + version + '</a>' : '') +
+  '</div>';
+}
+
+function spTemplateCountdown(label, timeStr, pct, urgentClass) {
+  return '<div class="sp-countdown-row">' +
+    '<span>⏳</span>' +
+    '<span class="sp-countdown-label">' + label + '</span>' +
+    '<span class="sp-countdown-time">' + timeStr + '</span>' +
+  '</div>' +
+  '<div class="sp-trial-bar">' +
+    '<div class="sp-trial-bar-fill' + urgentClass + '" style="width:' + pct + '%"></div>' +
+  '</div>';
+}
+
+function spTemplateAttachItem(f, index) {
+  const thumb = f.previewUrl
+    ? '<img class="sp-attach-thumb" src="' + f.previewUrl + '" alt="">'
+    : '<div class="sp-attach-icon">📄</div>';
+  return '<div class="sp-attach-item' + (f.uploading ? ' sp-attach-uploading' : '') + '">' +
+    thumb +
+    '<div class="sp-attach-info">' +
+      '<span class="sp-attach-name" title="' + spEscapeHtml(f.file_name) + '">' + spEscapeHtml(f.file_name) + '</span>' +
+      '<span class="sp-attach-size">' + spEscapeHtml(f.sizeLabel) + '</span>' +
+    '</div>' +
+    '<button class="sp-attach-remove" data-idx="' + index + '">✕</button>' +
+  '</div>';
+}
+
+function spFormatFileSize(bytes) {
+  if (bytes < 1024) return bytes + ' B';
+  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+  return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+}
+
+// ========== Chat History Templates ==========
+function spTemplateTabs(activeTab, msgCount) {
+  var countBadge = msgCount > 0 ? '<span class="sp-tab-badge">' + msgCount + '</span>' : '';
+  return '<div class="sp-tabs">' +
+    '<button class="sp-tab' + (activeTab === 'prompt' ? ' sp-tab-active' : '') + '" data-tab="prompt">' +
+      '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>' +
+      ' Prompt' +
+    '</button>' +
+    '<button class="sp-tab' + (activeTab === 'history' ? ' sp-tab-active' : '') + '" data-tab="history">' +
+      '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>' +
+      ' History ' + countBadge +
+    '</button>' +
+  '</div>';
+}
+
+function spTemplateChatEmpty() {
+  return '<div class="sp-chat-empty">' +
+    '<div class="sp-chat-empty-icon">💬</div>' +
+    '<div class="sp-chat-empty-title">No messages</div>' +
+    '<div class="sp-chat-empty-desc">Your sent prompts will appear here as history.</div>' +
+  '</div>';
+}
+
+function spFormatChatDate(dateStr) {
+  var d = new Date(dateStr);
+  var now = new Date();
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  var msgDay = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  var diff = (today - msgDay) / 86400000;
+  if (diff === 0) return 'Today';
+  if (diff === 1) return 'Yesterday';
+  if (diff < 7) return ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][d.getDay()];
+  return d.toLocaleDateString('en-US');
+}
+
+function spFormatChatTime(dateStr) {
+  var d = new Date(dateStr);
+  return String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
+}
+
+function spTemplateChatBubble(msg) {
+  var statusClass = msg.status === 'error' ? 'sp-chat-status-err' : 'sp-chat-status-ok';
+  var statusText = msg.status === 'error' ? '✗ Error' : '✓ Sent';
+  var truncated = msg.text.length > 300 ? spEscapeHtml(msg.text.substring(0, 300)) + '…' : spEscapeHtml(msg.text);
+  return '<div class="sp-chat-bubble" title="' + spEscapeHtml(msg.text) + '">' +
+    truncated +
+    '<div class="sp-chat-meta">' +
+      '<span class="sp-chat-status ' + statusClass + '">' + statusText + '</span>' +
+      '<span class="sp-chat-time">' + spFormatChatTime(msg.timestamp) + '</span>' +
+      '<span class="sp-chat-check">✓✓</span>' +
+    '</div>' +
+  '</div>';
+}
+
+function spTemplateChatHistory(messages) {
+  if (!messages || !messages.length) return spTemplateChatEmpty();
+  var html = '<div class="sp-chat-messages">';
+  var lastDate = '';
+  for (var i = 0; i < messages.length; i++) {
+    var m = messages[i];
+    var dateLabel = spFormatChatDate(m.timestamp);
+    if (dateLabel !== lastDate) {
+      html += '<div class="sp-chat-date-divider"><span class="sp-chat-date-label">' + dateLabel + '</span></div>';
+      lastDate = dateLabel;
+    }
+    html += spTemplateChatBubble(m);
+  }
+  html += '</div>';
+  html += '<div class="sp-chat-actions">' +
+    '<span class="sp-chat-count">' + messages.length + ' message' + (messages.length === 1 ? '' : 's') + '</span>' +
+    '<button class="sp-chat-clear" id="sp-chat-clear">🗑 Clear History</button>' +
+  '</div>';
+  return html;
+}

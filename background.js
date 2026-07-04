@@ -699,27 +699,72 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   // --- Protect Premium Feature Action Listeners ---
 
   if (msg && msg.action === "proxyFetch") {
-    if (!cachedLicenseStatus.ok) {
-      sendResponse({ ok: false, status: 403, data: { error: "License verification failed. Please activate your license." } });
-      return false;
-    }
     (async () => {
-      try {
+      // 1. If cache status is not ok, attempt to auto-reactivate first
+      if (!cachedLicenseStatus.ok) {
+        var stored = await new Promise(r => chrome.storage.local.get(["ql_license_key", "ql_hw_fingerprint"], r));
+        var licenseKey = stored ? stored.ql_license_key || "" : "";
+        var deviceId = stored ? stored.ql_hw_fingerprint || "" : "";
+        if (licenseKey && deviceId) {
+          console.log("[Background] proxyFetch detected cachedLicenseStatus.ok is false. Attempting auto-activation.");
+          var activated = await attemptAutoActivation(licenseKey, deviceId);
+          if (!activated) {
+            sendResponse({ ok: false, status: 403, data: { error: "License verification failed. Please activate your license." } });
+            return;
+          }
+        } else {
+          sendResponse({ ok: false, status: 403, data: { error: "License verification failed. Please activate your license." } });
+          return;
+        }
+      }
+
+      // Helper to do the actual fetch
+      async function doFetch() {
         if (!isAllowedProxyUrl(msg.url)) {
           console.warn("[Background] Blocked proxyFetch to unauthorized domain:", msg.url);
-          sendResponse({ ok: false, status: 403, data: { error: "Forbidden: Destination domain is not authorized." } });
-          return;
+          return { ok: false, status: 403, data: { error: "Forbidden: Destination domain is not authorized." } };
         }
         var opts = {
           method: msg.method || "POST",
-          headers: msg.headers || {},
+          headers: Object.assign({}, msg.headers || {}),
         };
+        // Ensure the headers are using the latest session ID in case it was refreshed!
+        var stored = await new Promise(r => chrome.storage.local.get(["ql_session_id"], r));
+        if (stored && stored.ql_session_id) {
+          opts.headers["x-session-id"] = stored.ql_session_id;
+        }
         if (msg.body) opts.body = msg.body;
         var resp = await fetch(msg.url, opts);
         var text = await resp.text();
         var data;
         try { data = JSON.parse(text); } catch (e) { data = { raw: text }; }
-        sendResponse({ ok: resp.ok, status: resp.status, data: data });
+        return { ok: resp.ok, status: resp.status, data: data };
+      }
+
+      try {
+        var result = await doFetch();
+        
+        // 2. If the request failed with 401 or 403, it might be due to an expired/invalid session token.
+        // Let's attempt auto-activation to get a fresh token, and retry the request once.
+        if (!result.ok && (result.status === 401 || result.status === 403)) {
+          var errText = (result.data && (result.data.error_display || result.data.message || result.data.error)) || "";
+          if (/session/i.test(errText) || /token/i.test(errText) || /license/i.test(errText) || /unauthorized/i.test(errText)) {
+            console.log("[Background] proxyFetch failed with 401/403 due to session/token issue. Attempting auto-activation renewal and retry.");
+            var stored = await new Promise(r => chrome.storage.local.get(["ql_license_key", "ql_hw_fingerprint"], r));
+            var licenseKey = stored ? stored.ql_license_key || "" : "";
+            var deviceId = stored ? stored.ql_hw_fingerprint || "" : "";
+            if (licenseKey && deviceId) {
+              var activated = await attemptAutoActivation(licenseKey, deviceId);
+              if (activated) {
+                // Retry once with new token
+                console.log("[Background] Auto-activation successful. Retrying proxyFetch request.");
+                result = await doFetch();
+              }
+            }
+          }
+        }
+        
+        sendResponse(result);
       } catch (err) {
         sendResponse({ ok: false, status: 0, data: { error: err.message || "Fetch failed in background" } });
       }

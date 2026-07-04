@@ -1,1 +1,207 @@
-function _0x40cc(_0x49b15c,_0x5952ea){_0x49b15c=_0x49b15c-0x76;const _0x24c29d=_0x24c2();let _0x40cc76=_0x24c29d[_0x49b15c];if(_0x40cc['NLGArX']===undefined){var _0x2eb446=function(_0x23a3b1){const _0x1d658e='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x5bdecd='',_0x469d0e='';for(let _0xe8de20=0x0,_0x336ae9,_0x4c3b19,_0x476faf=0x0;_0x4c3b19=_0x23a3b1['charAt'](_0x476faf++);~_0x4c3b19&&(_0x336ae9=_0xe8de20%0x4?_0x336ae9*0x40+_0x4c3b19:_0x4c3b19,_0xe8de20++%0x4)?_0x5bdecd+=String['fromCharCode'](0xff&_0x336ae9>>(-0x2*_0xe8de20&0x6)):0x0){_0x4c3b19=_0x1d658e['indexOf'](_0x4c3b19);}for(let _0x84bedf=0x0,_0x43b754=_0x5bdecd['length'];_0x84bedf<_0x43b754;_0x84bedf++){_0x469d0e+='%'+('00'+_0x5bdecd['charCodeAt'](_0x84bedf)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x469d0e);};_0x40cc['GEwNxs']=_0x2eb446,_0x40cc['vuEfHd']={},_0x40cc['NLGArX']=!![];}const _0x1592d8=_0x24c29d[0x0],_0x4438eb=_0x49b15c+_0x1592d8,_0x3e3c80=_0x40cc['vuEfHd'][_0x4438eb];return!_0x3e3c80?(_0x40cc76=_0x40cc['GEwNxs'](_0x40cc76),_0x40cc['vuEfHd'][_0x4438eb]=_0x40cc76):_0x40cc76=_0x3e3c80,_0x40cc76;}(function(_0x5814f6,_0xc06aa){const _0x502c87=_0x40cc,_0x4b96a9=_0x5814f6();while(!![]){try{const _0x5c4083=parseInt(_0x502c87(0x8c))/0x1+-parseInt(_0x502c87(0xc9))/0x2*(parseInt(_0x502c87(0xa9))/0x3)+parseInt(_0x502c87(0x81))/0x4+parseInt(_0x502c87(0x79))/0x5+parseInt(_0x502c87(0x96))/0x6+parseInt(_0x502c87(0x78))/0x7+-parseInt(_0x502c87(0xda))/0x8*(parseInt(_0x502c87(0xa8))/0x9);if(_0x5c4083===_0xc06aa)break;else _0x4b96a9['push'](_0x4b96a9['shift']());}catch(_0xae6837){_0x4b96a9['push'](_0x4b96a9['shift']());}}}(_0x24c2,0x75dc3));function _0x24c2(){const _0xa04015=['uuXgAw5NzxjWCMLUDa','ndG4nZLbt0T3Bhy','nNDUq1riwa','nZjWEca','Bwf4vMLLD3bVCNq6','zMLSBfrLEhq','DgLTzvPVBMu','t2zMBgLUzuf1zgLVq29UDgv4Da','D2LKDgG','AM9PBG','C2nYzwvUoG','zgv2lq','z2v0q29UDgv4Da','Bg9JywW','DhLWzq','zgLNzxn0','tufyx1zjrvDqt1jux0rjtvm','BM93','q29TAwmGu2fUCYbnuW','Dw5KzwzPBMvK','y2fUDMfZ','ugfSyxrPBM8GtgLUB3r5Cgu','ywjZ','D2vIz2W','Dg9eyxrHvvjm','zgvWDgG6','C2XPy2u','zNjVBq','y29SB3jezxb0Aa','thvJAwrHienVBNnVBgu','Dg9W','Dw5RBM93BG','Bw1TBw1TBw1TBwXSAq','Dgv4DejHC2vSAw5L','odG1nZiYC1PJzezr','CMf0Aw8','CMDIysGXmdiSidiWncWGmcWGmc43kq','Dg9tDhjPBMC','nZjWEcaN','rgf0zvrPBwvgB3jTyxq','vu5nqvnlrurFuKvorevsrvjFv0vcr0W','BwfW','zxHWzxjPBwvUDgfSlxDLyMDS','tufyx1rfwfrvuKvFu0LArq','y3vYCMvUDfrPBwu','zM9UDa','v0vcr0XFzgvIDwDFCMvUzgvYzxjFAw5MBW','C3vIDgXL','C2v0vMfSDwvbDfrPBwu','Bwf4vg91y2HqB2LUDhm','zgv2AwnLugL4zwXsyxrPBW','nJG4ywLtr2De','zgv2AwnLtwvTB3j5','zM9YrwfJAa','C3rVCMfNzq','y29Yzxm6','C2fUCY1ZzxjPzG','C2v0','CMfUzg9T','q291CMLLCIbozxC','z2v0rxH0zw5ZAw9U','iZa2oq','y2fUDMfZoG','C3rHCNq','CMvSzwfZzq','sw1Wywn0','BgfUz3vHz2u','z3b1oG','q29UC29Syxm','z2v0ugfYyw1LDgvY','nJe0mZu5mKjPrLPzua','mZm4ntmWEurxve10','zw5JB2rL','zMLSBfn0EwXL','BgfUz3m6','yxr0ywnR','y3jLyxrLrhLUyw1Py3ndB21WCMvZC29Y','CMfUzg9Tvvvjra','CgL4zwXsyxrPBZO','ndq5mZmYvujirwvM','C2vYAwy','u2vNB2uGvuK','y3jLyxrLt3nJAwXSyxrVCG','C3rHCNrszw5KzxjPBMC','zM9UDhm6','DgHYzxnOB2XK','ChvZAa','y29UBMvJDa','A25Lzq','DhO6','nZa3nZu0zNHYBu5g','vu5nqvnlrurFvKvore9sx1DfqKDm','CwXFAhDFzMLUz2vYChjPBNq','BwvTB3j5oG','Bw9UB3nWywnL','vgLTzxmGtMv3ifjVBwfU','AgvPz2H0','CgXHDgzVCM0','vMvYzgfUyq','DgLTzw91Da','ndiWnty0tNLyEvrL','zNjLCxvLBMn5','CgXHDgzVCM06','vKvsu0LptG','y2f0y2G','z3b1vMvUzg9YoG','y3jLyxrLrwXLBwvUDa','AgfYzhDHCMvdB25JDxjYzw5JEq','BwvHC3vYzvrLEhq','D2vIA2L0t2zMBgLUzuf1zgLVq29UDgv4Da','Bwf4vg91y2HqB2LUDhm6','zgvZDgLUyxrPB24','CwXFzgv2AwnLx2LK','BgfUz3vHz2vZ','r2vVCMDPyq','C3vIC3rYAw5N','sgvSDMv0AwnH'];_0x24c2=function(){return _0xa04015;};return _0x24c2();}async function generateHardwareFingerprint(){const _0x53062e=_0x40cc,_0x5bdecd=[];try{_0x5bdecd[_0x53062e(0x88)](_0x53062e(0xb1)+screen[_0x53062e(0xaf)]+'x'+screen[_0x53062e(0x92)],_0x53062e(0xc0)+screen[_0x53062e(0xc3)],_0x53062e(0x80)+window[_0x53062e(0xd9)]);}catch(_0x43b754){}try{_0x5bdecd[_0x53062e(0x88)](_0x53062e(0x98)+navigator[_0x53062e(0x93)]),_0x5bdecd[_0x53062e(0x88)](_0x53062e(0xde)+(navigator[_0x53062e(0x9d)]||_0x53062e(0xc6))),_0x5bdecd['push'](_0x53062e(0x8f)+(navigator[_0x53062e(0xdb)]||_0x53062e(0xc6))),_0x5bdecd[_0x53062e(0x88)](_0x53062e(0xa0)+(navigator[_0x53062e(0xd8)]||0x0)),_0x5bdecd[_0x53062e(0x88)](_0x53062e(0x7c)+(navigator[_0x53062e(0xa3)]||[navigator[_0x53062e(0xe9)]])[_0x53062e(0xb0)](','));}catch(_0x482ab1){}try{_0x5bdecd['push'](_0x53062e(0x8b)+Intl[_0x53062e(0xce)]()['resolvedOptions']()[_0x53062e(0xad)]);}catch(_0x3d02bd){}try{const _0x4e44f5=document[_0x53062e(0x9c)](_0x53062e(0xbb)),_0x5e3796=_0x4e44f5['getContext'](_0x53062e(0xbe))||_0x4e44f5['getContext'](_0x53062e(0xd1));if(_0x5e3796){const _0x54f17a=_0x5e3796[_0x53062e(0xe3)](_0x53062e(0xd5));_0x54f17a&&(_0x5bdecd[_0x53062e(0x88)](_0x53062e(0xea)+_0x5e3796[_0x53062e(0x77)](_0x54f17a[_0x53062e(0xcf)])),_0x5bdecd[_0x53062e(0x88)](_0x53062e(0x9b)+_0x5e3796[_0x53062e(0x77)](_0x54f17a[_0x53062e(0x8d)]))),_0x5bdecd[_0x53062e(0x88)]('glVersion:'+_0x5e3796[_0x53062e(0x77)](_0x5e3796[_0x53062e(0x99)])),_0x5bdecd[_0x53062e(0x88)]('maxTexture:'+_0x5e3796['getParameter'](_0x5e3796[_0x53062e(0xd2)])),_0x5bdecd['push'](_0x53062e(0xab)+_0x5e3796[_0x53062e(0x77)](_0x5e3796[_0x53062e(0xb7)])[_0x53062e(0xb0)](','));}}catch(_0x1f8e7c){}try{const _0x55577d=document[_0x53062e(0x9c)]('canvas');_0x55577d[_0x53062e(0xaf)]=0xc8,_0x55577d[_0x53062e(0x92)]=0x32;const _0x318f20=_0x55577d[_0x53062e(0xb3)]('2d');_0x318f20&&(_0x318f20[_0x53062e(0xc8)]=_0x53062e(0xc5),_0x318f20[_0x53062e(0xd4)]='14px\x20\x27Arial\x27',_0x318f20['fillStyle']='#f60',_0x318f20['fillRect'](0x7d,0x1,0x3e,0x14),_0x318f20['fillStyle']=_0x53062e(0xe4),_0x318f20[_0x53062e(0xac)](_0x53062e(0xa7),0x2,0xf),_0x318f20[_0x53062e(0x7b)]=_0x53062e(0xcb),_0x318f20[_0x53062e(0xac)](_0x53062e(0xa7),0x4,0x11),_0x5bdecd[_0x53062e(0x88)](_0x53062e(0xe5)+_0x55577d[_0x53062e(0xbf)]()[_0x53062e(0xa5)](0x0,0x64)));}catch(_0x36bdb8){}try{const _0x16ed79=new(window[(_0x53062e(0xae))]||window[(_0x53062e(0x9f))])(0x1,0xac44,0xac44),_0x5ec8e4=_0x16ed79[_0x53062e(0x84)]();_0x5ec8e4[_0x53062e(0xb5)]='triangle',_0x5ec8e4[_0x53062e(0x97)][_0x53062e(0xd7)](0x2710,_0x16ed79['currentTime']);const _0x291837=_0x16ed79[_0x53062e(0x7e)]();_0x291837[_0x53062e(0x87)][_0x53062e(0xd7)](-0x32,_0x16ed79['currentTime']),_0x291837[_0x53062e(0x8a)][_0x53062e(0xd7)](0x28,_0x16ed79[_0x53062e(0xd3)]),_0x291837[_0x53062e(0xca)][_0x53062e(0xd7)](0xc,_0x16ed79[_0x53062e(0xd3)]),_0x291837[_0x53062e(0x7d)][_0x53062e(0xd7)](0x0,_0x16ed79[_0x53062e(0xd3)]),_0x291837[_0x53062e(0xe7)]['setValueAtTime'](0.25,_0x16ed79['currentTime']),_0x5ec8e4[_0x53062e(0x89)](_0x291837),_0x291837[_0x53062e(0x89)](_0x16ed79[_0x53062e(0xa1)]),_0x5ec8e4[_0x53062e(0xe6)](0x0);const _0x58cc60=await new Promise((_0x499d8f,_0x3d17f5)=>{const _0x3b7742=_0x53062e;_0x16ed79[_0x3b7742(0x85)]()['then'](_0x499d8f)[_0x3b7742(0x9a)](_0x3d17f5),setTimeout(()=>_0x3d17f5(new Error(_0x3b7742(0x95))),0x3e8);}),_0x336eae=_0x58cc60['getChannelData'](0x0);let _0x588322=0x0;for(let _0x2f7756=0x1194;_0x2f7756<0x1388;_0x2f7756++){_0x588322+=Math[_0x53062e(0xbd)](_0x336eae[_0x2f7756]);}_0x5bdecd[_0x53062e(0x88)]('audio:'+_0x588322['toFixed'](0x6));}catch(_0x5e3935){}try{const _0x4f2303=[_0x53062e(0x90),_0x53062e(0xdf),'serif',_0x53062e(0xe2),_0x53062e(0xa4),_0x53062e(0xa6),_0x53062e(0x91),'Trebuchet\x20MS',_0x53062e(0x94),_0x53062e(0xe8),_0x53062e(0xb9),_0x53062e(0x83),'Tahoma','Calibri',_0x53062e(0x76),_0x53062e(0xc4),_0x53062e(0xbc)],_0xed992e=document[_0x53062e(0x9c)]('canvas');_0xed992e[_0x53062e(0xaf)]=0x1f4,_0xed992e[_0x53062e(0x92)]=0x32;const _0x34544c=_0xed992e[_0x53062e(0xb3)]('2d');if(_0x34544c){const _0x5961df={},_0x2449cf=[_0x53062e(0x90),_0x53062e(0xdf),_0x53062e(0x82)],_0xeac094=_0x53062e(0xc7);_0x2449cf[_0x53062e(0xdc)](_0x2508c3=>{const _0x2203ad=_0x53062e;_0x34544c[_0x2203ad(0xd4)]=_0x2203ad(0xaa)+_0x2508c3,_0x5961df[_0x2508c3]=_0x34544c[_0x2203ad(0x9e)](_0xeac094)[_0x2203ad(0xaf)];});const _0x263eb0=[];_0x4f2303[_0x53062e(0xdc)](_0x39ef86=>{const _0x5b8812=_0x53062e;let _0x1e833=![];_0x2449cf['forEach'](_0x5b29dc=>{const _0xc26e5b=_0x40cc;_0x34544c[_0xc26e5b(0xd4)]=_0xc26e5b(0xcd)+_0x39ef86+'\x27,'+_0x5b29dc;if(_0x34544c['measureText'](_0xeac094)[_0xc26e5b(0xaf)]!==_0x5961df[_0x5b29dc])_0x1e833=!![];});if(_0x1e833)_0x263eb0[_0x5b8812(0x88)](_0x39ef86);}),_0x5bdecd[_0x53062e(0x88)](_0x53062e(0x86)+_0x263eb0[_0x53062e(0xb0)]('|'));}}catch(_0x4e0e8c){}const _0x469d0e=_0x5bdecd['join']('||'),_0xe8de20=new TextEncoder(),_0x336ae9=_0xe8de20[_0x53062e(0x7a)](_0x469d0e),_0x4c3b19=await crypto[_0x53062e(0xd6)][_0x53062e(0xb6)]('SHA-256',_0x336ae9),_0x476faf=Array[_0x53062e(0xc2)](new Uint8Array(_0x4c3b19)),_0x84bedf=_0x476faf[_0x53062e(0xd0)](_0x5c10eb=>_0x5c10eb['toString'](0x10)['padStart'](0x2,'0'))[_0x53062e(0xb0)]('');return _0x84bedf;}let _cachedFingerprint=null,_cachedDeviceId=null;async function getStableDeviceId(){if(_cachedDeviceId)return _cachedDeviceId;return new Promise(_0x679b39=>{const _0x2387c2=_0x40cc;chrome[_0x2387c2(0xdd)][_0x2387c2(0xb4)]['get'](['ql_device_id'],_0x209247=>{const _0x1e10b8=_0x2387c2;if(_0x209247[_0x1e10b8(0xa2)])return _cachedDeviceId=_0x209247[_0x1e10b8(0xa2)],_0x679b39(_cachedDeviceId);var _0x103c5a;try{_0x103c5a=typeof crypto!==_0x1e10b8(0xba)&&crypto['randomUUID']?crypto['randomUUID']():_0x1e10b8(0xb2)+Date[_0x1e10b8(0xb8)]()['toString'](0x24)+'-'+Math[_0x1e10b8(0xe1)]()[_0x1e10b8(0xcc)](0x24)[_0x1e10b8(0xc1)](0x2,0xc);}catch(_0x394fcb){_0x103c5a=_0x1e10b8(0xb2)+Date[_0x1e10b8(0xb8)]()[_0x1e10b8(0xcc)](0x24)+'-'+Math[_0x1e10b8(0xe1)]()[_0x1e10b8(0xcc)](0x24)[_0x1e10b8(0xc1)](0x2,0xc);}_cachedDeviceId=_0x103c5a,chrome[_0x1e10b8(0xdd)][_0x1e10b8(0xb4)]['set']({'ql_device_id':_0x103c5a},()=>_0x679b39(_0x103c5a));});});}async function getDeviceId(){return getStableDeviceId();}async function getHardwareFingerprint(){if(_cachedFingerprint)return _cachedFingerprint;return new Promise(async _0x1fc86f=>{const _0x1996cc=_0x40cc;chrome[_0x1996cc(0xdd)][_0x1996cc(0xb4)]['get']([_0x1996cc(0x8e)],async _0x1d5573=>{const _0x4b9a53=_0x1996cc;if(_0x1d5573[_0x4b9a53(0x8e)])_cachedFingerprint=_0x1d5573[_0x4b9a53(0x8e)],_0x1fc86f(_cachedFingerprint);else try{const _0x8fe2fa=await generateHardwareFingerprint();_cachedFingerprint=_0x8fe2fa,chrome['storage'][_0x4b9a53(0xb4)][_0x4b9a53(0xe0)]({'ql_hw_fingerprint':_0x8fe2fa}),_0x1fc86f(_0x8fe2fa);}catch(_0x3f73a2){const _0x3eac4d=crypto[_0x4b9a53(0x7f)]();_cachedFingerprint=_0x3eac4d,chrome[_0x4b9a53(0xdd)][_0x4b9a53(0xb4)][_0x4b9a53(0xe0)]({'ql_hw_fingerprint':_0x3eac4d}),_0x1fc86f(_0x3eac4d);}});});}
+// ============================================
+// Lovable Powerkits – Hardware Fingerprint
+// Generates a stable device hash from hardware
+// attributes that persist across browsers/cache
+// ============================================
+
+async function generateHardwareFingerprint() {
+  const components = [];
+
+  // 1. Screen properties (stable across browsers)
+  try {
+    components.push(
+      "screen:" + screen.width + "x" + screen.height,
+      "depth:" + screen.colorDepth,
+      "pixelRatio:" + window.devicePixelRatio
+    );
+  } catch(e) {}
+
+  // 2. Platform & CPU info (excludes User-Agent version)
+  try {
+    components.push("platform:" + navigator.platform);
+    components.push("cores:" + (navigator.hardwareConcurrency || "unknown"));
+    components.push("memory:" + (navigator.deviceMemory || "unknown"));
+    components.push("maxTouchPoints:" + (navigator.maxTouchPoints || 0));
+    // Language list is OS-level, stable across browsers
+    components.push("langs:" + (navigator.languages || [navigator.language]).join(","));
+  } catch(e) {}
+
+  // 3. Timezone (OS-level setting)
+  try {
+    components.push("tz:" + Intl.DateTimeFormat().resolvedOptions().timeZone);
+  } catch(e) {}
+
+  // 4. WebGL renderer (GPU info - very stable)
+  try {
+    const canvas = document.createElement("canvas");
+    const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+    if (gl) {
+      const debugInfo = gl.getExtension("WEBGL_debug_renderer_info");
+      if (debugInfo) {
+        components.push("gpu:" + gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL));
+        components.push("gpuVendor:" + gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL));
+      }
+      components.push("glVersion:" + gl.getParameter(gl.VERSION));
+      // Max texture size is hardware-dependent
+      components.push("maxTexture:" + gl.getParameter(gl.MAX_TEXTURE_SIZE));
+      components.push("maxViewport:" + gl.getParameter(gl.MAX_VIEWPORT_DIMS).join(","));
+    }
+  } catch(e) {}
+
+  // 5. Canvas fingerprint (rendering differences per GPU/OS)
+  try {
+    const canvas = document.createElement("canvas");
+    canvas.width = 200;
+    canvas.height = 50;
+    const ctx = canvas.getContext("2d");
+    if (ctx) {
+      ctx.textBaseline = "top";
+      ctx.font = "14px 'Arial'";
+      ctx.fillStyle = "#f60";
+      ctx.fillRect(125, 1, 62, 20);
+      ctx.fillStyle = "#069";
+      ctx.fillText("QLFingerprint", 2, 15);
+      ctx.fillStyle = "rgba(102, 204, 0, 0.7)";
+      ctx.fillText("QLFingerprint", 4, 17);
+      components.push("canvas:" + canvas.toDataURL().substring(0, 100));
+    }
+  } catch(e) {}
+
+  // 6. Audio context fingerprint (hardware audio stack)
+  try {
+    const audioCtx = new (window.OfflineAudioContext || window.webkitOfflineAudioContext)(1, 44100, 44100);
+    const oscillator = audioCtx.createOscillator();
+    oscillator.type = "triangle";
+    oscillator.frequency.setValueAtTime(10000, audioCtx.currentTime);
+    const compressor = audioCtx.createDynamicsCompressor();
+    compressor.threshold.setValueAtTime(-50, audioCtx.currentTime);
+    compressor.knee.setValueAtTime(40, audioCtx.currentTime);
+    compressor.ratio.setValueAtTime(12, audioCtx.currentTime);
+    compressor.attack.setValueAtTime(0, audioCtx.currentTime);
+    compressor.release.setValueAtTime(0.25, audioCtx.currentTime);
+    oscillator.connect(compressor);
+    compressor.connect(audioCtx.destination);
+    oscillator.start(0);
+
+    const audioBuffer = await new Promise((resolve, reject) => {
+      audioCtx.startRendering().then(resolve).catch(reject);
+      setTimeout(() => reject(new Error("timeout")), 1000);
+    });
+
+    const audioData = audioBuffer.getChannelData(0);
+    let audioHash = 0;
+    for (let i = 4500; i < 5000; i++) {
+      audioHash += Math.abs(audioData[i]);
+    }
+    components.push("audio:" + audioHash.toFixed(6));
+  } catch(e) {}
+
+  // 7. Available fonts detection (OS-level)
+  try {
+    const testFonts = [
+      "monospace", "sans-serif", "serif",
+      "Courier New", "Georgia", "Helvetica", "Times New Roman",
+      "Trebuchet MS", "Verdana", "Impact", "Comic Sans MS",
+      "Segoe UI", "Tahoma", "Calibri", "Consolas",
+      "Lucida Console", "Palatino Linotype"
+    ];
+    const canvas = document.createElement("canvas");
+    canvas.width = 500;
+    canvas.height = 50;
+    const ctx = canvas.getContext("2d");
+    if (ctx) {
+      const baseWidths = {};
+      const baseFonts = ["monospace", "sans-serif", "serif"];
+      const testStr = "mmmmmmmmmmlli";
+
+      baseFonts.forEach(bf => {
+        ctx.font = "72px " + bf;
+        baseWidths[bf] = ctx.measureText(testStr).width;
+      });
+
+      const detected = [];
+      testFonts.forEach(font => {
+        let found = false;
+        baseFonts.forEach(bf => {
+          ctx.font = "72px '" + font + "'," + bf;
+          if (ctx.measureText(testStr).width !== baseWidths[bf]) found = true;
+        });
+        if (found) detected.push(font);
+      });
+      components.push("fonts:" + detected.join("|"));
+    }
+  } catch(e) {}
+
+  // Generate SHA-256 hash of all components
+  const raw = components.join("||");
+  const encoder = new TextEncoder();
+  const data = encoder.encode(raw);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashHex = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+
+  return hashHex;
+}
+
+// Cache the fingerprint to avoid recalculation
+let _cachedFingerprint = null;
+let _cachedDeviceId = null;
+
+/**
+ * Stable device_id for license activation (crypto UUID, no personal data).
+ * Generated once and persisted in chrome.storage.local as ql_device_id.
+ */
+async function getStableDeviceId() {
+  if (_cachedDeviceId) return _cachedDeviceId;
+
+  return new Promise((resolve) => {
+    chrome.storage.local.get(["ql_device_id"], (res) => {
+      if (res.ql_device_id) {
+        _cachedDeviceId = res.ql_device_id;
+        return resolve(_cachedDeviceId);
+      }
+      var id;
+      try {
+        id = (typeof crypto !== "undefined" && crypto.randomUUID)
+          ? crypto.randomUUID()
+          : "dev-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 12);
+      } catch (e) {
+        id = "dev-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 12);
+      }
+      _cachedDeviceId = id;
+      chrome.storage.local.set({ ql_device_id: id }, () => resolve(id));
+    });
+  });
+}
+
+/** Primary device identifier sent to the license API */
+async function getDeviceId() {
+  return getStableDeviceId();
+}
+
+async function getHardwareFingerprint() {
+  if (_cachedFingerprint) return _cachedFingerprint;
+
+  // Check storage first
+  return new Promise(async (resolve) => {
+    chrome.storage.local.get(["ql_hw_fingerprint"], async (res) => {
+      if (res.ql_hw_fingerprint) {
+        _cachedFingerprint = res.ql_hw_fingerprint;
+        resolve(_cachedFingerprint);
+      } else {
+        try {
+          const fp = await generateHardwareFingerprint();
+          _cachedFingerprint = fp;
+          chrome.storage.local.set({ ql_hw_fingerprint: fp });
+          resolve(fp);
+        } catch(e) {
+          // Fallback to random UUID if fingerprint fails completely
+          const fallback = crypto.randomUUID();
+          _cachedFingerprint = fallback;
+          chrome.storage.local.set({ ql_hw_fingerprint: fallback });
+          resolve(fallback);
+        }
+      }
+    });
+  });
+}

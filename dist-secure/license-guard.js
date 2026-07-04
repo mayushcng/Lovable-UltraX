@@ -1,1 +1,276 @@
-function _0x3f14(_0x1425b9,_0x320dca){_0x1425b9=_0x1425b9-0x18f;var _0x3f4186=_0x3f41();var _0x3f142a=_0x3f4186[_0x1425b9];if(_0x3f14['sZjEfS']===undefined){var _0x24518f=function(_0x150284){var _0x1c7baa='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';var _0x564314='',_0x504581='';for(var _0x485d93=0x0,_0x411b7c,_0x59ea29,_0x163541=0x0;_0x59ea29=_0x150284['charAt'](_0x163541++);~_0x59ea29&&(_0x411b7c=_0x485d93%0x4?_0x411b7c*0x40+_0x59ea29:_0x59ea29,_0x485d93++%0x4)?_0x564314+=String['fromCharCode'](0xff&_0x411b7c>>(-0x2*_0x485d93&0x6)):0x0){_0x59ea29=_0x1c7baa['indexOf'](_0x59ea29);}for(var _0x27282d=0x0,_0x4ff172=_0x564314['length'];_0x27282d<_0x4ff172;_0x27282d++){_0x504581+='%'+('00'+_0x564314['charCodeAt'](_0x27282d)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x504581);};_0x3f14['wLtkdT']=_0x24518f,_0x3f14['tsbpBf']={},_0x3f14['sZjEfS']=!![];}var _0x4672e5=_0x3f4186[0x0],_0x3d482c=_0x1425b9+_0x4672e5,_0x5edce6=_0x3f14['tsbpBf'][_0x3d482c];return!_0x5edce6?(_0x3f142a=_0x3f14['wLtkdT'](_0x3f142a),_0x3f14['tsbpBf'][_0x3d482c]=_0x3f142a):_0x3f142a=_0x5edce6,_0x3f142a;}function _0x3f41(){var _0x5d5787=['yxbWBgLJyxrPB24VANnVBG','CMv2B2TLza','AM9PBG','DgHLBG','se1bqW','mKnIsuzPCa','Dg9vChbLCKnHC2u','DMfSAwq','l2z1BMn0Aw9UCY92ms9HC3nLCNqTC2vZC2LVBG','CwXFDxnLCL9Uyw1L','mtfZB0DtCve','Dgv4DenVBNrLBNq','CgTqB2XStgLJzw5ZzvbVBgLJEu9Uy2u','ChjVEhLgzxrJAa','mtK1nti0sMfny3DK','CwXFBgLJzw5Zzv9ZDgf0Dxm','zxHWAxjLC0f0','BwfW','u2vJDxjPDhKGBw9KDwXLig5VDcbSB2fKzwqUienSB3nLigfUzcbYzw9Wzw4GDgHLihnPzguGCgfUzwWU','zgf0yq','mJi1zxL5tKTv','tgLJzw5ZzsbUB3qGywn0AxzLlG','u0Hblti1nG','y3j5ChrV','AgvHzgvYCW','zNvUy3rPB24','C2LNBG','w0nYExb0B10Gse1bqYbMywLSzwq6','tgLJzw5Zzsb2zxjPzMLJyxrPB24GzMfPBgvKlIbqBgvHC2uGywn0AxzHDguGEw91CIbSAwnLBNnLlG','ntq4ntmWtKzdEenS','qwn0AxzHDguGEw91CIbqsY0GBgLJzw5ZzsbRzxKGzMLYC3qU','mtK4ovnLz05wzq','Ec1ZAwDUyxr1CMu','Ec1UB25Jzq','z2v0','zw5JB2rL','x19WA1nLDenYzwrPDej5CgfZCW','Aw1WB3j0s2v5','Dg9tDhjPBMC','CwXFzxHWAxjLC19HDa','CgfKu3rHCNq','C3rVCMfNzq','teLdru5trv9srvfvsvjfx1zbteLe','CwXFBgLJzw5Zzv9RzxK','CgXHBG','DxnLCL9Uyw1L','CgTtDg9WtgLJzw5ZzvbVBgLJEvbVBgW','C2v0','Bg9JywW','CMvZB2X2zq','Dw5KzwzPBMvK','Ahr0Chm6lY9SB3yUCg93zxjRAxrZlM5LDa','odGZnduYr0XJuej3','Bwv0Ag9K','C2vUze1LC3nHz2u','BgfZDevYCM9Y','uMvXDwvZDcbMywLSzwqGkeHuvfaG','BwvZC2fNzq','CwXFC2vZC2LVBL9Pza','mtjHr0frtLm','mJqZmtKYA3v2zNnR','CMf3','CgTtAg91BgrmB2nRB3v0rNjVBvzHBgLKyxrPB24','CgTmAwnLBNnLvxbSB2fKsgvHzgvYCW','CgTjBNzHBgLKyxrLqxnZzxj0q2fJAgu','BM93','yxnZAwDU','zxjYB3i','nteYotaXz3fkvuzg','Ec10Aw1LC3rHBxa','mZa5otC3me9OA2HPwa','CNvUDgLTzq','CgTfBNn1CMvby3rPDMvmAwnLBNnL','yM9KEq','CMvTB3zL','zxjYB3jFzgLZCgXHEq','tgLJzw5ZzsbUB3qGywn0AxzLlIbby3rPDMf0zsb5B3vYifbllsbRzxKGAw4GDgHLihnPzguGCgfUzwWU','zgv2AwnLx2nVBMzSAwn0','CgTtDgfYDeXPy2vUC2vqB2XPy3LqB2XS','C3vIDgXL','CgTmB2nHBeXPy2vUC2vszwfKEq','ue9tva','CwXFBgLJzw5Zzv92ywXPza','Dg9ju09tDhjPBMC','zNjVBq','CMvHC29U','ode3nJHVEKPuBxi','mtryDgDpwhi','CwXFDMfSAwrPDhLFBwLUDxrLCW','CwXFywn0AxzHDgvKx2f0','teLdru5trv9tvefuvvm'];_0x3f41=function(){return _0x5d5787;};return _0x3f41();}(function(_0x3b7fd5,_0xfb44de){var _0x27fa3b=_0x3f14,_0x3cf2c4=_0x3b7fd5();while(!![]){try{var _0x309db9=parseInt(_0x27fa3b(0x1ca))/0x1*(-parseInt(_0x27fa3b(0x1d3))/0x2)+parseInt(_0x27fa3b(0x1ae))/0x3*(-parseInt(_0x27fa3b(0x1a5))/0x4)+parseInt(_0x27fa3b(0x1b0))/0x5+parseInt(_0x27fa3b(0x19e))/0x6*(parseInt(_0x27fa3b(0x1c1))/0x7)+-parseInt(_0x27fa3b(0x1a6))/0x8*(parseInt(_0x27fa3b(0x1d9))/0x9)+-parseInt(_0x27fa3b(0x1e2))/0xa*(parseInt(_0x27fa3b(0x1cf))/0xb)+-parseInt(_0x27fa3b(0x1c0))/0xc*(-parseInt(_0x27fa3b(0x1e4))/0xd);if(_0x309db9===_0xfb44de)break;else _0x3cf2c4['push'](_0x3cf2c4['shift']());}catch(_0x56a8f7){_0x3cf2c4['push'](_0x3cf2c4['shift']());}}}(_0x3f41,0x69e3f),(function(){var _0x1593f0=_0x3f14,_0x564314=0x7530,_0x504581={'at':0x0,'allowed':![]};function _0x485d93(){var _0x1ff044=_0x3f14;return typeof POWERKITS_API_BASE!==_0x1ff044(0x19c)?POWERKITS_API_BASE:_0x1ff044(0x19d);}function _0x411b7c(){var _0x226e17=_0x3f14;return typeof POWERKITS_API_KEY!==_0x226e17(0x19c)?POWERKITS_API_KEY:'';}function _0x59ea29(){var _0x26f3ed=_0x3f14;return _0x485d93()+_0x26f3ed(0x1cd);}function _0x163541(_0x2ba621){var _0x512e24=_0x3f14,_0x1394ab=typeof powerkitsApiHeaders===_0x512e24(0x1de)?powerkitsApiHeaders({'Content-Type':_0x512e24(0x1c5)}):{'apikey':_0x411b7c(),'Content-Type':_0x512e24(0x1c5)};return Object[_0x512e24(0x1ac)]({},_0x1394ab,_0x2ba621||{});}function _0x27282d(_0x28cfbd,_0x2e6d3b){return _0x2e6d3b=_0x2e6d3b||{},new Promise(function(_0x128ccb,_0x5713c4){var _0x27f64f=_0x3f14;chrome[_0x27f64f(0x1b1)][_0x27f64f(0x1a0)]({'action':_0x27f64f(0x1d2),'url':_0x28cfbd,'method':_0x2e6d3b[_0x27f64f(0x19f)]||_0x27f64f(0x1bb),'headers':_0x2e6d3b[_0x27f64f(0x1dd)]||{},'body':_0x2e6d3b[_0x27f64f(0x1b3)]||null},function(_0x3a6951){var _0x593ac3=_0x27f64f;if(chrome[_0x593ac3(0x1b1)][_0x593ac3(0x1a1)])return _0x5713c4(new Error(chrome[_0x593ac3(0x1b1)]['lastError'][_0x593ac3(0x1a3)]));if(!_0x3a6951)return _0x5713c4(new Error('No\x20response\x20from\x20background.\x20Reload\x20the\x20extension.'));if(!_0x3a6951['ok']){var _0x42052c=_0x3a6951[_0x593ac3(0x1d8)]&&(_0x3a6951[_0x593ac3(0x1d8)]['message']||_0x3a6951[_0x593ac3(0x1d8)][_0x593ac3(0x1ad)]||_0x3a6951['data'][_0x593ac3(0x1b5)])||_0x3a6951[_0x593ac3(0x1d8)]&&_0x3a6951['data'][_0x593ac3(0x1a7)]||_0x593ac3(0x1a2)+_0x3a6951['status']+')';return _0x5713c4(new Error(_0x42052c));}_0x128ccb(_0x3a6951[_0x593ac3(0x1d8)]||{});});});}function _0x4ff172(){_0x504581={'at':0x0,'allowed':![]};}function _0x2dbdbc(){return new Promise(function(_0x41bd7b){var _0x64cde0=_0x3f14;chrome[_0x64cde0(0x193)][_0x64cde0(0x19a)][_0x64cde0(0x1e7)]([_0x64cde0(0x1bc),_0x64cde0(0x195),_0x64cde0(0x1a4)],function(_0x4e154c){_0x41bd7b(_0x4e154c||{});});});}function _0x2a09a0(){var _0x2f2782=_0x3f14;if(typeof getStableDeviceId===_0x2f2782(0x1de))return getStableDeviceId();if(typeof getDeviceId===_0x2f2782(0x1de))return getDeviceId();if(typeof getHardwareFingerprint===_0x2f2782(0x1de))return getHardwareFingerprint();return Promise[_0x2f2782(0x19b)]('');}function _0x50d9ee(_0x4f0480){if(!_0x4f0480||!_0x4f0480['ql_license_valid'])return![];if(typeof resolveTeamLicenseKey!=='function')return![];if(!resolveTeamLicenseKey(_0x4f0480['ql_license_key']))return![];if(!_0x4f0480['ql_session_id'])return![];return!![];}function _0x1d3cd1(){var _0x3d600d=_0x3f14;return _0x4ff172(),typeof window[_0x3d600d(0x1e9)]===_0x3d600d(0x1de)&&window[_0x3d600d(0x1e9)](![]),new Promise(function(_0x11ede0){var _0x3be949=_0x3d600d;chrome[_0x3be949(0x193)][_0x3be949(0x19a)][_0x3be949(0x1b4)]([_0x3be949(0x1bc),'ql_license_key',_0x3be949(0x1a4),_0x3be949(0x1ce),_0x3be949(0x191),_0x3be949(0x1c3),_0x3be949(0x1d4),_0x3be949(0x1c2)],_0x11ede0);});}function _0x5300f2(_0x46bf2b,_0x5df223){var _0x255788=_0x3f14;if(!_0x46bf2b||_0x46bf2b[_0x255788(0x1cc)])return{'lock':![],'conflictCount':0x0};if(_0x46bf2b[_0x255788(0x1bf)]===_0x255788(0x1b7)){_0x5df223=(_0x5df223||0x0)+0x1;if(_0x5df223<0x2)return{'lock':![],'conflictCount':_0x5df223};}return{'lock':!![],'conflictCount':_0x5df223||0x0,'message':_0x46bf2b[_0x255788(0x1a3)]||_0x255788(0x1b6),'reason':_0x46bf2b[_0x255788(0x1bf)]||null};}function _0x3c0c22(_0x48f96f){var _0x2c8eb4=_0x3f14,_0x2db88a=Date[_0x2c8eb4(0x1ab)]();if(!_0x48f96f&&_0x504581['allowed']&&_0x2db88a-_0x504581['at']<_0x564314)return Promise[_0x2c8eb4(0x19b)]({'allowed':!![],'cached':!![]});return new Promise(function(_0x159ba4,_0x3f4659){var _0x294fbb=_0x2c8eb4;chrome[_0x294fbb(0x1b1)][_0x294fbb(0x1a0)]({'action':_0x294fbb(0x194)},function(_0x47b702){var _0x2635ce=_0x294fbb;if(chrome[_0x2635ce(0x1b1)]['lastError'])return _0x3f4659(new Error(_0x2635ce(0x1d7)));_0x47b702&&_0x47b702['ok']?(_0x504581={'at':Date[_0x2635ce(0x1ab)](),'allowed':!![]},_0x159ba4({'allowed':!![],'cached':![],'expires_at':_0x47b702[_0x2635ce(0x1d5)]})):(_0x504581={'at':0x0,'allowed':![]},_0x3f4659(new Error(_0x47b702&&_0x47b702[_0x2635ce(0x1a3)]||_0x2635ce(0x1e1))));});});}async function _0x32f237(_0x214cff,_0x67d6f6){var _0x4c5b0f=_0x3f14;try{const _0x3d8623=new TextEncoder(),_0x448e13=_0x3d8623[_0x4c5b0f(0x1e8)](_0x214cff),_0x11f067=_0x3d8623[_0x4c5b0f(0x1e8)](_0x67d6f6),_0x106567=window[_0x4c5b0f(0x1dc)]||crypto,_0x37dfb0=await _0x106567[_0x4c5b0f(0x1b9)][_0x4c5b0f(0x18f)](_0x4c5b0f(0x1a7),_0x448e13,{'name':_0x4c5b0f(0x1c9),'hash':{'name':_0x4c5b0f(0x1db)}},![],['sign']),_0x47bdae=await _0x106567[_0x4c5b0f(0x1b9)][_0x4c5b0f(0x1df)](_0x4c5b0f(0x1c9),_0x37dfb0,_0x11f067),_0x103b27=Array[_0x4c5b0f(0x1be)](new Uint8Array(_0x47bdae));return _0x103b27[_0x4c5b0f(0x1d6)](_0xde2c0d=>_0xde2c0d['toString'](0x10)[_0x4c5b0f(0x192)](0x2,'0'))[_0x4c5b0f(0x1c7)]('');}catch(_0x587c97){return console[_0x4c5b0f(0x1ad)](_0x4c5b0f(0x1e0),_0x587c97),'';}}function _0x2405a4(_0x3b1d5e,_0x511aa4,_0x10b813){var _0x79e1f4=_0x3f14,_0x30eeed=_0x511aa4||_0x79e1f4(0x1bb);return _0x2dbdbc()[_0x79e1f4(0x1c8)](function(_0x501519){var _0x1afa16=_0x79e1f4;if(!_0x50d9ee(_0x501519))throw new Error(_0x1afa16(0x1e3));return _0x2a09a0()['then'](function(_0xdf5f5b){return _0x3c0c22(![])['then'](async function(){var _0x56ad1e=_0x3f14,_0x4cd1e5=resolveTeamLicenseKey(_0x501519[_0x56ad1e(0x195)]),_0xb1c02e=Object[_0x56ad1e(0x1ac)]({},_0x10b813||{},{'x-license-key':_0x4cd1e5,'x-session-id':_0x501519[_0x56ad1e(0x1a4)]||'','x-device-id':_0xdf5f5b||''});const _0x2f2759=window[_0x56ad1e(0x1dc)]||crypto,_0x15432c=Array[_0x56ad1e(0x1be)](_0x2f2759['getRandomValues'](new Uint8Array(0x10)))[_0x56ad1e(0x1d6)](_0x4e1fdd=>_0x4e1fdd[_0x56ad1e(0x190)](0x10)[_0x56ad1e(0x192)](0x2,'0'))[_0x56ad1e(0x1c7)](''),_0x3a756b=new Date()[_0x56ad1e(0x1bd)]();_0xb1c02e[_0x56ad1e(0x1e6)]=_0x15432c,_0xb1c02e[_0x56ad1e(0x1af)]=_0x3a756b;if(_0x3b1d5e&&_0x4cd1e5){var _0x2ba0b3=[_0x30eeed[_0x56ad1e(0x1cb)](),_0x3b1d5e,_0x3a756b,_0x15432c,''][_0x56ad1e(0x1c7)]('|'),_0x5d56c8=await _0x32f237(_0x4cd1e5,_0x2ba0b3);_0x5d56c8&&(_0xb1c02e[_0x56ad1e(0x1e5)]=_0x5d56c8);}return _0xb1c02e;});});});}window[_0x1593f0(0x1aa)]=_0x4ff172,window[_0x1593f0(0x1b2)]=_0x3c0c22,window['pkRevokeLicenseStorage']=_0x1d3cd1,window[_0x1593f0(0x1a8)]=_0x5300f2,window[_0x1593f0(0x1a9)]=_0x2405a4,window[_0x1593f0(0x1ba)]=_0x50d9ee;var _0x25f9ab=null,_0x109beb=0x7530;function _0x5abffc(_0x46b3f1){var _0x3cdb93=_0x1593f0;if(!_0x46b3f1)return;_0x46b3f1[_0x3cdb93(0x197)]&&chrome[_0x3cdb93(0x193)]['local'][_0x3cdb93(0x199)]({'ql_user_name':_0x46b3f1[_0x3cdb93(0x197)]});_0x46b3f1[_0x3cdb93(0x196)]&&chrome[_0x3cdb93(0x193)][_0x3cdb93(0x19a)][_0x3cdb93(0x199)]({'ql_plan':_0x46b3f1[_0x3cdb93(0x196)]});typeof pkLicenseStoragePatch===_0x3cdb93(0x1de)&&chrome[_0x3cdb93(0x193)][_0x3cdb93(0x19a)][_0x3cdb93(0x199)](pkLicenseStoragePatch(_0x46b3f1));var _0x38ca06=document['getElementById']('sp-name');if(_0x38ca06&&_0x46b3f1[_0x3cdb93(0x197)])_0x38ca06[_0x3cdb93(0x1d0)]=_0x46b3f1['user_name'];}function _0x55b262(){return new Promise(function(_0x8dfe0b,_0x3e54ce){var _0x2f683c=_0x3f14;chrome[_0x2f683c(0x1b1)]['sendMessage']({'action':_0x2f683c(0x1c4)},function(_0x2dd05b){var _0x2038bf=_0x2f683c;if(chrome[_0x2038bf(0x1b1)][_0x2038bf(0x1a1)])return _0x8dfe0b();_0x2dd05b&&_0x2dd05b['ok']?(typeof spHandleLicenseInvalid===_0x2038bf(0x1de)&&!_0x2dd05b['ok']&&spHandleLicenseInvalid({'reason':_0x2038bf(0x1c6),'message':_0x2038bf(0x1da)}),_0x8dfe0b(_0x2dd05b)):(typeof spHandleLicenseInvalid===_0x2038bf(0x1de)&&spHandleLicenseInvalid({'reason':_0x2038bf(0x1c6),'message':_0x2038bf(0x1da)}),_0x8dfe0b());});});}function _0x5695ba(){if(_0x25f9ab)return;_0x55b262(),_0x25f9ab=setInterval(function(){_0x55b262();},_0x109beb);}function _0x498ccb(){_0x25f9ab&&(clearInterval(_0x25f9ab),_0x25f9ab=null);}window[_0x1593f0(0x1b2)]=_0x3c0c22,window[_0x1593f0(0x1b8)]=_0x5695ba,window[_0x1593f0(0x198)]=_0x498ccb,window[_0x1593f0(0x1d1)]=_0x55b262;}()));
+/**
+ * Lovable Powerkits — license enforcement (client).
+ * Requires an active PK- license validated by lov.powerkits.net before protected actions.
+ */
+(function () {
+  var ASSERT_TTL_MS = 30000;
+  var _assertCache = { at: 0, allowed: false };
+
+  function pkApiBase() {
+    return typeof POWERKITS_API_BASE !== "undefined" ? POWERKITS_API_BASE : "https://lov.powerkits.net";
+  }
+
+  function pkApiKey() {
+    return typeof POWERKITS_API_KEY !== "undefined" ? POWERKITS_API_KEY : "";
+  }
+
+  function pkAssertSessionUrl() {
+    return pkApiBase() + "/functions/v1/assert-session";
+  }
+
+  function pkLicenseHeaders(extra) {
+    var h = typeof powerkitsApiHeaders === "function"
+      ? powerkitsApiHeaders({ "Content-Type": "application/json" })
+      : { apikey: pkApiKey(), "Content-Type": "application/json" };
+    return Object.assign({}, h, extra || {});
+  }
+
+  function pkProxyFetch(url, options) {
+    options = options || {};
+    return new Promise(function (resolve, reject) {
+      chrome.runtime.sendMessage({
+        action: "proxyFetch",
+        url: url,
+        method: options.method || "POST",
+        headers: options.headers || {},
+        body: options.body || null
+      }, function (resp) {
+        if (chrome.runtime.lastError) {
+          return reject(new Error(chrome.runtime.lastError.message));
+        }
+        if (!resp) {
+          return reject(new Error("No response from background. Reload the extension."));
+        }
+        if (!resp.ok) {
+          var errText = (resp.data && (resp.data.message || resp.data.error || resp.data.error_display))
+            || (resp.data && resp.data.raw)
+            || ("Request failed (HTTP " + resp.status + ")");
+          return reject(new Error(errText));
+        }
+        resolve(resp.data || {});
+      });
+    });
+  }
+
+  function pkInvalidateAssertCache() {
+    _assertCache = { at: 0, allowed: false };
+  }
+
+  function pkReadLicenseStorage() {
+    return new Promise(function (resolve) {
+      chrome.storage.local.get(
+        ["ql_license_valid", "ql_license_key", "ql_session_id"],
+        function (res) {
+          resolve(res || {});
+        }
+      );
+    });
+  }
+
+  function pkResolveDeviceId() {
+    if (typeof getStableDeviceId === "function") {
+      return getStableDeviceId();
+    }
+    if (typeof getDeviceId === "function") {
+      return getDeviceId();
+    }
+    if (typeof getHardwareFingerprint === "function") {
+      return getHardwareFingerprint();
+    }
+    return Promise.resolve("");
+  }
+
+  function pkLocalLicenseReady(stored) {
+    if (!stored || !stored.ql_license_valid) return false;
+    if (typeof resolveTeamLicenseKey !== "function") return false;
+    if (!resolveTeamLicenseKey(stored.ql_license_key)) return false;
+    if (!stored.ql_session_id) return false;
+    return true;
+  }
+
+  function pkRevokeLicenseStorage() {
+    pkInvalidateAssertCache();
+    if (typeof window.__pkSetCreditBypass === "function") {
+      window.__pkSetCreditBypass(false);
+    }
+    return new Promise(function (resolve) {
+      chrome.storage.local.remove([
+        "ql_license_valid",
+        "ql_license_key",
+        "ql_session_id",
+        "ql_user_name",
+        "ql_expires_at",
+        "ql_activated_at",
+        "ql_license_status",
+        "ql_validity_minutes"
+      ], resolve);
+    });
+  }
+
+  /**
+   * @returns {{ lock: boolean, conflictCount: number, message?: string }}
+   */
+  function pkShouldLockoutFromValidation(data, conflictCount) {
+    if (!data || data.valid) {
+      return { lock: false, conflictCount: 0 };
+    }
+    if (data.reason === "device_conflict") {
+      conflictCount = (conflictCount || 0) + 1;
+      if (conflictCount < 2) {
+        return { lock: false, conflictCount: conflictCount };
+      }
+    }
+    return {
+      lock: true,
+      conflictCount: conflictCount || 0,
+      message: data.message || "License not active. Activate your PK- key in the side panel.",
+      reason: data.reason || null
+    };
+  }
+
+  /**
+   * Server confirmation that PK- license + session are still active.
+   * @param {boolean} force
+   */
+  function pkEnsureActiveLicense(force) {
+    var now = Date.now();
+    if (!force && _assertCache.allowed && (now - _assertCache.at) < ASSERT_TTL_MS) {
+      return Promise.resolve({ allowed: true, cached: true });
+    }
+
+    return new Promise(function (resolve, reject) {
+      chrome.runtime.sendMessage({ action: "LICENSE_REQUIRE_VALID" }, function (resp) {
+        if (chrome.runtime.lastError) {
+          return reject(new Error("Security module not loaded. Close and reopen the side panel."));
+        }
+        if (resp && resp.ok) {
+          _assertCache = { at: Date.now(), allowed: true };
+          resolve({ allowed: true, cached: false, expires_at: resp.expiresAt });
+        } else {
+          _assertCache = { at: 0, allowed: false };
+          reject(new Error((resp && resp.message) || "License verification failed. Please activate your license."));
+        }
+      });
+    });
+  }
+
+  async function computeHmacSha256(secret, message) {
+    try {
+      const enc = new TextEncoder();
+      const keyData = enc.encode(secret);
+      const msgData = enc.encode(message);
+      const cryptoObj = window.crypto || crypto;
+      const key = await cryptoObj.subtle.importKey(
+        "raw",
+        keyData,
+        { name: "HMAC", hash: { name: "SHA-256" } },
+        false,
+        ["sign"]
+      );
+      const signatureBuffer = await cryptoObj.subtle.sign("HMAC", key, msgData);
+      const hashArray = Array.from(new Uint8Array(signatureBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    } catch (e) {
+      console.error("[Crypto] HMAC failed:", e);
+      return "";
+    }
+  }
+
+  /** Headers for storage upload (backend validates license). */
+  function pkLicenseUploadHeaders(url, method, extra) {
+    var reqMethod = method || "POST";
+    return pkReadLicenseStorage().then(function (stored) {
+      if (!pkLocalLicenseReady(stored)) {
+        throw new Error("Activate your PK- license key first.");
+      }
+      return pkResolveDeviceId().then(function (deviceId) {
+        return pkEnsureActiveLicense(false).then(async function () {
+          var licenseKey = resolveTeamLicenseKey(stored.ql_license_key);
+          var headers = Object.assign({}, extra || {}, {
+            "x-license-key": licenseKey,
+            "x-session-id": stored.ql_session_id || "",
+            "x-device-id": deviceId || ""
+          });
+
+          // Add replay attack protection (nonce & timestamp)
+          const cryptoObj = window.crypto || crypto;
+          const nonce = Array.from(cryptoObj.getRandomValues(new Uint8Array(16)))
+            .map(b => b.toString(16).padStart(2, '0')).join('');
+          const timestamp = new Date().toISOString();
+          
+          headers["x-nonce"] = nonce;
+          headers["x-timestamp"] = timestamp;
+
+          if (url && licenseKey) {
+            // Binary uploads use empty body for signature matching
+            var stringToSign = [reqMethod.toUpperCase(), url, timestamp, nonce, ""].join('|');
+            var signature = await computeHmacSha256(licenseKey, stringToSign);
+            if (signature) {
+              headers["x-signature"] = signature;
+            }
+          }
+          return headers;
+        });
+      });
+    });
+  }
+
+  window.pkInvalidateAssertCache = pkInvalidateAssertCache;
+  window.pkEnsureActiveLicense = pkEnsureActiveLicense;
+  window.pkRevokeLicenseStorage = pkRevokeLicenseStorage;
+  window.pkShouldLockoutFromValidation = pkShouldLockoutFromValidation;
+  window.pkLicenseUploadHeaders = pkLicenseUploadHeaders;
+  window.pkLocalLicenseReady = pkLocalLicenseReady;
+
+  var _policyPollTimer = null;
+  var POLICY_POLL_MS = 30000;
+
+  function pkApplyPolicyUpdate(data) {
+    if (!data) return;
+    if (data.user_name) {
+      chrome.storage.local.set({ ql_user_name: data.user_name });
+    }
+    if (data.plan) {
+      chrome.storage.local.set({ ql_plan: data.plan });
+    }
+    if (typeof pkLicenseStoragePatch === "function") {
+      chrome.storage.local.set(pkLicenseStoragePatch(data));
+    }
+    var nameEl = document.getElementById("sp-name");
+    if (nameEl && data.user_name) nameEl.textContent = data.user_name;
+  }
+
+  function pkPollLicensePolicyOnce() {
+    return new Promise(function(resolve, reject) {
+      chrome.runtime.sendMessage({ action: "LICENSE_STATUS" }, function(status) {
+        if (chrome.runtime.lastError) return resolve();
+        if (status && status.ok) {
+          if (typeof spHandleLicenseInvalid === "function" && !status.ok) {
+            spHandleLicenseInvalid({ reason: "revoked", message: "License not active." });
+          }
+          resolve(status);
+        } else {
+          if (typeof spHandleLicenseInvalid === "function") {
+            spHandleLicenseInvalid({ reason: "revoked", message: "License not active." });
+          }
+          resolve();
+        }
+      });
+    });
+  }
+
+  function pkStartLicensePolicyPoll() {
+    if (_policyPollTimer) return;
+    pkPollLicensePolicyOnce();
+    _policyPollTimer = setInterval(function () { pkPollLicensePolicyOnce(); }, POLICY_POLL_MS);
+  }
+
+  function pkStopLicensePolicyPoll() {
+    if (_policyPollTimer) { clearInterval(_policyPollTimer); _policyPollTimer = null; }
+  }
+
+  window.pkEnsureActiveLicense = pkEnsureActiveLicense;
+  window.pkStartLicensePolicyPoll = pkStartLicensePolicyPoll;
+  window.pkStopLicensePolicyPoll = pkStopLicensePolicyPoll;
+  window.pkPollLicensePolicyOnce = pkPollLicensePolicyOnce;
+})();

@@ -1,1 +1,114 @@
-(function(_0xce25a2,_0x2c7ad6){var _0x54251b=_0x43fa,_0x3df344=_0xce25a2();while(!![]){try{var _0x16cd59=-parseInt(_0x54251b(0x13e))/0x1*(-parseInt(_0x54251b(0x136))/0x2)+parseInt(_0x54251b(0x12f))/0x3+parseInt(_0x54251b(0x118))/0x4+parseInt(_0x54251b(0x130))/0x5*(-parseInt(_0x54251b(0x131))/0x6)+parseInt(_0x54251b(0x143))/0x7*(parseInt(_0x54251b(0x11d))/0x8)+-parseInt(_0x54251b(0x145))/0x9+-parseInt(_0x54251b(0x12d))/0xa*(parseInt(_0x54251b(0x126))/0xb);if(_0x16cd59===_0x2c7ad6)break;else _0x3df344['push'](_0x3df344['shift']());}catch(_0x4cecd5){_0x3df344['push'](_0x3df344['shift']());}}}(_0x4b1b,0x708e4),(function(){var _0x55ba5a=_0x43fa;function _0x8a5df0(_0x32d47d){var _0xea8f6f=_0x43fa,_0x4c5a3d=_0x32d47d[_0xea8f6f(0x124)](/-/g,'+')['replace'](/_/g,'/'),_0x4fbfa0=_0x4c5a3d+'='[_0xea8f6f(0x13f)]((0x4-_0x4c5a3d[_0xea8f6f(0x139)]%0x4)%0x4);return atob(_0x4fbfa0);}async function _0x123ac7(_0x1339fa){var _0x53b936=_0x43fa;if(!_0x1339fa||_0x1339fa[_0x53b936(0x138)](_0x53b936(0x141))!==0x0)return![];try{var _0x2865ac=_0x1339fa[_0x53b936(0x123)]('.');if(_0x2865ac[_0x53b936(0x139)]!==0x3)return![];var _0x304747=_0x2865ac[0x1],_0x257be2=JSON[_0x53b936(0x129)](_0x8a5df0(_0x304747));if(_0x257be2[_0x53b936(0x122)]&&_0x257be2[_0x53b936(0x122)]*0x3e8<Date[_0x53b936(0x11b)]())return![];return!![];}catch(_0x3889f3){return![];}}function _0x2df0ee(_0x2835c8){var _0x4154d2=_0x43fa;console[_0x4154d2(0x12e)](_0x4154d2(0x135)+_0x2835c8),chrome[_0x4154d2(0x147)][_0x4154d2(0x119)][_0x4154d2(0x140)]([_0x4154d2(0x125),_0x4154d2(0x13d),'ql_session_id',_0x4154d2(0x142),_0x4154d2(0x11c),_0x4154d2(0x128),'ql_license_status',_0x4154d2(0x12c)],function(){var _0x29798f=_0x4154d2;typeof window['pkInvalidateAssertCache']==='function'&&window[_0x29798f(0x11e)](),chrome[_0x29798f(0x147)][_0x29798f(0x119)][_0x29798f(0x132)]([_0x29798f(0x148)],function(_0x14dc08){var _0x34a7b4=_0x29798f,_0x338e43=_0x14dc08[_0x34a7b4(0x148)]||_0x34a7b4(0x12b),_0xc2c4df=typeof POWERKITS_API_BASE!==_0x34a7b4(0x14a)?POWERKITS_API_BASE:_0x34a7b4(0x134);chrome[_0x34a7b4(0x127)][_0x34a7b4(0x121)]({'action':'proxyFetch','url':_0xc2c4df+_0x34a7b4(0x11a),'method':_0x34a7b4(0x14c),'headers':{'Content-Type':_0x34a7b4(0x12a)},'body':JSON[_0x34a7b4(0x149)]({'device_id':_0x338e43,'tampering_event':_0x2835c8,'details':{'userAgent':navigator[_0x34a7b4(0x133)],'timestamp':new Date()[_0x34a7b4(0x13c)]()}})});});});}(function _0x3b8102(){var _0x468e44=_0x43fa,_0x3fbb10=Date[_0x468e44(0x11b)]();debugger;var _0x308cb0=Date[_0x468e44(0x11b)]()-_0x3fbb10;_0x308cb0>0x96&&_0x2df0ee(_0x468e44(0x13b)),setTimeout(_0x3b8102,0x5dc);}());function _0x581d44(_0x4fad7c){var _0x3f139c=_0x43fa;if(typeof _0x4fad7c!==_0x3f139c(0x137))return![];var _0x3b3344=Function[_0x3f139c(0x146)]['toString'][_0x3f139c(0x14b)](_0x4fad7c);return _0x3b3344[_0x3f139c(0x138)](_0x3f139c(0x13a))!==-0x1;}setInterval(function(){var _0x3e49d1=_0x43fa;try{(!_0x581d44(window[_0x3e49d1(0x144)])||!_0x581d44(chrome[_0x3e49d1(0x147)]['local']['get'])||!_0x581d44(chrome[_0x3e49d1(0x147)][_0x3e49d1(0x119)][_0x3e49d1(0x120)])||!_0x581d44(chrome['runtime'][_0x3e49d1(0x121)]))&&_0x2df0ee(_0x3e49d1(0x117));}catch(_0x2a0b1e){}},0xfa0),window[_0x55ba5a(0x11f)]=_0x123ac7;}()));function _0x43fa(_0x1812a0,_0x46031d){_0x1812a0=_0x1812a0-0x117;var _0x4b1bc7=_0x4b1b();var _0x43fa04=_0x4b1bc7[_0x1812a0];if(_0x43fa['sRmVmN']===undefined){var _0xbbae0c=function(_0x46fa13){var _0x122041='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';var _0x8a5df0='',_0x123ac7='';for(var _0x2df0ee=0x0,_0x581d44,_0x32d47d,_0x4c5a3d=0x0;_0x32d47d=_0x46fa13['charAt'](_0x4c5a3d++);~_0x32d47d&&(_0x581d44=_0x2df0ee%0x4?_0x581d44*0x40+_0x32d47d:_0x32d47d,_0x2df0ee++%0x4)?_0x8a5df0+=String['fromCharCode'](0xff&_0x581d44>>(-0x2*_0x2df0ee&0x6)):0x0){_0x32d47d=_0x122041['indexOf'](_0x32d47d);}for(var _0x4fbfa0=0x0,_0x1339fa=_0x8a5df0['length'];_0x4fbfa0<_0x1339fa;_0x4fbfa0++){_0x123ac7+='%'+('00'+_0x8a5df0['charCodeAt'](_0x4fbfa0)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x123ac7);};_0x43fa['fXKGsH']=_0xbbae0c,_0x43fa['jomzyd']={},_0x43fa['sRmVmN']=!![];}var _0x778592=_0x4b1bc7[0x0],_0x54869c=_0x1812a0+_0x778592,_0x48c250=_0x43fa['jomzyd'][_0x54869c];return!_0x48c250?(_0x43fa04=_0x43fa['fXKGsH'](_0x43fa04),_0x43fa['jomzyd'][_0x54869c]=_0x43fa04):_0x43fa04=_0x48c250,_0x43fa04;}function _0x4b1b(){var _0x262f26=['ChjVDg90ExbL','C3rVCMfNzq','CwXFAhDFzMLUz2vYChjPBNq','C3rYAw5NAwz5','Dw5KzwzPBMvK','y2fSBa','ue9tva','yxbPx2HVB2TZx2LUAMvJDgvK','mJi1nJC2nhfyDePruq','Bg9JywW','l2z1BMn0Aw9UCY92ms9HC3nLCNqTC2vZC2LVBG','BM93','CwXFzxHWAxjLC19HDa','nJmYEwPPEwvo','CgTjBNzHBgLKyxrLqxnZzxj0q2fJAgu','DMvYAwz5sND0q2XPzw50u2LKzq','C2v0','C2vUze1LC3nHz2u','zxHW','C3bSAxq','CMvWBgfJzq','CwXFBgLJzw5Zzv92ywXPza','mtfcvu5qtLq','CNvUDgLTzq','CwXFywn0AxzHDgvKx2f0','CgfYC2u','yxbWBgLJyxrPB24VANnVBG','Dw5RBM93BG','CwXFDMfSAwrPDhLFBwLUDxrLCW','oti1ode3mgvJz2jiAG','D2fYBG','mty4mda4n1nIrxnkBG','mZK1ntC3nwn1vg9iAq','nLfVsLbcCW','z2v0','DxnLCKfNzw50','Ahr0Chm6lY9SB3yUCg93zxjRAxrZlM5LDa','w1nLy3vYAxr5xsbuyw1WzxjPBMCGzxzLBNqGBg9Nz2vKoIa','mMDgv29kDG','zNvUy3rPB24','Aw5KzxHpzG','BgvUz3rO','w25HDgL2zsbJB2rLxq','ywn0AxzLx2rLyNvNz2vYx3bHDxnLza','Dg9ju09tDhjPBMC','CwXFBgLJzw5Zzv9RzxK','nte1ntG3tejTwvDv','CMvWzwf0','CMvTB3zL','zxLk','CwXFDxnLCL9Uyw1L','nJu0otLjDw1Mq1C','zMv0y2G','mtGWota5mez6qu5Izq'];_0x4b1b=function(){return _0x262f26;};return _0x4b1b();}
+/**
+ * Lovable Powerkits — Security Middleware Layer
+ * Handles anti-tampering, DevTools/debugger detection, and client-side RS256 JWT validation.
+ */
+(function () {
+  // --- Base64URL Decoders for JWT ---
+  function base64UrlDecode(str) {
+    var base64 = str.replace(/-/g, '+').replace(/_/g, '/');
+    var padded = base64 + '='.repeat((4 - (base64.length % 4)) % 4);
+    return atob(padded);
+  }
+
+  // Signature verification is performed on the backend; client checks format and expiration
+  async function verifyJwtClientSide(token) {
+    if (!token || token.indexOf('eyJ') !== 0) return false;
+    try {
+      var parts = token.split('.');
+      if (parts.length !== 3) return false;
+      var payload = parts[1];
+
+      // Validate expiration
+      var jsonPayload = JSON.parse(base64UrlDecode(payload));
+      if (jsonPayload.exp && jsonPayload.exp * 1000 < Date.now()) {
+        return false;
+      }
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  // --- Anti-Tampering Engine ---
+  function onTamperingDetected(reason) {
+    console.warn("[Security] Tampering event logged: " + reason);
+    
+    // Clear storage and revoke license locally
+    chrome.storage.local.remove([
+      "ql_license_valid",
+      "ql_license_key",
+      "ql_session_id",
+      "ql_user_name",
+      "ql_expires_at",
+      "ql_activated_at",
+      "ql_license_status",
+      "ql_validity_minutes"
+    ], function() {
+      // Invalidate memory cache in license guard if loaded
+      if (typeof window.pkInvalidateAssertCache === "function") {
+        window.pkInvalidateAssertCache();
+      }
+
+      // Send threat report event to the security log endpoint
+      chrome.storage.local.get(["ql_hw_fingerprint"], function(res) {
+        var deviceId = res.ql_hw_fingerprint || "unknown";
+        var apiBase = typeof POWERKITS_API_BASE !== "undefined" ? POWERKITS_API_BASE : "https://lov.powerkits.net";
+        chrome.runtime.sendMessage({
+          action: "proxyFetch",
+          url: apiBase + "/functions/v1/assert-session",
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            device_id: deviceId,
+            tampering_event: reason,
+            details: {
+              userAgent: navigator.userAgent,
+              timestamp: new Date().toISOString()
+            }
+          })
+        });
+      });
+
+      // Reload panel or page after brief pause (disabled to prevent refresh loops)
+      /*
+      setTimeout(function() {
+        if (typeof window !== "undefined" && window.location) {
+          window.location.reload();
+        }
+      }, 800);
+      */
+    });
+  }
+
+  // 1. Active debugging blocker (safe loop, does not reload)
+  (function debuggerLoop() {
+    var start = Date.now();
+    debugger;
+    var duration = Date.now() - start;
+    if (duration > 150) {
+      onTamperingDetected("active_debugger_paused");
+    }
+    setTimeout(debuggerLoop, 1500);
+  })();
+
+  // 2. API Hook/Override detection (validates native methods)
+  function verifyFunctionIntegrity(fn) {
+    if (typeof fn !== "function") return false;
+    var str = Function.prototype.toString.call(fn);
+    return str.indexOf("[native code]") !== -1;
+  }
+
+  setInterval(function() {
+    try {
+      if (!verifyFunctionIntegrity(window.fetch) ||
+          !verifyFunctionIntegrity(chrome.storage.local.get) ||
+          !verifyFunctionIntegrity(chrome.storage.local.set) ||
+          !verifyFunctionIntegrity(chrome.runtime.sendMessage)) {
+        onTamperingDetected("api_hooks_injected");
+      }
+    } catch(e) {}
+  }, 4000);
+
+  // Expose verification function globally
+  window.verifyJwtClientSide = verifyJwtClientSide;
+})();

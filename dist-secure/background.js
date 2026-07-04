@@ -1,1 +1,864 @@
-var _0x25b190=_0x1aa0;(function(_0x1fe7bd,_0x8f324a){var _0x39856b=_0x1aa0,_0x177f2b=_0x1fe7bd();while(!![]){try{var _0x54b5c6=parseInt(_0x39856b(0x221))/0x1*(parseInt(_0x39856b(0x243))/0x2)+parseInt(_0x39856b(0x212))/0x3*(-parseInt(_0x39856b(0x1c3))/0x4)+parseInt(_0x39856b(0x1bf))/0x5*(-parseInt(_0x39856b(0x21e))/0x6)+-parseInt(_0x39856b(0x231))/0x7*(-parseInt(_0x39856b(0x1c6))/0x8)+parseInt(_0x39856b(0x1da))/0x9+parseInt(_0x39856b(0x222))/0xa*(parseInt(_0x39856b(0x202))/0xb)+parseInt(_0x39856b(0x1b0))/0xc;if(_0x54b5c6===_0x8f324a)break;else _0x177f2b['push'](_0x177f2b['shift']());}catch(_0xa309ce){_0x177f2b['push'](_0x177f2b['shift']());}}}(_0x2c8a,0x4e0d0),console[_0x25b190(0x1cb)](_0x25b190(0x253)));var cachedLicenseStatus={'ok':![],'plan':'','expiresAt':null,'licenseKey':'','userName':'','supportUrl':'','supportTelegram':''};function decodeJwtExpMs(_0x5826dd){var _0x461a93=_0x25b190;try{var _0x1b34ae=String(_0x5826dd||'')[_0x461a93(0x1d7)](/^Bearer\s+/i,'')[_0x461a93(0x223)]()[_0x461a93(0x1ed)]('.');if(_0x1b34ae[_0x461a93(0x226)]<0x2)return 0x0;var _0x23df6f=_0x1b34ae[0x1][_0x461a93(0x1d7)](/-/g,'+')[_0x461a93(0x1d7)](/_/g,'/'),_0x120941=_0x23df6f+'='[_0x461a93(0x241)]((0x4-_0x23df6f[_0x461a93(0x226)]%0x4)%0x4),_0x438c62=JSON['parse'](atob(_0x120941));return _0x438c62[_0x461a93(0x20b)]?_0x438c62[_0x461a93(0x20b)]*0x3e8:0x0;}catch(_0x1d53f3){return 0x0;}}function logoutLicense(){var _0x62fd7e=_0x25b190;cachedLicenseStatus['ok']=![],cachedLicenseStatus[_0x62fd7e(0x20d)]='',cachedLicenseStatus[_0x62fd7e(0x1e1)]=null,cachedLicenseStatus[_0x62fd7e(0x1ef)]='',cachedLicenseStatus[_0x62fd7e(0x224)]='',cachedLicenseStatus['supportUrl']='',cachedLicenseStatus[_0x62fd7e(0x1d8)]='',chrome[_0x62fd7e(0x1e4)][_0x62fd7e(0x1ac)][_0x62fd7e(0x1c8)]([_0x62fd7e(0x24e),_0x62fd7e(0x22e),_0x62fd7e(0x1cd),_0x62fd7e(0x242),_0x62fd7e(0x208),_0x62fd7e(0x1fe),'ql_license_status',_0x62fd7e(0x24a),_0x62fd7e(0x216),_0x62fd7e(0x230),_0x62fd7e(0x1c1)],function(){var _0x57c0be=_0x62fd7e;console[_0x57c0be(0x1cb)](_0x57c0be(0x1ff));});}async function verifySessionWithServer(_0x48e363,_0x2895ae){var _0x39f185=_0x25b190;if(!_0x48e363)return{'success':![],'valid':![]};try{var _0x53a2db=_0x39f185(0x1b1)+encodeURIComponent(_0x48e363)+_0x39f185(0x252)+encodeURIComponent(_0x2895ae),_0x164c63=await fetch(_0x53a2db,{'method':_0x39f185(0x1d0)});if(!_0x164c63['ok'])return{'success':![],'valid':![]};var _0x3a6b33=await _0x164c63[_0x39f185(0x24c)]();return _0x3a6b33;}catch(_0x53b4a1){console[_0x39f185(0x1c4)]('[Background]\x20verifySessionWithServer\x20error:',_0x53b4a1);var _0x40f35b=cachedLicenseStatus[_0x39f185(0x1e1)];if(_0x40f35b===null||_0x40f35b===undefined||_0x40f35b===''||new Date(_0x40f35b)[_0x39f185(0x209)]()>Date[_0x39f185(0x1dd)]())return{'success':!![],'valid':!![],'plan':cachedLicenseStatus['plan']||_0x39f185(0x1ad),'expires_at':_0x40f35b||null,'user_name':cachedLicenseStatus[_0x39f185(0x224)]||'','support_url':cachedLicenseStatus[_0x39f185(0x1a9)]||'','support_telegram':cachedLicenseStatus['supportTelegram']||''};return{'success':![],'valid':![],'error':_0x53b4a1[_0x39f185(0x1f1)]};}}async function attemptAutoActivation(_0x5e5e6e,_0x4bc7a5){var _0x43a38b=_0x25b190;if(!_0x5e5e6e||!_0x4bc7a5)return logoutLicense(),![];try{var _0x669ae4=chrome['runtime'][_0x43a38b(0x1c5)]()[_0x43a38b(0x1bb)],_0x441ed2=await fetch(_0x43a38b(0x1e0),{'method':_0x43a38b(0x1a6),'headers':{'Content-Type':_0x43a38b(0x1c7)},'body':JSON[_0x43a38b(0x1ee)]({'license_key':_0x5e5e6e,'device_id':_0x4bc7a5,'version':_0x669ae4,'metadata':{'userAgent':navigator[_0x43a38b(0x1af)],'timestamp':new Date()['toISOString']()}})}),_0x2ab1fa=await _0x441ed2[_0x43a38b(0x24c)]();if(_0x2ab1fa&&_0x2ab1fa[_0x43a38b(0x205)]&&_0x2ab1fa[_0x43a38b(0x255)]){var _0x244db7=_0x2ab1fa[_0x43a38b(0x1a8)]||_0x2ab1fa[_0x43a38b(0x237)]||'';return cachedLicenseStatus['ok']=!![],cachedLicenseStatus['plan']=_0x2ab1fa[_0x43a38b(0x20d)]||'pro',cachedLicenseStatus[_0x43a38b(0x1e1)]=_0x2ab1fa[_0x43a38b(0x1f4)]||null,cachedLicenseStatus[_0x43a38b(0x1ef)]=_0x5e5e6e,cachedLicenseStatus[_0x43a38b(0x224)]=_0x2ab1fa[_0x43a38b(0x218)]||'',cachedLicenseStatus[_0x43a38b(0x1a9)]=_0x2ab1fa[_0x43a38b(0x1f5)]||'',cachedLicenseStatus['supportTelegram']=_0x2ab1fa[_0x43a38b(0x20f)]||'',await chrome[_0x43a38b(0x1e4)]['local'][_0x43a38b(0x1fc)]({'ql_license_valid':!![],'ql_license_key':_0x5e5e6e,'ql_session_id':_0x244db7,'ql_user_name':_0x2ab1fa[_0x43a38b(0x218)]||'','ql_expires_at':_0x2ab1fa[_0x43a38b(0x1f4)]||null,'ql_license_status':'active','ql_support_url':_0x2ab1fa[_0x43a38b(0x1f5)]||'','ql_support_telegram':_0x2ab1fa[_0x43a38b(0x20f)]||'','ql_admin_message':_0x2ab1fa[_0x43a38b(0x256)]||''}),console[_0x43a38b(0x1cb)](_0x43a38b(0x228)),!![];}else return console[_0x43a38b(0x23b)](_0x43a38b(0x247),_0x2ab1fa&&_0x2ab1fa[_0x43a38b(0x1f1)]||_0x43a38b(0x1b8)),logoutLicense(),![];}catch(_0x347579){console[_0x43a38b(0x1c4)]('[Background]\x20Auto-activation\x20error:',_0x347579);var _0x4dcda1=cachedLicenseStatus[_0x43a38b(0x1e1)];if(_0x4dcda1&&new Date(_0x4dcda1)[_0x43a38b(0x209)]()<Date[_0x43a38b(0x1dd)]())return logoutLicense(),![];return!![];}}function _0x1aa0(_0x5c820d,_0x316796){_0x5c820d=_0x5c820d-0x1a3;var _0x2c8a55=_0x2c8a();var _0x1aa0c8=_0x2c8a55[_0x5c820d];if(_0x1aa0['CeMdhK']===undefined){var _0x514370=function(_0x1e904d){var _0x206d59='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';var _0x5826dd='',_0x1b34ae='';for(var _0x23df6f=0x0,_0x120941,_0x438c62,_0x1d53f3=0x0;_0x438c62=_0x1e904d['charAt'](_0x1d53f3++);~_0x438c62&&(_0x120941=_0x23df6f%0x4?_0x120941*0x40+_0x438c62:_0x438c62,_0x23df6f++%0x4)?_0x5826dd+=String['fromCharCode'](0xff&_0x120941>>(-0x2*_0x23df6f&0x6)):0x0){_0x438c62=_0x206d59['indexOf'](_0x438c62);}for(var _0x48e363=0x0,_0x2895ae=_0x5826dd['length'];_0x48e363<_0x2895ae;_0x48e363++){_0x1b34ae+='%'+('00'+_0x5826dd['charCodeAt'](_0x48e363)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x1b34ae);};_0x1aa0['ilHpdy']=_0x514370,_0x1aa0['CizaZq']={},_0x1aa0['CeMdhK']=!![];}var _0x23c2c7=_0x2c8a55[0x0],_0x249d7d=_0x5c820d+_0x23c2c7,_0x270360=_0x1aa0['CizaZq'][_0x249d7d];return!_0x270360?(_0x1aa0c8=_0x1aa0['ilHpdy'](_0x1aa0c8),_0x1aa0['CizaZq'][_0x249d7d]=_0x1aa0c8):_0x1aa0c8=_0x270360,_0x1aa0c8;}chrome[_0x25b190(0x1e4)][_0x25b190(0x1ac)]['get']([_0x25b190(0x1cd),'ql_hw_fingerprint',_0x25b190(0x22e),'ql_user_name',_0x25b190(0x208),_0x25b190(0x216),'ql_support_telegram',_0x25b190(0x1c1)],function(_0x49a13f){var _0x466e01=_0x25b190,_0x551265=_0x49a13f[_0x466e01(0x1cd)]||'',_0x3af83d=_0x49a13f[_0x466e01(0x1f3)]||'',_0x52acab=_0x49a13f[_0x466e01(0x22e)]||'';_0x551265?(cachedLicenseStatus['ok']=!![],cachedLicenseStatus[_0x466e01(0x20d)]=_0x466e01(0x1ad),cachedLicenseStatus[_0x466e01(0x1e1)]=_0x49a13f[_0x466e01(0x208)]||null,cachedLicenseStatus[_0x466e01(0x1ef)]=_0x52acab,cachedLicenseStatus[_0x466e01(0x224)]=_0x49a13f[_0x466e01(0x242)]||'',cachedLicenseStatus['supportUrl']=_0x49a13f[_0x466e01(0x216)]||'',cachedLicenseStatus[_0x466e01(0x1d8)]=_0x49a13f[_0x466e01(0x230)]||'',verifySessionWithServer(_0x551265,_0x3af83d)[_0x466e01(0x22b)](function(_0xf0a9fb){var _0x3da7a5=_0x466e01;if(_0xf0a9fb&&_0xf0a9fb[_0x3da7a5(0x255)]){cachedLicenseStatus['ok']=!![],cachedLicenseStatus[_0x3da7a5(0x20d)]=_0xf0a9fb[_0x3da7a5(0x20d)]||_0x3da7a5(0x1ad),cachedLicenseStatus[_0x3da7a5(0x1e1)]=_0xf0a9fb['expires_at']||null,cachedLicenseStatus[_0x3da7a5(0x1ef)]=_0x52acab,cachedLicenseStatus[_0x3da7a5(0x224)]=_0xf0a9fb['user_name']||'',cachedLicenseStatus[_0x3da7a5(0x1a9)]=_0xf0a9fb[_0x3da7a5(0x1f5)]||'',cachedLicenseStatus['supportTelegram']=_0xf0a9fb[_0x3da7a5(0x20f)]||'';var _0x1c92d5=_0xf0a9fb[_0x3da7a5(0x1a8)]||_0xf0a9fb[_0x3da7a5(0x237)]||_0x551265;chrome[_0x3da7a5(0x1e4)][_0x3da7a5(0x1ac)][_0x3da7a5(0x1fc)]({'ql_license_valid':!![],'ql_license_status':_0x3da7a5(0x229),'ql_plan':_0xf0a9fb[_0x3da7a5(0x20d)]||_0x3da7a5(0x1ad),'ql_expires_at':_0xf0a9fb[_0x3da7a5(0x1f4)]||null,'ql_user_name':_0xf0a9fb[_0x3da7a5(0x218)]||'','ql_license_key':_0x52acab,'ql_session_id':_0x1c92d5,'ql_support_url':_0xf0a9fb['support_url']||'','ql_support_telegram':_0xf0a9fb[_0x3da7a5(0x20f)]||'','ql_admin_message':_0xf0a9fb[_0x3da7a5(0x256)]||''});}else console[_0x3da7a5(0x23b)](_0x3da7a5(0x1bd),_0xf0a9fb&&_0xf0a9fb[_0x3da7a5(0x1f1)]||_0x3da7a5(0x1b8)),attemptAutoActivation(_0x52acab,_0x3af83d);})[_0x466e01(0x1d2)](function(_0x4f575d){var _0x3e1691=_0x466e01;console[_0x3e1691(0x23b)](_0x3e1691(0x245),_0x4f575d['message']||_0x4f575d),attemptAutoActivation(_0x52acab,_0x3af83d);})):logoutLicense();});var HEARTBEAT_INTERVAL_MS=0x5*0x3c*0x3e8;setInterval(function(){var _0x4bd8ed=_0x25b190;chrome[_0x4bd8ed(0x1e4)]['local'][_0x4bd8ed(0x1b9)]([_0x4bd8ed(0x1cd),'ql_hw_fingerprint',_0x4bd8ed(0x22e)],function(_0x1bf126){var _0x4ef1b1=_0x4bd8ed,_0x273498=_0x1bf126['ql_session_id']||'',_0x110b8f=_0x1bf126['ql_hw_fingerprint']||'',_0x45498d=_0x1bf126[_0x4ef1b1(0x22e)]||'';_0x273498?verifySessionWithServer(_0x273498,_0x110b8f)[_0x4ef1b1(0x22b)](function(_0x32791a){var _0x514370=_0x4ef1b1;if(_0x32791a&&_0x32791a[_0x514370(0x255)]){cachedLicenseStatus['ok']=!![],cachedLicenseStatus[_0x514370(0x20d)]=_0x32791a['plan']||_0x514370(0x1ad),cachedLicenseStatus['expiresAt']=_0x32791a[_0x514370(0x1f4)]||null,cachedLicenseStatus[_0x514370(0x1ef)]=_0x45498d,cachedLicenseStatus[_0x514370(0x224)]=_0x32791a[_0x514370(0x218)]||'',cachedLicenseStatus[_0x514370(0x1a9)]=_0x32791a[_0x514370(0x1f5)]||'',cachedLicenseStatus[_0x514370(0x1d8)]=_0x32791a[_0x514370(0x20f)]||'';var _0x1c012c=_0x32791a[_0x514370(0x1a8)]||_0x32791a[_0x514370(0x237)]||_0x273498;chrome['storage'][_0x514370(0x1ac)][_0x514370(0x1fc)]({'ql_license_valid':!![],'ql_license_status':'active','ql_plan':_0x32791a[_0x514370(0x20d)]||'pro','ql_expires_at':_0x32791a[_0x514370(0x1f4)]||null,'ql_user_name':_0x32791a[_0x514370(0x218)]||'','ql_license_key':_0x45498d,'ql_session_id':_0x1c012c,'ql_support_url':_0x32791a['support_url']||'','ql_support_telegram':_0x32791a[_0x514370(0x20f)]||'','ql_admin_message':_0x32791a[_0x514370(0x256)]||''});}else console[_0x514370(0x23b)](_0x514370(0x1eb)),attemptAutoActivation(_0x45498d,_0x110b8f);})[_0x4ef1b1(0x1d2)](function(_0x420ab1){var _0x116b80=_0x4ef1b1;console[_0x116b80(0x23b)](_0x116b80(0x210),_0x420ab1[_0x116b80(0x1f1)]||_0x420ab1),attemptAutoActivation(_0x45498d,_0x110b8f);}):logoutLicense();});},HEARTBEAT_INTERVAL_MS);function normalizeJwtToken(_0x39697d){var _0x3e345b=_0x25b190;return String(_0x39697d||'')[_0x3e345b(0x1d7)](/^Bearer\s+/i,'')[_0x3e345b(0x223)]();}function pickBestJwtToken(_0x85b8d1){var _0x3ded63=_0x25b190,_0x5b6d35='',_0x186016=0x0;return(_0x85b8d1||[])[_0x3ded63(0x20e)](function(_0x34f218){var _0x4e4435=_0x3ded63,_0x2d00a5=normalizeJwtToken(_0x34f218);if(!_0x2d00a5||_0x2d00a5['indexOf'](_0x4e4435(0x1f7))!==0x0||_0x2d00a5['split']('.')[_0x4e4435(0x226)]!==0x3)return;var _0x2a6c07=decodeJwtExpMs(_0x2d00a5);(!_0x5b6d35||_0x2a6c07>_0x186016)&&(_0x5b6d35=_0x2d00a5,_0x186016=_0x2a6c07);}),_0x5b6d35;}function extractJwtTokensFromCookies(_0x4ee0a6){var _0x1deecb=_0x25b190,_0x2c648b=[];return(_0x4ee0a6||[])[_0x1deecb(0x20e)](function(_0x28f787){var _0x4c8815=_0x1deecb;if(!_0x28f787||!_0x28f787[_0x4c8815(0x1d4)])return;var _0x2d6a2b=String(_0x28f787[_0x4c8815(0x1d4)])[_0x4c8815(0x1d7)](/^"|"$/g,'');_0x2d6a2b['indexOf'](_0x4c8815(0x1f7))===0x0&&_0x2d6a2b[_0x4c8815(0x1ed)]('.')[_0x4c8815(0x226)]===0x3&&_0x2c648b[_0x4c8815(0x1d3)](_0x2d6a2b);}),_0x2c648b;}function projectIdFromUrl(_0x423cff){var _0xaf2983=_0x25b190,_0x34733a=String(_0x423cff||'')[_0xaf2983(0x1f0)](/\/projects\/([0-9a-fA-F-]{36})/);return _0x34733a?_0x34733a[0x1]:'';}var LOVABLE_TAB_URLS=[_0x25b190(0x220),_0x25b190(0x1fd)];function findLovableProjectTab(_0xdd6092){var _0x144432=_0x25b190;chrome[_0x144432(0x1e4)]['local'][_0x144432(0x1b9)]([_0x144432(0x1df)],function(_0x452887){var _0x79cd1a=_0x144432,_0x38a950=_0x452887[_0x79cd1a(0x1df)]||'';chrome[_0x79cd1a(0x1ec)][_0x79cd1a(0x1b5)](function(_0x38c104){var _0x87b9e1=_0x79cd1a;chrome[_0x87b9e1(0x23e)][_0x87b9e1(0x1d6)]({'url':LOVABLE_TAB_URLS},function(_0xcf5975){var _0x2690b2=_0xcf5975||[],_0x4d692f=null,_0x58d2e4=null,_0x1fa7ad=null,_0x4ee9ba=null;_0x2690b2['forEach'](function(_0x27b0d2){var _0x459d15=_0x1aa0;if(!_0x27b0d2||!_0x27b0d2['url']||_0x27b0d2[_0x459d15(0x201)][_0x459d15(0x251)]('lovable.dev')===-0x1)return;if(!_0x4ee9ba)_0x4ee9ba=_0x27b0d2;var _0x4bb4ea=projectIdFromUrl(_0x27b0d2[_0x459d15(0x201)]);if(!_0x4bb4ea)return;if(!_0x1fa7ad)_0x1fa7ad=_0x27b0d2;if(_0x38a950&&_0x4bb4ea===_0x38a950)_0x58d2e4=_0x27b0d2;if(_0x38c104&&_0x27b0d2[_0x459d15(0x1e2)]===_0x38c104['id']&&_0x27b0d2[_0x459d15(0x229)])_0x4d692f=_0x27b0d2;}),_0xdd6092(_0x4d692f||_0x58d2e4||_0x1fa7ad||_0x4ee9ba||null);});});});}function tabPing(_0x1bebb5){return new Promise(function(_0x512e0a){var _0x5bca38=_0x1aa0;chrome[_0x5bca38(0x23e)][_0x5bca38(0x244)](_0x1bebb5,{'action':_0x5bca38(0x1a7)},function(_0xbd0424){var _0x530cc8=_0x5bca38;if(chrome['runtime'][_0x530cc8(0x232)])return _0x512e0a(![]);_0x512e0a(!!(_0xbd0424&&_0xbd0424['ok']));});});}var BRIDGE_INJECT_FILES=[_0x25b190(0x1b2),_0x25b190(0x22d),_0x25b190(0x1f9),_0x25b190(0x20a),'user-messages.js',_0x25b190(0x1e6)];function injectContentBridge(_0x4a73d4){var _0x1becf1=_0x25b190;return chrome[_0x1becf1(0x1a3)]['executeScript']({'target':{'tabId':_0x4a73d4},'files':BRIDGE_INJECT_FILES});}function sendPromptOnTab(_0x3cb994,_0x30aad0){return new Promise(function(_0x479cfb,_0x19ccb8){var _0xd5cefa=_0x1aa0;chrome[_0xd5cefa(0x23e)][_0xd5cefa(0x244)](_0x3cb994,{'action':_0xd5cefa(0x1de),'message':_0x30aad0},function(_0x3714b7){var _0x5b1167=_0xd5cefa;if(chrome[_0x5b1167(0x248)][_0x5b1167(0x232)])return _0x19ccb8(new Error(chrome[_0x5b1167(0x248)][_0x5b1167(0x232)][_0x5b1167(0x1f1)]));if(_0x3714b7&&_0x3714b7['ok'])return _0x479cfb(_0x3714b7);_0x19ccb8(new Error(_0x3714b7&&_0x3714b7[_0x5b1167(0x1c4)]||_0x5b1167(0x235)));});});}async function deliverPromptViaTab(_0x17a88d){var _0x4ceee9=_0x25b190,_0x328689=await new Promise(function(_0x2bed91){findLovableProjectTab(_0x2bed91);});if(!_0x328689||!_0x328689['id'])throw new Error(_0x4ceee9(0x1e8));if(!projectIdFromUrl(_0x328689[_0x4ceee9(0x201)])&&_0x328689[_0x4ceee9(0x201)][_0x4ceee9(0x251)]('lovable.dev')===-0x1)throw new Error(_0x4ceee9(0x23d));var _0x178b89=_0x328689['id'],_0x4c2fec=await tabPing(_0x178b89);if(!_0x4c2fec)try{await injectContentBridge(_0x178b89),await new Promise(function(_0xae786b){setTimeout(_0xae786b,0x96);});}catch(_0x120c44){throw new Error('Could\x20not\x20attach\x20to\x20the\x20Lovable\x20tab.\x20Refresh\x20the\x20project\x20page\x20and\x20try\x20again.');}try{return await sendPromptOnTab(_0x178b89,_0x17a88d);}catch(_0x256684){var _0xb65e16=_0x256684&&_0x256684[_0x4ceee9(0x1f1)]||'';if(_0xb65e16['indexOf'](_0x4ceee9(0x1f2))===-0x1&&_0xb65e16[_0x4ceee9(0x251)](_0x4ceee9(0x1c2))===-0x1)throw _0x256684;return await injectContentBridge(_0x178b89),await new Promise(function(_0x115bd2){setTimeout(_0x115bd2,0xc8);}),await sendPromptOnTab(_0x178b89,_0x17a88d);}}function collectLovableCookies(_0x3a6330){var _0x139d0c=_0x25b190,_0x3cd7d9=[_0x139d0c(0x204),_0x139d0c(0x1fb)],_0x14925a=[],_0x5b83b0=_0x3cd7d9[_0x139d0c(0x226)];if(!_0x5b83b0)return _0x3a6330(_0x14925a);_0x3cd7d9[_0x139d0c(0x20e)](function(_0x47a574){var _0x4f9e1e=_0x139d0c;chrome[_0x4f9e1e(0x1d9)][_0x4f9e1e(0x219)]({'domain':_0x47a574},function(_0x1a92b8){var _0xf3d34d=_0x4f9e1e;if(_0x1a92b8&&_0x1a92b8['length'])_0x14925a=_0x14925a[_0xf3d34d(0x1ab)](_0x1a92b8);_0x5b83b0-=0x1;if(_0x5b83b0===0x0)_0x3a6330(_0x14925a);});});}function syncLovableAuth(_0x20cfb6,_0x2bd614,_0x49bc0f){collectLovableCookies(function(_0x1b131f){var _0x24a326=_0x1aa0,_0x48d522=pickBestJwtToken(extractJwtTokensFromCookies(_0x1b131f)),_0x2e9f8a=projectIdFromUrl(_0x20cfb6)||_0x2bd614||'';chrome[_0x24a326(0x1e4)][_0x24a326(0x1ac)][_0x24a326(0x1b9)]([_0x24a326(0x217),_0x24a326(0x1df)],function(_0x7d5ef7){var _0x3359a6=_0x24a326,_0x5717b0=normalizeJwtToken(_0x7d5ef7['lovable_token']||''),_0x409e2b=_0x5717b0;_0x48d522&&decodeJwtExpMs(_0x48d522)>=decodeJwtExpMs(_0x5717b0)&&(_0x409e2b=_0x48d522);var _0x1c878b={};if(_0x409e2b)_0x1c878b[_0x3359a6(0x217)]=_0x409e2b;if(_0x2e9f8a)_0x1c878b['lovable_projectId']=_0x2e9f8a;else{if(_0x7d5ef7[_0x3359a6(0x1df)])_0x1c878b[_0x3359a6(0x1df)]=_0x7d5ef7[_0x3359a6(0x1df)];}var _0xd9ab5f=function(_0x4fd935){if(typeof _0x49bc0f==='function')_0x49bc0f(_0x4fd935);};if(!Object['keys'](_0x1c878b)[_0x3359a6(0x226)]){_0xd9ab5f({'ok':![],'token':_0x5717b0,'projectId':_0x7d5ef7[_0x3359a6(0x1df)]||''});return;}chrome[_0x3359a6(0x1e4)][_0x3359a6(0x1ac)][_0x3359a6(0x1fc)](_0x1c878b,function(){var _0x355fc7=_0x3359a6;_0xd9ab5f({'ok':!!_0x409e2b,'token':_0x1c878b[_0x355fc7(0x217)]||_0x5717b0,'projectId':_0x1c878b[_0x355fc7(0x1df)]||_0x7d5ef7[_0x355fc7(0x1df)]||'','fresh':decodeJwtExpMs(_0x1c878b['lovable_token']||_0x5717b0)>Date[_0x355fc7(0x1dd)]()+0x7530});});});});}function _0x2c8a(){var _0x57bbf7=['CwXFDxnLCL9Uyw1L','ntu4otHQANfAuha','C2vUze1LC3nHz2u','w0jHy2TNCM91BMrDifnLC3nPB24GDMvYAwzPy2f0Aw9UigzHAwXLzcbKDwuGDg8GBMv0D29YAYbLCNjVCJO','B3bLBLnPzgvqyw5LBa','w0jHy2TNCM91BMrDief1Dg8Tywn0AxzHDgLVBIbMywLSzwq6','CNvUDgLTzq','C3rYAw5N','CwXFDMfSAwrPDhLFBwLUDxrLCW','CgfYC2u','ANnVBG','w0jHy2TNCM91BMrDig9Wzw5tAwrLugfUzwWGzgvMzxjYzwq6','CwXFBgLJzw5Zzv92ywXPza','DgfIvxjS','C2vUzfbYB21WDfrVtg92ywjSzq','Aw5KzxHpzG','jMrLDMLJzv9Pzd0','w0jHy2TNCM91BMrDieXVDMfIBguGug93zxjRAxrZihnLCNzPy2uGD29YA2vYihn0yxj0zwq','yM9KEq','DMfSAwq','ywrTAw5FBwvZC2fNzq','C2nYAxb0Aw5N','ywn0AxzHDgvtAwrLyMfY','rMv0y2GGzMfPBgvKigLUigjHy2TNCM91BMq','ue9tva','CgLUzW','Dg9Rzw4','C3vWCg9YDfvYBa','Dg9ju09tDhjPBMC','y29Uy2f0','Bg9JywW','ChjV','ywn0Aw9U','DxnLCKfNzw50','mZi4nJuYngrstuHdEG','Ahr0Chm6lY9Zyw1IExbHC3nHAs52zxjJzwWUyxbWl2fWAs9SAwnLBNnLl3n0yxr1CZ90B2TLBJ0','C2vJDxjPDhKUANm','qvbjihjLDhvYBMvKia','Bg92ywjSzv9ICM93C2vYu2vZC2LVBKLK','z2v0q3vYCMvUDa','C3rHDhvZ','yNjVD3nLCLnLC3nPB25jza','Dw5RBM93BG','z2v0','qwn0AxzLihrHyIbUB3qGzM91BMqU','DMvYC2LVBG','w0jHy2TNCM91BMrDigfJDgLVBI5VBKnSAwnRzwqGC2LKzvbHBMvSigvYCM9YoG','w0jHy2TNCM91BMrDifnLC3nPB24GDg9Rzw4GAw52ywXPzcbVBIbZDgfYDhvWihzLCMLMAwnHDgLVBJO','ChjVEhLgzxrJAa','mJiWshPzDwzv','q2XPy2SGDgHLigv4DgvUC2LVBIbPy29UihrVig9Wzw4GDgHLihnPzguGCgfUzwWU','CwXFywrTAw5FBwvZC2fNzq','q291BgqGBM90igvZDgfIBgLZAcbJB25Uzwn0Aw9U','oerqD1zNrG','zxjYB3i','z2v0twfUAwzLC3q','ofPntKzsta','yxbWBgLJyxrPB24VANnVBG','CMvTB3zL','DgfI','Dgv4Da','Bg9N','zg93BMXVywrqCM9Qzwn0','CwXFC2vZC2LVBL9Pza','teLdru5trv9wrvjjrLK','CwXFC2LKzwjHCL9TB2rL','r0vu','BMfTzq','y2f0y2G','ChvZAa','DMfSDwu','AM9PBG','CxvLCNK','CMvWBgfJzq','C3vWCg9YDfrLBgvNCMfT','y29VA2LLCW','mZC0ntmXnhHtzg1nta','Bg92lNbVD2vYA2L0CY5Uzxq','ChjVAMvJDeLK','BM93','CwXtzw5KvMLHv3m','Bg92ywjSzv9WCM9Qzwn0swq','Ahr0Chm6lY9Zyw1IExbHC3nHAs52zxjJzwWUyxbWl2fWAs9SAwnLBNnLl2fJDgL2yxrL','zxHWAxjLC0f0','D2LUzg93swq','tgLJzw5Zzsb2zxjPzMLJyxrPB24GzMfPBgvKlG','C3rVCMfNzq','Ag9ZDg5HBwu','y29UDgvUDc1ICMLKz2uUANm','zgv2AwnLswq','t3bLBIb5B3vYieXVDMfIBguGChjVAMvJDcbVBIbSB3zHyMXLlMrLDIaOChjVAMvJDcbvuKWPlcb0AgvUihrYEsbHz2fPBI4','zw5KC1DPDgG','zMLSzxm','w0jHy2TNCM91BMrDieHLyxj0yMvHDcb2zxjPzNKGzMfPBgvKlIbbDhrLBxb0Aw5Nigf1Dg8Tywn0AxzHDgLVBI4','D2LUzg93CW','C3bSAxq','C3rYAw5NAwz5','BgLJzw5ZzuTLEq','Bwf0y2G','BwvZC2fNzq','uMvJzwL2Aw5NigvUza','CwXFAhDFzMLUz2vYChjPBNq','zxHWAxjLC19HDa','C3vWCg9YDf91CMW','teLdru5trv9tvefuvvm','zxLk','B25tDgfYDhvW','AhDgAw5NzxjWCMLUDc5QCW','tgLJzw5Zzsb2zxjPzMLJyxrPB24GzMfPBgvKlIbqBgvHC2uGywn0AxzHDguGEw91CIbSAwnLBNnLlG','lMXVDMfIBguUzgv2','C2v0','kJOVlYOUBg92ywjSzs5KzxyVkG','CwXFywn0AxzHDgvKx2f0','w0jHy2TNCM91BMrDieXPy2vUC2uGBg9Nz2vKig91DcbHBMqGC3rVCMfNzsbJBgvHCMvKlG','w0jHy2TNCM91BMrDihnPzgvqyw5LBc5VCgvUigrLzMvYCMvKoG','DxjS','mtfTvhrTEva','C2nHBI0','Bg92ywjSzs5Kzxy','C3vJy2vZCW','ywrKtgLZDgvUzxi','A2v5CW','CwXFzxHWAxjLC19HDa','z2v0vgLTzq','BgLJzw5Zzs1NDwfYzc5QCW','zxHW','y29TCgXLDgu','CgXHBG','zM9YrwfJAa','C3vWCg9YDf90zwXLz3jHBq','w0jHy2TNCM91BMrDieHLyxj0yMvHDcbJAgvJAYbMywLSzwqGzhvLihrVig5LDhDVCMSGzxjYB3i6','DMvYy2vSlMfWCa','odi0mZe5v0zKDKje','rg93BMXVywqGzMfPBgvK','l3nVDxjJzs1JB2rL','sw52ywXPzcbSAwnLBNnLigTLEs4','CwXFC3vWCg9YDf91CMW','Bg92ywjSzv90B2TLBG','DxnLCL9Uyw1L','z2v0qwXS','C2v0t3b0Aw9UCW','teLdru5trv9mt0Dpvvq','C2LKzvbHBMvS','BwfW','nJe5mMvStgndrG','CMvHzenVB2TPzxm','kJOVl2XVDMfIBguUzgv2lYO','nxnvAuf0Dq','mZK3ntuWyM1WtvHf','DhjPBq','DxnLCK5HBwu','z2v0tg92ywjSzunVB2TPzxm','BgvUz3rO','Bg92ywjSzvn5BMm','w0jHy2TNCM91BMrDief1Dg8Tywn0AxzHDgLVBIbZDwnJzxnZzNvSlG','ywn0AxzL','B25nzxnZywDL','DgHLBG','rM9YyMLKzgvUoIbezxn0Aw5HDgLVBIbKB21HAw4GAxmGBM90igf1DgHVCML6zwqU','zxH0zw5ZAw9UlwnVBMzPzY5QCW','CwXFBgLJzw5Zzv9RzxK','w0jHy2TNCM91BMrDihnPzgvqyw5LBc5ZzxrpChrPB25ZoG','CwXFC3vWCg9YDf90zwXLz3jHBq','mZe1odG5qMjXrw5S','BgfZDevYCM9Y','tM8GDgfIignVBNrLEhq','CMvXDwvZDfrVA2vUuMvMCMvZAa','u2vUzcbMywLSzwq','B25jBNn0ywXSzwq','C2vZC2LVBL9Pza','C2LKzxbHBMvSlMH0BwW','teLdru5trv9srvfvsvjfx1zbteLe','B25dAgfUz2vK','D2fYBG','w0jHy2TNCM91BMrDihnPzgvqyw5LBc5Zzxrqyw5LBejLAgf2Aw9YoG','t3bLBIbHigXVDMfIBguUzgv2ihbYB2PLy3qGDgfIigfUzcbYzwzYzxnOigL0igfMDgvYihvWzgf0Aw5NihrOzsbLEhrLBNnPB24U','DgfICW','Ahr0Chm6lY9SB3zHyMXLlwfWAs5JB20VChjVAMvJDhmV','Bwv0Ag9K','CMvWzwf0'];_0x2c8a=function(){return _0x57bbf7;};return _0x2c8a();}chrome[_0x25b190(0x23e)]['onUpdated']['addListener'](function(_0x3ad358,_0x2320c7,_0x18891a){var _0x26c890=_0x25b190;if(_0x2320c7[_0x26c890(0x1b6)]!==_0x26c890(0x20c)||!_0x18891a||!_0x18891a[_0x26c890(0x201)])return;if(_0x18891a['url'][_0x26c890(0x251)]('lovable.dev')===-0x1)return;syncLovableAuth(_0x18891a[_0x26c890(0x201)],'',function(){var _0x17f8f0=_0x26c890;try{chrome[_0x17f8f0(0x23e)][_0x17f8f0(0x244)](_0x3ad358,{'action':_0x17f8f0(0x234)},function(){});}catch(_0xd6221){}});});async function enableActionSidePanel(){var _0x2e78a5=_0x25b190;try{await chrome[_0x2e78a5(0x21c)][_0x2e78a5(0x21a)]({'path':_0x2e78a5(0x238),'enabled':!![]});}catch(_0x1b9c84){console[_0x2e78a5(0x23b)](_0x2e78a5(0x22f),_0x1b9c84&&_0x1b9c84[_0x2e78a5(0x1f1)]?_0x1b9c84[_0x2e78a5(0x1f1)]:_0x1b9c84);}try{await chrome[_0x2e78a5(0x21c)]['setPanelBehavior']({'openPanelOnActionClick':!![]});}catch(_0x2f318c){console[_0x2e78a5(0x23b)](_0x2e78a5(0x23c),_0x2f318c&&_0x2f318c[_0x2e78a5(0x1f1)]?_0x2f318c[_0x2e78a5(0x1f1)]:_0x2f318c);}}async function openPowerkitsSidePanel(_0x3b261f){var _0x36459a=_0x25b190;await enableActionSidePanel();if(!_0x3b261f||!_0x3b261f['id'])throw new Error(_0x36459a(0x1ba));return await chrome[_0x36459a(0x21c)]['open']({'tabId':_0x3b261f['id']}),await chrome['storage'][_0x36459a(0x1ac)][_0x36459a(0x1fc)]({'ql_sidebar_mode':!![]}),{'ok':!![]};}enableActionSidePanel(),chrome[_0x25b190(0x1e4)][_0x25b190(0x1ac)][_0x25b190(0x1fc)]({'ql_sidebar_mode':!![],'ql_bypass_disabled':![]}),chrome[_0x25b190(0x248)][_0x25b190(0x236)]['addListener'](()=>{var _0x32e20b=_0x25b190;chrome[_0x32e20b(0x1e4)][_0x32e20b(0x1ac)][_0x32e20b(0x1fc)]({'ql_sidebar_mode':!![],'ql_bypass_disabled':![]}),enableActionSidePanel();}),chrome[_0x25b190(0x248)][_0x25b190(0x1f8)]['addListener'](()=>{enableActionSidePanel();}),chrome[_0x25b190(0x1e4)]['local'][_0x25b190(0x1b9)]([_0x25b190(0x1cf)],_0x1c5331=>{var _0x3404ff=_0x25b190;_0x1c5331[_0x3404ff(0x1cf)]!==!![]&&chrome['storage'][_0x3404ff(0x1ac)][_0x3404ff(0x1fc)]({'ql_sidebar_mode':!![]}),enableActionSidePanel();}),chrome[_0x25b190(0x1e4)][_0x25b190(0x23a)]['addListener']((_0x3f32b6,_0x18b625)=>{var _0x45c331=_0x25b190;_0x18b625===_0x45c331(0x1ac)&&_0x3f32b6['ql_sidebar_mode']&&enableActionSidePanel();}),chrome[_0x25b190(0x1ae)]['onClicked'][_0x25b190(0x206)](async _0x374d5e=>{var _0x8e276=_0x25b190;try{await openPowerkitsSidePanel(_0x374d5e);}catch(_0x59e1f8){console[_0x8e276(0x1c4)](_0x8e276(0x1bc),_0x59e1f8);}});function isAllowedProxyUrl(_0x43dfde){var _0x43b4ad=_0x25b190;try{var _0x3110ae=new URL(_0x43dfde),_0x2eccda=String(_0x3110ae[_0x43b4ad(0x1e5)]||'')['toLowerCase'](),_0x50586e=[_0x43b4ad(0x211),'vercel-api-lac-kappa.vercel.app','lovable-powerkits-644-license-server.vercel.app',_0x43b4ad(0x1db),_0x43b4ad(0x204),'sambypassai.vercel.app'];for(var _0x322670=0x0;_0x322670<_0x50586e['length'];_0x322670++){var _0x489c5e=_0x50586e[_0x322670];if(_0x2eccda===_0x489c5e||_0x2eccda[_0x43b4ad(0x1e9)]('.'+_0x489c5e))return!![];}return![];}catch(_0x1f14e7){return![];}}chrome[_0x25b190(0x248)][_0x25b190(0x22a)][_0x25b190(0x206)]((_0x2470fa,_0x548954,_0x86d121)=>{var _0x3d2ba8=_0x25b190;if(_0x2470fa&&_0x2470fa[_0x3d2ba8(0x1ae)]===_0x3d2ba8(0x227))return chrome[_0x3d2ba8(0x1e4)][_0x3d2ba8(0x1ac)][_0x3d2ba8(0x1b9)]([_0x3d2ba8(0x217),_0x3d2ba8(0x1df)],function(_0xf15e7e){var _0x2fc0eb=_0x3d2ba8;const _0x5eff1a={};if(_0x2470fa['token']){var _0x57d79d=normalizeJwtToken(_0x2470fa[_0x2fc0eb(0x1a8)]),_0x584e78=normalizeJwtToken(_0xf15e7e[_0x2fc0eb(0x217)]||'');_0x57d79d&&(!_0x584e78||decodeJwtExpMs(_0x57d79d)>=decodeJwtExpMs(_0x584e78)-0x1388)&&(_0x5eff1a[_0x2fc0eb(0x217)]=_0x57d79d);}if(_0x2470fa[_0x2fc0eb(0x1dc)])_0x5eff1a[_0x2fc0eb(0x1df)]=_0x2470fa[_0x2fc0eb(0x1dc)];if(_0x2470fa[_0x2fc0eb(0x1b7)])_0x5eff1a[_0x2fc0eb(0x1b4)]=String(_0x2470fa[_0x2fc0eb(0x1b7)])[_0x2fc0eb(0x223)]();Object[_0x2fc0eb(0x207)](_0x5eff1a)[_0x2fc0eb(0x226)]&&chrome[_0x2fc0eb(0x1e4)][_0x2fc0eb(0x1ac)][_0x2fc0eb(0x1fc)](_0x5eff1a,function(){});}),![];if(_0x2470fa&&_0x2470fa['action']===_0x3d2ba8(0x1a4))return enableActionSidePanel(),_0x548954['tab']&&_0x548954[_0x3d2ba8(0x1c9)]['id']?openPowerkitsSidePanel(_0x548954[_0x3d2ba8(0x1c9)])[_0x3d2ba8(0x22b)](()=>{_0x86d121({'ok':!![]});})[_0x3d2ba8(0x1d2)](_0x838280=>{var _0x53b045=_0x3d2ba8;console[_0x53b045(0x23b)](_0x53b045(0x200),_0x838280['message']),_0x86d121({'ok':![],'deferred':!![],'message':_0x53b045(0x1c0)});}):_0x86d121({'ok':![],'deferred':!![],'message':_0x3d2ba8(0x1c0)}),!![];if(_0x2470fa&&_0x2470fa[_0x3d2ba8(0x1ae)]==='deactivateSidebar')return _0x86d121({'ok':!![]}),![];if(_0x2470fa&&_0x2470fa[_0x3d2ba8(0x1ae)]===_0x3d2ba8(0x246))return _0x548954[_0x3d2ba8(0x1c9)]&&_0x548954['tab']['id']?openPowerkitsSidePanel(_0x548954[_0x3d2ba8(0x1c9)])['then'](()=>{_0x86d121({'ok':!![]});})[_0x3d2ba8(0x1d2)](_0xb9fda8=>{var _0xcb7510=_0x3d2ba8;console[_0xcb7510(0x23b)](_0xcb7510(0x24d),_0xb9fda8[_0xcb7510(0x1f1)]),_0x86d121({'ok':![],'error':_0xb9fda8[_0xcb7510(0x1f1)]});}):_0x86d121({'ok':![],'error':_0x3d2ba8(0x233)}),!![];if(_0x2470fa&&_0x2470fa[_0x3d2ba8(0x1ae)]==='LICENSE_ACTIVATE')return(async function(){var _0x3caf4c=_0x3d2ba8;try{var _0x2d1a32=_0x2470fa[_0x3caf4c(0x1ef)]||'',_0x470a68=_0x2470fa[_0x3caf4c(0x1e7)]||'',_0x50822f=chrome['runtime'][_0x3caf4c(0x1c5)]()[_0x3caf4c(0x1bb)],_0x5ab207=await fetch('https://sambypassai.vercel.app/api/license/activate',{'method':'POST','headers':{'Content-Type':_0x3caf4c(0x1c7)},'body':JSON['stringify']({'license_key':_0x2d1a32,'device_id':_0x470a68,'version':_0x50822f,'metadata':{'userAgent':navigator['userAgent'],'timestamp':new Date()[_0x3caf4c(0x1aa)]()}})}),_0x4c55d8=await _0x5ab207[_0x3caf4c(0x24c)]();if(_0x4c55d8&&_0x4c55d8[_0x3caf4c(0x205)]&&_0x4c55d8[_0x3caf4c(0x255)]){var _0x35c6ad=_0x4c55d8[_0x3caf4c(0x1a8)]||_0x4c55d8[_0x3caf4c(0x237)]||'';cachedLicenseStatus['ok']=!![],cachedLicenseStatus[_0x3caf4c(0x20d)]=_0x4c55d8[_0x3caf4c(0x20d)]||_0x3caf4c(0x1ad),cachedLicenseStatus[_0x3caf4c(0x1e1)]=_0x4c55d8[_0x3caf4c(0x1f4)]||null,cachedLicenseStatus[_0x3caf4c(0x1ef)]=_0x2d1a32,cachedLicenseStatus[_0x3caf4c(0x224)]=_0x4c55d8['user_name']||'',cachedLicenseStatus[_0x3caf4c(0x1a9)]=_0x4c55d8['support_url']||'',cachedLicenseStatus[_0x3caf4c(0x1d8)]=_0x4c55d8['support_telegram']||'',chrome[_0x3caf4c(0x1e4)][_0x3caf4c(0x1ac)]['set']({'ql_license_valid':!![],'ql_license_key':_0x2d1a32,'ql_session_id':_0x35c6ad,'ql_user_name':_0x4c55d8['user_name']||'','ql_expires_at':_0x4c55d8[_0x3caf4c(0x1f4)]||null,'ql_license_status':_0x3caf4c(0x229),'ql_support_url':_0x4c55d8[_0x3caf4c(0x1f5)]||'','ql_support_telegram':_0x4c55d8['support_telegram']||'','ql_admin_message':_0x4c55d8[_0x3caf4c(0x256)]||''},function(){_0x86d121({'ok':!![],'data':_0x4c55d8});});}else logoutLicense(),_0x86d121({'ok':![],'message':_0x4c55d8&&_0x4c55d8[_0x3caf4c(0x1f1)]||_0x3caf4c(0x215)});}catch(_0x83dee0){logoutLicense(),_0x86d121({'ok':![],'message':_0x83dee0[_0x3caf4c(0x1f1)]||'Activation\x20request\x20failed.'});}}()),!![];if(_0x2470fa&&(_0x2470fa[_0x3d2ba8(0x1ae)]===_0x3d2ba8(0x1f6)||_0x2470fa[_0x3d2ba8(0x1ae)]===_0x3d2ba8(0x1ce)))return _0x86d121(cachedLicenseStatus),![];if(_0x2470fa&&_0x2470fa[_0x3d2ba8(0x1ae)]===_0x3d2ba8(0x21b))return logoutLicense(),_0x86d121({'ok':!![]}),![];if(_0x2470fa&&_0x2470fa[_0x3d2ba8(0x1ae)]===_0x3d2ba8(0x239))return cachedLicenseStatus['ok']?_0x86d121({'ok':!![]}):chrome[_0x3d2ba8(0x1e4)][_0x3d2ba8(0x1ac)][_0x3d2ba8(0x1b9)]([_0x3d2ba8(0x1cd),_0x3d2ba8(0x1f3),_0x3d2ba8(0x22e)],function(_0x24bdb5){var _0x39ccee=_0x3d2ba8,_0x49e9fc=_0x24bdb5[_0x39ccee(0x1cd)]||'',_0xb13aed=_0x24bdb5[_0x39ccee(0x1f3)]||'',_0x1cbf5a=_0x24bdb5[_0x39ccee(0x22e)]||'';if(_0x49e9fc)verifySessionWithServer(_0x49e9fc,_0xb13aed)['then'](function(_0x33d3dd){var _0x2050f6=_0x39ccee;if(_0x33d3dd&&_0x33d3dd['valid']){cachedLicenseStatus['ok']=!![],cachedLicenseStatus[_0x2050f6(0x20d)]=_0x33d3dd['plan']||_0x2050f6(0x1ad),cachedLicenseStatus[_0x2050f6(0x1e1)]=_0x33d3dd['expires_at']||null,cachedLicenseStatus[_0x2050f6(0x1ef)]=_0x1cbf5a,cachedLicenseStatus['userName']=_0x33d3dd[_0x2050f6(0x218)]||'',cachedLicenseStatus[_0x2050f6(0x1a9)]=_0x33d3dd[_0x2050f6(0x1f5)]||'',cachedLicenseStatus[_0x2050f6(0x1d8)]=_0x33d3dd[_0x2050f6(0x20f)]||'';var _0x2dee6e=_0x33d3dd[_0x2050f6(0x1a8)]||_0x33d3dd[_0x2050f6(0x237)]||_0x49e9fc;chrome['storage'][_0x2050f6(0x1ac)][_0x2050f6(0x1fc)]({'ql_license_valid':!![],'ql_license_status':'active','ql_plan':_0x33d3dd[_0x2050f6(0x20d)]||_0x2050f6(0x1ad),'ql_expires_at':_0x33d3dd['expires_at']||null,'ql_user_name':_0x33d3dd[_0x2050f6(0x218)]||'','ql_license_key':_0x1cbf5a,'ql_session_id':_0x2dee6e,'ql_support_url':_0x33d3dd[_0x2050f6(0x1f5)]||'','ql_support_telegram':_0x33d3dd[_0x2050f6(0x20f)]||'','ql_admin_message':_0x33d3dd[_0x2050f6(0x256)]||''}),_0x86d121({'ok':!![]});}else attemptAutoActivation(_0x1cbf5a,_0xb13aed)[_0x2050f6(0x22b)](function(_0x11606e){_0x86d121({'ok':_0x11606e});});})[_0x39ccee(0x1d2)](function(){var _0x283b53=_0x39ccee;attemptAutoActivation(_0x1cbf5a,_0xb13aed)[_0x283b53(0x22b)](function(_0x28411c){_0x86d121({'ok':_0x28411c});});});else _0x1cbf5a?attemptAutoActivation(_0x1cbf5a,_0xb13aed)[_0x39ccee(0x22b)](function(_0x2cee8b){_0x86d121({'ok':_0x2cee8b});}):(logoutLicense(),_0x86d121({'ok':![],'message':_0x39ccee(0x1fa)}));}),!![];if(_0x2470fa&&_0x2470fa[_0x3d2ba8(0x1ae)]===_0x3d2ba8(0x1be)){if(!cachedLicenseStatus['ok'])return _0x86d121({'ok':![],'status':0x193,'data':{'error':_0x3d2ba8(0x1fa)}}),![];return((async()=>{var _0x4b2c9e=_0x3d2ba8;try{if(!isAllowedProxyUrl(_0x2470fa[_0x4b2c9e(0x201)])){console[_0x4b2c9e(0x23b)]('[Background]\x20Blocked\x20proxyFetch\x20to\x20unauthorized\x20domain:',_0x2470fa[_0x4b2c9e(0x201)]),_0x86d121({'ok':![],'status':0x193,'data':{'error':_0x4b2c9e(0x22c)}});return;}var _0x298670={'method':_0x2470fa[_0x4b2c9e(0x240)]||_0x4b2c9e(0x1a6),'headers':_0x2470fa['headers']||{}};if(_0x2470fa[_0x4b2c9e(0x254)])_0x298670[_0x4b2c9e(0x254)]=_0x2470fa['body'];var _0x30d719=await fetch(_0x2470fa[_0x4b2c9e(0x201)],_0x298670),_0x28c822=await _0x30d719[_0x4b2c9e(0x1ca)](),_0x53a2a4;try{_0x53a2a4=JSON[_0x4b2c9e(0x24b)](_0x28c822);}catch(_0x4ddcee){_0x53a2a4={'raw':_0x28c822};}_0x86d121({'ok':_0x30d719['ok'],'status':_0x30d719[_0x4b2c9e(0x1b6)],'data':_0x53a2a4});}catch(_0x187caf){_0x86d121({'ok':![],'status':0x0,'data':{'error':_0x187caf['message']||_0x4b2c9e(0x1a5)}});}})()),!![];}if(_0x2470fa&&_0x2470fa['action']===_0x3d2ba8(0x21f)){if(!cachedLicenseStatus['ok'])return _0x86d121({'success':![],'error':_0x3d2ba8(0x1e3)}),![];return collectLovableCookies(function(_0x1db29c){var _0x4aac3c=_0x3d2ba8,_0x5b4ba8=extractJwtTokensFromCookies(_0x1db29c),_0x515dfe=_0x5b4ba8[_0x4aac3c(0x21d)](function(_0x1dbbf9,_0x44604e){var _0x3e417c=_0x4aac3c;return{'token':_0x1dbbf9,'cookieName':_0x3e417c(0x203)+_0x44604e,'httpOnly':![]};});_0x86d121({'success':_0x515dfe['length']>0x0,'tokens':_0x515dfe});}),!![];}if(_0x2470fa&&_0x2470fa[_0x3d2ba8(0x1ae)]==='syncLovableAuth'){if(!cachedLicenseStatus['ok'])return _0x86d121({'ok':![],'error':_0x3d2ba8(0x1e3)}),![];return syncLovableAuth(_0x2470fa[_0x3d2ba8(0x24f)]||'',_0x2470fa[_0x3d2ba8(0x1dc)]||'',function(_0x4320c6){_0x86d121(_0x4320c6||{'ok':![]});}),!![];}if(_0x2470fa&&_0x2470fa['action']===_0x3d2ba8(0x225)){if(!cachedLicenseStatus['ok'])return _0x86d121({'ok':![],'error':_0x3d2ba8(0x1e3)}),![];return chrome[_0x3d2ba8(0x1d9)][_0x3d2ba8(0x219)]({'domain':_0x3d2ba8(0x204)},function(_0x120b7c){var _0x47feed=_0x3d2ba8,_0x1dfc1e=[];if(_0x120b7c&&_0x120b7c[_0x47feed(0x226)])for(var _0xaaf4e=0x0;_0xaaf4e<_0x120b7c[_0x47feed(0x226)];_0xaaf4e++){var _0x5ec12d=_0x120b7c[_0xaaf4e];_0x5ec12d&&_0x5ec12d[_0x47feed(0x1d1)]&&typeof _0x5ec12d[_0x47feed(0x1d4)]===_0x47feed(0x249)&&_0x1dfc1e[_0x47feed(0x1d3)](_0x5ec12d[_0x47feed(0x1d1)]+'='+_0x5ec12d[_0x47feed(0x1d4)]);}_0x86d121({'ok':!![],'cookie':_0x1dfc1e[_0x47feed(0x1d5)](';\x20')});}),!![];}if(_0x2470fa&&_0x2470fa['action']===_0x3d2ba8(0x250)){if(!cachedLicenseStatus['ok'])return _0x86d121({'ok':![],'error':_0x3d2ba8(0x1fa)}),![];return(async function(){var _0x57349c=_0x3d2ba8;try{await deliverPromptViaTab(_0x2470fa[_0x57349c(0x1f1)]||''),_0x86d121({'ok':!![]});}catch(_0xe5590e){_0x86d121({'ok':![],'error':_0xe5590e[_0x57349c(0x1f1)]||_0x57349c(0x235)});}}()),!![];}if(_0x2470fa&&_0x2470fa['action']===_0x3d2ba8(0x1cc)){if(!cachedLicenseStatus['ok'])return _0x86d121({'success':![],'error':_0x3d2ba8(0x1e3)}),![];return(async function(){var _0x50f741=_0x3d2ba8;try{var _0x51d6e1=_0x50f741(0x23f)+_0x2470fa[_0x50f741(0x1dc)]+_0x50f741(0x214),_0x4ef510=await fetch(_0x51d6e1,{'method':_0x50f741(0x1d0),'headers':{'Authorization':'Bearer\x20'+_0x2470fa[_0x50f741(0x1a8)],'Accept':'application/json'}});if(!_0x4ef510['ok']){_0x86d121({'success':![],'error':_0x50f741(0x1b3)+_0x4ef510[_0x50f741(0x1b6)]});return;}var _0x58b7af=await _0x4ef510['json']();_0x86d121({'success':!![],'files':_0x58b7af[_0x50f741(0x1ea)]||[]});}catch(_0x237d1e){_0x86d121({'success':![],'error':_0x237d1e['message']||_0x50f741(0x213)});}}()),!![];}});
+console.log("[Background] Lovable Powerkits service worker started");
+
+// --- Secure License Authority State & Handlers ---
+var cachedLicenseStatus = {
+  ok: false,
+  plan: "",
+  expiresAt: null,
+  licenseKey: "",
+  userName: "",
+  supportUrl: "",
+  supportTelegram: ""
+};
+
+function decodeJwtExpMs(token) {
+  try {
+    var parts = String(token || "").replace(/^Bearer\s+/i, "").trim().split(".");
+    if (parts.length < 2) return 0;
+    var b64 = parts[1].replace(/-/g, "+").replace(/_/g, "/");
+    var padded = b64 + "=".repeat((4 - (b64.length % 4)) % 4);
+    var json = JSON.parse(atob(padded));
+    return json.exp ? json.exp * 1000 : 0;
+  } catch (e) {
+    return 0;
+  }
+}
+
+function logoutLicense() {
+  cachedLicenseStatus.ok = false;
+  cachedLicenseStatus.plan = "";
+  cachedLicenseStatus.expiresAt = null;
+  cachedLicenseStatus.licenseKey = "";
+  cachedLicenseStatus.userName = "";
+  cachedLicenseStatus.supportUrl = "";
+  cachedLicenseStatus.supportTelegram = "";
+  
+  chrome.storage.local.remove([
+    "ql_license_valid",
+    "ql_license_key",
+    "ql_session_id",
+    "ql_user_name",
+    "ql_expires_at",
+    "ql_activated_at",
+    "ql_license_status",
+    "ql_validity_minutes",
+    "ql_support_url",
+    "ql_support_telegram",
+    "ql_admin_message"
+  ], function() {
+    console.log("[Background] License logged out and storage cleared.");
+  });
+}
+
+async function verifySessionWithServer(token, deviceId) {
+  if (!token) return { success: false, valid: false };
+  try {
+    var apiUrl = "https://sambypassai.vercel.app/api/license/status?token=" + encodeURIComponent(token) + "&device_id=" + encodeURIComponent(deviceId);
+    var resp = await fetch(apiUrl, { method: "GET" });
+    if (!resp.ok) return { success: false, valid: false };
+    var data = await resp.json();
+    return data;
+  } catch (e) {
+    console.error("[Background] verifySessionWithServer error:", e);
+    // Allow a temporary offline grace period if the license itself has not expired
+    var exp = cachedLicenseStatus.expiresAt;
+    if (exp === null || exp === undefined || exp === "" || new Date(exp).getTime() > Date.now()) {
+      return { 
+        success: true, 
+        valid: true, 
+        plan: cachedLicenseStatus.plan || "pro", 
+        expires_at: exp || null,
+        user_name: cachedLicenseStatus.userName || "",
+        support_url: cachedLicenseStatus.supportUrl || "",
+        support_telegram: cachedLicenseStatus.supportTelegram || ""
+      };
+    }
+    return { success: false, valid: false, error: e.message };
+  }
+}
+
+async function attemptAutoActivation(licenseKey, deviceId) {
+  if (!licenseKey || !deviceId) {
+    logoutLicense();
+    return false;
+  }
+  try {
+    var version = chrome.runtime.getManifest().version;
+    var resp = await fetch("https://sambypassai.vercel.app/api/license/activate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        license_key: licenseKey,
+        device_id: deviceId,
+        version: version,
+        metadata: {
+          userAgent: navigator.userAgent,
+          timestamp: new Date().toISOString()
+        }
+      })
+    });
+    var data = await resp.json();
+    if (data && data.success && data.valid) {
+      var token = data.token || data.session_id || "";
+      cachedLicenseStatus.ok = true;
+      cachedLicenseStatus.plan = data.plan || "pro";
+      cachedLicenseStatus.expiresAt = data.expires_at || null;
+      cachedLicenseStatus.licenseKey = licenseKey;
+      cachedLicenseStatus.userName = data.user_name || "";
+      cachedLicenseStatus.supportUrl = data.support_url || "";
+      cachedLicenseStatus.supportTelegram = data.support_telegram || "";
+      
+      await chrome.storage.local.set({
+        ql_license_valid: true,
+        ql_license_key: licenseKey,
+        ql_session_id: token,
+        ql_user_name: data.user_name || "",
+        ql_expires_at: data.expires_at || null,
+        ql_license_status: "active",
+        ql_support_url: data.support_url || "",
+        ql_support_telegram: data.support_telegram || "",
+        ql_admin_message: data.admin_message || ""
+      });
+      console.log("[Background] Auto-activation successful.");
+      return true;
+    } else {
+      console.warn("[Background] Auto-activation failed:", (data && data.message) || "unknown");
+      logoutLicense();
+      return false;
+    }
+  } catch (err) {
+    console.error("[Background] Auto-activation error:", err);
+    // Offline or network error - don't logout if the license is not expired locally
+    var exp = cachedLicenseStatus.expiresAt;
+    if (exp && new Date(exp).getTime() < Date.now()) {
+      logoutLicense();
+      return false;
+    }
+    return true; // Keep session active since we are offline but license is not expired
+  }
+}
+
+// Perform initial validation on startup
+chrome.storage.local.get(["ql_session_id", "ql_hw_fingerprint", "ql_license_key", "ql_user_name", "ql_expires_at", "ql_support_url", "ql_support_telegram", "ql_admin_message"], function (res) {
+  var token = res.ql_session_id || "";
+  var deviceId = res.ql_hw_fingerprint || "";
+  var licenseKey = res.ql_license_key || "";
+  
+  if (token) {
+    // Populate cache immediately so UI opens in licensed state on reload/refresh
+    cachedLicenseStatus.ok = true;
+    cachedLicenseStatus.plan = "pro";
+    cachedLicenseStatus.expiresAt = res.ql_expires_at || null;
+    cachedLicenseStatus.licenseKey = licenseKey;
+    cachedLicenseStatus.userName = res.ql_user_name || "";
+    cachedLicenseStatus.supportUrl = res.ql_support_url || "";
+    cachedLicenseStatus.supportTelegram = res.ql_support_telegram || "";
+
+    verifySessionWithServer(token, deviceId).then(function (data) {
+      if (data && data.valid) {
+        cachedLicenseStatus.ok = true;
+        cachedLicenseStatus.plan = data.plan || "pro";
+        cachedLicenseStatus.expiresAt = data.expires_at || null;
+        cachedLicenseStatus.licenseKey = licenseKey;
+        cachedLicenseStatus.userName = data.user_name || "";
+        cachedLicenseStatus.supportUrl = data.support_url || "";
+        cachedLicenseStatus.supportTelegram = data.support_telegram || "";
+        
+        var newToken = data.token || data.session_id || token;
+
+        chrome.storage.local.set({
+          ql_license_valid: true,
+          ql_license_status: "active",
+          ql_plan: data.plan || "pro",
+          ql_expires_at: data.expires_at || null,
+          ql_user_name: data.user_name || "",
+          ql_license_key: licenseKey,
+          ql_session_id: newToken,
+          ql_support_url: data.support_url || "",
+          ql_support_telegram: data.support_telegram || "",
+          ql_admin_message: data.admin_message || ""
+        });
+      } else {
+        console.warn("[Background] Session token invalid on startup verification:", (data && data.message) || "unknown");
+        attemptAutoActivation(licenseKey, deviceId);
+      }
+    }).catch(function(err) {
+      console.warn("[Background] Session verification failed due to network error:", err.message || err);
+      attemptAutoActivation(licenseKey, deviceId);
+    });
+  } else {
+    logoutLicense();
+  }
+});
+
+// Periodic heartbeat verify checks (every 5 minutes)
+var HEARTBEAT_INTERVAL_MS = 5 * 60 * 1000;
+setInterval(function () {
+  chrome.storage.local.get(["ql_session_id", "ql_hw_fingerprint", "ql_license_key"], function (res) {
+    var token = res.ql_session_id || "";
+    var deviceId = res.ql_hw_fingerprint || "";
+    var licenseKey = res.ql_license_key || "";
+    if (token) {
+      verifySessionWithServer(token, deviceId).then(function (data) {
+        if (data && data.valid) {
+          cachedLicenseStatus.ok = true;
+          cachedLicenseStatus.plan = data.plan || "pro";
+          cachedLicenseStatus.expiresAt = data.expires_at || null;
+          cachedLicenseStatus.licenseKey = licenseKey;
+          cachedLicenseStatus.userName = data.user_name || "";
+          cachedLicenseStatus.supportUrl = data.support_url || "";
+          cachedLicenseStatus.supportTelegram = data.support_telegram || "";
+          
+          var newToken = data.token || data.session_id || token;
+
+          chrome.storage.local.set({
+            ql_license_valid: true,
+            ql_license_status: "active",
+            ql_plan: data.plan || "pro",
+            ql_expires_at: data.expires_at || null,
+            ql_user_name: data.user_name || "",
+            ql_license_key: licenseKey,
+            ql_session_id: newToken,
+            ql_support_url: data.support_url || "",
+            ql_support_telegram: data.support_telegram || "",
+            ql_admin_message: data.admin_message || ""
+          });
+        } else {
+          console.warn("[Background] Heartbeat verify failed. Attempting auto-activation.");
+          attemptAutoActivation(licenseKey, deviceId);
+        }
+      }).catch(function(err) {
+        console.warn("[Background] Heartbeat check failed due to network error:", err.message || err);
+        attemptAutoActivation(licenseKey, deviceId);
+      });
+    } else {
+      logoutLicense();
+    }
+  });
+}, HEARTBEAT_INTERVAL_MS);
+
+// --- Standard Extension Logic ---
+
+function normalizeJwtToken(token) {
+  return String(token || "").replace(/^Bearer\s+/i, "").trim();
+}
+
+function pickBestJwtToken(candidates) {
+  var best = "";
+  var bestExp = 0;
+  (candidates || []).forEach(function(item) {
+    var t = normalizeJwtToken(item);
+    if (!t || t.indexOf("eyJ") !== 0 || t.split(".").length !== 3) return;
+    var exp = decodeJwtExpMs(t);
+    if (!best || exp > bestExp) {
+      best = t;
+      bestExp = exp;
+    }
+  });
+  return best;
+}
+
+function extractJwtTokensFromCookies(cookies) {
+  var found = [];
+  (cookies || []).forEach(function(cookie) {
+    if (!cookie || !cookie.value) return;
+    var value = String(cookie.value).replace(/^"|"$/g, "");
+    if (value.indexOf("eyJ") === 0 && value.split(".").length === 3) {
+      found.push(value);
+    }
+  });
+  return found;
+}
+
+function projectIdFromUrl(url) {
+  var m = String(url || "").match(/\/projects\/([0-9a-fA-F-]{36})/);
+  return m ? m[1] : "";
+}
+
+var LOVABLE_TAB_URLS = ["*://lovable.dev/*", "*://*.lovable.dev/*"];
+
+function findLovableProjectTab(callback) {
+  chrome.storage.local.get(["lovable_projectId"], function (stored) {
+    var storedPid = stored.lovable_projectId || "";
+    chrome.windows.getCurrent(function (win) {
+      chrome.tabs.query({ url: LOVABLE_TAB_URLS }, function (tabs) {
+        var list = tabs || [];
+        var activeProject = null;
+        var storedMatch = null;
+        var anyProject = null;
+        var anyLovable = null;
+
+        list.forEach(function (tab) {
+          if (!tab || !tab.url || tab.url.indexOf("lovable.dev") === -1) return;
+          if (!anyLovable) anyLovable = tab;
+          var pid = projectIdFromUrl(tab.url);
+          if (!pid) return;
+          if (!anyProject) anyProject = tab;
+          if (storedPid && pid === storedPid) storedMatch = tab;
+          if (win && tab.windowId === win.id && tab.active) activeProject = tab;
+        });
+
+        callback(activeProject || storedMatch || anyProject || anyLovable || null);
+      });
+    });
+  });
+}
+
+function tabPing(tabId) {
+  return new Promise(function (resolve) {
+    chrome.tabs.sendMessage(tabId, { action: "ping" }, function (resp) {
+      if (chrome.runtime.lastError) return resolve(false);
+      resolve(!!(resp && resp.ok));
+    });
+  });
+}
+
+var BRIDGE_INJECT_FILES = [
+  "security.js",
+  "extension-config.js",
+  "hwFingerprint.js",
+  "license-guard.js",
+  "user-messages.js",
+  "content-bridge.js"
+];
+
+function injectContentBridge(tabId) {
+  return chrome.scripting.executeScript({
+    target: { tabId: tabId },
+    files: BRIDGE_INJECT_FILES
+  });
+}
+
+function sendPromptOnTab(tabId, message) {
+  return new Promise(function (resolve, reject) {
+    chrome.tabs.sendMessage(tabId, { action: "qlSendViaWs", message: message }, function (resp) {
+      if (chrome.runtime.lastError) {
+        return reject(new Error(chrome.runtime.lastError.message));
+      }
+      if (resp && resp.ok) return resolve(resp);
+      reject(new Error((resp && resp.error) || "Send failed"));
+    });
+  });
+}
+
+async function deliverPromptViaTab(message) {
+  var tab = await new Promise(function (resolve) {
+    findLovableProjectTab(resolve);
+  });
+  if (!tab || !tab.id) {
+    throw new Error("Open your Lovable project on lovable.dev (project URL), then try again.");
+  }
+  if (!projectIdFromUrl(tab.url) && tab.url.indexOf("lovable.dev") === -1) {
+    throw new Error("Open a lovable.dev project tab and refresh it after updating the extension.");
+  }
+
+  var tabId = tab.id;
+  var alive = await tabPing(tabId);
+  if (!alive) {
+    try {
+      await injectContentBridge(tabId);
+      await new Promise(function (r) { setTimeout(r, 150); });
+    } catch (e) {
+      throw new Error("Could not attach to the Lovable tab. Refresh the project page and try again.");
+    }
+  }
+
+  try {
+    return await sendPromptOnTab(tabId, message);
+  } catch (firstErr) {
+    var errMsg = (firstErr && firstErr.message) || "";
+    if (errMsg.indexOf("Receiving end") === -1 && errMsg.indexOf("Could not establish connection") === -1) {
+      throw firstErr;
+    }
+    await injectContentBridge(tabId);
+    await new Promise(function (r) { setTimeout(r, 200); });
+    return await sendPromptOnTab(tabId, message);
+  }
+}
+
+function collectLovableCookies(callback) {
+  var domains = ["lovable.dev", ".lovable.dev"];
+  var all = [];
+  var pending = domains.length;
+  if (!pending) return callback(all);
+  domains.forEach(function(domain) {
+    chrome.cookies.getAll({ domain: domain }, function(cookies) {
+      if (cookies && cookies.length) all = all.concat(cookies);
+      pending -= 1;
+      if (pending === 0) callback(all);
+    });
+  });
+}
+
+function syncLovableAuth(tabUrl, hintProjectId, done) {
+  collectLovableCookies(function(cookies) {
+    var cookieToken = pickBestJwtToken(extractJwtTokensFromCookies(cookies));
+    var projectId = projectIdFromUrl(tabUrl) || hintProjectId || "";
+    chrome.storage.local.get(["lovable_token", "lovable_projectId"], function(stored) {
+      var storedToken = normalizeJwtToken(stored.lovable_token || "");
+      var token = storedToken;
+      if (cookieToken && decodeJwtExpMs(cookieToken) >= decodeJwtExpMs(storedToken)) {
+        token = cookieToken;
+      }
+      var updates = {};
+      if (token) updates.lovable_token = token;
+      if (projectId) updates.lovable_projectId = projectId;
+      else if (stored.lovable_projectId) updates.lovable_projectId = stored.lovable_projectId;
+
+      var finish = function(result) {
+        if (typeof done === "function") done(result);
+      };
+
+      if (!Object.keys(updates).length) {
+        finish({ ok: false, token: storedToken, projectId: stored.lovable_projectId || "" });
+        return;
+      }
+
+      chrome.storage.local.set(updates, function() {
+        finish({
+          ok: !!token,
+          token: updates.lovable_token || storedToken,
+          projectId: updates.lovable_projectId || stored.lovable_projectId || "",
+          fresh: decodeJwtExpMs(updates.lovable_token || storedToken) > Date.now() + 30000
+        });
+      });
+    });
+  });
+}
+
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+  if (changeInfo.status !== "complete" || !tab || !tab.url) return;
+  if (tab.url.indexOf("lovable.dev") === -1) return;
+  syncLovableAuth(tab.url, "", function() {
+    try {
+      chrome.tabs.sendMessage(tabId, { action: "requestTokenRefresh" }, function() {});
+    } catch (e) {}
+  });
+});
+
+async function enableActionSidePanel() {
+  try {
+    await chrome.sidePanel.setOptions({ path: "sidepanel.html", enabled: true });
+  } catch (err) {
+    console.warn("[Background] sidePanel.setOptions:", err && err.message ? err.message : err);
+  }
+  try {
+    await chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true });
+  } catch (err) {
+    console.warn("[Background] sidePanel.setPanelBehavior:", err && err.message ? err.message : err);
+  }
+}
+
+async function openPowerkitsSidePanel(tab) {
+  await enableActionSidePanel();
+  if (!tab || !tab.id) throw new Error("Active tab not found.");
+  await chrome.sidePanel.open({ tabId: tab.id });
+  await chrome.storage.local.set({ ql_sidebar_mode: true });
+  return { ok: true };
+}
+
+enableActionSidePanel();
+chrome.storage.local.set({ ql_sidebar_mode: true, ql_bypass_disabled: false });
+
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.storage.local.set({ ql_sidebar_mode: true, ql_bypass_disabled: false });
+  enableActionSidePanel();
+});
+
+chrome.runtime.onStartup.addListener(() => {
+  enableActionSidePanel();
+});
+
+chrome.storage.local.get(["ql_sidebar_mode"], (res) => {
+  if (res.ql_sidebar_mode !== true) {
+    chrome.storage.local.set({ ql_sidebar_mode: true });
+  }
+  enableActionSidePanel();
+});
+
+chrome.storage.onChanged.addListener((changes, area) => {
+  if (area === "local" && changes.ql_sidebar_mode) {
+    enableActionSidePanel();
+  }
+});
+
+chrome.action.onClicked.addListener(async (tab) => {
+  try {
+    await openPowerkitsSidePanel(tab);
+  } catch (err) {
+    console.error("[Background] action.onClicked sidePanel error:", err);
+  }
+});
+
+function isAllowedProxyUrl(urlStr) {
+  try {
+    var url = new URL(urlStr);
+    var hostname = String(url.hostname || "").toLowerCase();
+    var allowedDomains = [
+      "vercel.app",
+      "vercel-api-lac-kappa.vercel.app",
+      "lovable-powerkits-644-license-server.vercel.app",
+      "lov.powerkits.net",
+      "lovable.dev",
+      "sambypassai.vercel.app"
+    ];
+    for (var i = 0; i < allowedDomains.length; i++) {
+      var d = allowedDomains[i];
+      if (hostname === d || hostname.endsWith("." + d)) {
+        return true;
+      }
+    }
+    return false;
+  } catch (e) {
+    return false;
+  }
+}
+
+chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+  if (msg && msg.action === "lovableSync") {
+    chrome.storage.local.get(["lovable_token", "lovable_projectId"], function(stored) {
+      const updates = {};
+      if (msg.token) {
+        var incoming = normalizeJwtToken(msg.token);
+        var current = normalizeJwtToken(stored.lovable_token || "");
+        if (incoming && (!current || decodeJwtExpMs(incoming) >= decodeJwtExpMs(current) - 5000)) {
+          updates.lovable_token = incoming;
+        }
+      }
+      if (msg.projectId) updates.lovable_projectId = msg.projectId;
+      if (msg.browserSessionId) updates.lovable_browserSessionId = String(msg.browserSessionId).trim();
+      if (Object.keys(updates).length) {
+        chrome.storage.local.set(updates, function() {});
+      }
+    });
+    return false;
+  }
+
+  if (msg && msg.action === "activateSidebar") {
+    enableActionSidePanel();
+    if (sender.tab && sender.tab.id) {
+      openPowerkitsSidePanel(sender.tab).then(() => {
+        sendResponse({ ok: true });
+      }).catch((err) => {
+        console.warn("[Background] sidePanel.open deferred:", err.message);
+        sendResponse({ ok: false, deferred: true, message: "Click the extension icon to open the side panel." });
+      });
+    } else {
+      sendResponse({ ok: false, deferred: true, message: "Click the extension icon to open the side panel." });
+    }
+    return true;
+  }
+
+  if (msg && msg.action === "deactivateSidebar") {
+    sendResponse({ ok: true });
+    return false;
+  }
+
+  if (msg && msg.action === "openSidePanel") {
+    if (sender.tab && sender.tab.id) {
+      openPowerkitsSidePanel(sender.tab).then(() => {
+        sendResponse({ ok: true });
+      }).catch((err) => {
+        console.warn("[Background] openSidePanel deferred:", err.message);
+        sendResponse({ ok: false, error: err.message });
+      });
+    } else {
+      sendResponse({ ok: false, error: "No tab context" });
+    }
+    return true;
+  }
+
+  // --- Secure License Auth Message Handlers ---
+
+  if (msg && msg.action === "LICENSE_ACTIVATE") {
+    (async function() {
+      try {
+        var licenseKey = msg.licenseKey || "";
+        var deviceId = msg.deviceId || "";
+        var version = chrome.runtime.getManifest().version;
+        
+        var resp = await fetch("https://sambypassai.vercel.app/api/license/activate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            license_key: licenseKey,
+            device_id: deviceId,
+            version: version,
+            metadata: {
+              userAgent: navigator.userAgent,
+              timestamp: new Date().toISOString()
+            }
+          })
+        });
+        
+        var data = await resp.json();
+        if (data && data.success && data.valid) {
+          var token = data.token || data.session_id || "";
+          
+          cachedLicenseStatus.ok = true;
+          cachedLicenseStatus.plan = data.plan || "pro";
+          cachedLicenseStatus.expiresAt = data.expires_at || null;
+          cachedLicenseStatus.licenseKey = licenseKey;
+          cachedLicenseStatus.userName = data.user_name || "";
+          cachedLicenseStatus.supportUrl = data.support_url || "";
+          cachedLicenseStatus.supportTelegram = data.support_telegram || "";
+          
+          chrome.storage.local.set({
+            ql_license_valid: true,
+            ql_license_key: licenseKey,
+            ql_session_id: token,
+            ql_user_name: data.user_name || "",
+            ql_expires_at: data.expires_at || null,
+            ql_license_status: "active",
+            ql_support_url: data.support_url || "",
+            ql_support_telegram: data.support_telegram || "",
+            ql_admin_message: data.admin_message || ""
+          }, function() {
+            sendResponse({ ok: true, data: data });
+          });
+        } else {
+          logoutLicense();
+          sendResponse({ ok: false, message: (data && data.message) || "Invalid license key." });
+        }
+      } catch (err) {
+        logoutLicense();
+        sendResponse({ ok: false, message: err.message || "Activation request failed." });
+      }
+    })();
+    return true;
+  }
+
+  if (msg && (msg.action === "LICENSE_STATUS" || msg.action === "LICENSE_VERIFY")) {
+    sendResponse(cachedLicenseStatus);
+    return false;
+  }
+
+  if (msg && msg.action === "LICENSE_LOGOUT") {
+    logoutLicense();
+    sendResponse({ ok: true });
+    return false;
+  }
+
+  if (msg && msg.action === "LICENSE_REQUIRE_VALID") {
+    if (cachedLicenseStatus.ok) {
+      sendResponse({ ok: true });
+    } else {
+      chrome.storage.local.get(["ql_session_id", "ql_hw_fingerprint", "ql_license_key"], function (res) {
+        var token = res.ql_session_id || "";
+        var deviceId = res.ql_hw_fingerprint || "";
+        var licenseKey = res.ql_license_key || "";
+        if (token) {
+          verifySessionWithServer(token, deviceId).then(function(data) {
+            if (data && data.valid) {
+              cachedLicenseStatus.ok = true;
+              cachedLicenseStatus.plan = data.plan || "pro";
+              cachedLicenseStatus.expiresAt = data.expires_at || null;
+              cachedLicenseStatus.licenseKey = licenseKey;
+              cachedLicenseStatus.userName = data.user_name || "";
+              cachedLicenseStatus.supportUrl = data.support_url || "";
+              cachedLicenseStatus.supportTelegram = data.support_telegram || "";
+
+              var newToken = data.token || data.session_id || token;
+
+              chrome.storage.local.set({
+                ql_license_valid: true,
+                ql_license_status: "active",
+                ql_plan: data.plan || "pro",
+                ql_expires_at: data.expires_at || null,
+                ql_user_name: data.user_name || "",
+                ql_license_key: licenseKey,
+                ql_session_id: newToken,
+                ql_support_url: data.support_url || "",
+                ql_support_telegram: data.support_telegram || "",
+                ql_admin_message: data.admin_message || ""
+              });
+              sendResponse({ ok: true });
+            } else {
+              attemptAutoActivation(licenseKey, deviceId).then(function(ok) {
+                sendResponse({ ok: ok });
+              });
+            }
+          }).catch(function() {
+            attemptAutoActivation(licenseKey, deviceId).then(function(ok) {
+              sendResponse({ ok: ok });
+            });
+          });
+        } else if (licenseKey) {
+          attemptAutoActivation(licenseKey, deviceId).then(function(ok) {
+            sendResponse({ ok: ok });
+          });
+        } else {
+          logoutLicense();
+          sendResponse({ ok: false, message: "License verification failed. Please activate your license." });
+        }
+      });
+    }
+    return true;
+  }
+
+  // --- Protect Premium Feature Action Listeners ---
+
+  if (msg && msg.action === "proxyFetch") {
+    (async () => {
+      // 1. If cache status is not ok, attempt to auto-reactivate first
+      if (!cachedLicenseStatus.ok) {
+        var stored = await new Promise(r => chrome.storage.local.get(["ql_license_key", "ql_hw_fingerprint"], r));
+        var licenseKey = stored ? stored.ql_license_key || "" : "";
+        var deviceId = stored ? stored.ql_hw_fingerprint || "" : "";
+        if (licenseKey && deviceId) {
+          console.log("[Background] proxyFetch detected cachedLicenseStatus.ok is false. Attempting auto-activation.");
+          var activated = await attemptAutoActivation(licenseKey, deviceId);
+          if (!activated) {
+            sendResponse({ ok: false, status: 403, data: { error: "License verification failed. Please activate your license." } });
+            return;
+          }
+        } else {
+          sendResponse({ ok: false, status: 403, data: { error: "License verification failed. Please activate your license." } });
+          return;
+        }
+      }
+
+      // Helper to do the actual fetch
+      async function doFetch() {
+        if (!isAllowedProxyUrl(msg.url)) {
+          console.warn("[Background] Blocked proxyFetch to unauthorized domain:", msg.url);
+          return { ok: false, status: 403, data: { error: "Forbidden: Destination domain is not authorized." } };
+        }
+        var opts = {
+          method: msg.method || "POST",
+          headers: Object.assign({}, msg.headers || {}),
+        };
+        // Ensure the headers are using the latest session ID in case it was refreshed!
+        var stored = await new Promise(r => chrome.storage.local.get(["ql_session_id"], r));
+        if (stored && stored.ql_session_id) {
+          opts.headers["x-session-id"] = stored.ql_session_id;
+        }
+        if (msg.body) opts.body = msg.body;
+        var resp = await fetch(msg.url, opts);
+        var text = await resp.text();
+        var data;
+        try { data = JSON.parse(text); } catch (e) { data = { raw: text }; }
+        return { ok: resp.ok, status: resp.status, data: data };
+      }
+
+      try {
+        var result = await doFetch();
+        
+        // 2. If the request failed with 401 or 403, it might be due to an expired/invalid session token.
+        // Let's attempt auto-activation to get a fresh token, and retry the request once.
+        if (!result.ok && (result.status === 401 || result.status === 403)) {
+          var errText = (result.data && (result.data.error_display || result.data.message || result.data.error)) || "";
+          if (/session/i.test(errText) || /token/i.test(errText) || /license/i.test(errText) || /unauthorized/i.test(errText)) {
+            console.log("[Background] proxyFetch failed with 401/403 due to session/token issue. Attempting auto-activation renewal and retry.");
+            var stored = await new Promise(r => chrome.storage.local.get(["ql_license_key", "ql_hw_fingerprint"], r));
+            var licenseKey = stored ? stored.ql_license_key || "" : "";
+            var deviceId = stored ? stored.ql_hw_fingerprint || "" : "";
+            if (licenseKey && deviceId) {
+              var activated = await attemptAutoActivation(licenseKey, deviceId);
+              if (activated) {
+                // Retry once with new token
+                console.log("[Background] Auto-activation successful. Retrying proxyFetch request.");
+                result = await doFetch();
+              }
+            }
+          }
+        }
+        
+        sendResponse(result);
+      } catch (err) {
+        sendResponse({ ok: false, status: 0, data: { error: err.message || "Fetch failed in background" } });
+      }
+    })();
+    return true;
+  }
+
+  if (msg && msg.action === "readCookies") {
+    if (!cachedLicenseStatus.ok) {
+      sendResponse({ success: false, error: "License verification failed." });
+      return false;
+    }
+    collectLovableCookies(function(cookies) {
+      var tokens = extractJwtTokensFromCookies(cookies);
+      var foundTokens = tokens.map(function(token, index) {
+        return { token: token, cookieName: "scan-" + index, httpOnly: false };
+      });
+      sendResponse({ success: foundTokens.length > 0, tokens: foundTokens });
+    });
+    return true;
+  }
+
+  if (msg && msg.action === "syncLovableAuth") {
+    if (!cachedLicenseStatus.ok) {
+      sendResponse({ ok: false, error: "License verification failed." });
+      return false;
+    }
+    syncLovableAuth(msg.tabUrl || "", msg.projectId || "", function(result) {
+      sendResponse(result || { ok: false });
+    });
+    return true;
+  }
+
+  if (msg && msg.action === "getLovableCookies") {
+    if (!cachedLicenseStatus.ok) {
+      sendResponse({ ok: false, error: "License verification failed." });
+      return false;
+    }
+    chrome.cookies.getAll({ domain: "lovable.dev" }, function (cookies) {
+      var parts = [];
+      if (cookies && cookies.length) {
+        for (var i = 0; i < cookies.length; i++) {
+          var c = cookies[i];
+          if (c && c.name && typeof c.value === "string") {
+            parts.push(c.name + "=" + c.value);
+          }
+        }
+      }
+      sendResponse({ ok: true, cookie: parts.join("; ") });
+    });
+    return true;
+  }
+
+  if (msg && msg.action === "sendPromptToLovable") {
+    if (!cachedLicenseStatus.ok) {
+      sendResponse({ ok: false, error: "License verification failed. Please activate your license." });
+      return false;
+    }
+    (async function () {
+      try {
+        await deliverPromptViaTab(msg.message || "");
+        sendResponse({ ok: true });
+      } catch (err) {
+        sendResponse({ ok: false, error: err.message || "Send failed" });
+      }
+    })();
+    return true;
+  }
+
+  if (msg && msg.action === "downloadProject") {
+    if (!cachedLicenseStatus.ok) {
+      sendResponse({ success: false, error: "License verification failed." });
+      return false;
+    }
+    (async function () {
+      try {
+        var apiUrl = "https://lovable-api.com/projects/" + msg.projectId + "/source-code";
+        var resp = await fetch(apiUrl, {
+          method: "GET",
+          headers: {
+            "Authorization": "Bearer " + msg.token,
+            "Accept": "application/json"
+          }
+        });
+        if (!resp.ok) {
+          sendResponse({ success: false, error: "API returned " + resp.status });
+          return;
+        }
+        var data = await resp.json();
+        sendResponse({ success: true, files: data.files || [] });
+      } catch (err) {
+        sendResponse({ success: false, error: err.message || "Download failed" });
+      }
+    })();
+    return true;
+  }
+});

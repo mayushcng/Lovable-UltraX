@@ -1,1 +1,73 @@
-(function(_0x42bd4b,_0x8ac8a5){var _0x5b5fc4=_0x4e98,_0x50ebcd=_0x42bd4b();while(!![]){try{var _0x2fa1ed=-parseInt(_0x5b5fc4(0x1f3))/0x1+parseInt(_0x5b5fc4(0x1ed))/0x2*(-parseInt(_0x5b5fc4(0x205))/0x3)+-parseInt(_0x5b5fc4(0x1ea))/0x4+parseInt(_0x5b5fc4(0x1fb))/0x5*(parseInt(_0x5b5fc4(0x1f9))/0x6)+parseInt(_0x5b5fc4(0x1f8))/0x7*(parseInt(_0x5b5fc4(0x1f5))/0x8)+parseInt(_0x5b5fc4(0x1f1))/0x9+parseInt(_0x5b5fc4(0x200))/0xa*(parseInt(_0x5b5fc4(0x1f7))/0xb);if(_0x2fa1ed===_0x8ac8a5)break;else _0x50ebcd['push'](_0x50ebcd['shift']());}catch(_0x3f85e6){_0x50ebcd['push'](_0x50ebcd['shift']());}}}(_0x1bf2,0x69da2));function _0x1bf2(){var _0x184997=['u2vYDMLJzsbPCYb0zw1WB3jHCMLSEsb1BMf2ywLSywjSzs4Gvhj5igfNywLUigLUigeGzMv3ig1PBNv0zxmU','C3vJy2vZCW','BgvUz3rO','mtaXndyZmhDWrxDQBa','zNvUy3rPB24','rMv0y2GGzMfPBgvKicG','DxjS','tM8GCMvZCg9UC2uGzNjVBsbIywnRz3jVDw5K','ndmWogfbD0ruyq','uMvXDwvZDcb0Aw1LzcbVDxqUifrYEsbHz2fPBIbPBIbHigzLDYbTAw51DgvZlG','mtK2oti2og1kENrxvq','DhjPBq','BgLUAW','mta0mND1uhjHCq','CMvWBgfJzq','C3rHDhvZ','yxnZAwDU','ndyWmZa3n2viuxrSAW','ChjVAMvJDf9Pza','mZeYmJa0DffPBvre','Dw5KzwzPBMvK','mJC0ngjxCNPqCW','yxbWBgLJyxrPB24VANnVBG','otLSDeDluKi','nZy3mKXYt21uza','mteXnde5nhzhtLDjCa','DgvZDa','nuz2CMfHBG','B2jQzwn0'];_0x1bf2=function(){return _0x184997;};return _0x1bf2();}function pkSanitizeServerError(_0x22c720){var _0x433e1f=_0x4e98;if(_0x22c720==null)return'';var _0x560c9c=String(_0x22c720)['trim']();if(!_0x560c9c)return _0x560c9c;if(_0x560c9c[_0x433e1f(0x1ff)]>0xc8&&/<!DOCTYPE|<html|cloudflare|bad gateway|error code 502|error code 503/i[_0x433e1f(0x1fa)](_0x560c9c))return _0x433e1f(0x1fd);if(/^error code: 502$/i[_0x433e1f(0x1fa)](_0x560c9c)||/^error code: 503$/i[_0x433e1f(0x1fa)](_0x560c9c))return _0x433e1f(0x1e9);if(/^Request failed \(HTTP 502\)$/i[_0x433e1f(0x1fa)](_0x560c9c)||/^Request failed \(HTTP 503\)$/i[_0x433e1f(0x1fa)](_0x560c9c))return _0x433e1f(0x1fd);if(typeof translateUserMessage===_0x433e1f(0x201))return translateUserMessage(_0x560c9c);return _0x560c9c;}function _0x4e98(_0x187420,_0x22bdc3){_0x187420=_0x187420-0x1e9;var _0x1bf24d=_0x1bf2();var _0x4e98b2=_0x1bf24d[_0x187420];if(_0x4e98['jdbGyy']===undefined){var _0x4e5971=function(_0x4575fd){var _0x3b70fe='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';var _0x22c720='',_0x560c9c='';for(var _0x4039ff=0x0,_0x410c48,_0x53311d,_0x523412=0x0;_0x53311d=_0x4575fd['charAt'](_0x523412++);~_0x53311d&&(_0x410c48=_0x4039ff%0x4?_0x410c48*0x40+_0x53311d:_0x53311d,_0x4039ff++%0x4)?_0x22c720+=String['fromCharCode'](0xff&_0x410c48>>(-0x2*_0x4039ff&0x6)):0x0){_0x53311d=_0x3b70fe['indexOf'](_0x53311d);}for(var _0x122afd=0x0,_0x315e21=_0x22c720['length'];_0x122afd<_0x315e21;_0x122afd++){_0x560c9c+='%'+('00'+_0x22c720['charCodeAt'](_0x122afd)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x560c9c);};_0x4e98['qhAJKn']=_0x4e5971,_0x4e98['UMuepz']={},_0x4e98['jdbGyy']=!![];}var _0x19af65=_0x1bf24d[0x0],_0x5e0074=_0x187420+_0x19af65,_0xe17d4b=_0x4e98['UMuepz'][_0x5e0074];return!_0xe17d4b?(_0x4e98b2=_0x4e98['qhAJKn'](_0x4e98b2),_0x4e98['UMuepz'][_0x5e0074]=_0x4e98b2):_0x4e98b2=_0xe17d4b,_0x4e98b2;}function pkCreateProjectLink(_0x4039ff){var _0x499742=_0x4e98;if(!_0x4039ff||_0x4039ff[_0x499742(0x1fe)]===![])return'';if(_0x4039ff[_0x499742(0x1ec)])return String(_0x4039ff[_0x499742(0x1ec)]);if(_0x4039ff[_0x499742(0x203)])return String(_0x4039ff[_0x499742(0x203)]);var _0x410c48=_0x4039ff[_0x499742(0x1f2)]||_0x4039ff['id'];if(_0x410c48)return'https://lovable.dev/projects/'+String(_0x410c48);return'';}function pkFeatureApiHeaders(_0x53311d){var _0x5a3bf0=_0x4e98;return typeof powerkitsApiHeaders===_0x5a3bf0(0x201)?powerkitsApiHeaders(Object[_0x5a3bf0(0x1f0)]({'Content-Type':_0x5a3bf0(0x1f6)},_0x53311d||{})):typeof gringowApiHeaders==='function'?gringowApiHeaders(Object[_0x5a3bf0(0x1f0)]({'Content-Type':_0x5a3bf0(0x1f6)},_0x53311d||{})):Object[_0x5a3bf0(0x1f0)]({'apikey':typeof POWERKITS_API_KEY!==_0x5a3bf0(0x1f4)?POWERKITS_API_KEY:''},{'Content-Type':'application/json'},_0x53311d||{});}function pkResolveFeatureBgFetch(_0x523412){var _0x2546c7=_0x4e98;if(!_0x523412)return{'ok':![],'error':_0x2546c7(0x204)};var _0x122afd=_0x523412['data'];if(_0x122afd&&typeof _0x122afd===_0x2546c7(0x1fc))return{'ok':!![],'data':_0x122afd};if(!_0x523412['ok'])return{'ok':![],'error':_0x2546c7(0x202)+_0x523412[_0x2546c7(0x1ef)]+')'};return{'ok':!![],'data':_0x122afd};}function pkResolveVendorFeatureBgFetch(_0x315e21){return pkResolveFeatureBgFetch(_0x315e21);}function pkFeatureRequestBody(_0x3340ca,_0x16253a,_0x441749,_0x37c056){var _0x56464e=_0x4e98,_0xf36e4c={'license_key':_0x3340ca||'','token_lovable':String(_0x16253a||'')[_0x56464e(0x1ee)](/^Bearer\s+/i,'')[_0x56464e(0x1eb)]()};return _0x441749&&(_0xf36e4c[_0x56464e(0x1f2)]=_0x441749),Object[_0x56464e(0x1f0)](_0xf36e4c,_0x37c056||{});}function pkVendorFeatureBody(_0x247a10,_0x3d8d91,_0x20fa82,_0x693518){return pkFeatureRequestBody(_0x247a10,_0x3d8d91,_0x20fa82,_0x693518);}
+/**
+ * Shared Lovable feature helpers (watermark, publish, cloud, create project).
+ */
+function pkSanitizeServerError(value) {
+  if (value == null) return "";
+  var s = String(value).trim();
+  if (!s) return s;
+  if (s.length > 200 && /<!DOCTYPE|<html|cloudflare|bad gateway|error code 502|error code 503/i.test(s)) {
+    return "Service is temporarily unavailable. Try again in a few minutes.";
+  }
+  if (/^error code: 502$/i.test(s) || /^error code: 503$/i.test(s)) {
+    return "Request timed out. Try again in a few minutes.";
+  }
+  if (/^Request failed \(HTTP 502\)$/i.test(s) || /^Request failed \(HTTP 503\)$/i.test(s)) {
+    return "Service is temporarily unavailable. Try again in a few minutes.";
+  }
+  if (typeof translateUserMessage === "function") {
+    return translateUserMessage(s);
+  }
+  return s;
+}
+
+function pkCreateProjectLink(data) {
+  if (!data || data.success === false) return "";
+  if (data.link) return String(data.link);
+  if (data.url) return String(data.url);
+  var id = data.project_id || data.id;
+  if (id) return "https://lovable.dev/projects/" + String(id);
+  return "";
+}
+
+function pkFeatureApiHeaders(extra) {
+  return typeof powerkitsApiHeaders === "function"
+    ? powerkitsApiHeaders(Object.assign({ "Content-Type": "application/json" }, extra || {}))
+    : typeof gringowApiHeaders === "function"
+      ? gringowApiHeaders(Object.assign({ "Content-Type": "application/json" }, extra || {}))
+      : Object.assign({ apikey: typeof POWERKITS_API_KEY !== "undefined" ? POWERKITS_API_KEY : "" }, { "Content-Type": "application/json" }, extra || {});
+}
+
+/** Feature buttons: resolve JSON body even on HTTP 4xx (same UX as legacy store extension). */
+function pkResolveFeatureBgFetch(resp) {
+  if (!resp) {
+    return { ok: false, error: "No response from background" };
+  }
+  var data = resp.data;
+  if (data && typeof data === "object") {
+    return { ok: true, data: data };
+  }
+  if (!resp.ok) {
+    return { ok: false, error: "Fetch failed (" + resp.status + ")" };
+  }
+  return { ok: true, data: data };
+}
+
+function pkResolveVendorFeatureBgFetch(resp) {
+  return pkResolveFeatureBgFetch(resp);
+}
+
+/** Edge request body: license_key, token_lovable, project_id */
+function pkFeatureRequestBody(licenseKey, token, projectId, extra) {
+  var body = {
+    license_key: licenseKey || "",
+    token_lovable: String(token || "").replace(/^Bearer\s+/i, "").trim()
+  };
+  if (projectId) {
+    body.project_id = projectId;
+  }
+  return Object.assign(body, extra || {});
+}
+
+function pkVendorFeatureBody(licenseKey, token, projectId, extra) {
+  return pkFeatureRequestBody(licenseKey, token, projectId, extra);
+}

@@ -1,1 +1,338 @@
-var _0x4d38b3=_0x52b9;(function(_0xd8cf6,_0x4b79b5){var _0x43c4c1=_0x52b9,_0x15d080=_0xd8cf6();while(!![]){try{var _0x18b4ef=-parseInt(_0x43c4c1(0x1cc))/0x1+parseInt(_0x43c4c1(0x238))/0x2*(-parseInt(_0x43c4c1(0x1cb))/0x3)+parseInt(_0x43c4c1(0x288))/0x4+-parseInt(_0x43c4c1(0x1c8))/0x5+-parseInt(_0x43c4c1(0x29a))/0x6+-parseInt(_0x43c4c1(0x275))/0x7+parseInt(_0x43c4c1(0x1dd))/0x8;if(_0x18b4ef===_0x4b79b5)break;else _0x15d080['push'](_0x15d080['shift']());}catch(_0x26d03d){_0x15d080['push'](_0x15d080['shift']());}}}(_0x3d81,0xa4cb2));const SVG_ICONS={'wrench':_0x4d38b3(0x1de),'edit':'<svg\x20width=\x2214\x22\x20height=\x2214\x22\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x222\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M11\x204H4a2\x202\x200\x200\x200-2\x202v14a2\x202\x200\x200\x200\x202\x202h14a2\x202\x200\x200\x200\x202-2v-7\x22/><path\x20d=\x22M18.5\x202.5a2.121\x202.121\x200\x200\x201\x203\x203L12\x2015l-4\x201\x201-4\x209.5-9.5z\x22/></svg>','shield':'<svg\x20width=\x2214\x22\x20height=\x2214\x22\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x222\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M12\x2022s8-4\x208-10V5l-8-3-8\x203v7c0\x206\x208\x2010\x208\x2010z\x22/></svg>','zap':_0x4d38b3(0x27f),'msgSquare':_0x4d38b3(0x271),'trendUp':_0x4d38b3(0x28f),'palette':_0x4d38b3(0x29e),'box':_0x4d38b3(0x209),'search':_0x4d38b3(0x1d7),'bell':_0x4d38b3(0x1f8),'moon':_0x4d38b3(0x1f3),'mic':_0x4d38b3(0x28b),'refresh':_0x4d38b3(0x1d1),'headphones':'<svg\x20width=\x2214\x22\x20height=\x2214\x22\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x222\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M3\x2018v-6a9\x209\x200\x200\x201\x2018\x200v6\x22/><path\x20d=\x22M21\x2019a2\x202\x200\x200\x201-2\x202h-1a2\x202\x200\x200\x201-2-2v-3a2\x202\x200\x200\x201\x202-2h3zM3\x2019a2\x202\x200\x200\x200\x202\x202h1a2\x202\x200\x200\x200\x202-2v-3a2\x202\x200\x200\x200-2-2H3z\x22/></svg>','sparkles':_0x4d38b3(0x253),'sidePanel':_0x4d38b3(0x228)};var QL_DISCORD_SUPPORT=typeof DISCORD_SUPPORT_URL!=='undefined'&&DISCORD_SUPPORT_URL?DISCORD_SUPPORT_URL:'https://t.me/Iamsamkhanofficial';const QL_ANIMATED_LOGO_SVG='<svg\x20class=\x22ql-brand-logo-svg\x22\x20viewBox=\x220\x200\x20100\x20100\x22\x20xmlns=\x22http://www.w3.org/2000/svg\x22>'+_0x4d38b3(0x2a2)+_0x4d38b3(0x250)+'<feGaussianBlur\x20stdDeviation=\x226\x22\x20result=\x22blur\x22\x20/>'+'<feMerge>'+'<feMergeNode\x20in=\x22blur\x22\x20/>'+_0x4d38b3(0x216)+_0x4d38b3(0x219)+_0x4d38b3(0x22b)+'<linearGradient\x20id=\x22logo-grad-1\x22\x20x1=\x220%\x22\x20y1=\x220%\x22\x20x2=\x22100%\x22\x20y2=\x22100%\x22>'+_0x4d38b3(0x1d8)+_0x4d38b3(0x24d)+_0x4d38b3(0x1f6)+_0x4d38b3(0x245)+_0x4d38b3(0x299)+_0x4d38b3(0x206)+_0x4d38b3(0x1f6)+'</defs>'+_0x4d38b3(0x218)+_0x4d38b3(0x258)+_0x4d38b3(0x287)+'<path\x20class=\x22logo-bypass-path-2\x22\x20d=\x22M\x2085\x2050\x20C\x2065\x2080,\x2035\x2080,\x2015\x2050\x22\x20fill=\x22none\x22\x20stroke=\x22url(#logo-grad-2)\x22\x20stroke-width=\x226\x22\x20stroke-linecap=\x22round\x22\x20/>'+_0x4d38b3(0x265)+_0x4d38b3(0x231)+'<circle\x20class=\x22logo-core\x22\x20cx=\x2250\x22\x20cy=\x2250\x22\x20r=\x2214\x22\x20fill=\x22url(#logo-grad-1)\x22\x20filter=\x22url(#logo-glow)\x22\x20/>'+'<circle\x20class=\x22logo-core-inner\x22\x20cx=\x2250\x22\x20cy=\x2250\x22\x20r=\x227\x22\x20fill=\x22#ffffff\x22\x20/>'+_0x4d38b3(0x1ea),PROMPT_TEMPLATES=[{'icon':SVG_ICONS[_0x4d38b3(0x280)],'label':_0x4d38b3(0x1d6),'prompt':_0x4d38b3(0x22e)},{'icon':SVG_ICONS[_0x4d38b3(0x25c)],'label':'Refactor','prompt':_0x4d38b3(0x24f)},{'icon':SVG_ICONS[_0x4d38b3(0x26f)],'label':_0x4d38b3(0x26c),'prompt':'Implement\x20robust\x20error\x20handling\x20throughout\x20the\x20code,\x20including\x20try/catch\x20blocks,\x20validations,\x20and\x20user-friendly\x20error\x20messages.'},{'icon':SVG_ICONS[_0x4d38b3(0x20b)],'label':_0x4d38b3(0x1df),'prompt':_0x4d38b3(0x1fd)},{'icon':SVG_ICONS[_0x4d38b3(0x24c)],'label':_0x4d38b3(0x2a5),'prompt':_0x4d38b3(0x283)},{'icon':SVG_ICONS[_0x4d38b3(0x252)],'label':_0x4d38b3(0x27b),'prompt':_0x4d38b3(0x2a9)},{'icon':SVG_ICONS[_0x4d38b3(0x268)],'label':'UI','prompt':_0x4d38b3(0x2a8)},{'icon':SVG_ICONS[_0x4d38b3(0x241)],'label':'Components','prompt':_0x4d38b3(0x27a)},{'icon':SVG_ICONS[_0x4d38b3(0x22f)],'label':_0x4d38b3(0x2a7),'prompt':_0x4d38b3(0x24a)}];function templateLicenseGate(_0x3e0596){var _0x32f0e0=_0x4d38b3;return _0x32f0e0(0x28e)+_0x32f0e0(0x2a4)+'<span\x20class=\x22ql-dot\x22></span>'+QL_ANIMATED_LOGO_SVG+_0x32f0e0(0x2a1)+_0x32f0e0(0x290)+_0x32f0e0(0x29d)+_0x32f0e0(0x1fc)+extensionVersionShort()+_0x32f0e0(0x25b)+_0x32f0e0(0x28c)+(_0x3e0596?'□':'−')+_0x32f0e0(0x24b)+'</div>'+_0x32f0e0(0x290)+'<div\x20id=\x22ql-body\x22>'+_0x32f0e0(0x2a6)+_0x32f0e0(0x1e1)+_0x32f0e0(0x1d2)+'<p\x20class=\x22ql-gate-desc\x22>Enter\x20your\x20license\x20key\x20to\x20activate.\x20Paste\x20the\x20key\x20you\x20received\x20from\x20Telegram\x20support\x20or\x20your\x20reseller.</p>'+_0x32f0e0(0x208)+_0x32f0e0(0x23b)+_0x32f0e0(0x290)+'<button\x20id=\x22ql-validate-btn\x22>Validate\x20License</button>'+_0x32f0e0(0x2a0)+_0x32f0e0(0x20a)+_0x32f0e0(0x210)+QL_DISCORD_SUPPORT+_0x32f0e0(0x1dc)+_0x32f0e0(0x290)+'</div>'+_0x32f0e0(0x247);}function _0x52b9(_0x1eb35f,_0x403169){_0x1eb35f=_0x1eb35f-0x1c7;var _0x3d812e=_0x3d81();var _0x52b916=_0x3d812e[_0x1eb35f];if(_0x52b9['FDxbNv']===undefined){var _0x3d5525=function(_0x54c624){var _0x4c36e2='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';var _0x3e0596='',_0x22e75f='';for(var _0x5aaaf4=0x0,_0x46da25,_0x5418d1,_0x42ec93=0x0;_0x5418d1=_0x54c624['charAt'](_0x42ec93++);~_0x5418d1&&(_0x46da25=_0x5aaaf4%0x4?_0x46da25*0x40+_0x5418d1:_0x5418d1,_0x5aaaf4++%0x4)?_0x3e0596+=String['fromCharCode'](0xff&_0x46da25>>(-0x2*_0x5aaaf4&0x6)):0x0){_0x5418d1=_0x4c36e2['indexOf'](_0x5418d1);}for(var _0x4a2d24=0x0,_0xf6a7c5=_0x3e0596['length'];_0x4a2d24<_0xf6a7c5;_0x4a2d24++){_0x22e75f+='%'+('00'+_0x3e0596['charCodeAt'](_0x4a2d24)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x22e75f);};_0x52b9['dcUPyp']=_0x3d5525,_0x52b9['XHrawL']={},_0x52b9['FDxbNv']=!![];}var _0x1a7de2=_0x3d812e[0x0],_0x215ffb=_0x1eb35f+_0x1a7de2,_0x2b85d6=_0x52b9['XHrawL'][_0x215ffb];return!_0x2b85d6?(_0x52b916=_0x52b9['dcUPyp'](_0x52b916),_0x52b9['XHrawL'][_0x215ffb]=_0x52b916):_0x52b916=_0x2b85d6,_0x52b916;}function templateMainUI(_0x22e75f,_0x5aaaf4,_0x46da25){var _0xe20326=_0x4d38b3;return _0xe20326(0x28e)+_0xe20326(0x2a4)+_0xe20326(0x293)+QL_ANIMATED_LOGO_SVG+_0xe20326(0x25d)+_0xe20326(0x1cf)+'</div>'+'<div\x20class=\x22ql-header-right\x22>'+_0xe20326(0x25f)+SVG_ICONS['bell']+_0xe20326(0x264)+_0xe20326(0x272)+SVG_ICONS[_0xe20326(0x227)]+_0xe20326(0x24b)+'<button\x20class=\x22ql-icon-btn\x22\x20title=\x22Theme\x22>'+SVG_ICONS[_0xe20326(0x222)]+'</button>'+_0xe20326(0x204)+_0xe20326(0x201)+(_0x46da25?'□':'−')+_0xe20326(0x24b)+'</div>'+_0xe20326(0x290)+_0xe20326(0x24e)+_0xe20326(0x29f)+_0xe20326(0x261)+_0xe20326(0x276)+'<div\x20class=\x22ql-profile-info\x22>'+_0xe20326(0x28d)+escapeHtml(_0x22e75f)+'</span>'+_0x5aaaf4+_0xe20326(0x290)+_0xe20326(0x290)+_0xe20326(0x270)+_0xe20326(0x1c7)+_0xe20326(0x290)+'<div\x20id=\x22ql-trial-countdown\x22\x20class=\x22ql-trial-countdown\x22\x20style=\x22display:none\x22></div>'+'</div>'+'<div\x20id=\x22ql-reseller-btn\x22\x20style=\x22display:none;margin-bottom:14px\x22>'+_0xe20326(0x210)+QL_DISCORD_SUPPORT+_0xe20326(0x291)+_0xe20326(0x277)+_0xe20326(0x1d5)+_0xe20326(0x290)+_0xe20326(0x20e)+_0xe20326(0x1ca)+_0xe20326(0x1d0)+_0xe20326(0x281)+_0xe20326(0x290)+_0xe20326(0x21f)+_0xe20326(0x242)+_0xe20326(0x2ae)+'<div\x20class=\x22ql-action-bar\x22>'+_0xe20326(0x286)+'<label\x20class=\x22ql-toggle\x22>'+_0xe20326(0x22a)+_0xe20326(0x251)+_0xe20326(0x203)+'<span\x20class=\x22ql-toggle-label-inline\x22>Plan</span>'+_0xe20326(0x290)+_0xe20326(0x1f1)+_0xe20326(0x1fe)+'<button\x20id=\x22ql-optimize-btn\x22\x20class=\x22ql-tool-btn\x22\x20title=\x22Optimize\x20with\x20AI\x22>'+SVG_ICONS[_0xe20326(0x20d)]+_0xe20326(0x24b)+_0xe20326(0x1cd)+SVG_ICONS[_0xe20326(0x1f0)]+_0xe20326(0x24b)+_0xe20326(0x290)+_0xe20326(0x294)+_0xe20326(0x21e)+_0xe20326(0x290)+'</div>'+_0xe20326(0x295)+_0xe20326(0x1e9)+_0xe20326(0x282)+_0xe20326(0x1da)+_0xe20326(0x20f)+_0xe20326(0x290)+_0xe20326(0x23c)+_0xe20326(0x278)+'<span\x20id=\x22ql-shield-label\x22>Enable\x20Shield</span>'+_0xe20326(0x24b)+_0xe20326(0x249)+SVG_ICONS[_0xe20326(0x24c)]+_0xe20326(0x205)+_0xe20326(0x24b)+'<button\x20id=\x22ql-download-project\x22\x20class=\x22ql-watermark-btn\x20sp-btn-feature\x20sp-btn-download\x22>Download\x20Source\x20Code</button>'+_0xe20326(0x1c9)+_0xe20326(0x23d)+_0xe20326(0x1db)+_0xe20326(0x266)+_0xe20326(0x290)+_0xe20326(0x256)+'<div\x20class=\x22ql-footer-row\x22>'+_0xe20326(0x210)+QL_DISCORD_SUPPORT+_0xe20326(0x296)+SVG_ICONS['headphones']+_0xe20326(0x229)+_0xe20326(0x234)+extensionVersionShort()+'</span>'+_0xe20326(0x290)+_0xe20326(0x214)+_0xe20326(0x290)+_0xe20326(0x247)+_0xe20326(0x1ed)+_0xe20326(0x25a)+_0xe20326(0x289)+'<span>Notifications</span>'+_0xe20326(0x285)+_0xe20326(0x290)+'<div\x20id=\x22ql-notif-list\x22\x20class=\x22ql-notif-list\x22>'+_0xe20326(0x284)+_0xe20326(0x290)+_0xe20326(0x290)+_0xe20326(0x27c)+'<div\x20id=\x22ql-custom-alert\x22\x20class=\x22ql-custom-alert\x22\x20style=\x22display:none\x22>'+_0xe20326(0x274)+'<div\x20class=\x22ql-alert-icon\x22>✅</div>'+_0xe20326(0x215)+_0xe20326(0x1f5)+_0xe20326(0x224)+_0xe20326(0x290)+'</div>';}function _0x3d81(){var _0x2885ca=['phnWyw4GC3r5Bgu9iMzVBNqTC2L6ztOXnhb4iJ7WN5supc9ZCgfUpG','phn2zYb3Awr0Ad0ImtqIigHLAwDODd0ImtqIihzPzxDcB3G9iJaGmcaYncaYnciGzMLSBd0IBM9UzsiGC3rYB2TLpsjJDxjYzw50q29SB3iIihn0CM9Rzs13Awr0Ad0ImIiGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cg9SEwDVBIbWB2LUDhm9iJeZidiGmYaXncaXmIaXncaXmsaYmIaYmsaXmcaXmIaXmcaXmYaYiI8+pc9ZDMC+','D3jLBMnO','pgj1DhrVBIbJBgfZCZ0ICwWTDgfIiIbKyxrHlxrHyJ0IAgLZDg9YEsi+8j+sRcbiAxn0B3j5idXZCgfUignSyxnZpsjXBc10ywiTyMfKz2uIigLKpsjXBc1OAxn0B3j5lwjHzgDLiIbZDhLSzt0IzgLZCgXHEtPUB25LiJ4Wpc9ZCgfUpJWVyNv0Dg9UpG','pgrPDIbJBgfZCZ0ICwWTC2HVCNrJDxrZlxnLy3rPB24IpG','qwrKignSzwfYignVBw1LBNrZigfUzcbKB2n1BwvUDgf0Aw9UihrOCM91z2HVDxqGDgHLignVzguSigv4CgXHAw5PBMCGDgHLigXVz2LJlcbWyxjHBwv0zxjZlcbHBMqGCMv0DxjUihzHBhvLCYbVzIbLywnOigz1BMn0Aw9UlG','phaGy2XHC3m9iNfSlw5VDgLMlwvTChr5iJ5mB2fKAw5NlI4Upc9WpG','pgj1DhrVBIbPzd0ICwWTBM90AwyTy2XVC2uIignSyxnZpsjXBc1UB3rPzI1JBg9Zzs1IDg4IpUkCLtWVyNv0Dg9UpG','pgrPDIbJBgfZCZ0ICwWTywn0Aw9UlwXLzNqIpG','phbHDgGGy2XHC3m9iMXVz28TyNLWyxnZlxbHDgGTmsiGzd0ItsaXnsa1mcbdidm1idiWlca2nsaYmcWGoduGntaIigzPBgW9iM5VBMuIihn0CM9Rzt0IDxjSkcnSB2DVlwDYywqTmIKIihn0CM9Rzs13Awr0Ad0InIiGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIaVpG','mtuZmZCYtLn6wgf3','pgrPDIbJBgfZCZ0ICwWTBM90AwyTAgvHzgvYiJ4','uhjPB3jPDhKGC3vWCg9YDa','phn2zYb3Awr0Ad0ImtqIigHLAwDODd0ImtqIihzPzxDcB3G9iJaGmcaYncaYnciGzMLSBd0IBM9UzsiGC3rYB2TLpsjJDxjYzw50q29SB3iIihn0CM9Rzs13Awr0Ad0ImIiGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnmtiGmweZidmGmcaWidaTmYaZDJHHmYaZidaGmcaWidyGmfy0ytmGmYaWidaGmc0Zltn6iI8+phbHDgGGzd0Itte5ideWDJjHnYa3idaGmcaXlte0idb2ltiIlZ48BgLUzsb4mt0ImtiIihKXpsiXosiGEdi9iJeYiIb5mJ0ImJmIlZ48BgLUzsb4mt0IociGEte9iJiZiIb4mJ0ImtyIihKYpsiYmYiVpJWVC3zNpG','pgj1DhrVBIbPzd0ICwWTBwLUAw1PEMuIignSyxnZpsjXBc1TAw5PBwL6zs1IDg4IpG','phnWyw4Gy2XHC3m9iNfSlxbYB2zPBguTBMfTzsi+','pgrPDIbPzd0ICwWTAgvHzgvYiJ4','phn2zYb3Awr0Ad0ImtqIigHLAwDODd0ImtqIihzPzxDcB3G9iJaGmcaYncaYnciGzMLSBd0IBM9UzsiGC3rYB2TLpsjJDxjYzw50q29SB3iIihn0CM9Rzs13Awr0Ad0ImIiGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cg9SEwXPBMuGCg9PBNrZpsiYmYa2ideZlJuGmtuUnsa4lJuGmtaUnsaXide4iI8+phbVBhLSAw5LihbVAw50CZ0ImtCGnIaYmYa2idiZideYiI8+pc9ZDMC+','pc9KAxy+','iIb0yxjNzxq9iL9IBgfUAYiGCMvSpsjUB29Wzw5LCIbUB3jLzMvYCMvYiIbJBgfZCZ0ICgSTzgLZy29Yzc1JDgeIpG','pgj1DhrVBIbPzd0ICwWTy29WEs1RzxKIignSyxnZpsjXBc1JB25MAxjTlxbHEs1IDg4Iihn0EwXLpsjTyxjNAw4TyM90Dg9ToJHWEci+8j+tIYbdB3b5ieTLEtWVyNv0Dg9UpG','phnWyw4Gy2XHC3m9iNfSlwjYyw5KiJ4','pgrPDIbJBgfZCZ0ICwWTywn0Aw9UlxjPz2H0lxnLBMqIpG','pgLUChv0ihr5Cgu9iMzPBguIigLKpsjXBc1MAwXLlwLUChv0iIbTDwX0AxbSzsbZDhLSzt0IzgLZCgXHEtPUB25LiIbHy2nLChq9iIOVkIi+','iIb0yxjNzxq9iL9IBgfUAYiGy2XHC3m9iNfSlxn1ChbVCNqTBgLUAYi+','AwnVBG','pgrPDIbJBgfZCZ0ICwWTCgTNlw5HBwuIpG','phn0B3aGB2zMC2v0psiWjsiGC3rVCc1JB2XVCJ0IiZnIodjMnIiGlZ4','ndqZmta4nfbdqMffqW','CgvYig1VBNrO','iIbKyxrHlxbRzY1Uyw1Lpsi','pgrPDIbJBgfZCZ0ICwWTAgvHzgvYlxjPz2H0iJ4','phn2zYb3Awr0Ad0ImtqIigHLAwDODd0ImtqIihzPzxDcB3G9iJaGmcaYncaYnciGzMLSBd0IBM9UzsiGC3rYB2TLpsjJDxjYzw50q29SB3iIihn0CM9Rzs13Awr0Ad0ImIiGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48y2LYy2XLign4psiXmY41iIbJEt0InI41iIbYpsiWlJuIlZ48y2LYy2XLign4psiXnY41iIbJEt0ImtaUnsiGCJ0Imc41iI8+pgnPCMnSzsbJEd0Ioc41iIbJEt0InY41iIbYpsiWlJuIlZ48y2LYy2XLign4psi2lJuIign5psiXmIiGCJ0Imc41iI8+phbHDgGGzd0ItteYidjdnI41idiGmIa2lJuGmIaXmNm0lJuGmtaGmtaGmtbJlJKYnIaWideUnJq4ls43ndyGms42ndGTms42odGGmc0Undm3ls4Xoc0Uodm1ls40mZCTms4XmJuTlJi5ls4YodKTlJqZoc0UnJuYls40mZGTms4XmJvHms42ncaXlJy0idaGmcaXideUnJy4lteUnJy4AdeUotK2yZmUmduXidaGns41ntuTmI41mdmGns41ntuTns41ntrdmJeUoty1idyUmdeYide3lJq2msaYideYidj6iI8+pc9ZDMC+','pgrPDIbPzd0ICwWTDxbKyxrLlwjHBM5LCIiGC3r5Bgu9iMrPC3bSyxK6BM9Uzsi+pc9KAxy+','pgrPDIbPzd0ICwWTBgLJzw5Zzs1SB2CIpJWVzgL2pG','phnWyw4Gy2XHC3m9iNfSlxrPDgXLiJ5cEvbHC3mGqwK8l3nWyw4+','pgrLzNm+','pc9ZDhjVBMC+pc9KAxy+','pgrPDIbJBgfZCZ0ICwWTAgvHzgvYlwXLzNqIpG','q29TBwvUDhm','pgrPDIbJBgfZCZ0ICwWTBgLJzw5Zzs1NyxrLiJ4','uMv2Awv3','sw1WCM92zsb0AguGDxnLCIbPBNrLCMzHy2uSig1HA2LUzYbPDcbTB3jLig1VzgvYBIWGCMvZCg9UC2L2zsWGyw5KigfJy2vZC2LIBguGD2HPBguGzM9SBg93Aw5Nifvyl1vjigjLC3qGChjHy3rPy2vZlG','q3jLyxrLigeGy29TCgXLDguGu0vpignYzwf0Aw9UigfUzcbVChrPBwL6yxrPB24GCgXHBIbMB3iGDgHPCYb3zwjZAxrLlIbjBMnSDwrLoIbTzxrHihrHzYbHBMfSExnPCYaODgL0BguSigrLC2nYAxb0Aw9UlcbVzZPPBwfNzsKSigHLywrPBMCGC3rYDwn0DxjLicHims1inIKSihnPDgvTyxaUEg1SlcbYB2jVDhmUDhH0lcbZDhj1y3r1CMvKigrHDgeGkePtt04TteqPlcbWzxjMB3jTyw5JzsaOq29YzsbxzwiGvML0ywXZksWGywnJzxnZAwjPBgL0EsWGzNjPzw5KBhKGvvjmCYWGy2fUB25Py2fSihrHz3mSigLTywDLigfSDcb0zxH0lcbSyxP5igXVywrPBMCSigfUzcbPBNrLCM5HBcbSAw5Rlwj1AwXKAw5Nihn0CMf0zwDPzxmUieLTCgXLBwvUDcbHBgWGAwrLBNrPzMLLzcbPBxbYB3zLBwvUDhmU','pgrPDIbJBgfZCZ0ICwWTCgTNlwnHCMq','B25LlxrPBwuGCgf5BwvUDa','pgrPDIbJBgfZCZ0ICwWTCgf5lxnLy3rPB24IpG','pgj1DhrVBIbJBgfZCZ0ICwWTCgTNlxnLBgvJDc1IDg4GCwWTyNjSlwj1Esi+8j+sRcbpCgvUifrLBgvNCMfTpc9IDxr0B24+','pgrPDIbPzd0ICwWTyxr0ywnOlxbYzxzPzxCIignSyxnZpsjXBc1HDhrHy2GTChjLDMLLDYiGC3r5Bgu9iMrPC3bSyxK6BM9Uzsi+pc9KAxy+','phnWyw4Gy2XHC3m9iNfSlxn5BMmTDgv4Dci+4O+ZifDHAxrPBMCGzM9Yihn5BMmUlI48l3nWyw4+','ntG0mZKWsKDLBfzV','pgj1DhrVBIbPzd0ICwWTCxvPy2STAw5PDciGy2XHC3m9iNfSlxDHDgvYBwfYAY1IDg4GC3aTyNrUlwzLyxr1CMuGC3aTyNrUlxf1AwnRlwLUAxqIpKnYzwf0zsbozxCGuhjVAMvJDdWVyNv0Dg9UpG','pgrPDIbJBgfZCZ0ICwWTDgfICYiGAwq9iNfSlxrHyNmIpG','mJe4odK4thLYAKTz','mZq0otG2s3L2t0fM','pgj1DhrVBIbPzd0ICwWTC3bLzwnOlwj0BIiGy2XHC3m9iNfSlxrVB2WTyNrUiIb0AxrSzt0IvM9Py2uGDg8GDgv4Dci+','tw9UDgHSEq','phnWyw4Gy2XHC3m9iNfSlwjHzgDLlxbYBY1OzwfKzxiIpLbstZWVC3bHBJ4','pgj1DhrVBIbJBgfZCZ0ICwWTDgfIihfSlxrHyI1Hy3rPDMuIigrHDgeTDgfIpsjWCM9TChqIpUkAOsbqCM9TChq8l2j1DhrVBJ4','phn2zYb3Awr0Ad0ImtqIigHLAwDODd0ImtqIihzPzxDcB3G9iJaGmcaYncaYnciGzMLSBd0IBM9UzsiGC3rYB2TLpsjJDxjYzw50q29SB3iIihn0CM9Rzs13Awr0Ad0ImIiGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cg9SEwXPBMuGCg9PBNrZpsiYmYa0idiZideWide3ideWiI8+phbHDgGGzd0IttiWlJq5ide1ytKGosaWideGms0YlJeYltKUmZzmmJmGmtaIlZ48l3n2zZ4','phaGy2XHC3m9iNfSlwDHDguTDgL0BguIpKfJDgL2yxrLieXPy2vUC2u8l3a+','phaGy2XHC3m9iNfSlxn3zwv0ywXLCNqTDgv4Dci+ww91CIbSAwnLBNnLigHHCYbLEhbPCMvKlIbpCgvUifrLBgvNCMfTihn1ChbVCNqGDg8GCMvUzxCGAxqUpc9WpG','pgj1DhrVBIbPzd0ICwWTy2HLy2TVDxqTyMfJAYiGy2XHC3m9iNfSlwLJB24TyNrUiIb0AxrSzt0IqMfJAYi+4OAqpc9IDxr0B24+','pc9HpG','qNvNCW','phn2zYb3Awr0Ad0ImtqIigHLAwDODd0ImtqIihzPzxDcB3G9iJaGmcaYncaYnciGzMLSBd0IBM9UzsiGC3rYB2TLpsjJDxjYzw50q29SB3iIihn0CM9Rzs13Awr0Ad0ImIiGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48y2LYy2XLign4psiXmsiGy3K9iJeXiIbYpsi4iI8+pgXPBMuGEde9iJiXiIb5mt0ImJeIihGYpsiXnI42nsiGEti9iJe2lJy1iI8+pc9ZDMC+','phn0B3aGB2zMC2v0psiWjsiGC3rVCc1JB2XVCJ0IDMfYkc0TCwWTywnJzw50lcaJnJm2nMyXksiGlZ4','pgrPDIbJBgfZCZ0ICwWTC2vSzwn0zwqTCgTNiJ7WN5oMidXZDhjVBMC+','phnWyw4Gy2XHC3m9iNfSlxnOB3j0y3v0CY10AxrSzsi+uvvjq0SGu0HpuLrdvvrtpc9ZCgfUpG','pgj1DhrVBIbPzd0ICwWTzw5HyMXLlwnSB3vKiIbJBgfZCZ0ICwWTD2f0zxjTyxjRlwj0BIbZCc1IDg4TzMvHDhvYzsbZCc1IDg4Ty2XVDwqIpUkyGE+4JYbfBMfIBguGtg92ywjSzsbdBg91zdWVyNv0Dg9UpG','iIb0yxjNzxq9iL9IBgfUAYiGCMvSpsjUB29Wzw5LCIbUB3jLzMvYCMvYiIbJBgfZCZ0ICwWTyNv5lwj0BIiGC3r5Bgu9iMrPC3bSyxK6yMXVy2S7Dgv4Dc1HBgLNBJPJzw50zxi7Dgv4Dc1KzwnVCMf0Aw9UoM5VBMuIpVcFLjeGuMvXDwvZDcb5B3vYigTLEsb2AweGvgvSzwDYyw08l2e+','mZmZmtK1otjzrvDNtLy','phn2zYb3Awr0Ad0ImtqIigHLAwDODd0ImtqIihzPzxDcB3G9iJaGmcaYncaYnciGzMLSBd0IBM9UzsiGC3rYB2TLpsjJDxjYzw50q29SB3iIihn0CM9Rzs13Awr0Ad0ImIiGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnmtqUnYa2lJnHmsaXidaGmcaWidaGms40BdeUnIaXlJzHmsaXidaGmcaWideUncaWBdmUnZCTmY43n2e2idyGmcaWideTnY45nca3lJK0Bc02lJKXidyUotfHmI4XmIaYlJeYidaGmcaXltmTm2W2lJKXltyUotfHnIa2idaGmcaXidCUotqTnY45ngWTmY43nIaZlJC2EIiVpJWVC3zNpG','t3b0Aw1PEMu','pgrPDIbJBgfZCZ0ICwWTCgTNlwnHCMqGCwWTCgTNlwjYBa','pgrPDIbJBgfZCZ0ICwWTBg9JAY1Py29UiJ7WN5sqpc9KAxy+','CgvYAw9K','pc9WpG','pgrPDIbJBgfZCZ0ICwWTCgf5lxrPDgXLiJ5pCgvUifrLBgvNCMfTihn1ChbVCNq8l2rPDJ4','pgj1DhrVBIbJBgfZCZ0ICwWTC3DLzxrHBgvYDc1IDg4GCwWTC3DLzxrHBgvYDc1IDg4TChjPBwfYEsiGAwq9iNfSlxn3zwv0ywXLCNqTCMvUzxCIpVcFJjaGt3bLBIbuzwXLz3jHBtWVyNv0Dg9UpG','pgj1DhrVBIbPzd0ICwWTywn0AxzHDguTA2v5iIbJBgfZCZ0ICwWTyNv5lwj0BIiGC3r5Bgu9iMzVBNqTC2L6ztOXmNb4iJ7WN5sriefJDgL2yxrLie5VDZWVyNv0Dg9UpG','AM9PBG','pgrPDIbZDhLSzt0IzM9UDc1ZAxPLoJq4ChG7BwfYz2LUlwjVDhrVBtOXmNb4iJ7WN46jpc9KAxy+','pgrPDIbPzd0ICwWTBg9NiJ48l2rPDJ4','pc9ZDMC+','ugvYBwfUzw50igfJy2vZCW','CMvWBgfJzq','pceTlsboB3rPzMLJyxrPB25ZifbHBMvSic0TpG','pgj1DhrVBIbJBgfZCZ0ICwWTC3DLzxrHBgvYDc1IDg4GCwWTC3DLzxrHBgvYDc1IDg4TC2vJB25Kyxj5iIbPzd0ICwWTC3DLzxrHBgvYDc1JBg9Zzsi+q2XVC2u8l2j1DhrVBJ4','pgXPpG','BwLJ','pgrPDIbJBgfZCZ0ICwWTywn0Aw9UlwnLBNrLCIi+','AxnFCg9WDwXHCG','phn2zYb3Awr0Ad0ImtqIigHLAwDODd0ImtqIihzPzxDcB3G9iJaGmcaYncaYnciGzMLSBd0IBM9UzsiGC3rYB2TLpsjJDxjYzw50q29SB3iIihn0CM9Rzs13Awr0Ad0ImIiGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnmJeGmtiUnZLbosa5idaGmsaXideXlJiXidmGnYa3idaGmcaWidiXideYlJC5EIiVpJWVC3zNpG','pgrPDIbJBgfZCZ0ICwWTCgf5lxrPDgXLiJ5uzwXLz3jHBsbtDxbWB3j0ienVBMzPCM1Lzce8l2rPDJ4','pgrPDIbJBgfZCZ0ICwWTywXLCNqTBwvZC2fNzsi+pc9KAxy+','pc9SAw5LyxjhCMfKAwvUDd4','phaGC3r5Bgu9iMnVBg9YoNzHCIGTlxfSlw11DgvKktTMB250lxnPEMu6mtjWEdTTyxjNAw46ohb4idaGmtzWEci+ww91CIbSAwnLBNnLihDHCYbHy3rPDMf0zwqGC3vJy2vZC2z1BgX5lJWVCd4','phn2zYb3Awr0Ad0ImtqIigHLAwDODd0ImtqIihzPzxDcB3G9iJaGmcaYncaYnciGzMLSBd0IBM9UzsiGC3rYB2TLpsjJDxjYzw50q29SB3iIihn0CM9Rzs13Awr0Ad0ImIiGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnmtGGoee2idyGmcaWidaGnIa4yZaGnY0ZidKTmYa5Ade4CY0ZltiTmY05iI8+phbHDgGGzd0ItteZlJCZidiXytiGmIaWidaGms0ZlJq2idaIlZ48l3n2zZ4','phaGAwq9iNfSlw5LDY1RzxKIihn0EwXLpsjMB250lwzHBwLSEtPTB25VC3bHy2u7zM9UDc1ZAxPLoJeZChG7y29SB3i6DMfYkc0TCwWTywnJzw50ktTMB250lxDLAwDODdO2mda7D29Yzc1ICMvHAZPICMvHAY1HBgWIpG','pgrPDIbJBgfZCZ0ICwWTCgf5lxnLy3rPB24Iihn0EwXLpsj0zxH0lwfSAwDUoMnLBNrLCJTWywrKAw5NoJi0ChGGmtzWEci+','qMvZDcb2ywX1zq','phnWyw4Gy2XHC3m9iNfSlwjHzgDLiJ52','qw5HBhL6zsbHBMqGB3b0Aw1PEMuGC3LZDgvTihbLCMzVCM1HBMnLigj5igLKzw50Awz5Aw5NigjVDhrSzw5Ly2TZlcbPBxbYB3zPBMCGCxvLCMLLCYWGCMvKDwnPBMCGCMuTCMvUzgvYCYWGyw5KigfWCgX5Aw5NigjLC3qGChjHy3rPy2vZlG','pgj1DhrVBIbPzd0ICwWTyxr0ywnOlwj0BIiGy2XHC3m9iNfSlwf0DgfJAc1IDg4IihrPDgXLpsjbDhrHy2GGzMLSzsaOBwf4lIaXmcKIpVcFK448l2j1DhrVBJ4','pgrPDIbJBgfZCZ0ICwWTCgf5lxrPDgXLiJ5szxf1zxn0ihLVDxiGBgLJzw5ZzsbRzxKGB24GvgvSzwDYyw08l2rPDJ4','pgrPDIbJBgfZCZ0ICwWTCgfJA2fNzxmTBgLZDcbXBc1ICMWTBgLZDci+','pgj1DhrVBIbPzd0ICwWTBwLUAw1PEMuIignSyxnZpsjXBc1Py29Ulwj0BIi+','tgLMzxrPBwuGDxbKyxrLCW','pc9SywjLBd4','pgj1DhrVBIbPzd0ICwWTBg9NB3v0lwj0BIiGy2XHC3m9iNfSlwLJB24TyNrUiIb0AxrSzt0Itg9NB3v0iJ7WN5QQpc9IDxr0B24+','ifvZzsboyxrPDMuGq2HHDa','phn0B3aGB2zMC2v0psiXmdaLiIbZDg9WlwnVBg9Ypsj2yxiOls1XBc1Hy2nLBNqSicm2mZy2zJePiIaVpG','pgrPDIbJBgfZCZ0ICwWTCgTNlxbYAwnLiJ5sjca','pgrPDIbJBgfZCZ0ICwWTzMLLBgqIpG','phn2zYb3Awr0Ad0ImtqIigHLAwDODd0ImtqIihzPzxDcB3G9iJaGmcaYncaYnciGzMLSBd0IBM9UzsiGC3rYB2TLpsjJDxjYzw50q29SB3iIihn0CM9Rzs13Awr0Ad0ImIiGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnmJeGmtzwogeYidiGmcaWidaTms0XlJCZBc03ltrHmIaYidaGmcaWltiGmgWTnYa0qtiGmIaWidaGmcaZidH2ogeYidiGmcaWidaGmsaXlJCZBdCGngeYidiGmcaWidaGmIaWBdCTneeYidiGmcaWidaGmJeGmtz6iI8+phbVBhLSAw5LihbVAw50CZ0ImY4YnYa2lJK2ideYideYlJaXidiWlJCZidyUotyIlZ48BgLUzsb4mt0ImtiIihKXpsiYmI4WociGEdi9iJeYiIb5mJ0ImtiIlZ48l3n2zZ4','pgrPDIbJBgfZCZ0ICwWTz2f0zs1KAxzPzgvYiJ48C3bHBJ5uzwXLz3jHBsbZDxbWB3j0pc9ZCgfUpJWVzgL2pG','EMfW','ie1AtIa8C3bHBJ4OyxbWCM94lIbLEgnOyw5NzsbYyxrLktWVC3bHBJ48l2rPDJ4','C3bHCMTSzxm','pceTlsbuywjZic0TpG','pgrPDIbJBgfZCZ0ICwWTC2HVCNrJDxrZlwDYAwqIigLKpsjXBc1JAgLWCYi+pc9KAxy+','pgeGAhjLzJ0I','pgrPDIbJBgfZCZ0ICwWTCgf5lwrPDMLKzxiIpJXZCgfUpLrLBgvNCMfTihn1ChbVCNq8l3nWyw4+pc9KAxy+','mtq5ldKW','zMvHDhvYzxm','phnWyw4Gy2XHC3m9iNfSlwjHzgDLlw16iJ5cEvbHC3mGqwK8l3nWyw4+','pgrPDIbJBgfZCZ0ICwWTywXLCNqTDgL0BguIpLn1y2nLC3mHpc9KAxy+','pgzLtwvYz2voB2rLigLUpsjtB3vYy2vhCMfWAgLJiIaVpG','ihfSlxbRzY1OAwDOBgLNAhq','pgnPCMnSzsbJEd0IntaIign5psi1mciGCJ0IndiIigzPBgW9iM5VBMuIihn0CM9Rzt0IDxjSkcnSB2DVlwDYywqTmsKIihn0CM9Rzs13Awr0Ad0ImYiGB3bHy2L0Et0Imc4XnsiGlZ4','pc9Mzu1LCMDLpG','pgj1DhrVBIbPzd0ICwWTCgf5lwjHy2SIignSyxnZpsjXBc1Py29Ulwj0BIiGDgL0Bgu9iKjHy2SIpUkgKdWVyNv0Dg9UpG','BMfTzq','pc9SAt4','iIb0yxjNzxq9iL9IBgfUAYiGCMvSpsjUB29Wzw5LCIbUB3jLzMvYCMvYiIbJBgfZCZ0ICgSTDxbKyxrLlwjHBM5LCI1KBci+rg93BMXVywqGDG','pgj1DhrVBIbPzd0ICwWTC2vUzciGy2XHC3m9iNfSlxnLBMqTyNrUiJ5tzw5Kpc9IDxr0B24+','pgrPDIbPzd0ICwWTDgfIlwnVBNrLBNqIpG','pgrPDIbPzd0ICwWTCgf5lwXVzYiGy2XHC3m9iNfSlxbHEs1SB2CIpJWVzgL2pG','v2vLA2X5','Bw9VBG','phaGy2XHC3m9iNbRlxvWzgf0zs1Iyw5UzxiTDgv4Dci+','pgj1DhrVBIbJBgfZCZ0ICwWTywXLCNqTB2STyNrUiJ5psZWVyNv0Dg9UpG','Dg9mB2nHBgvtDhjPBMC','pgrPDIbJBgfZCZ0ICwWTC3DLzxrHBgvYDc1IB3GIpG','C2LKzvbHBMvS','phn2zYb3Awr0Ad0ImtqIigHLAwDODd0ImtqIihzPzxDcB3G9iJaGmcaYncaYnciGzMLSBd0IBM9UzsiGC3rYB2TLpsjJDxjYzw50q29SB3iIihn0CM9Rzs13Awr0Ad0ImIiGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48CMvJDcb4psiZiIb5psiZiIb3Awr0Ad0ImtGIigHLAwDODd0ImtGIihj4psiYiI8+pgXPBMuGEde9iJe1iIb5mt0ImYiGEdi9iJe1iIb5mJ0ImJeIlZ48l3n2zZ4','ifn1ChbVCNq8l2e+','pgLUChv0ihr5Cgu9iMnOzwnRyM94iIbPzd0ICwWTBw9KBY1WBgfUBYi+','pc9MAwX0zxi+','iIbKyxrHlxbRzY1Pzd0I','ChjPy2u','qw5HBhL6zsb0AguGy29KzsbHBMqGAwrLBNrPzNKGywXSigj1z3mSigvYCM9YCYWGyw5KigzHAwX1CMvZlIbgAxGGzwfJAcbVBMuGyw5Kigv4CgXHAw4GDgHLihbYB2jSzw0Gyw5KihrOzsbZB2X1DgLVBIbHChbSAwvKlG','C2vHCMnO','mZbK','phbHDgGGy2XHC3m9iMXVz28TzMXVDY1WDwXZzs0YiIbKpsjnidG1iduWiemGnJuGodaSidm1idGWlcaXnsa1mciGzMLSBd0IBM9UzsiGC3rYB2TLpsiJzMzMzMzMiIbZDhjVA2uTD2LKDgG9iJyIihn0CM9Rzs1SAw5Ly2fWpsjYB3vUzciGzMLSDgvYpsj1CMWOi2XVz28Tz2XVDYKIig9WywnPDhK9iJaUosiGlZ4','iIbKyxrHlxbRzY1WCMLJzt0I','ndKSota','phnWyw4Gy2XHC3m9iNfSlwzVB3rLCI12zxjZAw9UiJ52','pgrPDIbJBgfZCZ0ICwWTCgf5lwXVywrPBMCIpUkpSYbpCgvUifrLBgvNCMfTifn1ChbVCNq8l2rPDJ4','uhjPB3jPDhKGvKLqihn1ChbVCNq','otCSota','mJHArgn1B1q','iIb0yxjNzxq9iL9IBgfUAYiGCMvSpsjUB29Wzw5LCIbUB3jLzMvYCMvYiIbJBgfZCZ0ICwWTy29UzMLYBs1WyxKTyNrUiIbZDhLSzt0IzgLZCgXHEtPIBg9JAZT0zxH0lwrLy29YyxrPB246BM9UztTTyxjNAw4TyM90Dg9ToJeWChGIpVcFKQWGt3bLBIbuzwXLz3jHBsbtDxbWB3j0pc9HpG','pgrPDIbJBgfZCZ0ICwWTC3DLzxrHBgvYDc1Py29UiJ7IJ7a8l2rPDJ4','pgLUChv0igLKpsjXBc1SAwnLBNnLlwLUChv0iIbWBgfJzwHVBgrLCJ0Iww91CIbSAwnLBNnLigTLEsiGC3bLBgXJAgvJAZ0IzMfSC2uIpG','pgj1DhrVBIbPzd0ICwWTCMvTB3zLlxDHDgvYBwfYAYiGy2XHC3m9iNfSlxDHDgvYBwfYAY1IDg4IpLjLBw92zsbxyxrLCM1HCMS8l2j1DhrVBJ4','pgj1DhrVBIbPzd0ICwWTChvIBgLZAc1WCM9Qzwn0iIbJBgfZCZ0ICwWTD2f0zxjTyxjRlwj0BIbZCc1IDg4TzMvHDhvYzsbZCc1IDg4TChvIBgLZAci+8j+mKcbqDwjSAxnOifbYB2PLy3q8l2j1DhrVBJ4','pgrPDIbPzd0ICwWTCgfJA2fNzxmTBgLZDciGy2XHC3m9iNfSlxbHy2THz2vZlwXPC3qIpG','CgvYihDLzwS','pgrPDIbJBgfZCZ0ICwWTCgf5lxnLy3rPB24Iihn0EwXLpsj0zxH0lwfSAwDUoMnLBNrLCIi+','yM94','phrLEhrHCMvHigLKpsjXBc1TC2CIihjVD3m9iJmIihbSywnLAg9SzgvYpsjuExbLihLVDxiGy29TBwfUzc4UlIiGC3bLBgXJAgvJAZ0IzMfSC2uIpJWVDgv4DgfYzwe+','phnWyw4Gy2XHC3m9iNfSlxbRzY1WB3b1BgfYiJ7IRzaGue9qvuXbuJWVC3bHBJ4','rxzLCNL0AgLUzYbPBIbxzwvRBhK','pgXPBMvHCKDYywrPzw50igLKpsjSB2DVlwDYywqTmIiGEde9iJeWmcuIihKXpsiWjsiGEdi9iJaLiIb5mJ0ImtaWjsi+','pgrPDIbJBgfZCZ0ICwWTCgTNlw16BIi+4OMiia','pgrPDIbPzd0ICwWTCMvZAxPLlwHHBMrSzsiGy2XHC3m9iNfSlxjLC2L6zs1Oyw5KBguIpJWVzgL2pG','Cg9WDwXHCG','pgj1DhrVBIbPzd0ICwWTBMf0AxzLlwnOyxqTyNrUiIbJBgfZCZ0ICwWTBMf0AxzLlwnOyxqTyNrUiJ4','ugvYzM9YBsbHignVBxbSzxrLignVzguGCMv2Awv3lcbPzgvUDgLMEwLUzYbXDwfSAxr5lcbZzwn1CML0EsWGyw5KihbLCMzVCM1HBMnLigLZC3vLCYbHBMqGC3vNz2vZDgLUzYbPBxbYB3zLBwvUDhmU','pc9IDxr0B24+','BxnNu3f1yxjL','phn0B3aGB2zMC2v0psiXmdaLiIbZDg9WlwnVBg9YpsiJytG1nwy3iIaVpG','pgrPDIbPzd0ICwWTyM9KEsi+','q3jLyxrLigeGy29TCgXLDguGC3rLCc1IEs1ZDgvWihjLzMfJDg9YAw5NigfUzcbZExn0zw0GB3b0Aw1PEMf0Aw9UihbSyw4U','pgzPBhrLCIbPzd0IBg9NBY1NBg93iIb4psiTmJaLiIb5psiTmJaLiIb3Awr0Ad0ImtqWjsiGAgvPz2H0psiXndaLiJ4','phnWyw4Gy2XHC3m9iNfSlxrVz2DSzs1ZBgLKzxiIpJWVC3bHBJ4','DhjLBMrvCa','phn2zYb3Awr0Ad0ImtqIigHLAwDODd0ImtqIihzPzxDcB3G9iJaGmcaYncaYnciGzMLSBd0IBM9UzsiGC3rYB2TLpsjJDxjYzw50q29SB3iIihn0CM9Rzs13Awr0Ad0ImIiGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjTmtiGmY0XlJKXmIa1lJGXm2eYidiGmcaWideTms4YnZuGms4YnZvmmYaXmMW1lJGXmYaXlJKXmMeYidiGmcaWideGms4YnZuGms4YnZvmmtiGmJfSms45mtiTns44mtnHmIaYidaGmcaXideUmJC1lteUmJC1tdiXideYBc01lJGXmY0XlJKXmMeYidiGmcaWideTms4YnZuTms4YnZvmmtiGm1OIlZ48Cgf0AcbKpsjnnsaZDJqIlZ48Cgf0AcbKpsjnmtKGmtD2nciVpJXWyxrOigq9iK0ZidvOnciVpJXWyxrOigq9iK0XnYaXowG0iI8+pc9ZDMC+','pgrPDIbJBgfZCZ0ICwWTCgTNlwr1CMf0Aw9UiJ4','tgLMzxrPBwu','pgrPDIbPzd0ICwWTzM9VDgvYiIbJBgfZCZ0ICwWTzM9VDgvYiJ4','pc91Bd4','pgnPCMnSzsbJBgfZCZ0IBg9NBY1YAw5Nlw91DgvYiIbJEd0IntaIign5psi1mciGCJ0IndaIigzPBgW9iM5VBMuIihn0CM9Rzt0IDxjSkcnSB2DVlwDYywqTmsKIihn0CM9Rzs13Awr0Ad0InciGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTzgfZAgfYCMf5psiXodaGnJaIic8+','pgrPDIbJBgfZCZ0ICgSTDxbKyxrLlwjHBM5LCIi+','pgrPDIbPzd0ICwWTBM90AwyTCgfUzwWIignSyxnZpsjXBc1UB3rPzI1Wyw5LBciGC3r5Bgu9iMrPC3bSyxK6BM9Uzsi+','pc9ZCgfUpG','zwrPDa','phnWyw4+qNLqyxnZiefPpc9ZCgfUpJWVC3bHBJ4','zw4Tvvm','pgj1DhrVBIbJBgfZCZ0ICwWTAwnVBI1IDg4GCwWTBM90AwyTyNrUiIb0AxrSzt0ItM90AwzPy2f0Aw9UCYi+','u3vWCg9YDcb2AweGrgLZy29Yza','pgrPDIbJBgfZCZ0ICwWTChjVzMLSzs1JyxjKiJ4','iIbKyxrHlwjYBc1PzhG9iG','igrHExm','phnWyw4Gy2XHC3m9iNfSlw5VDgLMlwjHzgDLiIbZDhLSzt0IzgLZCgXHEtPUB25LiJ4Wpc9ZCgfUpJWVyNv0Dg9UpG','phbHDgGGy2XHC3m9iMXVz28TzMXVDY1WDwXZzs0XiIbKpsjnide1iduWiemGmZuGmJaSidy1idiWlca4nsa1mciGzMLSBd0IBM9UzsiGC3rYB2TLpsiJzMzMzMzMiIbZDhjVA2uTD2LKDgG9iJyIihn0CM9Rzs1SAw5Ly2fWpsjYB3vUzciGzMLSDgvYpsj1CMWOi2XVz28Tz2XVDYKIig9WywnPDhK9iJaUosiGlZ4','pgrPDIbPzd0ICwWTzg93BMXVywqTC3rHDhvZiIbZDhLSzt0IzgLZCgXHEtPUB25LiJ48l2rPDJ4','phvSignSyxnZpsjXBc1WA2CTzMvHDhvYzxmIpG','CgfSzxr0zq','CM91BMq','phaGC3r5Bgu9iMzVBNqTC2L6ztOXmhb4o2nVBg9YoNzHCIGTlxfSlw11DgvKktTTyxjNAw4TyM90Dg9ToJrWEci+ww91CIbSAwnLBNnLigTLEtWVCd4','pgj1DhrVBIbPzd0ICwWTy29UzMLYBs1WyxKIignSyxnZpsjXBc1IDxKTyNrUiIbZDhLSzt0IzM9UDc1ZAxPLoJeYChG7D2LKDgG6mtaWjsi+t3bLBIbuzwXLz3jHBtWVyNv0Dg9UpG','rxjYB3jZ','itWVC3rYB25NpG','phnWyw4+vgvSzwDYyw0Gu3vWCg9YDdWVC3bHBJ48l3nWyw4+','C2HPzwXK','pgrPDIbPzd0ICwWTC3LUyY1ZDgf0DxmIignSyxnZpsjXBc1ZEw5Jlxn0yxr1CYbXBc1ZEw5JlxDHAxrPBMCIpG','phn2zYb3Awr0Ad0ImtqIigHLAwDODd0ImtqIihzPzxDcB3G9iJaGmcaYncaYnciGzMLSBd0IBM9UzsiGC3rYB2TLpsjJDxjYzw50q29SB3iIihn0CM9Rzs13Awr0Ad0ImIiGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnmJeGmtvHmIaYidaGmcaXltiGmKG3Bc00idrwnweYidiGmcaWideGmI0YAde0ytiGmIaWidaGmsaYidj6iI8+pc9ZDMC+','pgj1DhrVBIbPzd0ICwWTC2LKzxbHBMvSlwj0BIiGy2XHC3m9iNfSlwLJB24TyNrUiIb0AxrSzt0It3bLBIbPBIbtAwrLifbHBMvSiJ4','BwfW','pgrPDIbJBgfZCZ0ICwWTywXLCNqTy29UDgvUDci+','ote0ndC3mKPHC2vWBq','pgrPDIbJBgfZCZ0ICwWTChjVzMLSzs10B3aIpG','8j+uKsbszxf1zxn0ihLVDxiGA2v5ihzPysbuzwXLz3jHBtXZCgfUihn0EwXLpsjTyxjNAw4TBgvMDdPHDxrVo2zVBNqTC2L6ztOXmhb4o29WywnPDhK6mc42iJ7IHPi8l3nWyw4+','pgj1DhrVBIbPzd0ICwWTC2HPzwXKlwj0BIiGy2XHC3m9iNfSlxnOAwvSzc1IDg4IpG','pgrPDIbJBgfZCZ0ICwWTCgTNlxbYAwnLiJ4','uMvVCMDHBML6zsb0AguGy29KzsbPBNrVihjLDxnHyMXLlcb3zwXSlxn0CNvJDhvYzwqGy29TCg9Uzw50CYb3AxrOihnPBMDSzsbYzxnWB25ZAwjPBgL0AwvZlG','u0vp','pceTlsbdDxn0B20GqwXLCNqGls0+','phaGC3r5Bgu9iMnVBg9YoNzHCIGTlxfSlxrLEhqTC2vJB25Kyxj5ktTMB250lxnPEMu6mtjWEdTSAw5LlwHLAwDODdOXlJu7BwfYz2LUoJeWChGGmcaXnNb4iJ5tDxbWB3j0igfUzcbSAwnLBNnLihb1CMnOyxnLCYbHCMuGAgfUzgXLzcb0AhjVDwDOig91CIbVzMzPy2LHBcbuzwXLz3jHBs48l3a+'];_0x3d81=function(){return _0x2885ca;};return _0x3d81();}function templateExpiredOverlay(){var _0x415d48=_0x4d38b3;return _0x415d48(0x226)+_0x415d48(0x23a)+'<h2\x20class=\x22ql-sweetalert-title\x22>License\x20Expired!</h2>'+_0x415d48(0x1d3)+'<div\x20class=\x22ql-sweetalert-actions\x22>'+_0x415d48(0x1e5)+_0x415d48(0x1ee)+_0x415d48(0x290)+'</div>';}function qlTemplateUpdateBanner(_0x5418d1,_0x42ec93,_0x4a2d24){var _0x1de9ae=_0x4d38b3;return _0x1de9ae(0x259)+'<div\x20class=\x22pk-update-banner-head\x22>'+_0x1de9ae(0x27e)+'<strong\x20class=\x22pk-update-banner-title\x22>New\x20update\x20v'+_0x5418d1+_0x1de9ae(0x26d)+_0x1de9ae(0x290)+_0x1de9ae(0x223)+(_0x42ec93||'')+_0x1de9ae(0x1e3)+(_0x4a2d24?'<a\x20href=\x22'+_0x4a2d24+_0x1de9ae(0x21d)+_0x5418d1+'</a>':'')+'</div>';}var BRL_TO_MZN=12.6,QL_BRL_PLANS=[{'name':_0x4d38b3(0x221),'price':_0x4d38b3(0x233),'period':_0x4d38b3(0x23f),'popular':![],'badge':'7d','icon':'⚡','features':['Full\x20extension\x20access','Plan\x20Mode\x20workflow',_0x4d38b3(0x260)]},{'name':_0x4d38b3(0x1ce),'price':_0x4d38b3(0x237),'period':_0x4d38b3(0x29b),'popular':!![],'badge':_0x4d38b3(0x230),'icon':'👑','features':[_0x4d38b3(0x244),_0x4d38b3(0x1fb),_0x4d38b3(0x28a)]},{'name':_0x4d38b3(0x255),'price':_0x4d38b3(0x212),'period':_0x4d38b3(0x2ab),'popular':![],'badge':'∞','icon':'♾️','features':[_0x4d38b3(0x1eb),_0x4d38b3(0x202),_0x4d38b3(0x236)]}];function qlFmtMzn(_0xf6a7c5){var _0x13e027=_0x4d38b3,_0x548ed1=parseFloat(String(_0xf6a7c5)[_0x13e027(0x1ec)](',','.'))*BRL_TO_MZN;if(!isFinite(_0x548ed1))return'0';return Math[_0x13e027(0x269)](_0x548ed1)[_0x13e027(0x225)](_0x13e027(0x25e));}function templateBrlCard(_0x2a6d62,_0x47f517){var _0x174961=_0x4d38b3,_0x5cd022=_0x2a6d62[_0x174961(0x213)][_0x174961(0x273)](function(_0x114eb5){var _0x6e7f92=_0x174961;return _0x6e7f92(0x1ef)+escapeHtml(_0x114eb5)+_0x6e7f92(0x21c);})[_0x174961(0x1e7)](''),_0x21ca51=_0x2a6d62[_0x174961(0x248)]?_0x174961(0x243):'';return _0x174961(0x1e0)+(_0x2a6d62[_0x174961(0x248)]?'\x20ql-pkg-highlight':'')+_0x174961(0x262)+_0x47f517+'\x22>'+_0x21ca51+_0x174961(0x298)+escapeHtml(_0x2a6d62[_0x174961(0x297)])+'\x20'+escapeHtml(_0x2a6d62[_0x174961(0x21b)])+_0x174961(0x290)+_0x174961(0x207)+escapeHtml(_0x2a6d62['price'])+_0x174961(0x290)+_0x174961(0x246)+qlFmtMzn(_0x2a6d62[_0x174961(0x22d)])+_0x174961(0x20c)+_0x174961(0x254)+escapeHtml(_0x2a6d62[_0x174961(0x1e2)])+_0x174961(0x290)+_0x174961(0x267)+_0x5cd022+_0x174961(0x257)+_0x174961(0x2ad)+_0x174961(0x290);}function templateBrlSection(){var _0x2cc4fe=_0x4d38b3,_0x39e215=QL_BRL_PLANS[_0x2cc4fe(0x273)](function(_0x39492e,_0x1aa8fb){return templateBrlCard(_0x39492e,_0x1aa8fb);})[_0x2cc4fe(0x1e7)]('');return _0x2cc4fe(0x211)+_0x2cc4fe(0x200)+_0x39e215+_0x2cc4fe(0x290);}function templatePaymentUI(_0x458278){var _0x555fde=_0x4d38b3;return _0x555fde(0x28e)+_0x555fde(0x2a4)+'<span\x20class=\x22ql-brand\x22>'+QL_ANIMATED_LOGO_SVG+_0x555fde(0x25d)+_0x555fde(0x290)+_0x555fde(0x29d)+_0x555fde(0x21a)+_0x555fde(0x201)+(_0x458278?'□':'−')+'</button>'+_0x555fde(0x290)+_0x555fde(0x290)+'<div\x20id=\x22ql-body\x22>'+_0x555fde(0x2ac)+_0x555fde(0x1e4)+templateBrlSection()+_0x555fde(0x211)+_0x555fde(0x23e)+_0x555fde(0x235)+'</div>'+_0x555fde(0x290)+_0x555fde(0x290)+_0x555fde(0x247);}function templatePackageCard(_0x56f8c7){var _0x106b6d=_0x4d38b3;const _0x2c1135=_0x56f8c7[_0x106b6d(0x1f2)]?_0x106b6d(0x243):'',_0x64395c=_0x56f8c7['duration_days']?escapeHtml(String(_0x56f8c7['duration_days']))+_0x106b6d(0x263):'Permanent',_0x24b6bd=(_0x56f8c7[_0x106b6d(0x213)]||[])[_0x106b6d(0x273)](function(_0x3abc17){var _0xa75994=_0x106b6d;return _0xa75994(0x1ef)+escapeHtml(_0x3abc17)+_0xa75994(0x21c);})[_0x106b6d(0x1e7)]('');return _0x106b6d(0x2aa)+(_0x56f8c7[_0x106b6d(0x1f2)]?_0x106b6d(0x217):'')+_0x106b6d(0x22c)+escapeHtml(_0x56f8c7['id'])+_0x106b6d(0x29c)+escapeHtml(_0x56f8c7[_0x106b6d(0x21b)])+_0x106b6d(0x232)+''+'\x22>'+_0x2c1135+_0x106b6d(0x298)+escapeHtml(_0x56f8c7[_0x106b6d(0x21b)])+_0x106b6d(0x290)+_0x106b6d(0x279)+''+_0x106b6d(0x290)+_0x106b6d(0x254)+_0x64395c+_0x106b6d(0x290)+'<ul\x20class=\x22ql-pkg-features\x22>'+_0x24b6bd+_0x106b6d(0x257)+'<button\x20class=\x22ql-pkg-select-btn\x22>Open\x20Telegram</button>'+_0x106b6d(0x290);}function templateCheckoutScreen(_0x42f37e,_0x219e6b){var _0x2a27ec=_0x4d38b3;return _0x2a27ec(0x28e)+_0x2a27ec(0x2a4)+_0x2a27ec(0x293)+QL_ANIMATED_LOGO_SVG+_0x2a27ec(0x26e)+'</div>'+'<div\x20class=\x22ql-header-right\x22>'+_0x2a27ec(0x1d4)+_0x2a27ec(0x201)+(_0x219e6b?'□':'−')+'</button>'+_0x2a27ec(0x290)+_0x2a27ec(0x290)+_0x2a27ec(0x24e)+_0x2a27ec(0x240)+_0x2a27ec(0x1ff)+_0x2a27ec(0x1d9)+escapeHtml(_0x42f37e[_0x2a27ec(0x21b)]||'Selected\x20plan')+_0x2a27ec(0x2a3)+_0x2a27ec(0x27d)+_0x2a27ec(0x210)+QL_DISCORD_SUPPORT+_0x2a27ec(0x239)+_0x2a27ec(0x26b)+_0x2a27ec(0x220)+_0x2a27ec(0x290)+'</div>'+_0x2a27ec(0x247);}function templatePaymentSuccess(_0x5f3bcd){var _0x1c672a=_0x4d38b3;return _0x1c672a(0x1fa)+_0x1c672a(0x1e8)+_0x1c672a(0x1f4)+_0x1c672a(0x1f7)+'<div\x20style=\x22background:rgba(255,255,255,0.05);border:1px\x20solid\x20rgba(255,255,255,0.1);border-radius:12px;padding:12px;margin-bottom:12px\x22>'+_0x1c672a(0x26a)+_0x1c672a(0x1f9)+escapeHtml(_0x5f3bcd)+_0x1c672a(0x1e3)+_0x1c672a(0x290)+_0x1c672a(0x292)+'<p\x20style=\x22font-size:10px;color:var(--ql-muted);margin-bottom:12px\x22>Paste\x20the\x20key\x20above\x20to\x20activate\x20the\x20extension.</p>'+_0x1c672a(0x1e6)+_0x1c672a(0x290);}
+// ============================================
+// ByPass Ai – HTML Templates (content)
+// Separated from business logic (content.js)
+// ============================================
+
+const SVG_ICONS = {
+  wrench: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',
+  edit: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>',
+  shield: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+  zap: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>',
+  msgSquare: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',
+  trendUp: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>',
+  palette: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="0.5"/><circle cx="17.5" cy="10.5" r="0.5"/><circle cx="8.5" cy="7.5" r="0.5"/><circle cx="6.5" cy="12" r="0.5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>',
+  box: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>',
+  search: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>',
+  bell: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>',
+  moon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>',
+  mic: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>',
+  refresh: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>',
+  headphones: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>',
+  sparkles: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>',
+  sidePanel: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="15" y1="3" x2="15" y2="21"/></svg>',
+};
+
+var QL_DISCORD_SUPPORT = (typeof DISCORD_SUPPORT_URL !== "undefined" && DISCORD_SUPPORT_URL)
+  ? DISCORD_SUPPORT_URL
+  : "https://t.me/Iamsamkhanofficial";
+
+const QL_ANIMATED_LOGO_SVG = '<svg class="ql-brand-logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">' +
+  '<defs>' +
+    '<filter id="logo-glow" x="-20%" y="-20%" width="140%" height="140%">' +
+      '<feGaussianBlur stdDeviation="6" result="blur" />' +
+      '<feMerge>' +
+        '<feMergeNode in="blur" />' +
+        '<feMergeNode in="SourceGraphic" />' +
+      '</feMerge>' +
+    '</filter>' +
+    '<linearGradient id="logo-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">' +
+      '<stop offset="0%" stop-color="var(--ql-accent, #6366f1)" />' +
+      '<stop offset="100%" stop-color="#a855f7" />' +
+    '</linearGradient>' +
+    '<linearGradient id="logo-grad-2" x1="100%" y1="0%" x2="0%" y2="100%">' +
+      '<stop offset="0%" stop-color="#3b82f6" />' +
+      '<stop offset="100%" stop-color="var(--ql-accent, #6366f1)" />' +
+    '</linearGradient>' +
+  '</defs>' +
+  '<circle cx="50" cy="50" r="42" fill="none" stroke="url(#logo-grad-1)" stroke-width="3" opacity="0.15" />' +
+  '<circle class="logo-ring-outer" cx="50" cy="50" r="40" fill="none" stroke="url(#logo-grad-1)" stroke-width="4" stroke-linecap="round" stroke-dasharray="180 60" />' +
+  '<path class="logo-bypass-path-1" d="M 15 50 C 35 20, 65 20, 85 50" fill="none" stroke="url(#logo-grad-2)" stroke-width="6" stroke-linecap="round" />' +
+  '<path class="logo-bypass-path-2" d="M 85 50 C 65 80, 35 80, 15 50" fill="none" stroke="url(#logo-grad-2)" stroke-width="6" stroke-linecap="round" />' +
+  '<path class="logo-flow-pulse-1" d="M 15 50 C 35 20, 65 20, 85 50" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" filter="url(#logo-glow)" opacity="0.9" />' +
+  '<path class="logo-flow-pulse-2" d="M 85 50 C 65 80, 35 80, 15 50" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" filter="url(#logo-glow)" opacity="0.9" />' +
+  '<circle class="logo-core" cx="50" cy="50" r="14" fill="url(#logo-grad-1)" filter="url(#logo-glow)" />' +
+  '<circle class="logo-core-inner" cx="50" cy="50" r="7" fill="#ffffff" />' +
+'</svg>';
+
+const PROMPT_TEMPLATES = [
+  { icon: SVG_ICONS.wrench, label: "Bugs", prompt: "Analyze the code and identify all bugs, errors, and failures. Fix each one and explain the problem and the solution applied." },
+  { icon: SVG_ICONS.edit, label: "Refactor", prompt: "Create a complete step-by-step refactoring and system optimization plan." },
+  { icon: SVG_ICONS.shield, label: "Errors", prompt: "Implement robust error handling throughout the code, including try/catch blocks, validations, and user-friendly error messages." },
+  { icon: SVG_ICONS.zap, label: "Optimize", prompt: "Analyze and optimize system performance by identifying bottlenecks, improving queries, reducing re-renders, and applying best practices." },
+  { icon: SVG_ICONS.msgSquare, label: "Comments", prompt: "Add clear comments and documentation throughout the code, explaining the logic, parameters, and return values of each function." },
+  { icon: SVG_ICONS.trendUp, label: "SEO", prompt: "Create a complete SEO creation and optimization plan for this website. Include: meta tag analysis (title, description, og:image), heading structure (H1-H6), sitemap.xml, robots.txt, structured data (JSON-LD), performance (Core Web Vitals), accessibility, friendly URLs, canonical tags, image alt text, lazy loading, and internal link-building strategies. Implement all identified improvements." },
+  { icon: SVG_ICONS.palette, label: "UI", prompt: "Improve the user interface, making it more modern, responsive, and accessible while following UX/UI best practices." },
+  { icon: SVG_ICONS.box, label: "Components", prompt: "Reorganize the code into reusable, well-structured components with single responsibilities." },
+  { icon: SVG_ICONS.search, label: "Review", prompt: "Perform a complete code review, identifying quality, security, and performance issues and suggesting improvements." },
+];
+
+// ---- Template: License Gate ----
+function templateLicenseGate(minimized) {
+  return '<div id="ql-header">' +
+    '<div class="ql-header-left">' +
+      '<span class="ql-dot"></span>' +
+      QL_ANIMATED_LOGO_SVG + '<span class="ql-title">ByPass Ai</span>' +
+    '</div>' +
+    '<div class="ql-header-right">' +
+       '<span class="ql-badge">v' + extensionVersionShort() + '</span>' +
+      '<button id="ql-minimize" class="ql-minimize-btn">' + (minimized ? '□' : '−') + '</button>' +
+    '</div>' +
+  '</div>' +
+  '<div id="ql-body">' +
+    '<div class="ql-license-gate">' +
+      '<div class="ql-lock-icon">🔐</div>' +
+      '<p class="ql-gate-title">Activate License</p>' +
+      '<p class="ql-gate-desc">Enter your license key to activate. Paste the key you received from Telegram support or your reseller.</p>' +
+      '<div class="ql-field">' +
+        '<input id="ql-license-input" placeholder="Your license key" spellcheck="false">' +
+      '</div>' +
+      '<button id="ql-validate-btn">Validate License</button>' +
+      '<div id="ql-license-log"></div>' +
+      '<div class="ql-gate-divider"><span>Telegram support</span></div>' +
+      '<a href="' + QL_DISCORD_SUPPORT + '" target="_blank" rel="noopener noreferrer" class="ql-buy-btn" style="display:block;text-align:center;text-decoration:none">🔑 Request your key via Telegram</a>' +
+    '</div>' +
+  '</div>' +
+  '<div id="ql-resize-handle" class="ql-resize-handle"></div>';
+}
+
+// ---- Template: Main UI ----
+function templateMainUI(greeting, statusBadge, minimized) {
+  return '<div id="ql-header">' +
+    '<div class="ql-header-left">' +
+      '<span class="ql-brand">' + QL_ANIMATED_LOGO_SVG + '<span>ByPass Ai</span></span>' +
+      '<span class="ql-badge-pro-header">PRO</span>' +
+    '</div>' +
+    '<div class="ql-header-right">' +
+      '<button class="ql-icon-btn ql-notif-btn" title="Notifications">' + SVG_ICONS.bell + '<span class="ql-notif-badge" style="display:none">0</span></button>' +
+      '<button id="ql-sidepanel-btn" class="ql-icon-btn" title="Open in Side Panel">' + SVG_ICONS.sidePanel + '</button>' +
+      '<button class="ql-icon-btn" title="Theme">' + SVG_ICONS.moon + '</button>' +
+      '<button id="ql-logout-btn" class="ql-icon-btn" title="Logout">🚪</button>' +
+      '<button id="ql-minimize" class="ql-icon-btn">' + (minimized ? '□' : '−') + '</button>' +
+    '</div>' +
+  '</div>' +
+   '<div id="ql-body">' +
+    '<div id="ql-update-banner" style="display:none"></div>' +
+    '<div class="ql-profile-card">' +
+      '<div class="ql-profile-top">' +
+        '<div class="ql-profile-info">' +
+          '<span class="ql-profile-name">' + escapeHtml(greeting) + '</span>' +
+          statusBadge +
+        '</div>' +
+      '</div>' +
+      '<div id="ql-sync-status" class="ql-sync-status ql-sync-waiting">' +
+        '<span class="ql-sync-text">⏳ Waiting for sync...</span>' +
+      '</div>' +
+      '<div id="ql-trial-countdown" class="ql-trial-countdown" style="display:none"></div>' +
+    '</div>' +
+    '<div id="ql-reseller-btn" style="display:none;margin-bottom:14px">' +
+      '<a href="' + QL_DISCORD_SUPPORT + '" target="_blank" rel="noopener noreferrer" class="pk-discord-cta">' +
+        '🔑 Request your key via Telegram<span style="margin-left:auto;font-size:10px;opacity:0.6">→</span>' +
+      '</a>' +
+    '</div>' +
+    '<!-- Tabs -->' +
+    '<div class="ql-tabs" id="ql-tabs">' +
+      '<button class="ql-tab ql-tab-active" data-tab="prompt">⚡ Prompt</button>' +
+      '<button class="ql-tab" data-tab="history">💬 History <span class="ql-tab-badge" id="ql-history-badge" style="display:none">0</span></button>' +
+    '</div>' +
+    '<div id="ql-tab-content">' +
+    '<textarea id="ql-msg" rows="3" placeholder="Type your command..." spellcheck="false"></textarea>' +
+    '<div id="ql-attach-preview" class="ql-attach-preview" style="display:none"></div>' +
+    '<div class="ql-action-bar">' +
+      '<div class="ql-action-left">' +
+        '<label class="ql-toggle">' +
+          '<input type="checkbox" id="ql-modo-plano">' +
+          '<span class="ql-toggle-slider"></span>' +
+        '</label>' +
+        '<span class="ql-toggle-label-inline">Plan</span>' +
+      '</div>' +
+      '<div class="ql-action-center">' +
+        '<button id="ql-attach-btn" class="ql-attach-btn" title="Attach file (max. 10)">📎</button>' +
+        '<button id="ql-optimize-btn" class="ql-tool-btn" title="Optimize with AI">' + SVG_ICONS.sparkles + '</button>' +
+        '<button id="ql-speech-btn" class="ql-tool-btn" title="Voice to text">' + SVG_ICONS.mic + '</button>' +
+      '</div>' +
+      '<div class="ql-action-right-send">' +
+        '<button id="ql-send" class="ql-send-btn">Send</button>' +
+      '</div>' +
+    '</div>' +
+    '<input type="file" id="ql-file-input" multiple style="display:none" accept="*/*">' +
+    '<div id="ql-log"></div>' +
+    '<div class="ql-shortcuts-section">' +
+      '<span class="ql-shortcuts-title">QUICK SHORTCUTS</span>' +
+      '<div class="ql-shortcuts-grid" id="ql-chips"></div>' +
+    '</div>' +
+    '<button id="ql-remove-watermark" class="ql-watermark-btn">Remove Watermark</button>' +
+    '<button id="ql-shield-btn" class="ql-shield-btn">' +
+      '<span id="ql-shield-label">Enable Shield</span>' +
+    '</button>' +
+    '<button id="ql-native-chat-btn" class="ql-native-chat-btn">' +
+      SVG_ICONS.msgSquare + ' Use Native Chat' +
+    '</button>' +
+    '<button id="ql-download-project" class="ql-watermark-btn sp-btn-feature sp-btn-download">Download Source Code</button>' +
+    '<button id="ql-quick-init" class="ql-watermark-btn sp-btn-feature sp-btn-quick-init">Create New Project</button>' +
+    '<button id="ql-publish-project" class="ql-watermark-btn sp-btn-feature sp-btn-publish">🌐 Publish Project</button>' +
+    '<button id="ql-enable-cloud" class="ql-watermark-btn sp-btn-feature sp-btn-cloud">☁️ Enable Lovable Cloud</button>' +
+    '<div id="ql-download-status" style="display:none"></div>' +
+    '</div>' +
+  '<div id="ql-footer" class="ql-footer">' +
+    '<div class="ql-footer-row">' +
+      '<a href="' + QL_DISCORD_SUPPORT + '" target="_blank" class="ql-support-link">' + SVG_ICONS.headphones + ' Support</a>' +
+       '<span class="ql-footer-version">v' + extensionVersionShort() + '</span>' +
+    '</div>' +
+    '<span class="ql-badge-mz">ByPass Ai</span>' +
+  '</div>' +
+  '<div id="ql-resize-handle" class="ql-resize-handle"></div>' +
+  '<!-- Notifications Panel -->' +
+  '<div id="ql-notif-panel" class="ql-notif-panel" style="display:none">' +
+    '<div class="ql-notif-header">' +
+      '<span>Notifications</span>' +
+      '<button id="ql-notif-close" class="ql-notif-close-btn">✕</button>' +
+    '</div>' +
+    '<div id="ql-notif-list" class="ql-notif-list">' +
+      '<p class="ql-notif-empty">Loading...</p>' +
+    '</div>' +
+  '</div>' +
+  '<!-- Custom Alert -->' +
+  '<div id="ql-custom-alert" class="ql-custom-alert" style="display:none">' +
+    '<div class="ql-alert-content">' +
+      '<div class="ql-alert-icon">✅</div>' +
+      '<div class="ql-alert-title">Success!</div>' +
+      '<div class="ql-alert-message"></div>' +
+      '<button class="ql-alert-ok-btn">OK</button>' +
+    '</div>' +
+  '</div>';
+}
+
+// ---- Template: Expired License Overlay ----
+function templateExpiredOverlay() {
+  return '<div class="ql-sweetalert-box">' +
+    '<div class="ql-sweetalert-icon">⏰</div>' +
+    '<h2 class="ql-sweetalert-title">License Expired!</h2>' +
+    '<p class="ql-sweetalert-text">Your license has expired. Open Telegram support to renew it.</p>' +
+    '<div class="ql-sweetalert-actions">' +
+      '<button class="ql-sweetalert-btn ql-sweetalert-btn-primary" id="ql-sweetalert-renew">🌐 Open Telegram</button>' +
+      '<button class="ql-sweetalert-btn ql-sweetalert-btn-secondary" id="ql-sweetalert-close">Close</button>' +
+    '</div>' +
+  '</div>';
+}
+
+function qlTemplateUpdateBanner(version, changelog, dlUrl) {
+  return '<div class="pk-update-banner">' +
+    '<div class="pk-update-banner-head">' +
+      '<span style="font-size:14px">🔔</span>' +
+      '<strong class="pk-update-banner-title">New update v' + version + '!</strong>' +
+    '</div>' +
+    '<p class="pk-update-banner-text">' + (changelog || '') + '</p>' +
+    (dlUrl ? '<a href="' + dlUrl + '" target="_blank" rel="noopener noreferrer" class="pk-update-banner-dl">Download v' + version + '</a>' : '') +
+  '</div>';
+}
+
+// ---- Template: Payment UI (packages list) ----
+var BRL_TO_MZN = 12.6;
+var QL_BRL_PLANS = [
+  { name: "Weekly",  price: "49,90",  period: "per week",      popular: false, badge: "7d",  icon: "⚡",
+    features: ["Full extension access", "Plan Mode workflow", "Support via Discord"] },
+  { name: "Monthly",   price: "97,90",  period: "per month",    popular: true,  badge: "30d", icon: "👑",
+    features: ["Everything in Weekly", "Best value", "Priority support"] },
+  { name: "Lifetime", price: "149,90", period: "one-time payment", popular: false, badge: "∞", icon: "♾️",
+    features: ["Permanent access", "Lifetime updates", "Priority VIP support"] }
+];
+function qlFmtMzn(brl) {
+  var n = parseFloat(String(brl).replace(",", ".")) * BRL_TO_MZN;
+  if (!isFinite(n)) return "0";
+  return Math.round(n).toLocaleString("en-US");
+}
+function templateBrlCard(plan, idx) {
+  var features = plan.features.map(function(f){ return '<li>' + escapeHtml(f) + '</li>'; }).join('');
+  var popular = plan.popular ? '<span class="ql-pkg-popular">⭐ POPULAR</span>' : '';
+  return '<div class="ql-pkg-card ql-pkg-brl' + (plan.popular ? ' ql-pkg-highlight' : '') + '" data-brl-idx="' + idx + '">' +
+    popular +
+    '<div class="ql-pkg-name">' + escapeHtml(plan.icon) + ' ' + escapeHtml(plan.name) + '</div>' +
+    '<div class="ql-pkg-price">R$ ' + escapeHtml(plan.price) + '</div>' +
+    '<div class="ql-pkg-mzn">≈ ' + qlFmtMzn(plan.price) + ' MZN <span>(approx. exchange rate)</span></div>' +
+    '<div class="ql-pkg-duration">' + escapeHtml(plan.period) + '</div>' +
+    '<ul class="ql-pkg-features">' + features + '</ul>' +
+    '<button class="ql-pkg-select-btn ql-brl-buy">💬 Open Telegram</button>' +
+  '</div>';
+}
+function templateBrlSection() {
+  var cards = QL_BRL_PLANS.map(function(p, i){ return templateBrlCard(p, i); }).join('');
+  return '<div class="ql-pay-divider"><span>Telegram support</span></div>' +
+    '<div class="ql-packages-list ql-brl-list">' + cards + '</div>';
+}
+function templatePaymentUI(minimized) {
+  return '<div id="ql-header">' +
+    '<div class="ql-header-left">' +
+      '<span class="ql-brand">' + QL_ANIMATED_LOGO_SVG + '<span>ByPass Ai</span></span>' +
+    '</div>' +
+    '<div class="ql-header-right">' +
+      '<button id="ql-pay-back" class="ql-icon-btn" title="Back">←</button>' +
+      '<button id="ql-minimize" class="ql-icon-btn">' + (minimized ? '□' : '−') + '</button>' +
+    '</div>' +
+  '</div>' +
+  '<div id="ql-body">' +
+    '<div class="ql-pay-section">' +
+      '<div class="ql-pay-title">Open Telegram support</div>' +
+      templateBrlSection() +
+      '<div class="ql-pay-divider"><span>Telegram support</span></div>' +
+      '<div id="ql-packages-list" class="ql-packages-list">' +
+        '<div class="ql-pay-loading">⏳ Open Telegram Support</div>' +
+      '</div>' +
+    '</div>' +
+  '</div>' +
+  '<div id="ql-resize-handle" class="ql-resize-handle"></div>';
+}
+
+// ---- Template: Package Card ----
+function templatePackageCard(pkg) {
+  const popular = pkg.is_popular ? '<span class="ql-pkg-popular">⭐ POPULAR</span>' : '';
+  const duration = pkg.duration_days ? escapeHtml(String(pkg.duration_days)) + ' days' : 'Permanent';
+  const features = (pkg.features || []).map(function(f) { return '<li>' + escapeHtml(f) + '</li>'; }).join('');
+  return '<div class="ql-pkg-card' + (pkg.is_popular ? ' ql-pkg-highlight' : '') + '" data-pkg-id="' + escapeHtml(pkg.id) + '" data-pkg-name="' + escapeHtml(pkg.name) + '" data-pkg-price="' + '' + '">' +
+    popular +
+    '<div class="ql-pkg-name">' + escapeHtml(pkg.name) + '</div>' +
+    '<div class="ql-pkg-price">' + '' + '</div>' +
+    '<div class="ql-pkg-duration">' + duration + '</div>' +
+    '<ul class="ql-pkg-features">' + features + '</ul>' +
+    '<button class="ql-pkg-select-btn">Open Telegram</button>' +
+  '</div>';
+}
+
+// ---- Template: Checkout Screen ----
+function templateCheckoutScreen(pkg, minimized) {
+  return '<div id="ql-header">' +
+    '<div class="ql-header-left">' +
+      '<span class="ql-brand">' + QL_ANIMATED_LOGO_SVG + '<span>Telegram Support</span></span>' +
+    '</div>' +
+    '<div class="ql-header-right">' +
+      '<button id="ql-checkout-back" class="ql-icon-btn" title="Back">←</button>' +
+      '<button id="ql-minimize" class="ql-icon-btn">' + (minimized ? '□' : '−') + '</button>' +
+    '</div>' +
+  '</div>' +
+  '<div id="ql-body">' +
+    '<div class="ql-pay-section" style="text-align:center">' +
+      '<div class="ql-pay-title">Request your license key on Telegram</div>' +
+      '<div class="ql-selected-pkg">📦 <strong>' + escapeHtml(pkg.name || 'Selected plan') + '</strong></div>' +
+      '<p style="color:var(--ql-text-secondary);font-size:12px;line-height:1.5;margin:10px 0 16px">Support and license purchases are handled through our official Telegram.</p>' +
+      '<a href="' + QL_DISCORD_SUPPORT + '" target="_blank" rel="noopener noreferrer" class="ql-confirm-pay-btn" style="display:block;text-decoration:none;margin-bottom:10px">💬 Open Telegram Support</a>' +
+      '<button id="ql-confirm-pay" class="ql-buy-btn" style="font-size:12px;width:100%">Open Telegram</button>' +
+      '<div id="ql-pay-log" class="ql-pay-log"></div>' +
+    '</div>' +
+  '</div>' +
+  '<div id="ql-resize-handle" class="ql-resize-handle"></div>';
+}
+
+// ---- Template: Payment Success ----
+function templatePaymentSuccess(licenseKey) {
+  return '<div class="ql-pay-section" style="text-align:center;padding:24px 16px">' +
+    '<div style="font-size:48px;margin-bottom:12px">🎉</div>' +
+    '<div class="ql-pay-title">Telegram Support Confirmed!</div>' +
+    '<p style="color:var(--ql-muted);font-size:12px;margin:8px 0 16px">Your license was activated successfully.</p>' +
+    '<div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;margin-bottom:12px">' +
+      '<p style="font-size:10px;color:var(--ql-muted);margin-bottom:4px">Your license key</p>' +
+      '<p id="ql-new-key" style="font-family:monospace;font-size:13px;color:var(--ql-accent);font-weight:600;word-break:break-all">' + escapeHtml(licenseKey) + '</p>' +
+    '</div>' +
+    '<button id="ql-copy-key" class="ql-confirm-pay-btn" style="margin-bottom:8px">📋 Copy Key</button>' +
+    '<p style="font-size:10px;color:var(--ql-muted);margin-bottom:12px">Paste the key above to activate the extension.</p>' +
+    '<button id="ql-activate-key" class="ql-buy-btn" style="font-size:12px">🔑 Activate Now</button>' +
+  '</div>';
+}

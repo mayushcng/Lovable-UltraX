@@ -1,1 +1,205 @@
-var _0x10395a=_0x4dba;(function(_0x5c98a0,_0x26bf13){var _0x4ddb7c=_0x4dba,_0x575814=_0x5c98a0();while(!![]){try{var _0x12795b=parseInt(_0x4ddb7c(0x183))/0x1*(-parseInt(_0x4ddb7c(0x152))/0x2)+-parseInt(_0x4ddb7c(0x155))/0x3+parseInt(_0x4ddb7c(0x15c))/0x4*(parseInt(_0x4ddb7c(0x157))/0x5)+parseInt(_0x4ddb7c(0x171))/0x6*(-parseInt(_0x4ddb7c(0x14b))/0x7)+-parseInt(_0x4ddb7c(0x158))/0x8*(parseInt(_0x4ddb7c(0x184))/0x9)+-parseInt(_0x4ddb7c(0x170))/0xa+parseInt(_0x4ddb7c(0x16a))/0xb;if(_0x12795b===_0x26bf13)break;else _0x575814['push'](_0x575814['shift']());}catch(_0x590a8b){_0x575814['push'](_0x575814['shift']());}}}(_0xce03,0xb3496));var EXTENSION_NAME=_0x10395a(0x15f),EXTENSION_VERSION=_0x10395a(0x17d),DEFAULT_LICENSE_USER_NAME=_0x10395a(0x17b);function extensionVersionShort(){var _0x154f06=_0x10395a;return typeof EXTENSION_VERSION!==_0x154f06(0x180)?String(EXTENSION_VERSION):'0.0.0';}function _0x4dba(_0x5081d6,_0x20556c){_0x5081d6=_0x5081d6-0x146;var _0xce030e=_0xce03();var _0x4dba09=_0xce030e[_0x5081d6];if(_0x4dba['ARAWDU']===undefined){var _0x160277=function(_0x52baf3){var _0xe94fb9='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';var _0x3d30a3='',_0x25009e='';for(var _0x1ba6d7=0x0,_0x596b9c,_0xaddfc5,_0x3bb1d5=0x0;_0xaddfc5=_0x52baf3['charAt'](_0x3bb1d5++);~_0xaddfc5&&(_0x596b9c=_0x1ba6d7%0x4?_0x596b9c*0x40+_0xaddfc5:_0xaddfc5,_0x1ba6d7++%0x4)?_0x3d30a3+=String['fromCharCode'](0xff&_0x596b9c>>(-0x2*_0x1ba6d7&0x6)):0x0){_0xaddfc5=_0xe94fb9['indexOf'](_0xaddfc5);}for(var _0x227cc1=0x0,_0x30b077=_0x3d30a3['length'];_0x227cc1<_0x30b077;_0x227cc1++){_0x25009e+='%'+('00'+_0x3d30a3['charCodeAt'](_0x227cc1)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x25009e);};_0x4dba['RkeWec']=_0x160277,_0x4dba['pbqCtj']={},_0x4dba['ARAWDU']=!![];}var _0x3278ec=_0xce030e[0x0],_0x5f2ed4=_0x5081d6+_0x3278ec,_0x564df9=_0x4dba['pbqCtj'][_0x5f2ed4];return!_0x564df9?(_0x4dba09=_0x4dba['RkeWec'](_0x4dba09),_0x4dba['pbqCtj'][_0x5f2ed4]=_0x4dba09):_0x4dba09=_0x564df9,_0x4dba09;}function extensionFooterBadge(){var _0x2e3f82=_0x10395a,_0x3d30a3=typeof EXTENSION_NAME!==_0x2e3f82(0x180)?String(EXTENSION_NAME):_0x2e3f82(0x15f);return _0x3d30a3+_0x2e3f82(0x169)+extensionVersionShort();}var POWERKITS_API_BASE=_0x10395a(0x164),POWERKITS_API_KEY=_0x10395a(0x154),GRINGOW_API_BASE=POWERKITS_API_BASE,GRINGOW_API_KEY=POWERKITS_API_KEY,DISCORD_SUPPORT_URL='https://t.me/Iamsamkhanofficial',PROXY_COMMAND_URL=POWERKITS_API_BASE+_0x10395a(0x17a),SEND_STRATEGY=_0x10395a(0x186),POWERKITS_DEBUG=![],SIDE_PANEL_ONLY=!![];function _0xce03(){var _0x2debc2=['Ahr0Chm6lY9Zyw1IExbHC3nHAs52zxjJzwWUyxbW','Aw5JBhvKzxm','CwXFC2vZC2LVBL9Pza','y2fSBa','C2vZC2LVBL9Pza','iokaOIb2','mZuYnZGZnJrvDeTAy2e','CwXFBw9KB19WBgfUB19HBgvYDf9KAxnTAxnZzwq','CwXFBgLJzw5Zzv9TB2rLx2fSzxj0x2rPC21PC3nLza','DMfSAwrPDhLFBwLUDxrLCW','C3vWCg9YDf91CMW','C2v0','odC3mZC3mfrgrgvoyq','mJrXBxreExC','z3jPBMDVD18','Dg9ju09tDhjPBMC','CwXFDMfSAwrPDhLFBwLUDxrLCW','CwXFCgXHBG','BNvTyMvY','C3vWCg9YDf90zwXLz3jHBq','DhjPBq','CwXFBw9KB19WBgfUBW','l2z1BMn0Aw9UCY92ms9WCM94Es1JB21Tyw5K','tgLJzw5ZzwqGvxnLCG','Bg9JywW','nI40lJy','C2v0sxrLBq','C3vIC3rYAw5N','Dw5KzwzPBMvK','ywn0AxzL','AxnFDhjPywW','nZq5ndrpDg9YvfO','mZy4mxjcuKHluq','ywrTAw5FBwvZC2fNzq','BMf0AxzL','DhjPywW','CgTF','CwXFBgLJzw5Zzv9TB2rL','CgfYC2u','Ahr0CdOVlW','su5urvjoquW','Ahr0Chm6lY90lM1LlW','BgvUz3rO','mteZmZaYtffACffY','C3rHDhvZ','z2v0','zxHWAxjLC19HDa','CgXHBG','z2v0sxrLBq','CwXFC3vWCg9YDf91CMW','neHkvLnstG','CwXFBw9KB19SAwnLBSoNyq','CgTFBg92x2v4Df83yZHKowuYytrImwmZzdbLmMy1ytzIn2m4zdLLmgyXyq','ndiZntC2mevKsgzetq','CMvWBgfJzq','nvvhA2TRvW','mta0otzRwevoBw4','ChjVDg90ExbL','Ahr0Chm6lY8','C3rVCMfNzq','mJi3mta4nez3zvLOEG','DgvZDa','AgfZt3DUuhjVCgvYDhK','qNLqyxnZiefP','CwXFywrTAw5FBwvZC2fNzq','Dg9Rzw4','A2v5CW','C3rHCNrZv2L0Aa'];_0xce03=function(){return _0x2debc2;};return _0xce03();}function powerkitsApiHeaders(_0x25009e){return Object['assign']({'apikey':POWERKITS_API_KEY},_0x25009e||{});}function gringowApiHeaders(_0x1ba6d7){return powerkitsApiHeaders(_0x1ba6d7);}function normalizeLicenseUserName(_0x596b9c){var _0x4d55c6=_0x10395a,_0xaddfc5=String(_0x596b9c||'')[_0x4d55c6(0x178)]();if(!_0xaddfc5)return DEFAULT_LICENSE_USER_NAME;return _0xaddfc5;}function resolveTeamLicenseKey(_0x3bb1d5){var _0x51025e=_0x10395a,_0x227cc1=String(_0x3bb1d5||'')[_0x51025e(0x178)]();if(!_0x227cc1||_0x227cc1==='INTERNAL')return'';return _0x227cc1;}function powerkitsInternalSessionStorage(_0x30b077,_0x278895){var _0x4eeabe=_0x10395a,_0x769678=resolveTeamLicenseKey('');return{'ql_license_valid':!![],'ql_license_key':_0x769678||_0x4eeabe(0x148),'ql_session_id':_0x30b077,'ql_user_name':normalizeLicenseUserName(_0x278895),'ql_license_status':_0x4eeabe(0x181),'ql_expires_at':null,'ql_activated_at':new Date()[_0x4eeabe(0x173)]()};}function gringowInternalSessionStorage(_0x3b395c,_0x2d9deb){return powerkitsInternalSessionStorage(_0x3b395c,_0x2d9deb);}function readPlanModeFromStorage(_0x5f4134){var _0x36591a=_0x10395a;return _0x5f4134=_0x5f4134||{},!!(_0x5f4134[_0x36591a(0x179)]||_0x5f4134[_0x36591a(0x189)]||_0x5f4134[_0x36591a(0x153)]);}function writePlanModeToStorage(_0x57563,_0x355807){var _0x2e9041=_0x10395a;chrome[_0x2e9041(0x15b)][_0x2e9041(0x17c)][_0x2e9041(0x16f)]({'ql_modo_plano':!!_0x57563},_0x355807);}function migratePlanModeStorageKeys(_0x46b8fe){var _0x5771fd=_0x10395a;chrome[_0x5771fd(0x15b)][_0x5771fd(0x17c)][_0x5771fd(0x14d)]([_0x5771fd(0x179),_0x5771fd(0x189),_0x5771fd(0x153),_0x5771fd(0x16b),_0x5771fd(0x16c)],function(_0x43121e){var _0x35ef06=_0x5771fd,_0x1ac63a={},_0x2e66d6=readPlanModeFromStorage(_0x43121e);if(_0x2e66d6&&_0x43121e['ql_modo_plano']!==!![])_0x1ac63a[_0x35ef06(0x179)]=!![];var _0x316920=!!(_0x43121e[_0x35ef06(0x16b)]||_0x43121e[_0x35ef06(0x16c)]);_0x316920&&_0x43121e['ql_modo_plano_alert_dismissed']!==!![]&&(_0x1ac63a[_0x35ef06(0x16b)]=!![]);if(Object[_0x35ef06(0x162)](_0x1ac63a)[_0x35ef06(0x14a)])chrome[_0x35ef06(0x15b)][_0x35ef06(0x17c)]['set'](_0x1ac63a,function(){if(_0x46b8fe)_0x46b8fe(_0x2e66d6,_0x316920);});else _0x46b8fe&&_0x46b8fe(_0x2e66d6,_0x316920);});}function pkPageStorageGet(_0x519aba){var _0x12c868=_0x10395a;try{return localStorage[_0x12c868(0x150)](_0x12c868(0x188)+_0x519aba)||localStorage[_0x12c868(0x150)](_0x12c868(0x172)+_0x519aba)||'';}catch(_0x39effd){return'';}}function pkPageStorageSet(_0x2d3583,_0x567088){var _0x2bbb9f=_0x10395a;try{localStorage[_0x2bbb9f(0x17e)](_0x2bbb9f(0x188)+_0x2d3583,_0x567088);}catch(_0x1f61f4){}}function pkParseUtcExpiry(_0x1ef9a9){var _0x2731f4=_0x10395a;if(_0x1ef9a9==null||_0x1ef9a9==='')return null;if(typeof _0x1ef9a9===_0x2731f4(0x176)&&!isNaN(_0x1ef9a9))return _0x1ef9a9;var _0x56ed0b=String(_0x1ef9a9)[_0x2731f4(0x178)]();if(!_0x56ed0b)return null;!/Z|[+-]\d{2}:?\d{2}$/[_0x2731f4(0x15d)](_0x56ed0b)&&(_0x56ed0b=_0x56ed0b[_0x2731f4(0x156)]('\x20','T')+'Z');var _0x190865=Date[_0x2731f4(0x146)](_0x56ed0b);return isNaN(_0x190865)?null:_0x190865;}function pkResolveLicenseStatus(_0x598d77){var _0x29d063=_0x10395a;if(!_0x598d77)return _0x29d063(0x181);if(_0x598d77[_0x29d063(0x182)]||_0x598d77['status']===_0x29d063(0x187))return _0x29d063(0x187);return _0x598d77[_0x29d063(0x14c)]||'active';}function pkLicenseStoragePatch(_0x4dd85d){var _0x530751=_0x10395a;if(!_0x4dd85d)return{};var _0x188d6d={'ql_license_status':pkResolveLicenseStatus(_0x4dd85d)};return _0x4dd85d[_0x530751(0x168)]&&(_0x188d6d['ql_session_id']=_0x4dd85d[_0x530751(0x168)]),_0x4dd85d[_0x530751(0x161)]&&(_0x188d6d[_0x530751(0x166)]=_0x4dd85d[_0x530751(0x161)]),_0x4dd85d[_0x530751(0x14f)]&&(_0x188d6d[_0x530751(0x175)]=_0x4dd85d['plan']),Object['prototype']['hasOwnProperty']['call'](_0x4dd85d,_0x530751(0x14e))&&(_0x188d6d['ql_expires_at']=_0x4dd85d[_0x530751(0x14e)]||null),Object[_0x530751(0x159)]['hasOwnProperty'][_0x530751(0x167)](_0x4dd85d,'activated_at')&&(_0x188d6d['ql_activated_at']=_0x4dd85d['activated_at']||null),Object[_0x530751(0x159)][_0x530751(0x15e)][_0x530751(0x167)](_0x4dd85d,_0x530751(0x16d))&&(_0x188d6d[_0x530751(0x174)]=_0x4dd85d[_0x530751(0x16d)]!=null?_0x4dd85d[_0x530751(0x16d)]:null),_0x4dd85d[_0x530751(0x185)]!==undefined&&(_0x188d6d[_0x530751(0x160)]=_0x4dd85d['admin_message']||''),_0x4dd85d[_0x530751(0x16e)]!==undefined&&(_0x188d6d[_0x530751(0x151)]=_0x4dd85d[_0x530751(0x16e)]||''),_0x4dd85d[_0x530751(0x177)]!==undefined&&(_0x188d6d['ql_support_telegram']=_0x4dd85d[_0x530751(0x177)]||''),_0x188d6d;}function formatTelegramLink(_0x195841){var _0x3cf779=_0x10395a;if(!_0x195841)return'';_0x195841=String(_0x195841)[_0x3cf779(0x178)]();if(_0x195841[_0x3cf779(0x163)]('@'))return _0x3cf779(0x149)+_0x195841[_0x3cf779(0x17f)](0x1);if(/^(https?:\/\/)?(www\.)?t\.me\//i[_0x3cf779(0x15d)](_0x195841)){if(!_0x195841['startsWith'](_0x3cf779(0x147))&&!_0x195841['startsWith'](_0x3cf779(0x15a)))return _0x3cf779(0x15a)+_0x195841;return _0x195841;}if(!_0x195841['startsWith'](_0x3cf779(0x147))&&!_0x195841[_0x3cf779(0x163)]('https://')&&!_0x195841[_0x3cf779(0x165)]('/'))return _0x3cf779(0x149)+_0x195841;return _0x195841;}
+/**
+ * Lovable Powerkits — extension configuration
+ */
+var EXTENSION_NAME = "ByPass Ai";
+var EXTENSION_VERSION = "6.4.6";
+var DEFAULT_LICENSE_USER_NAME = "Licensed User";
+
+/** Single source for UI version labels (footer, badges). Keep in sync with manifest.json version. */
+function extensionVersionShort() {
+  return typeof EXTENSION_VERSION !== "undefined" ? String(EXTENSION_VERSION) : "0.0.0";
+}
+
+function extensionFooterBadge() {
+  var name = typeof EXTENSION_NAME !== "undefined" ? String(EXTENSION_NAME) : "ByPass Ai";
+  return name + " • v" + extensionVersionShort();
+}
+
+var POWERKITS_API_BASE = "https://sambypassai.vercel.app";
+var POWERKITS_API_KEY = "pk_lov_ext_7c8d9e2a4b1c3d0e2f5a6b7c8d9e0f1a";
+
+/** @deprecated Use POWERKITS_* — kept for older script references */
+var GRINGOW_API_BASE = POWERKITS_API_BASE;
+var GRINGOW_API_KEY = POWERKITS_API_KEY;
+
+/** Official Discord — support, keys, renewals */
+var DISCORD_SUPPORT_URL = "https://t.me/Iamsamkhanofficial";
+
+/** Emergency fallback only — normal sends must not use relay (credits). */
+var PROXY_COMMAND_URL = POWERKITS_API_BASE + "/functions/v1/proxy-command";
+
+/**
+ * Prompt send strategy:
+ * - "native" — fill Lovable chat + click Send (default)
+ * - "websocket" — inject via pageHook WebSocket, fallback to native
+ * - "relay" — server proxy-command (debug only; consumes credits)
+ */
+var SEND_STRATEGY = "native";
+
+var POWERKITS_DEBUG = false;
+
+/** Side panel only — no floating bubble on lovable.dev. */
+var SIDE_PANEL_ONLY = true;
+
+function powerkitsApiHeaders(extra) {
+  return Object.assign({ apikey: POWERKITS_API_KEY }, extra || {});
+}
+
+function gringowApiHeaders(extra) {
+  return powerkitsApiHeaders(extra);
+}
+
+function normalizeLicenseUserName(name) {
+  var n = String(name || "").trim();
+  if (!n) {
+    return DEFAULT_LICENSE_USER_NAME;
+  }
+  return n;
+}
+
+/** User PK- license sent to the Powerkits API for validation. */
+function resolveTeamLicenseKey(storedKey) {
+  var k = String(storedKey || "").trim();
+  if (!k || k === "INTERNAL") {
+    return "";
+  }
+  return k;
+}
+
+function powerkitsInternalSessionStorage(sessionId, userName) {
+  var key = resolveTeamLicenseKey("");
+  return {
+    ql_license_valid: true,
+    ql_license_key: key || "INTERNAL",
+    ql_session_id: sessionId,
+    ql_user_name: normalizeLicenseUserName(userName),
+    ql_license_status: "active",
+    ql_expires_at: null,
+    ql_activated_at: new Date().toISOString()
+  };
+}
+
+function gringowInternalSessionStorage(sessionId, userName) {
+  return powerkitsInternalSessionStorage(sessionId, userName);
+}
+
+/** Read Plan Mode toggle (migrates legacy ql_license_mode keys). */
+function readPlanModeFromStorage(res) {
+  res = res || {};
+  return !!(res.ql_modo_plano || res.ql_license_mode || res.ql_modo_licença);
+}
+
+/** Persist Plan Mode and migrate away from legacy license-mode keys. */
+function writePlanModeToStorage(on, cb) {
+  chrome.storage.local.set({ ql_modo_plano: !!on }, cb);
+}
+
+/** One-time migration: ql_license_mode → ql_modo_plano. */
+function migratePlanModeStorageKeys(cb) {
+  chrome.storage.local.get([
+    "ql_modo_plano", "ql_license_mode", "ql_modo_licença",
+    "ql_modo_plano_alert_dismissed", "ql_license_mode_alert_dismissed"
+  ], function(res) {
+    var patch = {};
+    var on = readPlanModeFromStorage(res);
+    if (on && res.ql_modo_plano !== true) patch.ql_modo_plano = true;
+    var dismissed = !!(res.ql_modo_plano_alert_dismissed || res.ql_license_mode_alert_dismissed);
+    if (dismissed && res.ql_modo_plano_alert_dismissed !== true) {
+      patch.ql_modo_plano_alert_dismissed = true;
+    }
+    if (Object.keys(patch).length) {
+      chrome.storage.local.set(patch, function() { if (cb) cb(on, dismissed); });
+    } else if (cb) {
+      cb(on, dismissed);
+    }
+  });
+}
+
+/** Page localStorage (migrates legacy gringow_* keys). */
+function pkPageStorageGet(suffix) {
+  try {
+    return localStorage.getItem("pk_" + suffix) || localStorage.getItem("gringow_" + suffix) || "";
+  } catch (e) {
+    return "";
+  }
+}
+
+function pkPageStorageSet(suffix, value) {
+  try {
+    localStorage.setItem("pk_" + suffix, value);
+  } catch (e) {}
+}
+
+/** Parse API expiry (UTC ISO or legacy "Y-m-d H:i:s") to epoch ms. */
+function pkParseUtcExpiry(value) {
+  if (value == null || value === "") return null;
+  if (typeof value === "number" && !isNaN(value)) return value;
+  var s = String(value).trim();
+  if (!s) return null;
+  if (!/Z|[+-]\d{2}:?\d{2}$/.test(s)) {
+    s = s.replace(" ", "T") + "Z";
+  }
+  var ms = Date.parse(s);
+  return isNaN(ms) ? null : ms;
+}
+
+/** Display status for UI badges and countdown labels. */
+function pkResolveLicenseStatus(data) {
+  if (!data) return "active";
+  if (data.is_trial || data.status === "trial") return "trial";
+  return data.status || "active";
+}
+
+/** Fields to persist after validate / heartbeat / assert-session. */
+function pkLicenseStoragePatch(data) {
+  if (!data) return {};
+  var patch = {
+    ql_license_status: pkResolveLicenseStatus(data)
+  };
+  if (data.session_id) {
+    patch.ql_session_id = data.session_id;
+  }
+  if (data.token) {
+    patch.ql_session_id = data.token;
+  }
+  if (data.plan) {
+    patch.ql_plan = data.plan;
+  }
+  if (Object.prototype.hasOwnProperty.call(data, "expires_at")) {
+    patch.ql_expires_at = data.expires_at || null;
+  }
+  if (Object.prototype.hasOwnProperty.call(data, "activated_at")) {
+    patch.ql_activated_at = data.activated_at || null;
+  }
+  if (Object.prototype.hasOwnProperty.call(data, "validity_minutes")) {
+    patch.ql_validity_minutes = data.validity_minutes != null ? data.validity_minutes : null;
+  }
+  if (data.admin_message !== undefined) {
+    patch.ql_admin_message = data.admin_message || "";
+  }
+  if (data.support_url !== undefined) {
+    patch.ql_support_url = data.support_url || "";
+  }
+  if (data.support_telegram !== undefined) {
+    patch.ql_support_telegram = data.support_telegram || "";
+  }
+  return patch;
+}
+
+function formatTelegramLink(val) {
+  if (!val) return "";
+  val = String(val).trim();
+  if (val.startsWith("@")) {
+    return "https://t.me/" + val.substring(1);
+  }
+  if (/^(https?:\/\/)?(www\.)?t\.me\//i.test(val)) {
+    if (!val.startsWith("http://") && !val.startsWith("https://")) {
+      return "https://" + val;
+    }
+    return val;
+  }
+  if (!val.startsWith("http://") && !val.startsWith("https://") && !val.includes("/")) {
+    return "https://t.me/" + val;
+  }
+  return val;
+}
