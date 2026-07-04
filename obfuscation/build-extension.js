@@ -3,7 +3,7 @@ const path = require('path');
 const JavaScriptObfuscator = require('javascript-obfuscator');
 
 const rootDir = path.resolve(__dirname, '..');
-const distDir = path.resolve(rootDir, 'dist');
+const distDir = path.resolve(rootDir, 'dist-secure');
 
 // Directories and files to exclude from copying to release dist
 const excludeList = [
@@ -12,15 +12,23 @@ const excludeList = [
   'supabase',
   'obfuscation',
   'dist',
+  'dist-secure',
+  'scratch',
+  'scripts',
   '.git',
   '.github',
   '.gitignore',
+  '.env',
+  '.env.example',
   'package.json',
   'package-lock.json',
   'node_modules',
   'implementation_plan.md',
   'task.md',
   'walkthrough.md',
+  'README_NEW_UI.md',
+  'HANDOVER_AND_INSTALLATION_GUIDE.md',
+  'deployment_guide.md',
   'pkcs8_private.pem',
   'public.pem'
 ];
@@ -38,7 +46,7 @@ async function build() {
   try {
     // 1. Clean and recreate dist folder
     if (await fs.pathExists(distDir)) {
-      console.log('🧹 Cleaning existing dist folder...');
+      console.log('🧹 Cleaning existing dist-secure folder...');
       await fs.remove(distDir);
     }
     await fs.ensureDir(distDir);
@@ -46,7 +54,7 @@ async function build() {
     // 2. Copy extension files to dist
     const files = await fs.readdir(rootDir);
     for (const file of files) {
-      if (excludeList.includes(file) || file.startsWith('extracted_')) {
+      if (excludeList.includes(file) || file.startsWith('extracted_') || file.endsWith('.md')) {
         continue;
       }
       
@@ -55,7 +63,7 @@ async function build() {
       
       await fs.copy(srcPath, destPath);
     }
-    console.log('📂 Copied extension files to dist/ folder.');
+    console.log('📂 Copied extension files to dist-secure/ folder.');
 
     // 3. Obfuscate JavaScript files in dist
     console.log('🔒 Obfuscating JavaScript files...');
@@ -90,7 +98,7 @@ async function build() {
       }
     }
 
-    console.log('\n✨ Build completed successfully! Production-ready extension is in the "dist/" directory.');
+    console.log('\n✨ Build completed successfully! Production-ready extension is in the "dist-secure/" directory.');
   } catch (err) {
     console.error('❌ Build failed:', err);
   }

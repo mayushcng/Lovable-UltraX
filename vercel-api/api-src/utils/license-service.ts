@@ -574,10 +574,16 @@ export async function createLicenseAdmin(params: {
   max_devices?: number;
   expires_at?: string | null;
   support_telegram?: string | null;
+  support_url?: string | null;
+  admin_message?: string | null;
 }): Promise<{ success: boolean; license_key?: string; license?: LicenseRow; message?: string }> {
   const rawKey = generateLicenseKey();
   const hash = sha256(rawKey);
   const now = new Date().toISOString();
+
+  const notesParts = [params.customer_name, params.customer_email].filter(Boolean);
+  notesParts.push(`Key: ${rawKey}`);
+  const finalNotes = notesParts.join(' | ');
 
   const insertPayload: Record<string, unknown> = {
     license_key_hash: hash,
@@ -588,26 +594,27 @@ export async function createLicenseAdmin(params: {
     active: true,
     activation_count: 0,
     support_telegram: params.support_telegram || null,
+    support_url: params.support_url || null,
+    admin_message: params.admin_message || null,
+    notes: finalNotes,
   };
-
-  const notesParts = [params.customer_name, params.customer_email].filter(Boolean);
-  if (notesParts.length) insertPayload.notes = notesParts.join(' | ');
 
   let { data, error } = await supabase.from('licenses').insert(insertPayload).select('*').single();
 
-  if (error && /customer_|plan'|updated_at|support_telegram/i.test(error.message || '')) {
+  if (error && /customer_|plan'|updated_at|support_telegram|support_url|admin_message/i.test(error.message || '')) {
+    const fallbackPayload: Record<string, any> = {
+      license_key_hash: hash,
+      plan_name: params.plan || 'pro',
+      max_devices: params.max_devices ?? 1,
+      expires_at: params.expires_at || null,
+      notes: finalNotes,
+      status: 'active',
+      active: true,
+      activation_count: 0,
+    };
     ({ data, error } = await supabase
       .from('licenses')
-      .insert({
-        license_key_hash: hash,
-        plan_name: params.plan || 'pro',
-        max_devices: params.max_devices ?? 1,
-        expires_at: params.expires_at || null,
-        notes: notesParts.join(' | ') || '',
-        status: 'active',
-        active: true,
-        activation_count: 0,
-      })
+      .insert(fallbackPayload)
       .select('*')
       .single());
   }
@@ -694,7 +701,7 @@ export async function listLicensesAdmin(query?: string): Promise<LicenseRow[]> {
     if (/^LPK-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$/i.test(q)) {
       dbQuery = dbQuery.eq('license_key_hash', sha256(q));
     } else {
-      dbQuery = dbQuery.or(`plan_name.ilike.%${q}%,notes.ilike.%${q}%,customer_name.ilike.%${q}%,customer_email.ilike.%${q}%`);
+      dbQuery = dbQuery.or(`plan_name.ilike.%${q}%,plan.ilike.%${q}%,notes.ilike.%${q}%,customer_name.ilike.%${q}%,customer_email.ilike.%${q}%`);
     }
   }
   const { data, error } = await dbQuery.order('created_at', { ascending: false });
@@ -713,6 +720,8 @@ export async function updateLicenseAdmin(body: {
   notes?: string;
   status?: string;
   support_telegram?: string | null;
+  support_url?: string | null;
+  admin_message?: string | null;
 }): Promise<{ success: boolean; license?: LicenseRow; message?: string }> {
   if (!body.id) return { success: false, message: 'License id required.' };
 
@@ -728,6 +737,8 @@ export async function updateLicenseAdmin(body: {
   if (body.expires_at !== undefined) updates.expires_at = body.expires_at || null;
   if (body.notes !== undefined) updates.notes = body.notes;
   if (body.support_telegram !== undefined) updates.support_telegram = body.support_telegram || null;
+  if (body.support_url !== undefined) updates.support_url = body.support_url || null;
+  if (body.admin_message !== undefined) updates.admin_message = body.admin_message || null;
 
   if (body.status !== undefined) {
     updates.status = body.status;
@@ -738,9 +749,11 @@ export async function updateLicenseAdmin(body: {
   }
 
   let { data, error } = await supabase.from('licenses').update(updates).eq('id', body.id).select('*').single();
-  if (error && /support_telegram|updated_at/i.test(error.message || '')) {
+  if (error && /support_telegram|support_url|admin_message|updated_at/i.test(error.message || '')) {
     const fallback = { ...updates };
     delete fallback.support_telegram;
+    delete fallback.support_url;
+    delete fallback.admin_message;
     delete fallback.updated_at;
     ({ data, error } = await supabase.from('licenses').update(fallback).eq('id', body.id).select('*').single());
   }

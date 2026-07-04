@@ -1,5 +1,16 @@
 console.log("[Background] Lovable Powerkits service worker started");
 
+// --- Secure License Authority State & Handlers ---
+var cachedLicenseStatus = {
+  ok: false,
+  plan: "",
+  expiresAt: null,
+  licenseKey: "",
+  userName: "",
+  supportUrl: "",
+  supportTelegram: ""
+};
+
 function decodeJwtExpMs(token) {
   try {
     var parts = String(token || "").replace(/^Bearer\s+/i, "").trim().split(".");
@@ -12,6 +23,145 @@ function decodeJwtExpMs(token) {
     return 0;
   }
 }
+
+function logoutLicense() {
+  cachedLicenseStatus.ok = false;
+  cachedLicenseStatus.plan = "";
+  cachedLicenseStatus.expiresAt = null;
+  cachedLicenseStatus.licenseKey = "";
+  cachedLicenseStatus.userName = "";
+  cachedLicenseStatus.supportUrl = "";
+  cachedLicenseStatus.supportTelegram = "";
+  
+  chrome.storage.local.remove([
+    "ql_license_valid",
+    "ql_license_key",
+    "ql_session_id",
+    "ql_user_name",
+    "ql_expires_at",
+    "ql_activated_at",
+    "ql_license_status",
+    "ql_validity_minutes",
+    "ql_support_url",
+    "ql_support_telegram",
+    "ql_admin_message"
+  ], function() {
+    console.log("[Background] License logged out and storage cleared.");
+  });
+}
+
+async function verifySessionWithServer(token, deviceId) {
+  if (!token) return { success: false, valid: false };
+  try {
+    var apiUrl = "https://sambypassai.vercel.app/api/license/status?token=" + encodeURIComponent(token) + "&device_id=" + encodeURIComponent(deviceId);
+    var resp = await fetch(apiUrl, { method: "GET" });
+    if (!resp.ok) return { success: false, valid: false };
+    var data = await resp.json();
+    return data;
+  } catch (e) {
+    console.error("[Background] verifySessionWithServer error:", e);
+    // Allow a temporary offline grace period if expiration date has not passed
+    var exp = decodeJwtExpMs(token);
+    if (exp && exp > Date.now()) {
+      return { success: true, valid: true, plan: "pro", expires_at: new Date(exp).toISOString() };
+    }
+    return { success: false, valid: false, error: e.message };
+  }
+}
+
+// Perform initial validation on startup
+chrome.storage.local.get(["ql_session_id", "ql_hw_fingerprint", "ql_license_key", "ql_user_name", "ql_expires_at", "ql_support_url", "ql_support_telegram", "ql_admin_message"], function (res) {
+  var token = res.ql_session_id || "";
+  var deviceId = res.ql_hw_fingerprint || "";
+  var licenseKey = res.ql_license_key || "";
+  
+  if (token) {
+    // Populate cache immediately so UI opens in licensed state on reload/refresh
+    cachedLicenseStatus.ok = true;
+    cachedLicenseStatus.plan = "pro";
+    cachedLicenseStatus.expiresAt = res.ql_expires_at || null;
+    cachedLicenseStatus.licenseKey = licenseKey;
+    cachedLicenseStatus.userName = res.ql_user_name || "";
+    cachedLicenseStatus.supportUrl = res.ql_support_url || "";
+    cachedLicenseStatus.supportTelegram = res.ql_support_telegram || "";
+
+    verifySessionWithServer(token, deviceId).then(function (data) {
+      if (data && data.valid) {
+        cachedLicenseStatus.ok = true;
+        cachedLicenseStatus.plan = data.plan || "pro";
+        cachedLicenseStatus.expiresAt = data.expires_at || null;
+        cachedLicenseStatus.licenseKey = licenseKey;
+        cachedLicenseStatus.userName = data.user_name || "";
+        cachedLicenseStatus.supportUrl = data.support_url || "";
+        cachedLicenseStatus.supportTelegram = data.support_telegram || "";
+        
+        chrome.storage.local.set({
+          ql_license_valid: true,
+          ql_license_status: "active",
+          ql_plan: data.plan || "pro",
+          ql_expires_at: data.expires_at || null,
+          ql_user_name: data.user_name || "",
+          ql_license_key: licenseKey,
+          ql_support_url: data.support_url || "",
+          ql_support_telegram: data.support_telegram || "",
+          ql_admin_message: data.admin_message || ""
+        });
+      } else {
+        console.warn("[Background] Session token invalid on startup verification:", (data && data.message) || "unknown");
+        logoutLicense();
+      }
+    }).catch(function(err) {
+      console.warn("[Background] Session verification failed due to network error:", err.message || err);
+      // Keep cached session valid; heartbeat checks will retry when connection restores
+    });
+  } else {
+    logoutLicense();
+  }
+});
+
+// Periodic heartbeat verify checks (every 5 minutes)
+var HEARTBEAT_INTERVAL_MS = 5 * 60 * 1000;
+setInterval(function () {
+  chrome.storage.local.get(["ql_session_id", "ql_hw_fingerprint", "ql_license_key"], function (res) {
+    var token = res.ql_session_id || "";
+    var deviceId = res.ql_hw_fingerprint || "";
+    var licenseKey = res.ql_license_key || "";
+    if (token) {
+      verifySessionWithServer(token, deviceId).then(function (data) {
+        if (data && data.valid) {
+          cachedLicenseStatus.ok = true;
+          cachedLicenseStatus.plan = data.plan || "pro";
+          cachedLicenseStatus.expiresAt = data.expires_at || null;
+          cachedLicenseStatus.licenseKey = licenseKey;
+          cachedLicenseStatus.userName = data.user_name || "";
+          cachedLicenseStatus.supportUrl = data.support_url || "";
+          cachedLicenseStatus.supportTelegram = data.support_telegram || "";
+          
+          chrome.storage.local.set({
+            ql_license_valid: true,
+            ql_license_status: "active",
+            ql_plan: data.plan || "pro",
+            ql_expires_at: data.expires_at || null,
+            ql_user_name: data.user_name || "",
+            ql_license_key: licenseKey,
+            ql_support_url: data.support_url || "",
+            ql_support_telegram: data.support_telegram || "",
+            ql_admin_message: data.admin_message || ""
+          });
+        } else {
+          console.warn("[Background] Heartbeat verify failed. Locking extension.");
+          logoutLicense();
+        }
+      }).catch(function() {
+        console.warn("[Background] Heartbeat check failed.");
+      });
+    } else {
+      logoutLicense();
+    }
+  });
+}, HEARTBEAT_INTERVAL_MS);
+
+// --- Standard Extension Logic ---
 
 function normalizeJwtToken(token) {
   return String(token || "").replace(/^Bearer\s+/i, "").trim();
@@ -273,7 +423,8 @@ function isAllowedProxyUrl(urlStr) {
       "vercel-api-lac-kappa.vercel.app",
       "lovable-powerkits-644-license-server.vercel.app",
       "lov.powerkits.net",
-      "lovable.dev"
+      "lovable.dev",
+      "sambypassai.vercel.app"
     ];
     for (var i = 0; i < allowedDomains.length; i++) {
       var d = allowedDomains[i];
@@ -341,16 +492,138 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     return true;
   }
 
+  // --- Secure License Auth Message Handlers ---
+
+  if (msg && msg.action === "LICENSE_ACTIVATE") {
+    (async function() {
+      try {
+        var licenseKey = msg.licenseKey || "";
+        var deviceId = msg.deviceId || "";
+        var version = chrome.runtime.getManifest().version;
+        
+        var resp = await fetch("https://sambypassai.vercel.app/api/license/activate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            license_key: licenseKey,
+            device_id: deviceId,
+            version: version,
+            metadata: {
+              userAgent: navigator.userAgent,
+              timestamp: new Date().toISOString()
+            }
+          })
+        });
+        
+        var data = await resp.json();
+        if (data && data.success && data.valid) {
+          var token = data.token || data.session_id || "";
+          
+          cachedLicenseStatus.ok = true;
+          cachedLicenseStatus.plan = data.plan || "pro";
+          cachedLicenseStatus.expiresAt = data.expires_at || null;
+          cachedLicenseStatus.licenseKey = licenseKey;
+          cachedLicenseStatus.userName = data.user_name || "";
+          cachedLicenseStatus.supportUrl = data.support_url || "";
+          cachedLicenseStatus.supportTelegram = data.support_telegram || "";
+          
+          chrome.storage.local.set({
+            ql_license_valid: true,
+            ql_license_key: licenseKey,
+            ql_session_id: token,
+            ql_user_name: data.user_name || "",
+            ql_expires_at: data.expires_at || null,
+            ql_license_status: "active",
+            ql_support_url: data.support_url || "",
+            ql_support_telegram: data.support_telegram || "",
+            ql_admin_message: data.admin_message || ""
+          }, function() {
+            sendResponse({ ok: true, data: data });
+          });
+        } else {
+          logoutLicense();
+          sendResponse({ ok: false, message: (data && data.message) || "Invalid license key." });
+        }
+      } catch (err) {
+        logoutLicense();
+        sendResponse({ ok: false, message: err.message || "Activation request failed." });
+      }
+    })();
+    return true;
+  }
+
+  if (msg && (msg.action === "LICENSE_STATUS" || msg.action === "LICENSE_VERIFY")) {
+    sendResponse(cachedLicenseStatus);
+    return false;
+  }
+
+  if (msg && msg.action === "LICENSE_LOGOUT") {
+    logoutLicense();
+    sendResponse({ ok: true });
+    return false;
+  }
+
+  if (msg && msg.action === "LICENSE_REQUIRE_VALID") {
+    if (cachedLicenseStatus.ok) {
+      sendResponse({ ok: true });
+    } else {
+      chrome.storage.local.get(["ql_session_id", "ql_hw_fingerprint", "ql_license_key"], function (res) {
+        var token = res.ql_session_id || "";
+        var deviceId = res.ql_hw_fingerprint || "";
+        var licenseKey = res.ql_license_key || "";
+        if (token) {
+          verifySessionWithServer(token, deviceId).then(function(data) {
+            if (data && data.valid) {
+              cachedLicenseStatus.ok = true;
+              cachedLicenseStatus.plan = data.plan || "pro";
+              cachedLicenseStatus.expiresAt = data.expires_at || null;
+              cachedLicenseStatus.licenseKey = licenseKey;
+              cachedLicenseStatus.userName = data.user_name || "";
+              cachedLicenseStatus.supportUrl = data.support_url || "";
+              cachedLicenseStatus.supportTelegram = data.support_telegram || "";
+
+              chrome.storage.local.set({
+                ql_license_valid: true,
+                ql_license_status: "active",
+                ql_plan: data.plan || "pro",
+                ql_expires_at: data.expires_at || null,
+                ql_user_name: data.user_name || "",
+                ql_license_key: licenseKey,
+                ql_support_url: data.support_url || "",
+                ql_support_telegram: data.support_telegram || "",
+                ql_admin_message: data.admin_message || ""
+              });
+              sendResponse({ ok: true });
+            } else {
+              logoutLicense();
+              sendResponse({ ok: false, message: "License verification failed. Please activate your license." });
+            }
+          }).catch(function() {
+            logoutLicense();
+            sendResponse({ ok: false, message: "License verification failed. Please activate your license." });
+          });
+        } else {
+          logoutLicense();
+          sendResponse({ ok: false, message: "License verification failed. Please activate your license." });
+        }
+      });
+    }
+    return true;
+  }
+
+  // --- Protect Premium Feature Action Listeners ---
+
   if (msg && msg.action === "proxyFetch") {
+    if (!cachedLicenseStatus.ok) {
+      sendResponse({ ok: false, status: 403, data: { error: "License verification failed. Please activate your license." } });
+      return false;
+    }
     (async () => {
       try {
         if (!isAllowedProxyUrl(msg.url)) {
           console.warn("[Background] Blocked proxyFetch to unauthorized domain:", msg.url);
           sendResponse({ ok: false, status: 403, data: { error: "Forbidden: Destination domain is not authorized." } });
           return;
-        }
-        if (typeof POWERKITS_DEBUG !== "undefined" && POWERKITS_DEBUG) {
-          console.log("[Background] proxyFetch ->", msg.url);
         }
         var opts = {
           method: msg.method || "POST",
@@ -361,17 +634,8 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
         var text = await resp.text();
         var data;
         try { data = JSON.parse(text); } catch (e) { data = { raw: text }; }
-        if (!resp.ok && data && data.raw && typeof data.raw === "string") {
-          var raw = data.raw.trim();
-          if (/^error code: 502$/i.test(raw) || /^error code: 503$/i.test(raw)) {
-            data.error_display = "Service is temporarily unavailable (gateway timeout). Try again in a few minutes.";
-          } else if (raw.length > 120 && /<!DOCTYPE|<html|cloudflare|bad gateway/i.test(raw)) {
-            data.error_display = "Service is temporarily unavailable. Try again in a few minutes.";
-          }
-        }
         sendResponse({ ok: resp.ok, status: resp.status, data: data });
       } catch (err) {
-        console.error("[Background] proxyFetch error:", err);
         sendResponse({ ok: false, status: 0, data: { error: err.message || "Fetch failed in background" } });
       }
     })();
@@ -379,6 +643,10 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   }
 
   if (msg && msg.action === "readCookies") {
+    if (!cachedLicenseStatus.ok) {
+      sendResponse({ success: false, error: "License verification failed." });
+      return false;
+    }
     collectLovableCookies(function(cookies) {
       var tokens = extractJwtTokensFromCookies(cookies);
       var foundTokens = tokens.map(function(token, index) {
@@ -390,6 +658,10 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   }
 
   if (msg && msg.action === "syncLovableAuth") {
+    if (!cachedLicenseStatus.ok) {
+      sendResponse({ ok: false, error: "License verification failed." });
+      return false;
+    }
     syncLovableAuth(msg.tabUrl || "", msg.projectId || "", function(result) {
       sendResponse(result || { ok: false });
     });
@@ -397,6 +669,10 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   }
 
   if (msg && msg.action === "getLovableCookies") {
+    if (!cachedLicenseStatus.ok) {
+      sendResponse({ ok: false, error: "License verification failed." });
+      return false;
+    }
     chrome.cookies.getAll({ domain: "lovable.dev" }, function (cookies) {
       var parts = [];
       if (cookies && cookies.length) {
@@ -413,6 +689,10 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   }
 
   if (msg && msg.action === "sendPromptToLovable") {
+    if (!cachedLicenseStatus.ok) {
+      sendResponse({ ok: false, error: "License verification failed. Please activate your license." });
+      return false;
+    }
     (async function () {
       try {
         await deliverPromptViaTab(msg.message || "");
@@ -425,6 +705,10 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   }
 
   if (msg && msg.action === "downloadProject") {
+    if (!cachedLicenseStatus.ok) {
+      sendResponse({ success: false, error: "License verification failed." });
+      return false;
+    }
     (async function () {
       try {
         var apiUrl = "https://lovable-api.com/projects/" + msg.projectId + "/source-code";

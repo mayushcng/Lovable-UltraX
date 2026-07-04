@@ -42,6 +42,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         max_devices: body.max_devices,
         expires_at: body.expires_at,
         support_telegram: body.support_telegram,
+        support_url: body.support_url,
+        admin_message: body.admin_message,
       });
       if (!result.success) return jsonResponse(res, result, 500);
       return jsonResponse(res, {

@@ -59,31 +59,12 @@ function syncPkCreditBypassFromStorage() {
     window.__pkSyncCreditBypass();
     return;
   }
-  chrome.storage.local.get(["ql_license_valid", "ql_license_key", "ql_bypass_disabled", "ql_session_id"], function (res) {
-    var disabled = res.ql_bypass_disabled === true; // default is false (bypass enabled)
-    if (disabled) {
+  chrome.runtime.sendMessage({ action: "LICENSE_STATUS" }, function (status) {
+    if (chrome.runtime.lastError) {
       setPkCreditBypass(false);
       return;
     }
-    if (INTERNAL_LICENSE_MODE) {
-      setPkCreditBypass(true);
-      return;
-    }
-    // Verify token cryptographically before bypassing
-    var verifyFn = typeof verifyJwtClientSide === "function" ? verifyJwtClientSide : (typeof window !== "undefined" && window.verifyJwtClientSide);
-    if (res.ql_license_valid && res.ql_session_id && typeof verifyFn === "function") {
-      verifyFn(res.ql_session_id).then(function (isJwtValid) {
-        if (isJwtValid && resolveTeamLicenseKey(res.ql_license_key)) {
-          setPkCreditBypass(true);
-        } else {
-          setPkCreditBypass(false);
-        }
-      }).catch(function() {
-        setPkCreditBypass(false);
-      });
-    } else {
-      setPkCreditBypass(false);
-    }
+    setPkCreditBypass(!!(status && status.ok));
   });
 }
 
@@ -120,27 +101,7 @@ function activateInternalSession() {
 
 /** Internal mode: avoid repeated validate-license calls; mirror Supabase session_id locally. */
 function ensureInternalSessionLocal() {
-  if (!INTERNAL_LICENSE_MODE) return Promise.resolve();
-  return new Promise(function(resolve) {
-    chrome.storage.local.get(["ql_license_valid", "ql_session_id", "ql_user_name", "ql_license_key"], function(res) {
-      if (res.ql_license_valid && res.ql_session_id) {
-        qlSessionId = res.ql_session_id;
-        qlUserName = normalizeLicenseUserName(res.ql_user_name);
-        qlExpiresAt = res.ql_expires_at || null;
-        return resolve();
-      }
-      var sid = (typeof crypto !== "undefined" && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now());
-      qlSessionId = sid;
-      qlUserName = normalizeLicenseUserName(qlUserName);
-      qlExpiresAt = null;
-      chrome.storage.local.set(
-        typeof powerkitsInternalSessionStorage === "function"
-          ? powerkitsInternalSessionStorage(sid, qlUserName)
-          : gringowInternalSessionStorage(sid, qlUserName),
-        function() { resolve(); }
-      );
-    });
-  });
+  return Promise.resolve();
 }
 
 function getBrowserSessionId() {
@@ -575,7 +536,7 @@ function _buildFloatingUI(){
   box.style.left = initialLeft + "px";
   box.style.top = "80px";
 
-  chrome.storage.local.get(["ql_license_valid","ql_license_key","ql_minimized","ql_height","ql_dark_mode","ql_user_name","ql_expires_at","ql_activated_at","ql_license_status","ql_validity_minutes","ql_session_id"], async (res) => {
+  chrome.storage.local.get(["ql_minimized","ql_height","ql_dark_mode"], async (res) => {
     qlMinimized = res.ql_minimized || false;
     qlHeight = res.ql_height || 520;
     qlDeviceId = await getDeviceId();
@@ -589,63 +550,23 @@ function _buildFloatingUI(){
 
     document.body.appendChild(box);
 
-    if(INTERNAL_LICENSE_MODE || res.ql_license_valid){
-      if(INTERNAL_LICENSE_MODE && !res.ql_license_valid) {
-        try {
-          await ensureInternalSessionLocal();
-        } catch(e) {
-          console.error("[QL] Internal session setup failed", e);
-          showLicenseGate(box);
-          return;
-        }
+    chrome.runtime.sendMessage({ action: "LICENSE_STATUS" }, function (status) {
+      if (chrome.runtime.lastError) {
+        showLicenseGate(box);
+        return;
+      }
+      if (status && status.ok) {
+        qlUserName = normalizeLicenseUserName(status.userName);
+        qlExpiresAt = status.expiresAt || null;
+        qlSessionId = status.sessionId || null;
+        
+        showMainUI(box);
+        setPkCreditBypass(true);
+        startHeartbeat(status.licenseKey);
       } else {
-        qlUserName = normalizeLicenseUserName(res.ql_user_name);
-        qlExpiresAt = res.ql_expires_at || null;
-        qlActivatedAt = res.ql_activated_at || null;
-        qlLicenseStatus = res.ql_license_status || null;
-        qlValidityMinutes = res.ql_validity_minutes != null ? res.ql_validity_minutes : null;
-        qlSessionId = res.ql_session_id || null;
+        showLicenseGate(box);
       }
-      showMainUI(box);
-      setPkCreditBypass(true);
-
-      if(!INTERNAL_LICENSE_MODE && res.ql_license_key) {
-        const _doStartupHb = (attempt) => {
-          bgFetch(VALIDATE_URL, {
-            method: "POST",
-            headers: apiHeaders({ "Content-Type": "application/json" }),
-            body: JSON.stringify({ license_key: res.ql_license_key, session_id: res.ql_session_id, heartbeat: true, device_id: qlDeviceId, max_devices: 2, device_limit: 2, allowed_devices: 2 })
-          }).then(function(data) {
-            if(data.valid) {
-              qlUserName = normalizeLicenseUserName(data.user_name || qlUserName);
-              qlApplyLicenseApiData(data);
-              qlSessionId = data.session_id || qlSessionId;
-              chrome.storage.local.set(Object.assign({ ql_user_name: qlUserName, ql_session_id: qlSessionId }, typeof pkLicenseStoragePatch === "function" ? pkLicenseStoragePatch(data) : {}));
-              const nameEl = document.querySelector(".ql-profile-name");
-              if(nameEl) nameEl.textContent = normalizeLicenseUserName(qlUserName);
-              updateTrialCountdown();
-              setPkCreditBypass(true);
-            } else {
-              if (data.reason === "device_conflict" && attempt < 2) {
-                setTimeout(() => _doStartupHb(attempt + 1), 5000);
-                return;
-              }
-              var _startupConflict = data.reason === "device_conflict" ? 2 : 0;
-              var _startupDecision = typeof pkShouldLockoutFromValidation === "function"
-                ? pkShouldLockoutFromValidation(data, _startupConflict)
-                : { lock: true, message: data.message };
-              if (_startupDecision.lock) {
-                if (typeof pkInvalidateAssertCache === "function") pkInvalidateAssertCache();
-                qlHandleLicenseInvalid({ reason: data.reason || _startupDecision.reason, message: _startupDecision.message || data.message });
-              }
-            }
-          }).catch(() => {});
-        };
-        _doStartupHb(1);
-      }
-    } else {
-      showLicenseGate(box);
-    }
+    });
 
     setupDrag();
     setupResize();
@@ -798,18 +719,14 @@ function showMainUI(box){
 
     const logoutBtn = document.getElementById("ql-logout-btn");
     if(logoutBtn){
-      if (INTERNAL_LICENSE_MODE) {
-        logoutBtn.style.display = "none";
-      } else {
-        logoutBtn.addEventListener("click", () => {
-          if(qlHeartbeatInterval) clearInterval(qlHeartbeatInterval);
-          setPkCreditBypass(false);
-          chrome.storage.local.remove(["ql_license_valid","ql_license_key","ql_session_id","ql_user_name","ql_expires_at","ql_activated_at","ql_license_status"], () => {
-            qlUserName = null; qlExpiresAt = null; qlActivatedAt = null; qlLicenseStatus = null; qlSessionId = null;
-            showLicenseGate(box);
-          });
+      logoutBtn.addEventListener("click", () => {
+        if(qlHeartbeatInterval) clearInterval(qlHeartbeatInterval);
+        setPkCreditBypass(false);
+        chrome.runtime.sendMessage({ action: "LICENSE_LOGOUT" }, function() {
+          qlUserName = null; qlExpiresAt = null; qlActivatedAt = null; qlLicenseStatus = null; qlSessionId = null;
+          showLicenseGate(box);
         });
-      }
+      });
     }
   }, 30);
 }
@@ -1263,7 +1180,6 @@ function qlHandleLicenseInvalid(data) {
 }
 
 function updateTrialCountdown(){
-  if (INTERNAL_LICENSE_MODE) return;
   const el = document.getElementById("ql-trial-countdown");
   if(!el) return;
 
@@ -1545,55 +1461,31 @@ function removeShieldOverlay(){
 let qlHbConflictCount = 0;
 
 function startHeartbeat(licenseKey){
-  if(INTERNAL_LICENSE_MODE) return;
   if(qlHeartbeatInterval) clearInterval(qlHeartbeatInterval);
-  qlHbConflictCount = 0;
-
-  qlHeartbeatInterval = setInterval(async () => {
-    try {
-      const data = await bgFetch(VALIDATE_URL, {
-        method: "POST",
-        headers: apiHeaders({ "Content-Type": "application/json" }),
-        body: JSON.stringify({ license_key: licenseKey, session_id: qlSessionId, heartbeat: true, device_id: qlDeviceId, max_devices: 2, device_limit: 2, allowed_devices: 2 })
-      });
-
-      if(!data.valid){
-        var decision = typeof pkShouldLockoutFromValidation === "function"
-          ? pkShouldLockoutFromValidation(data, qlHbConflictCount)
-          : { lock: true, conflictCount: qlHbConflictCount, message: data.message };
-        qlHbConflictCount = decision.conflictCount;
-
-        if(decision.lock) {
-          clearInterval(qlHeartbeatInterval);
-          if (typeof pkInvalidateAssertCache === "function") pkInvalidateAssertCache();
-          qlHandleLicenseInvalid({ reason: data.reason || decision.reason, message: decision.message || data.message });
-        }
+  qlHeartbeatInterval = setInterval(() => {
+    chrome.runtime.sendMessage({ action: "LICENSE_STATUS" }, function (status) {
+      if (chrome.runtime.lastError) {
+        clearInterval(qlHeartbeatInterval);
         return;
       }
-
-      qlHbConflictCount = 0;
-
-      if (data.user_name) qlUserName = normalizeLicenseUserName(data.user_name);
-      if (data.session_id || data.token) qlSessionId = data.session_id || data.token;
-      qlApplyLicenseApiData(data);
-      qlOnlineCount = data.online_count || 0;
-      chrome.storage.local.set(Object.assign({ ql_user_name: qlUserName }, typeof pkLicenseStoragePatch === "function" ? pkLicenseStoragePatch(data) : {}));
-      const countEl = document.getElementById("ql-online-count");
-      if(countEl) countEl.textContent = qlOnlineCount;
-      const nameEl = document.querySelector(".ql-profile-name");
-      if(nameEl && data.user_name) nameEl.textContent = qlUserName;
-      updateTrialCountdown();
-
-    } catch(err) {
-      console.warn("[QL] Heartbeat error", err);
-    }
-  }, 60000);
+      if (status && status.ok) {
+        qlUserName = normalizeLicenseUserName(status.userName);
+        qlExpiresAt = status.expiresAt || null;
+        qlSessionId = status.sessionId || null;
+        const nameEl = document.querySelector(".ql-profile-name");
+        if(nameEl) nameEl.textContent = qlUserName;
+        updateTrialCountdown();
+      } else {
+        clearInterval(qlHeartbeatInterval);
+        qlHandleLicenseInvalid({ reason: "revoked", message: "License verification failed. Please activate your license." });
+      }
+    });
+  }, 15000);
 }
 
 let qlExpiredHandled = false;
 
 function handleLicenseExpired(){
-  if (INTERNAL_LICENSE_MODE) return;
   if(qlExpiredHandled) return;
   qlExpiredHandled = true;
   if (typeof pkInvalidateAssertCache === "function") pkInvalidateAssertCache();
@@ -1660,8 +1552,8 @@ async function showPaymentUI(box, preselectedPkg){
   const backBtn = document.getElementById("ql-pay-back");
   if(backBtn){
     backBtn.addEventListener("click", () => {
-      chrome.storage.local.get(["ql_license_valid"], (res) => {
-        if(res.ql_license_valid) showMainUI(box);
+      chrome.runtime.sendMessage({ action: "LICENSE_STATUS" }, function (status) {
+        if (status && status.ok) showMainUI(box);
         else showLicenseGate(box);
       });
     });
@@ -2410,21 +2302,22 @@ function setupSend(){
     }
 
     const storageData = await new Promise((resolve) => {
-      chrome.storage.local.get(["lovable_projectId", "ql_license_key"], resolve);
+      chrome.storage.local.get(["lovable_projectId"], resolve);
     });
     const projectId = storageData.lovable_projectId || projectIdFromPage() || "";
-    const licenseKey = storageData.ql_license_key || "";
 
     if (!projectId) {
       if (log) { log.className = "ql-log-error"; log.innerText = "⚠ Open lovable.dev on your project and wait for sync."; }
       return;
     }
 
-    var teamLicenseKey = resolveTeamLicenseKey(licenseKey);
-    if (!INTERNAL_LICENSE_MODE && !teamLicenseKey) {
+    const verification = await new Promise((resolve) => {
+      chrome.runtime.sendMessage({ action: "LICENSE_REQUIRE_VALID" }, resolve);
+    });
+    if (!verification || !verification.ok) {
       if (log) {
         log.className = "ql-log-error";
-        log.innerText = "⚠ Activate your license in the side panel first.";
+        log.innerText = "⚠ " + ((verification && verification.message) || "License verification failed. Please activate your license.");
       }
       return;
     }

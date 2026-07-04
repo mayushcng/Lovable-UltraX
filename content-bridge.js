@@ -40,18 +40,12 @@
   })();
 
   function syncPkCreditBypassFromStorage() {
-    chrome.storage.local.get(["ql_license_valid", "ql_license_key", "ql_bypass_disabled"], function (res) {
-      var disabled = res.ql_bypass_disabled === true; // default is false (bypass enabled)
-      if (disabled) {
+    chrome.runtime.sendMessage({ action: "LICENSE_STATUS" }, function(status) {
+      if (chrome.runtime.lastError) {
         setPkCreditBypass(false);
         return;
       }
-      if (typeof INTERNAL_LICENSE_MODE !== "undefined" && INTERNAL_LICENSE_MODE) {
-        setPkCreditBypass(true);
-        return;
-      }
-      var licensed = !!(res.ql_license_valid && typeof resolveTeamLicenseKey === "function" && resolveTeamLicenseKey(res.ql_license_key));
-      setPkCreditBypass(licensed);
+      setPkCreditBypass(!!(status && status.ok));
     });
   }
 
@@ -343,30 +337,14 @@
 
   function pkLicenseStorageCheck() {
     return new Promise(function(resolve, reject) {
-      chrome.storage.local.get(["ql_license_valid", "ql_session_id"], function(res) {
-        if (res && res.ql_license_valid && res.ql_session_id) {
-          // Verify session token is a valid client-side JWT format and not expired
-          var verifyFn = typeof verifyJwtClientSide === "function" ? verifyJwtClientSide : (typeof window !== "undefined" && window.verifyJwtClientSide);
-          if (verifyFn) {
-            verifyFn(res.ql_session_id).then(function(isValid) {
-              if (isValid) {
-                resolve(true);
-              } else {
-                reject(new Error("Unauthorized: Session token is invalid or expired. Please re-activate your license."));
-              }
-            }).catch(function() {
-              reject(new Error("Security validation error."));
-            });
-          } else {
-            // Fallback checking format if security module hasn't initialized
-            if (String(res.ql_session_id).startsWith("eyJ") && String(res.ql_session_id).split('.').length === 3) {
-              resolve(true);
-            } else {
-              reject(new Error("Invalid session token format."));
-            }
-          }
+      chrome.runtime.sendMessage({ action: "LICENSE_REQUIRE_VALID" }, function(resp) {
+        if (chrome.runtime.lastError) {
+          return reject(new Error("Security module not loaded. Close and reopen the side panel."));
+        }
+        if (resp && resp.ok) {
+          resolve(true);
         } else {
-          reject(new Error("Activate your license key in the ByPass Ai side panel first."));
+          reject(new Error((resp && resp.message) || "License verification failed. Please activate your license."));
         }
       });
     });

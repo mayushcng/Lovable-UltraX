@@ -39,8 +39,8 @@ export async function GET(request: Request) {
         const hashedQuery = sha256(query.trim());
         dbQuery = dbQuery.eq('license_key_hash', hashedQuery);
       } else {
-        // Search in plan_name or notes
-        dbQuery = dbQuery.or(`plan_name.ilike.%${query}%,notes.ilike.%${query}%`);
+        // Search in plan_name, plan, notes, customer_name, or customer_email
+        dbQuery = dbQuery.or(`plan_name.ilike.%${query}%,plan.ilike.%${query}%,notes.ilike.%${query}%,customer_name.ilike.%${query}%,customer_email.ilike.%${query}%`);
       }
     }
 
@@ -72,12 +72,20 @@ export async function POST(request: Request) {
 
     const supabase = getSupabaseAdmin();
 
+    const defaultNotes = [customer_name, customer_email].filter(Boolean).join(' | ');
+    const keyNote = `Key: ${rawKey}`;
+    const finalNotes = notes
+      ? `${notes} | ${keyNote}`
+      : defaultNotes
+        ? `${defaultNotes} | ${keyNote}`
+        : keyNote;
+
     const insertPayload: Record<string, unknown> = {
       license_key_hash: hash,
       plan_name: planLabel,
       max_devices: max_devices || 1,
       expires_at: expires_at || null,
-      notes: notes || [customer_name, customer_email].filter(Boolean).join(' | ') || '',
+      notes: finalNotes,
       status: 'active',
       active: true,
       admin_message: admin_message || '',

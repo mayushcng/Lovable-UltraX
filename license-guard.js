@@ -138,79 +138,20 @@
       return Promise.resolve({ allowed: true, cached: true });
     }
 
-    return pkReadLicenseStorage().then(function (stored) {
-      if (!pkLocalLicenseReady(stored)) {
-        return pkRevokeLicenseStorage().then(function () {
-          throw new Error("Activate your PK- license key first.");
-        });
-      }
-
-      // Check token expiration first to show a clean error message
-      if (stored.ql_session_id) {
-        try {
-          var parts = String(stored.ql_session_id).split('.');
-          if (parts.length === 3) {
-            var base64Url = parts[1].replace(/-/g, '+').replace(/_/g, '/');
-            var padded = base64Url + '='.repeat((4 - (base64Url.length % 4)) % 4);
-            var payload = JSON.parse(atob(padded));
-            if (payload.exp && payload.exp * 1000 < Date.now()) {
-              return pkRevokeLicenseStorage().then(function () {
-                throw new Error("Your session has expired. Please re-activate your license key in the side panel.");
-              });
-            }
-          }
-        } catch (e) {
-          console.warn("[LicenseGuard] Failed to parse session token for expiry check:", e);
+    return new Promise(function (resolve, reject) {
+      chrome.runtime.sendMessage({ action: "LICENSE_REQUIRE_VALID" }, function (resp) {
+        if (chrome.runtime.lastError) {
+          return reject(new Error("Security module not loaded. Close and reopen the side panel."));
         }
-      }
-
-      var verifyFn = typeof verifyJwtClientSide === "function" ? verifyJwtClientSide : (typeof window !== "undefined" && window.verifyJwtClientSide);
-      if (!verifyFn) {
-        return Promise.reject(new Error("Security module not loaded. Close and reopen the side panel."));
-      }
-      return verifyFn(stored.ql_session_id || "").then(function (isJwtValid) {
-        if (!isJwtValid) {
-          return pkRevokeLicenseStorage().then(function () {
-            throw new Error("Unauthorized: Invalid or tampered license token.");
-          });
+        if (resp && resp.ok) {
+          _assertCache = { at: Date.now(), allowed: true };
+          resolve({ allowed: true, cached: false, expires_at: resp.expiresAt });
+        } else {
+          _assertCache = { at: 0, allowed: false };
+          reject(new Error((resp && resp.message) || "License verification failed. Please activate your license."));
         }
-        var licenseKey = resolveTeamLicenseKey(stored.ql_license_key);
-        return pkResolveDeviceId().then(function (deviceId) {
-          return pkProxyFetch(pkAssertSessionUrl(), {
-            method: "POST",
-            headers: pkLicenseHeaders(),
-            body: JSON.stringify({
-              license_key: licenseKey,
-              session_id: stored.ql_session_id || "",
-              device_id: deviceId || "",
-              heartbeat: true
-            })
-          });
-        });
-      }).then(function (data) {
-          var ok = data && (data.allowed === true || data.valid === true || data.active === true);
-          if (ok) {
-            _assertCache = { at: Date.now(), allowed: true };
-            if (typeof pkLicenseStoragePatch === "function") {
-              var patch = pkLicenseStoragePatch(data);
-              if (data.user_name) patch.ql_user_name = data.user_name;
-              if (data.plan) patch.ql_plan = data.plan;
-              chrome.storage.local.set(patch);
-            }
-            return data;
-          }
-          if (typeof pkInvalidateAssertCache === "function") {
-            pkInvalidateAssertCache();
-          }
-          var msg = (data && data.message) || "License not active.";
-          var err = new Error(msg);
-          err.pkReason = (data && data.reason) || "inactive";
-          if (data && (data.reason === "revoked" || data.reason === "expired" || data.reason === "inactive" || data.force_logout)) {
-            return pkRevokeLicenseStorage().then(function () { throw err; });
-          }
-          throw err;
-        });
       });
+    });
   }
 
   async function computeHmacSha256(secret, message) {
@@ -300,43 +241,20 @@
   }
 
   function pkPollLicensePolicyOnce() {
-    return pkReadLicenseStorage().then(function (stored) {
-      if (!pkLocalLicenseReady(stored)) return;
-      var verifyFn = typeof verifyJwtClientSide === "function" ? verifyJwtClientSide : (typeof window !== "undefined" && window.verifyJwtClientSide);
-      if (!verifyFn) return;
-      return verifyFn(stored.ql_session_id || "").then(function (isJwtValid) {
-        if (!isJwtValid) {
-          return pkRevokeLicenseStorage().then(function () {
-            if (typeof spHandleLicenseInvalid === "function") {
-              spHandleLicenseInvalid({ reason: "revoked", message: "Invalid or tampered license token." });
-            }
-          });
+    return new Promise(function(resolve, reject) {
+      chrome.runtime.sendMessage({ action: "LICENSE_STATUS" }, function(status) {
+        if (chrome.runtime.lastError) return resolve();
+        if (status && status.ok) {
+          if (typeof spHandleLicenseInvalid === "function" && !status.ok) {
+            spHandleLicenseInvalid({ reason: "revoked", message: "License not active." });
+          }
+          resolve(status);
+        } else {
+          if (typeof spHandleLicenseInvalid === "function") {
+            spHandleLicenseInvalid({ reason: "revoked", message: "License not active." });
+          }
+          resolve();
         }
-        return pkResolveDeviceId().then(function (deviceId) {
-          var base = pkApiBase();
-          var token = encodeURIComponent(stored.ql_session_id || "");
-          var dev = encodeURIComponent(deviceId || "");
-          return pkProxyFetch(base + "/api/license/status?token=" + token + "&device_id=" + dev, {
-          method: "GET",
-          headers: pkLicenseHeaders()
-        }).then(function (data) {
-          if (data && data.valid && !data.force_logout) {
-            pkApplyPolicyUpdate(data);
-            return data;
-          }
-          if (data && (data.force_logout || data.valid === false)) {
-            pkInvalidateAssertCache();
-            var msg = data.message || "Your license was updated by an administrator.";
-            return pkRevokeLicenseStorage().then(function () {
-              if (typeof spHandleLicenseInvalid === "function") {
-                spHandleLicenseInvalid({ reason: data.reason || "revoked", message: msg });
-              }
-              throw new Error(msg);
-            });
-          }
-            return data;
-          }).catch(function () { /* network blip — keep session */ });
-        });
       });
     });
   }

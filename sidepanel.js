@@ -28,27 +28,7 @@
   }
 
   function ensureInternalSessionLocal() {
-    if (!INTERNAL_LICENSE_MODE) return Promise.resolve();
-    return new Promise(function(resolve) {
-      chrome.storage.local.get(["ql_license_valid", "ql_session_id", "ql_user_name", "ql_license_key"], function(res) {
-        if (res.ql_license_valid && res.ql_session_id) {
-          sessionId = res.ql_session_id;
-          userName = normalizeLicenseUserName(res.ql_user_name);
-          expiresAt = res.ql_expires_at || null;
-          return resolve();
-        }
-        var sid = (typeof crypto !== "undefined" && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now());
-        sessionId = sid;
-        userName = normalizeLicenseUserName(userName);
-        expiresAt = null;
-        chrome.storage.local.set(
-          typeof powerkitsInternalSessionStorage === "function"
-            ? powerkitsInternalSessionStorage(sid, userName)
-            : gringowInternalSessionStorage(sid, userName),
-          function() { resolve(); }
-        );
-      });
-    });
+    return Promise.resolve();
   }
 
   function getBrowserSessionId() {
@@ -583,27 +563,14 @@
 
   const logoutBtn = document.querySelector('.sp-logout-btn');
   if (logoutBtn) {
-    if (INTERNAL_LICENSE_MODE) {
-      logoutBtn.style.display = 'none';
-    } else {
-      logoutBtn.addEventListener('click', () => {
-        if(heartbeatInterval) clearInterval(heartbeatInterval);
-        if (!INTERNAL_LICENSE_MODE) syncCreditBypassOnLovableTabs(false);
-        chrome.storage.local.remove(["ql_license_valid","ql_license_key","ql_session_id","ql_user_name","ql_expires_at","ql_activated_at","ql_license_status"], async () => {
-          userName = null; expiresAt = null; licenseStatus = null; sessionId = null;
-          if (INTERNAL_LICENSE_MODE) {
-            try {
-              await ensureInternalSessionLocal();
-              showMainUI();
-            } catch (e) {
-              showLicenseGate();
-            }
-            return;
-          }
-          showLicenseGate();
-        });
+    logoutBtn.addEventListener('click', () => {
+      if(heartbeatInterval) clearInterval(heartbeatInterval);
+      syncCreditBypassOnLovableTabs(false);
+      chrome.runtime.sendMessage({ action: "LICENSE_LOGOUT" }, function() {
+        userName = null; expiresAt = null; licenseStatus = null; sessionId = null;
+        showLicenseGate();
       });
-    }
+    });
   }
 
   // --- Notifications ---
@@ -698,41 +665,37 @@
     log.className = 'sp-log sp-log-info'; log.textContent = '⏳ Activating license...';
     try {
       if(!deviceId) deviceId = await getDeviceId();
-      const data = await bgFetch(VALIDATE_URL, { method: "POST", headers: apiHeaders({ "Content-Type": "application/json" }), body: JSON.stringify({ license_key: key, device_id: deviceId }) });
-      if(data.valid) {
-        sessionId = data.session_id || data.token;
-        userName = normalizeLicenseUserName(data.user_name || data.plan);
-        spApplyLicenseApiData(data);
-        chrome.storage.local.set(Object.assign({
-          ql_license_valid: true,
-          ql_license_key: key,
-          ql_session_id: sessionId,
-          ql_user_name: userName,
-          ql_plan: data.plan || null,
-          ql_activated_at: new Date().toISOString()
-        }, typeof pkLicenseStoragePatch === "function" ? pkLicenseStoragePatch(data) : {
-          ql_expires_at: data.expires_at || null,
-          ql_activated_at: data.activated_at || new Date().toISOString(),
-          ql_license_status: data.status || null
-        }), () => {
-          if (typeof pkInvalidateAssertCache === "function") pkInvalidateAssertCache();
-          setTimeout(function() { syncCreditBypassOnLovableTabs(true); }, 2500);
-          log.className = 'sp-log sp-log-success'; log.textContent = '✓ ' + spUserText(data.message || 'License activated successfully');
-          setTimeout(() => { showMainUI(); startHeartbeat(key); }, 800);
-        });
-      } else {
-        var errMsg = data.message || 'Invalid license key';
-        if (data.reason === 'expired') errMsg = 'License expired';
-        if (data.reason === 'device_conflict') errMsg = 'Activation limit exceeded';
-        if (data.reason === 'revoked') errMsg = 'License has been revoked';
-        log.className = 'sp-log sp-log-error'; log.textContent = '✗ ' + spUserText(errMsg);
-      }
+      chrome.runtime.sendMessage({
+        action: "LICENSE_ACTIVATE",
+        licenseKey: key,
+        deviceId: deviceId
+      }, function (resp) {
+        if (chrome.runtime.lastError) {
+          log.className = 'sp-log sp-log-error';
+          log.textContent = '✗ Connection to background failed. Reload side panel.';
+          return;
+        }
+        if (resp && resp.ok) {
+          var data = resp.data;
+          sessionId = data.session_id || data.token;
+          userName = normalizeLicenseUserName(data.user_name || data.plan);
+          spApplyLicenseApiData(data);
+          
+          log.className = 'sp-log sp-log-success';
+          log.textContent = '✓ ' + spUserText(data.message || 'License activated successfully');
+          setTimeout(() => {
+            showMainUI();
+            startHeartbeat(key);
+          }, 800);
+        } else {
+          var errMsg = (resp && resp.message) || 'Invalid license key';
+          log.className = 'sp-log sp-log-error';
+          log.textContent = '✗ ' + spUserText(errMsg);
+        }
+      });
     } catch(err) {
       log.className = 'sp-log sp-log-error';
-      var netMsg = (err.message && /fetch|network|failed|timeout/i.test(err.message))
-        ? 'Network/server error. Please try again.'
-        : (err.message || 'Network/server error');
-      log.textContent = '✗ ' + spUserText(netMsg);
+      log.textContent = '✗ ' + spUserText(err.message || 'Network/server error');
     }
   }
 
@@ -1166,17 +1129,14 @@
   }
 
   function spRevokeAndShowLicenseGate(message) {
+    if (spCountdownInterval) { clearInterval(spCountdownInterval); spCountdownInterval = null; }
+    if (heartbeatInterval) { clearInterval(heartbeatInterval); heartbeatInterval = null; }
     if (typeof pkInvalidateAssertCache === "function") pkInvalidateAssertCache();
     syncCreditBypassOnLovableTabs(false);
-    var after = function () {
+    chrome.runtime.sendMessage({ action: "LICENSE_LOGOUT" }, function() {
       showLicenseGate();
       if (message) setTimeout(function () { showAlert("Access Denied", message); }, 400);
-    };
-    if (typeof pkRevokeLicenseStorage === "function") {
-      pkRevokeLicenseStorage().then(after);
-    } else {
-      chrome.storage.local.remove(["ql_license_valid","ql_license_key","ql_session_id","ql_user_name","ql_expires_at","ql_activated_at","ql_license_status","ql_validity_minutes"], after);
-    }
+    });
   }
 
   function spHandleLicenseExpired() {
@@ -1194,9 +1154,7 @@
     spRevokeAndShowLicenseGate((data && data.message) || "License not active.");
   }
 
-  // --- Countdown ---
   function updateCountdown() {
-    if (INTERNAL_LICENSE_MODE) return;
     const el = document.getElementById('sp-countdown');
     // Always clear any previous ticking interval so a removed/changed expiry can't linger.
     if (spCountdownInterval) { clearInterval(spCountdownInterval); spCountdownInterval = null; }
@@ -1604,19 +1562,21 @@
     log.textContent = hasImage ? "📎 Attaching image link..." : "⏳ Sending...";
 
     try {
-      const sd = await new Promise(r => chrome.storage.local.get(["lovable_projectId", "ql_license_key"], r));
+      const sd = await new Promise(r => chrome.storage.local.get(["lovable_projectId"], r));
       const pid = sd.lovable_projectId || "";
-      const licKey = sd.ql_license_key || "";
       if (!pid) {
         log.className = "sp-log sp-log-error";
         log.textContent = "⚠ Project not synced. Open lovable.dev on your project.";
         btn.disabled = false; btn.textContent = "Send";
         return;
       }
-      var teamLicenseKey = resolveTeamLicenseKey(licKey);
-      if (!INTERNAL_LICENSE_MODE && !teamLicenseKey) {
+      
+      const verification = await new Promise((resolve) => {
+        chrome.runtime.sendMessage({ action: "LICENSE_REQUIRE_VALID" }, resolve);
+      });
+      if (!verification || !verification.ok) {
         log.className = "sp-log sp-log-error";
-        log.textContent = "⚠ Activate your license key first";
+        log.textContent = "⚠ " + ((verification && verification.message) || "License verification failed. Please activate your license.");
         btn.disabled = false; btn.textContent = "Send";
         return;
       }
@@ -1666,44 +1626,26 @@
   }
 
   function startHeartbeat(key) {
-    if (INTERNAL_LICENSE_MODE) return;
     if(heartbeatInterval) clearInterval(heartbeatInterval);
-    if (typeof pkStartLicensePolicyPoll === "function") pkStartLicensePolicyPoll();
-    spHbConflictCount = 0;
-    heartbeatInterval = setInterval(async () => {
-      try {
-        if (!chrome.runtime || !chrome.runtime.id) {
+    heartbeatInterval = setInterval(() => {
+      chrome.runtime.sendMessage({ action: "LICENSE_STATUS" }, function (status) {
+        if (chrome.runtime.lastError) {
           clearInterval(heartbeatInterval);
-          console.warn("[SP] Heartbeat stopped: extension context invalidated");
           return;
         }
-        const data = await bgFetch(VALIDATE_URL, { method: "POST", headers: apiHeaders({ "Content-Type": "application/json" }), body: JSON.stringify({ license_key: key, session_id: sessionId, heartbeat: true, device_id: deviceId, max_devices: 2, device_limit: 2, allowed_devices: 2 }) });
-        if(!data.valid) {
-          var decision = typeof pkShouldLockoutFromValidation === "function"
-            ? pkShouldLockoutFromValidation(data, spHbConflictCount)
-            : { lock: true, conflictCount: spHbConflictCount, message: data.message };
-          spHbConflictCount = decision.conflictCount;
-
-          if(decision.lock) {
-            clearInterval(heartbeatInterval);
-            if (typeof pkInvalidateAssertCache === "function") pkInvalidateAssertCache();
-            spHandleLicenseInvalid({ reason: data.reason || decision.reason, message: decision.message || data.message });
-          }
-          return;
-        }
-        spHbConflictCount = 0;
-        if(data.user_name) { userName = normalizeLicenseUserName(data.user_name); const el = document.getElementById('sp-name'); if(el) el.textContent = userName; }
-        if(data.session_id || data.token) { sessionId = data.session_id || data.token; }
-        spApplyLicenseApiData(data);
-        chrome.storage.local.set(typeof pkLicenseStoragePatch === "function" ? pkLicenseStoragePatch(data) : { ql_expires_at: expiresAt });
-        updateCountdown();
-      } catch(e) {
-        if (e.message && e.message.includes("Extension context invalidated")) {
+        if (status && status.ok) {
+          userName = normalizeLicenseUserName(status.userName);
+          expiresAt = status.expiresAt || null;
+          sessionId = status.sessionId || null;
+          const el = document.getElementById('sp-name');
+          if (el) el.textContent = userName;
+          updateCountdown();
+        } else {
           clearInterval(heartbeatInterval);
-          console.warn("[SP] Heartbeat stopped: extension context invalidated");
+          spHandleLicenseInvalid({ reason: "revoked", message: "License verification failed. Please activate your license." });
         }
-      }
-    }, 60000);
+      });
+    }, 15000);
   }
 
   // --- Clipboard Paste (Ctrl+V) & Drag-and-Drop for ANY Files ---
@@ -1934,78 +1876,22 @@
     deviceId = await getDeviceId();
     spApplyAdminConfig();
     chrome.storage.local.get(["ql_dark_mode"], r => { if(r.ql_dark_mode === false) document.body.classList.add('sp-light'); });
-    chrome.storage.local.get(["ql_license_valid","ql_license_key","ql_user_name","ql_expires_at","ql_activated_at","ql_license_status","ql_validity_minutes","ql_session_id"], async (res) => {
-      // 1. Verify token cryptographically before rendering main UI
-      let isTokenValid = false;
-      if (!INTERNAL_LICENSE_MODE && res.ql_license_valid && res.ql_session_id) {
-        if (typeof verifyJwtClientSide === "function") {
-          isTokenValid = await verifyJwtClientSide(res.ql_session_id);
-        } else if (typeof window !== "undefined" && typeof window.verifyJwtClientSide === "function") {
-          isTokenValid = await window.verifyJwtClientSide(res.ql_session_id);
-        }
+    
+    // Request current secure license status from background
+    chrome.runtime.sendMessage({ action: "LICENSE_STATUS" }, function (status) {
+      if (chrome.runtime.lastError) {
+        showLicenseGate();
+        return;
       }
-
-      if(INTERNAL_LICENSE_MODE || (res.ql_license_valid && isTokenValid)) {
-        if(INTERNAL_LICENSE_MODE && !res.ql_license_valid) {
-          try {
-            await ensureInternalSessionLocal();
-          } catch(e) {
-            console.error("[SP] Internal session setup failed", e);
-            showLicenseGate();
-            return;
-          }
-        } else {
-          userName = normalizeLicenseUserName(res.ql_user_name);
-          expiresAt = res.ql_expires_at || null;
-          spActivatedAt = res.ql_activated_at || null;
-          licenseStatus = res.ql_license_status || null;
-          validityMinutes = res.ql_validity_minutes != null ? res.ql_validity_minutes : null;
-          sessionId = res.ql_session_id || null;
-        }
+      if (status && status.ok) {
+        userName = normalizeLicenseUserName(status.userName);
+        expiresAt = status.expiresAt || null;
+        sessionId = status.sessionId || null;
+        
         syncCreditBypassOnLovableTabs(true);
         showMainUI();
-        if(!INTERNAL_LICENSE_MODE && res.ql_license_key) {
-          const _doSpStartupHb = async (attempt) => {
-            try {
-              const data = await bgFetch(VALIDATE_URL, { method: "POST", headers: apiHeaders({ "Content-Type": "application/json" }), body: JSON.stringify({ license_key: res.ql_license_key, session_id: sessionId, heartbeat: true, device_id: deviceId, max_devices: 2, device_limit: 2, allowed_devices: 2 }) });
-              if(data.valid) {
-                userName = normalizeLicenseUserName(data.user_name || userName);
-                spApplyLicenseApiData(data);
-                sessionId = data.session_id || sessionId;
-                chrome.storage.local.set(Object.assign({ ql_user_name: userName, ql_session_id: sessionId }, typeof pkLicenseStoragePatch === "function" ? pkLicenseStoragePatch(data) : {}));
-                const nameEl = document.getElementById('sp-name'); if(nameEl) nameEl.textContent = userName;
-                updateCountdown();
-                syncCreditBypassOnLovableTabs(true);
-              } else {
-                if (spRecentlyActivated() && (data.reason === "invalid_session" || data.reason === "inactive")) {
-                  return;
-                }
-                if (data.reason === "device_conflict" && attempt < 2) {
-                  setTimeout(() => _doSpStartupHb(attempt + 1), 5000);
-                  return;
-                }
-                var _spStartupConflict = data.reason === "device_conflict" ? 2 : 0;
-                var _spStartupDecision = typeof pkShouldLockoutFromValidation === "function"
-                  ? pkShouldLockoutFromValidation(data, _spStartupConflict)
-                  : { lock: true, message: data.message };
-                if (_spStartupDecision.lock) {
-                  if (typeof pkInvalidateAssertCache === "function") pkInvalidateAssertCache();
-                  spHandleLicenseInvalid({ reason: data.reason || _spStartupDecision.reason, message: _spStartupDecision.message || data.message });
-                }
-              }
-            } catch(e) {}
-          };
-          _doSpStartupHb(1);
-        }
+        startHeartbeat(status.licenseKey);
       } else {
-        if (!INTERNAL_LICENSE_MODE && res.ql_license_valid) {
-          // Fake or expired session, clean local storage
-          if (typeof pkRevokeLicenseStorage === "function") {
-            await pkRevokeLicenseStorage();
-          } else {
-            chrome.storage.local.remove(["ql_license_valid", "ql_license_key", "ql_session_id", "ql_user_name", "ql_expires_at", "ql_activated_at", "ql_license_status", "ql_validity_minutes"]);
-          }
-        }
         showLicenseGate();
       }
     });
