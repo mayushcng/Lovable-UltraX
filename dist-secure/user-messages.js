@@ -1,1 +1,81 @@
-(function(_0x55d1f8,_0x3c917f){var _0xb962af=_0x4906,_0x3286d4=_0x55d1f8();while(!![]){try{var _0x45b83c=-parseInt(_0xb962af(0x1e7))/0x1+parseInt(_0xb962af(0x1ee))/0x2*(-parseInt(_0xb962af(0x1e8))/0x3)+parseInt(_0xb962af(0x1f4))/0x4*(parseInt(_0xb962af(0x1d8))/0x5)+parseInt(_0xb962af(0x1e2))/0x6*(parseInt(_0xb962af(0x1da))/0x7)+-parseInt(_0xb962af(0x1e4))/0x8+parseInt(_0xb962af(0x1f6))/0x9+parseInt(_0xb962af(0x1e5))/0xa;if(_0x45b83c===_0x3c917f)break;else _0x3286d4['push'](_0x3286d4['shift']());}catch(_0x10c0ca){_0x3286d4['push'](_0x3286d4['shift']());}}}(_0xa4a3,0x9db21));function _0xa4a3(){var _0x5b14e1=['BgLJzw5ZzsbRzxK','tgLJzw5ZzsbJB3vSzcbUB3qGyMuGDMfSAwrHDgvKlIbdB250ywn0ierPC2nVCMqGC3vWCg9YDc4','nZe5mff5DwzMuq','ugXLyxnLigXVzYbPBIbHz2fPBG','Dw5KzwzPBMvK','C2vYDMLJzq','sw52ywXPzcbRzxK','qwnJzxnZigrLBMLLza','ote1ndyWC21lzePX','BgvUz3rO','ota2mJaXourLCNfTtG','Ew91CIbSAwnLBNnL','uhjVAMvJDcbUB3qGC3LUy2vK','BgLJzw5Zzq','uhjVBxb0ihnLBNqGC3vJy2vZC2z1BgX5','BgLJzw5ZzsbZzxj2AwnL','nvPhtw5ouW','sw52ywXPzcbSAwnLBNnL','mJCWotC2m0Twu3bWyW','rMfPBgvKihrVignYzwf0zsbWCM9Qzwn0','tg92ywjSzsb0B2TLBIbHBMqGChjVAMvJDcbHCMuGCMvXDwLYzwqUie9Wzw4GEw91CIbWCM9Qzwn0ig9UigXVDMfIBguUzgv2lcb3ywL0igzVCIbtEw5JzwqSihrOzw4GDhj5igfNywLUlG','sw52ywXPzcbZzxnZAw9UlIbqBgvHC2uGBg9NigLUigfNywLUlG','tgLJzw5ZzsbJB3vSzcbUB3qGyMuGDMfSAwrHDgvKlIbdAgvJAYb5B3vYigTLEsbVCIbJB250ywn0ierPC2nVCMqGC3vWCg9YDc4','tg92ywjSzsbqB3DLCMTPDhm','tgLJzw5ZzsbUB3qGzM91BMq','ihnLCNzPy2u','mtHLAgLKruy','BgLJzw5ZzsbRzxLZ','otiYmJq4merdCwDgyG','ndq3mJiZmgzxsMjmwG','tgLJzw5ZzsbPBMfJDgL2zq','nZaWndu1z0n0ANnu','mJG4wu1oufDg','u2vYDMLJzsbPCYb0zw1WB3jHCMLSEsb1BMf2ywLSywjSzs4Gq29UDgfJDcbZDxbWB3j0lG','q29UBMvJDgLVBIbLCNjVCG','vg9Rzw4GBM90ignHChr1CMvK'];_0xa4a3=function(){return _0x5b14e1;};return _0xa4a3();}function stripInternalBranding(_0x534821){var _0x5ae2f5=_0x4906;if(_0x534821==null)return _0x534821;var _0x4fa0bd=typeof EXTENSION_NAME!==_0x5ae2f5(0x1f0)?String(EXTENSION_NAME):_0x5ae2f5(0x1df),_0x949a84=String(_0x534821),_0x35415d=[[/gringow\s*store/gi,_0x4fa0bd],[/gringow/gi,_0x4fa0bd],[/vendor\s+license\s+pool/gi,_0x5ae2f5(0x1d7)],[/vendor\s+ql\s+keys?/gi,_0x5ae2f5(0x1e3)],[/vendor\s+ql/gi,_0x5ae2f5(0x1d5)],[/vendor\s+license/gi,_0x5ae2f5(0x1d5)],[/vendor\s+key/gi,_0x5ae2f5(0x1ec)],[/vendor\s+supabase/gi,_0x5ae2f5(0x1f1)],[/vendor\s+/gi,''],[/plesk(\s+php)?/gi,''],[/supabase\s+anon\s+key/gi,'service\x20configuration'],[/supabase\s+url/gi,_0x5ae2f5(0x1f1)],[/on\s+supabase/gi,''],[/admin\s*→[^.]*\.?/gi,''],[/check\s+admin[^.]*\.?/gi,'Contact\x20support'],[/upload\s+(the\s+)?latest\s+backend[^.]*\.?/gi,''],[/lovablefeaturescontroller[^.]*\.?/gi,''],[/lovableapiservice[^.]*\.?/gi,''],[/not\s+the\s+vendor\s+[^.]*\.?/gi,''],[/infinity\/ql\s+key/gi,_0x5ae2f5(0x1ec)],[/\bteam\s+pk-/gi,''],[/\bteam\s+license/gi,'license'],[/use your team/gi,'use\x20your'],[/your team license/gi,_0x5ae2f5(0x1f7)],[/\(\s*not\s+the\s+[^)]+\)/gi,''],[/powerkits\s+server/gi,_0x4fa0bd+_0x5ae2f5(0x1e1)],[/\s{2,}/g,'\x20'],[/\. \./g,'.'],[/\s+\./g,'.'],[/^\s+|\s+$/g,'']];for(var _0x520d14=0x0;_0x520d14<_0x35415d[_0x5ae2f5(0x1f5)];_0x520d14++){_0x949a84=_0x949a84['replace'](_0x35415d[_0x520d14][0x0],_0x35415d[_0x520d14][0x1]);}return _0x949a84;}function _0x4906(_0x3f05cc,_0x5d9c80){_0x3f05cc=_0x3f05cc-0x1d5;var _0xa4a35d=_0xa4a3();var _0x4906ba=_0xa4a35d[_0x3f05cc];if(_0x4906['WWbxhW']===undefined){var _0x3b6977=function(_0x5b00fc){var _0x499bed='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';var _0x534821='',_0x4fa0bd='';for(var _0x949a84=0x0,_0x35415d,_0x520d14,_0x3dcd3c=0x0;_0x520d14=_0x5b00fc['charAt'](_0x3dcd3c++);~_0x520d14&&(_0x35415d=_0x949a84%0x4?_0x35415d*0x40+_0x520d14:_0x520d14,_0x949a84++%0x4)?_0x534821+=String['fromCharCode'](0xff&_0x35415d>>(-0x2*_0x949a84&0x6)):0x0){_0x520d14=_0x499bed['indexOf'](_0x520d14);}for(var _0x2acbe9=0x0,_0x2126a8=_0x534821['length'];_0x2acbe9<_0x2126a8;_0x2acbe9++){_0x4fa0bd+='%'+('00'+_0x534821['charCodeAt'](_0x2acbe9)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x4fa0bd);};_0x4906['QYOZzy']=_0x3b6977,_0x4906['FpvrVY']={},_0x4906['WWbxhW']=!![];}var _0x241292=_0xa4a35d[0x0],_0x2ee254=_0x3f05cc+_0x241292,_0x3bfe6e=_0x4906['FpvrVY'][_0x2ee254];return!_0x3bfe6e?(_0x4906ba=_0x4906['QYOZzy'](_0x4906ba),_0x4906['FpvrVY'][_0x2ee254]=_0x4906ba):_0x4906ba=_0x3bfe6e,_0x4906ba;}function translateUserMessage(_0x3dcd3c){var _0x350e71=_0x4906;if(_0x3dcd3c==null)return _0x3dcd3c;var _0x2acbe9=String(_0x3dcd3c),_0x2126a8=[[/Licen[çc]a\s+n[aã]o\s+encontrada\s+ou\s+inativa/ig,_0x350e71(0x1de)],[/Licen[çc]a\s+n[aã]o\s+encontrada/ig,_0x350e71(0x1e0)],[/Licen[çc]a\s+inativa/ig,_0x350e71(0x1e6)],[/Licen[çc]a\s+V[aá]lida/ig,'Valid\x20license'],[/Licen[çc]a\s+inv[aá]lida/ig,_0x350e71(0x1d9)],[/Chave\s+inv[aá]lida/ig,_0x350e71(0x1f2)],[/Sess[aã]o\s+inv[aá]lida\.?\s*Fa[çc]a\s+login\s+novamente\.?/ig,_0x350e71(0x1dd)],[/Sess[aã]o\s+inv[aá]lida/ig,'Invalid\x20session'],[/Fa[çc]a\s+login\s+novamente/ig,_0x350e71(0x1ef)],[/Erro\s+de\s+conex[aã]o/ig,_0x350e71(0x1ea)],[/Projeto\s+n[aã]o\s+sincronizado/ig,_0x350e71(0x1f8)],[/Token\s+n[aã]o\s+capturado/ig,_0x350e71(0x1eb)],[/Licen[çc]a\s+expirada/ig,'License\x20expired'],[/Acesso\s+Negado/ig,_0x350e71(0x1f3)],[/Falha\s+ao\s+criar\s+projeto/ig,_0x350e71(0x1db)],[/Erro\s+no\s+envio/ig,'Send\x20error'],[/Prompt\s+Enviado\s+com\s+Sucesso\.?/ig,_0x350e71(0x1d6)],[/Todos\s+os\s+QLs?\s+falharam/ig,'License\x20service\x20is\x20temporarily\x20unavailable.\x20Try\x20again\x20later.'],[/Nenhum\s+QL\s+configurado/ig,_0x350e71(0x1e9)],[/No\s+vendor\s+license\s+configured[^.]*/ig,'Service\x20is\x20temporarily\x20unavailable.\x20Contact\x20support.'],[/Vendor\s+license\s+not\s+found[^.]*/ig,_0x350e71(0x1ed)],[/Token\s+e\s+projectId\s+s[aã]o\s+obrigat[oó]rios\.?/ig,_0x350e71(0x1dc)]];for(var _0x2004a8=0x0;_0x2004a8<_0x2126a8[_0x350e71(0x1f5)];_0x2004a8++){_0x2acbe9=_0x2acbe9['replace'](_0x2126a8[_0x2004a8][0x0],_0x2126a8[_0x2004a8][0x1]);}return stripInternalBranding(_0x2acbe9);}
+/**
+ * User-facing copy: English translations + strip internal/hosting/vendor branding.
+ */
+function stripInternalBranding(value) {
+  if (value == null) return value;
+  var brand = typeof EXTENSION_NAME !== "undefined" ? String(EXTENSION_NAME) : "Lovable Powerkits";
+  var s = String(value);
+
+  var rules = [
+    [/gringow\s*store/gi, brand],
+    [/gringow/gi, brand],
+    [/vendor\s+license\s+pool/gi, "license service"],
+    [/vendor\s+ql\s+keys?/gi, "license keys"],
+    [/vendor\s+ql/gi, "license"],
+    [/vendor\s+license/gi, "license"],
+    [/vendor\s+key/gi, "license key"],
+    [/vendor\s+supabase/gi, "service"],
+    [/vendor\s+/gi, ""],
+    [/plesk(\s+php)?/gi, ""],
+    [/supabase\s+anon\s+key/gi, "service configuration"],
+    [/supabase\s+url/gi, "service"],
+    [/on\s+supabase/gi, ""],
+    [/admin\s*→[^.]*\.?/gi, ""],
+    [/check\s+admin[^.]*\.?/gi, "Contact support"],
+    [/upload\s+(the\s+)?latest\s+backend[^.]*\.?/gi, ""],
+    [/lovablefeaturescontroller[^.]*\.?/gi, ""],
+    [/lovableapiservice[^.]*\.?/gi, ""],
+    [/not\s+the\s+vendor\s+[^.]*\.?/gi, ""],
+    [/infinity\/ql\s+key/gi, "license key"],
+    [/\bteam\s+pk-/gi, ""],
+    [/\bteam\s+license/gi, "license"],
+    [/use your team/gi, "use your"],
+    [/your team license/gi, "your license"],
+    [/\(\s*not\s+the\s+[^)]+\)/gi, ""],
+    [/powerkits\s+server/gi, brand + " service"],
+    [/\s{2,}/g, " "],
+    [/\. \./g, "."],
+    [/\s+\./g, "."],
+    [/^\s+|\s+$/g, ""]
+  ];
+
+  for (var i = 0; i < rules.length; i++) {
+    s = s.replace(rules[i][0], rules[i][1]);
+  }
+  return s;
+}
+
+function translateUserMessage(value) {
+  if (value == null) return value;
+  var s = String(value);
+  var map = [
+    [/Licen[çc]a\s+n[aã]o\s+encontrada\s+ou\s+inativa/ig,
+      "License could not be validated. Check your key or contact Discord support."],
+    [/Licen[çc]a\s+n[aã]o\s+encontrada/ig, "License not found"],
+    [/Licen[çc]a\s+inativa/ig, "License inactive"],
+    [/Licen[çc]a\s+V[aá]lida/ig, "Valid license"],
+    [/Licen[çc]a\s+inv[aá]lida/ig, "Invalid license"],
+    [/Chave\s+inv[aá]lida/ig, "Invalid key"],
+    [/Sess[aã]o\s+inv[aá]lida\.?\s*Fa[çc]a\s+login\s+novamente\.?/ig, "Invalid session. Please log in again."],
+    [/Sess[aã]o\s+inv[aá]lida/ig, "Invalid session"],
+    [/Fa[çc]a\s+login\s+novamente/ig, "Please log in again"],
+    [/Erro\s+de\s+conex[aã]o/ig, "Connection error"],
+    [/Projeto\s+n[aã]o\s+sincronizado/ig, "Project not synced"],
+    [/Token\s+n[aã]o\s+capturado/ig, "Token not captured"],
+    [/Licen[çc]a\s+expirada/ig, "License expired"],
+    [/Acesso\s+Negado/ig, "Access denied"],
+    [/Falha\s+ao\s+criar\s+projeto/ig, "Failed to create project"],
+    [/Erro\s+no\s+envio/ig, "Send error"],
+    [/Prompt\s+Enviado\s+com\s+Sucesso\.?/ig, "Prompt sent successfully"],
+    [/Todos\s+os\s+QLs?\s+falharam/ig, "License service is temporarily unavailable. Try again later."],
+    [/Nenhum\s+QL\s+configurado/ig, "Service is temporarily unavailable. Contact support."],
+    [/No\s+vendor\s+license\s+configured[^.]*/ig, "Service is temporarily unavailable. Contact support."],
+    [/Vendor\s+license\s+not\s+found[^.]*/ig, "License could not be validated. Contact Discord support."],
+    [/Token\s+e\s+projectId\s+s[aã]o\s+obrigat[oó]rios\.?/ig,
+      "Lovable token and project are required. Open your project on lovable.dev, wait for Synced, then try again."]
+  ];
+  for (var i = 0; i < map.length; i++) {
+    s = s.replace(map[i][0], map[i][1]);
+  }
+  return stripInternalBranding(s);
+}
