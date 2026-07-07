@@ -19,6 +19,7 @@ interface License {
   admin_message?: string;
   support_url?: string;
   support_telegram?: string;
+  credits_saved?: number;
 }
 
 export default function LicensesPage() {
@@ -348,6 +349,7 @@ export default function LicensesPage() {
                     <th className="py-4 px-6 whitespace-nowrap">Customer / Plan</th>
                     <th className="py-4 px-6">Status</th>
                     <th className="py-4 px-6">Devices (Used/Max)</th>
+                    <th className="py-4 px-6">Credits Saved</th>
                     <th className="py-4 px-6">Expires At</th>
                     <th className="py-4 px-6">Notes & Details</th>
                     <th className="py-4 px-6 text-right">Actions</th>
@@ -379,6 +381,9 @@ export default function LicensesPage() {
                       </td>
                       <td className="py-4 px-6 font-mono text-foreground font-medium">
                         {lic.activation_count} <span className="text-muted-foreground">/ {lic.max_devices}</span>
+                      </td>
+                      <td className="py-4 px-6 font-mono text-emerald-500 font-bold">
+                        {lic.credits_saved !== undefined && lic.credits_saved !== null ? lic.credits_saved.toLocaleString() : '0'}
                       </td>
                       <td className="py-4 px-6 text-muted-foreground font-mono text-xs">
                         {lic.expires_at ? new Date(lic.expires_at).toLocaleDateString() : 'Never'}
@@ -438,66 +443,77 @@ export default function LicensesPage() {
         {/* Modal: Create/Edit License Form Overlays */}
         {createModalOpen && (
           <div className="fixed inset-0 bg-background/80 backdrop-filter backdrop-blur-sm flex items-center justify-center p-4 z-50 overflow-y-auto">
-            <div className="w-full max-w-md bg-card border border-border shadow-2xl rounded-[1.5rem] p-6 my-8 max-h-[85vh] overflow-y-auto custom-scrollbar animate-slide-in">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="font-bold text-foreground font-mono text-lg">Issue New License</h3>
+            <div className="w-full max-w-4xl bg-card border border-border shadow-2xl rounded-[1.5rem] p-8 my-8 max-h-[90vh] overflow-y-auto custom-scrollbar animate-slide-in">
+              <div className="flex items-center justify-between mb-8">
+                <div>
+                  <h3 className="font-bold text-foreground font-mono text-2xl">Issue New License</h3>
+                  <p className="text-muted-foreground font-mono text-sm mt-1">Generate a new license key and assign it to a customer.</p>
+                </div>
                 <button onClick={() => setCreateModalOpen(false)} className="text-muted-foreground hover:text-foreground transition-colors p-2 rounded-lg hover:bg-secondary">
-                  <X className="w-4 h-4" />
+                  <X className="w-5 h-5" />
                 </button>
               </div>
-              <form onSubmit={handleCreate} className="space-y-5 text-sm font-mono">
-                <div className="space-y-4">
-                  <div>
-                    <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Customer Name</label>
-                    <input type="text" value={customerName} onChange={(e) => setCustomerName(e.target.value)} placeholder="John Doe" className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-muted-foreground/50" />
-                  </div>
-                  <div>
-                    <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Email / Phone Number (Identity)</label>
-                    <input type="text" value={customerEmail} onChange={(e) => setCustomerEmail(e.target.value)} placeholder="john@example.com or +1234567890" className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-muted-foreground/50" />
-                  </div>
-                  <div className="grid grid-cols-2 gap-4">
+              <form onSubmit={handleCreate} className="text-sm font-mono">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {/* Left Column: Customer & Plan */}
+                  <div className="space-y-5">
                     <div>
-                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Plan Name</label>
-                      <input type="text" value={planName} onChange={(e) => setPlanName(e.target.value)} required className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Customer Name</label>
+                      <input type="text" value={customerName} onChange={(e) => setCustomerName(e.target.value)} placeholder="John Doe" className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-muted-foreground/50" />
                     </div>
                     <div>
-                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Max Devices</label>
-                      <input type="number" value={maxDevices} onChange={(e) => setMaxDevices(parseInt(e.target.value))} required min={1} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Email / Phone Number (Identity)</label>
+                      <input type="text" value={customerEmail} onChange={(e) => setCustomerEmail(e.target.value)} placeholder="john@example.com or +1234567890" className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-muted-foreground/50" />
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Plan Name</label>
+                        <input type="text" value={planName} onChange={(e) => setPlanName(e.target.value)} required className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                      </div>
+                      <div>
+                        <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Max Devices</label>
+                        <input type="number" value={maxDevices} onChange={(e) => setMaxDevices(parseInt(e.target.value))} required min={1} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Internal Admin Notes</label>
+                      <textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={4} placeholder="Private notes..." className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all resize-none" />
                     </div>
                   </div>
                   
-                  <div className="border-t border-border/50 pt-4 mt-2">
-                    <label className="block text-[11px] font-bold text-muted-foreground mb-2.5 uppercase tracking-wider">License Duration</label>
-                    <div className="grid grid-cols-4 gap-2 mb-4">
-                      <button type="button" onClick={() => { setActivePreset('1d'); handleCustomDaysChange('1'); }} className={`py-2 rounded-xl text-xs font-mono font-bold transition-all border ${activePreset === '1d' ? 'bg-accent text-accent-foreground border-accent shadow-lg' : 'bg-secondary border-border hover:border-accent/50 text-foreground'}`}>1 Day</button>
-                      <button type="button" onClick={() => { setActivePreset('7d'); handleCustomDaysChange('7'); }} className={`py-2 rounded-xl text-xs font-mono font-bold transition-all border ${activePreset === '7d' ? 'bg-accent text-accent-foreground border-accent shadow-lg' : 'bg-secondary border-border hover:border-accent/50 text-foreground'}`}>7 Days</button>
-                      <button type="button" onClick={() => { setActivePreset('1m'); handleCustomDaysChange('30'); }} className={`py-2 rounded-xl text-xs font-mono font-bold transition-all border ${activePreset === '1m' ? 'bg-accent text-accent-foreground border-accent shadow-lg' : 'bg-secondary border-border hover:border-accent/50 text-foreground'}`}>1 Month</button>
-                      <button type="button" onClick={() => { setActivePreset('custom'); setCustomDays(''); setCustomMinutes(''); setExpiresAt(''); }} className={`py-2 rounded-xl text-xs font-mono font-bold transition-all border ${activePreset === 'custom' ? 'bg-accent text-accent-foreground border-accent shadow-lg' : 'bg-secondary border-border hover:border-accent/50 text-foreground'}`}>Custom</button>
-                    </div>
-
-                    {activePreset === 'custom' && (
-                      <div className="grid grid-cols-2 gap-4 animate-in fade-in slide-in-from-top-2 duration-300">
-                        <div>
-                          <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Custom Days</label>
-                          <input type="number" value={customDays} onChange={(e) => handleCustomDaysChange(e.target.value)} placeholder="E.g. 14" min={1} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
-                        </div>
-                        <div>
-                          <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Custom Mins</label>
-                          <input type="number" value={customMinutes} onChange={(e) => handleCustomMinutesChange(e.target.value)} placeholder="E.g. 120" min={1} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
-                        </div>
+                  {/* Right Column: Duration */}
+                  <div className="space-y-5 bg-secondary/20 p-6 rounded-2xl border border-border/50">
+                    <div>
+                      <label className="block text-[11px] font-bold text-muted-foreground mb-3 uppercase tracking-wider">License Duration</label>
+                      <div className="grid grid-cols-2 gap-3 mb-6">
+                        <button type="button" onClick={() => { setActivePreset('1d'); handleCustomDaysChange('1'); }} className={`py-3 rounded-xl text-xs font-mono font-bold transition-all border ${activePreset === '1d' ? 'bg-accent text-accent-foreground border-accent shadow-lg shadow-accent/20' : 'bg-secondary border-border hover:border-accent/50 text-foreground'}`}>1 Day</button>
+                        <button type="button" onClick={() => { setActivePreset('7d'); handleCustomDaysChange('7'); }} className={`py-3 rounded-xl text-xs font-mono font-bold transition-all border ${activePreset === '7d' ? 'bg-accent text-accent-foreground border-accent shadow-lg shadow-accent/20' : 'bg-secondary border-border hover:border-accent/50 text-foreground'}`}>7 Days</button>
+                        <button type="button" onClick={() => { setActivePreset('1m'); handleCustomDaysChange('30'); }} className={`py-3 rounded-xl text-xs font-mono font-bold transition-all border ${activePreset === '1m' ? 'bg-accent text-accent-foreground border-accent shadow-lg shadow-accent/20' : 'bg-secondary border-border hover:border-accent/50 text-foreground'}`}>1 Month</button>
+                        <button type="button" onClick={() => { setActivePreset('custom'); setCustomDays(''); setCustomMinutes(''); setExpiresAt(''); }} className={`py-3 rounded-xl text-xs font-mono font-bold transition-all border ${activePreset === 'custom' ? 'bg-accent text-accent-foreground border-accent shadow-lg shadow-accent/20' : 'bg-secondary border-border hover:border-accent/50 text-foreground'}`}>Custom</button>
                       </div>
-                    )}
-                  </div>
 
-                  <div className="border-t border-border/50 pt-4 mt-2">
-                    <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Internal Admin Notes</label>
-                    <textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={3} placeholder="Private notes..." className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all resize-none" />
+                      {activePreset === 'custom' && (
+                        <div className="grid grid-cols-2 gap-4 animate-in fade-in slide-in-from-top-2 duration-300">
+                          <div>
+                            <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Custom Days</label>
+                            <input type="number" value={customDays} onChange={(e) => handleCustomDaysChange(e.target.value)} placeholder="E.g. 14" min={1} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                          </div>
+                          <div>
+                            <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Custom Mins</label>
+                            <input type="number" value={customMinutes} onChange={(e) => handleCustomMinutesChange(e.target.value)} placeholder="E.g. 120" min={1} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
 
-                <button type="submit" className="w-full mt-6 py-3.5 bg-accent hover:bg-accent/90 text-accent-foreground font-bold font-mono rounded-xl transition-all shadow-lg hover:-translate-y-0.5">
-                  Generate License Key
-                </button>
+                <div className="mt-8 flex justify-end">
+                  <button type="button" onClick={() => setCreateModalOpen(false)} className="px-6 py-3.5 mr-3 text-muted-foreground hover:text-foreground font-bold font-mono transition-colors">Cancel</button>
+                  <button type="submit" className="px-8 py-3.5 bg-accent hover:bg-accent/90 text-accent-foreground font-bold font-mono rounded-xl transition-all shadow-lg hover:-translate-y-0.5">
+                    Generate License Key
+                  </button>
+                </div>
               </form>
             </div>
           </div>
@@ -506,82 +522,91 @@ export default function LicensesPage() {
         {/* Modal: Edit License (Similar to Create) */}
         {editModalOpen && (
           <div className="fixed inset-0 bg-background/80 backdrop-filter backdrop-blur-sm flex items-center justify-center p-4 z-50 overflow-y-auto">
-            <div className="w-full max-w-md bg-card border border-border shadow-2xl rounded-[1.5rem] p-6 my-8 max-h-[85vh] overflow-y-auto custom-scrollbar animate-slide-in">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="font-bold text-foreground font-mono text-lg">Edit License</h3>
+            <div className="w-full max-w-4xl bg-card border border-border shadow-2xl rounded-[1.5rem] p-8 my-8 max-h-[90vh] overflow-y-auto custom-scrollbar animate-slide-in">
+              <div className="flex items-center justify-between mb-8">
+                <div>
+                  <h3 className="font-bold text-foreground font-mono text-2xl">Edit License</h3>
+                  <p className="text-muted-foreground font-mono text-sm mt-1">Modify existing license parameters.</p>
+                </div>
                 <button onClick={() => setEditModalOpen(false)} className="text-muted-foreground hover:text-foreground transition-colors p-2 rounded-lg hover:bg-secondary">
-                  <X className="w-4 h-4" />
+                  <X className="w-5 h-5" />
                 </button>
               </div>
-              <form onSubmit={handleEdit} className="space-y-5 text-sm font-mono">
-                <div className="space-y-4">
-                  {/* Shared fields with Create Modal (styled identically) */}
-                  <div>
-                    <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Customer Name</label>
-                    <input type="text" value={customerName} onChange={(e) => setCustomerName(e.target.value)} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent transition-all" />
-                  </div>
-                  <div>
-                    <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Email / Phone Number (Identity)</label>
-                    <input type="text" value={customerEmail} onChange={(e) => setCustomerEmail(e.target.value)} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent transition-all" />
-                  </div>
-                  
-                  <div className="grid grid-cols-2 gap-4 border-t border-border/50 pt-4 mt-2">
+              <form onSubmit={handleEdit} className="text-sm font-mono">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {/* Left Column: Customer & Plan */}
+                  <div className="space-y-5">
                     <div>
-                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Plan Name</label>
-                      <input type="text" value={planName} onChange={(e) => setPlanName(e.target.value)} required className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent transition-all" />
+                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Customer Name</label>
+                      <input type="text" value={customerName} onChange={(e) => setCustomerName(e.target.value)} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent transition-all" />
                     </div>
                     <div>
-                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Status</label>
-                      <select value={status} onChange={(e) => setStatus(e.target.value)} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent transition-all">
-                        <option value="active">Active</option>
-                        <option value="suspended">Suspended</option>
-                        <option value="revoked">Revoked</option>
-                        <option value="expired">Expired</option>
-                      </select>
+                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Email / Phone Number (Identity)</label>
+                      <input type="text" value={customerEmail} onChange={(e) => setCustomerEmail(e.target.value)} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent transition-all" />
                     </div>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Max Devices</label>
-                      <input type="number" value={maxDevices} onChange={(e) => setMaxDevices(parseInt(e.target.value))} required min={1} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent transition-all" />
-                    </div>
-                  </div>
-
-                  <div className="border-t border-border/50 pt-4 mt-2">
-                    <label className="block text-[11px] font-bold text-muted-foreground mb-2.5 uppercase tracking-wider">Add Duration</label>
-                    <div className="grid grid-cols-4 gap-2 mb-4">
-                      <button type="button" onClick={() => { setActivePreset('1d'); handleCustomDaysChange('1'); }} className={`py-2 rounded-xl text-xs font-mono font-bold transition-all border ${activePreset === '1d' ? 'bg-accent text-accent-foreground border-accent shadow-lg' : 'bg-secondary border-border hover:border-accent/50 text-foreground'}`}>+ 1 Day</button>
-                      <button type="button" onClick={() => { setActivePreset('7d'); handleCustomDaysChange('7'); }} className={`py-2 rounded-xl text-xs font-mono font-bold transition-all border ${activePreset === '7d' ? 'bg-accent text-accent-foreground border-accent shadow-lg' : 'bg-secondary border-border hover:border-accent/50 text-foreground'}`}>+ 7 Days</button>
-                      <button type="button" onClick={() => { setActivePreset('1m'); handleCustomDaysChange('30'); }} className={`py-2 rounded-xl text-xs font-mono font-bold transition-all border ${activePreset === '1m' ? 'bg-accent text-accent-foreground border-accent shadow-lg' : 'bg-secondary border-border hover:border-accent/50 text-foreground'}`}>+ 1 Month</button>
-                      <button type="button" onClick={() => { setActivePreset('custom'); setCustomDays(''); setCustomMinutes(''); setExpiresAt(''); }} className={`py-2 rounded-xl text-xs font-mono font-bold transition-all border ${activePreset === 'custom' ? 'bg-accent text-accent-foreground border-accent shadow-lg' : 'bg-secondary border-border hover:border-accent/50 text-foreground'}`}>Custom</button>
-                    </div>
-
-                    {activePreset === 'custom' && (
-                      <div className="grid grid-cols-2 gap-4 animate-in fade-in slide-in-from-top-2 duration-300">
-                        <div>
-                          <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Add Custom Days</label>
-                          <input type="number" value={customDays} onChange={(e) => handleCustomDaysChange(e.target.value)} placeholder="E.g. 14" min={1} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
-                        </div>
-                        <div>
-                          <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Add Custom Mins</label>
-                          <input type="number" value={customMinutes} onChange={(e) => handleCustomMinutesChange(e.target.value)} placeholder="E.g. 120" min={1} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
-                        </div>
+                    
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Plan Name</label>
+                        <input type="text" value={planName} onChange={(e) => setPlanName(e.target.value)} required className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent transition-all" />
                       </div>
-                    )}
-                  </div>
+                      <div>
+                        <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Status</label>
+                        <select value={status} onChange={(e) => setStatus(e.target.value)} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent transition-all">
+                          <option value="active">Active</option>
+                          <option value="suspended">Suspended</option>
+                          <option value="revoked">Revoked</option>
+                          <option value="expired">Expired</option>
+                        </select>
+                      </div>
+                    </div>
 
-                  <div className="border-t border-border/50 pt-4 mt-2 space-y-4">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Max Devices</label>
+                        <input type="number" value={maxDevices} onChange={(e) => setMaxDevices(parseInt(e.target.value))} required min={1} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent transition-all" />
+                      </div>
+                    </div>
+                    
                     <div>
                       <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Internal Admin Notes</label>
                       <textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={3} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent transition-all resize-none" />
                     </div>
                   </div>
+
+                  {/* Right Column: Duration Additions */}
+                  <div className="space-y-5 bg-secondary/20 p-6 rounded-2xl border border-border/50">
+                    <div>
+                      <label className="block text-[11px] font-bold text-muted-foreground mb-3 uppercase tracking-wider">Add Duration</label>
+                      <div className="grid grid-cols-2 gap-3 mb-6">
+                        <button type="button" onClick={() => { setActivePreset('1d'); handleCustomDaysChange('1'); }} className={`py-3 rounded-xl text-xs font-mono font-bold transition-all border ${activePreset === '1d' ? 'bg-accent text-accent-foreground border-accent shadow-lg shadow-accent/20' : 'bg-secondary border-border hover:border-accent/50 text-foreground'}`}>+ 1 Day</button>
+                        <button type="button" onClick={() => { setActivePreset('7d'); handleCustomDaysChange('7'); }} className={`py-3 rounded-xl text-xs font-mono font-bold transition-all border ${activePreset === '7d' ? 'bg-accent text-accent-foreground border-accent shadow-lg shadow-accent/20' : 'bg-secondary border-border hover:border-accent/50 text-foreground'}`}>+ 7 Days</button>
+                        <button type="button" onClick={() => { setActivePreset('1m'); handleCustomDaysChange('30'); }} className={`py-3 rounded-xl text-xs font-mono font-bold transition-all border ${activePreset === '1m' ? 'bg-accent text-accent-foreground border-accent shadow-lg shadow-accent/20' : 'bg-secondary border-border hover:border-accent/50 text-foreground'}`}>+ 1 Month</button>
+                        <button type="button" onClick={() => { setActivePreset('custom'); setCustomDays(''); setCustomMinutes(''); setExpiresAt(''); }} className={`py-3 rounded-xl text-xs font-mono font-bold transition-all border ${activePreset === 'custom' ? 'bg-accent text-accent-foreground border-accent shadow-lg shadow-accent/20' : 'bg-secondary border-border hover:border-accent/50 text-foreground'}`}>Custom</button>
+                      </div>
+
+                      {activePreset === 'custom' && (
+                        <div className="grid grid-cols-2 gap-4 animate-in fade-in slide-in-from-top-2 duration-300">
+                          <div>
+                            <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Add Custom Days</label>
+                            <input type="number" value={customDays} onChange={(e) => handleCustomDaysChange(e.target.value)} placeholder="E.g. 14" min={1} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                          </div>
+                          <div>
+                            <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Add Custom Mins</label>
+                            <input type="number" value={customMinutes} onChange={(e) => handleCustomMinutesChange(e.target.value)} placeholder="E.g. 120" min={1} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
 
-                <button type="submit" className="w-full mt-6 py-3.5 bg-accent hover:bg-accent/90 text-accent-foreground font-bold font-mono rounded-xl transition-all shadow-lg hover:-translate-y-0.5">
-                  Save Changes
-                </button>
+                <div className="mt-8 flex justify-end">
+                  <button type="button" onClick={() => setEditModalOpen(false)} className="px-6 py-3.5 mr-3 text-muted-foreground hover:text-foreground font-bold font-mono transition-colors">Cancel</button>
+                  <button type="submit" className="px-8 py-3.5 bg-accent hover:bg-accent/90 text-accent-foreground font-bold font-mono rounded-xl transition-all shadow-lg hover:-translate-y-0.5">
+                    Save Changes
+                  </button>
+                </div>
               </form>
             </div>
           </div>

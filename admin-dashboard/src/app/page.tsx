@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { 
@@ -18,80 +19,69 @@ import {
 } from "lucide-react"
 
 export default function DashboardPage() {
-  // Mock data - replace with real API calls
+  const [statsData, setStatsData] = useState<any>(null);
+  const [recentEvents, setRecentEvents] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const token = localStorage.getItem('admin_token');
+        const res = await fetch('/api/admin/stats', {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        const data = await res.json();
+        if (data.success) {
+          setStatsData(data.stats);
+          setRecentEvents(data.recentEvents);
+        }
+      } catch (err) {
+        console.error("Failed to fetch stats", err);
+      }
+    };
+    fetchStats();
+  }, []);
+
   const stats = [
     {
       title: "Total Licenses",
-      value: "1,234",
-      change: "+12.5%",
+      value: statsData?.total || "0",
+      change: "",
       trend: "up",
       icon: Key,
     },
     {
       title: "Active Devices",
-      value: "856",
-      change: "+8.2%",
+      value: statsData?.devices || "0",
+      change: "",
       trend: "up",
       icon: Smartphone,
     },
     {
-      title: "Monthly Revenue",
-      value: "$24,531",
-      change: "+23.1%",
+      title: "Total Credits Saved",
+      value: statsData?.credits_saved ? statsData.credits_saved.toLocaleString() : "0",
+      change: "",
       trend: "up",
-      icon: DollarSign,
+      icon: Zap,
     },
     {
-      title: "Active Users",
-      value: "2,845",
-      change: "+5.3%",
+      title: "Active Licenses",
+      value: statsData?.active || "0",
+      change: "",
       trend: "up",
-      icon: Users,
+      icon: CheckCircle,
     },
   ]
 
-  const recentActivity = [
-    {
-      id: 1,
-      type: "activation",
-      message: "New license activated",
-      license: "PK-2024-XXXX",
-      time: "2 minutes ago",
-      icon: CheckCircle,
-      color: "text-emerald-500",
-      bg: "bg-emerald-500/10"
-    },
-    {
-      id: 2,
-      type: "warning",
-      message: "Suspicious device detected",
-      license: "PK-2024-YYYY",
-      time: "15 minutes ago",
-      icon: AlertCircle,
-      color: "text-amber-500",
-      bg: "bg-amber-500/10"
-    },
-    {
-      id: 3,
-      type: "device",
-      message: "New device registered",
-      license: "PK-2024-ZZZZ",
-      time: "1 hour ago",
-      icon: Smartphone,
-      color: "text-blue-500",
-      bg: "bg-blue-500/10"
-    },
-    {
-      id: 4,
-      type: "expiry",
-      message: "License expiring soon",
-      license: "PK-2024-AAAA",
-      time: "2 hours ago",
-      icon: Clock,
-      color: "text-accent",
-      bg: "bg-accent/10"
-    },
-  ]
+  const recentActivity = recentEvents.map((event: any) => ({
+    id: event.id,
+    type: "activation",
+    message: `License created for ${event.customer_name || event.plan_name}`,
+    license: event.id.slice(0, 8) + "...",
+    time: new Date(event.created_at).toLocaleDateString(),
+    icon: event.status === 'active' ? CheckCircle : AlertCircle,
+    color: event.status === 'active' ? "text-emerald-500" : "text-amber-500",
+    bg: event.status === 'active' ? "bg-emerald-500/10" : "bg-amber-500/10"
+  }))
 
   return (
     <div className="space-y-6 animate-fade-in max-w-7xl mx-auto pb-12">
@@ -129,11 +119,13 @@ export default function DashboardPage() {
               </CardHeader>
               <CardContent>
                 <div className="text-3xl font-bold font-mono text-foreground mb-1">{stat.value}</div>
-                <div className="flex items-center gap-1 text-xs font-mono">
-                  <TrendingUp className="h-3 w-3 text-emerald-500" />
-                  <span className="text-emerald-500 font-semibold">{stat.change}</span>
-                  <span className="text-muted-foreground">vs last month</span>
-                </div>
+                {stat.change && (
+                  <div className="flex items-center gap-1 text-xs font-mono">
+                    <TrendingUp className="h-3 w-3 text-emerald-500" />
+                    <span className="text-emerald-500 font-semibold">{stat.change}</span>
+                    <span className="text-muted-foreground">vs last month</span>
+                  </div>
+                )}
               </CardContent>
             </Card>
           )
@@ -189,7 +181,9 @@ export default function DashboardPage() {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {recentActivity.map((activity) => {
+              {recentActivity.length === 0 ? (
+                <div className="text-sm font-mono text-muted-foreground py-8 text-center">No recent activity found.</div>
+              ) : recentActivity.map((activity) => {
                 const Icon = activity.icon
                 return (
                   <div

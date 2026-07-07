@@ -73,8 +73,10 @@ export default function DevicesPage() {
     return Monitor
   }
 
-  const getStatusDetails = (lastSeen: string) => {
+  const getStatusDetails = (lastSeen: string | undefined | null) => {
+    if (!lastSeen) return { color: "destructive", label: "Offline", bg: "bg-destructive/10", text: "text-destructive", border: "border-destructive/20" }
     const hoursSince = (Date.now() - new Date(lastSeen).getTime()) / (1000 * 60 * 60)
+    if (isNaN(hoursSince)) return { color: "destructive", label: "Offline", bg: "bg-destructive/10", text: "text-destructive", border: "border-destructive/20" }
     if (hoursSince < 1) return { color: "emerald", label: "Active Now", bg: "bg-emerald-500/10", text: "text-emerald-500", border: "border-emerald-500/20" }
     if (hoursSince < 24) return { color: "blue", label: "Active Today", bg: "bg-blue-500/10", text: "text-blue-500", border: "border-blue-500/20" }
     if (hoursSince < 168) return { color: "amber", label: "Inactive", bg: "bg-amber-500/10", text: "text-amber-500", border: "border-amber-500/20" }
@@ -236,12 +238,12 @@ export default function DevicesPage() {
                           <span>Last Sync</span>
                         </div>
                         <span className={cn("font-bold", status.text)}>
-                          {formatDate(device.last_seen)}
+                          {device.last_seen ? formatDate(device.last_seen) : "Unknown"}
                         </span>
                       </div>
                       <div className="flex items-center justify-between text-xs font-mono">
                         <span className="text-muted-foreground">First Seen</span>
-                        <span className="text-foreground/70">{formatDate(device.first_seen)}</span>
+                        <span className="text-foreground/70">{device.first_seen ? formatDate(device.first_seen) : "Unknown"}</span>
                       </div>
                     </div>
 

@@ -39,8 +39,8 @@ export async function GET(request: Request) {
         const hashedQuery = sha256(query.trim());
         dbQuery = dbQuery.eq('license_key_hash', hashedQuery);
       } else {
-        // Search in plan_name, plan, notes, customer_name, or customer_email
-        dbQuery = dbQuery.or(`plan_name.ilike.%${query}%,plan.ilike.%${query}%,notes.ilike.%${query}%,customer_name.ilike.%${query}%,customer_email.ilike.%${query}%`);
+        // Search in plan_name, notes, customer_name, or customer_email
+        dbQuery = dbQuery.or(`plan_name.ilike.%${query}%,notes.ilike.%${query}%,customer_name.ilike.%${query}%,customer_email.ilike.%${query}%`);
       }
     }
 

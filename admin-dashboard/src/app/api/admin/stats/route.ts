@@ -25,6 +25,7 @@ export async function GET(request: Request) {
       { count: revokedLicenses },
       { count: expiredLicenses },
       { count: deviceCount },
+      { data: creditsData },
     ] = await Promise.all([
       supabase.from('licenses').select('*', { count: 'exact', head: true }),
       supabase.from('licenses').select('*', { count: 'exact', head: true }).eq('status', 'active'),
@@ -32,12 +33,15 @@ export async function GET(request: Request) {
       supabase.from('licenses').select('*', { count: 'exact', head: true }).eq('status', 'revoked'),
       supabase.from('licenses').select('*', { count: 'exact', head: true }).eq('status', 'expired'),
       supabase.from('devices').select('*', { count: 'exact', head: true }),
+      supabase.from('licenses').select('credits_saved'),
     ]);
 
-    // Get recent security events
+    const totalCreditsSaved = creditsData?.reduce((acc, curr) => acc + (curr.credits_saved || 0), 0) || 0;
+
+    // Get recent activity (recent licenses created)
     const { data: recentEvents } = await supabase
-      .from('security_events')
-      .select('*, licenses(plan_name)')
+      .from('licenses')
+      .select('id, customer_name, plan_name, created_at, status')
       .order('created_at', { ascending: false })
       .limit(5);
 
@@ -50,6 +54,7 @@ export async function GET(request: Request) {
         revoked: revokedLicenses || 0,
         expired: expiredLicenses || 0,
         devices: deviceCount || 0,
+        credits_saved: totalCreditsSaved,
       },
       recentEvents: recentEvents || [],
     });
