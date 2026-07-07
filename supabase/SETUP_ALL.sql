@@ -136,9 +136,9 @@ CREATE POLICY service_role_license_sessions ON license_sessions FOR ALL TO servi
 -- =============================================================================
 -- SEED INITIAL ADMINISTRATOR ACCOUNT
 -- Credentials:
--- Email: admin@sambypassai.com
+-- Email: ottsathi@gmail.com
 -- Password: AdminPassword123 (Please change this as soon as you log in!)
 -- =============================================================================
 INSERT INTO admin_users (email, password_hash, role)
-VALUES ('admin@sambypassai.com', '$2a$10$tM.yF.7c6Jg3gA7EaM78E.P31v8t1yJp.8jJ1Jt2c3hB1d2e3f4g5', 'admin')
+VALUES ('ottsathi@gmail.com', '$2a$10$tM.yF.7c6Jg3gA7EaM78E.P31v8t1yJp.8jJ1Jt2c3hB1d2e3f4g5', 'admin')
 ON CONFLICT (email) DO NOTHING;

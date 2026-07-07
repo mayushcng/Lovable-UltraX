@@ -1,11 +1,11 @@
-# ByPass Ai - Handover & Setup Guide (v7.0)
+# Lovable UltraX - Handover & Setup Guide (v7.0)
 
-Welcome to the **ByPass Ai** package. This guide outlines what files are in this workspace, how to host and deploy the system, and includes a **Master AI Setup Prompt** that you can copy and paste into any AI coding assistant to automate the entire installation and deployment process.
+Welcome to the **Lovable UltraX** package. This guide outlines what files are in this workspace, how to host and deploy the system, and includes a **Master AI Setup Prompt** that you can copy and paste into any AI coding assistant to automate the entire installation and deployment process.
 
 ---
 
 ## 📦 What to Hand Over to the Buyer
-Zip the entire contents of this folder (`D:\Lovable\ByPass Ai Updated`), which contains:
+Zip the entire contents of this folder, which contains:
 1. **Chrome Extension**: The root files (`manifest.json`, `background.js`, `sidepanel.html`, `sidepanel.css`, `theme.css`, assets, security scripts, etc.).
 2. **`admin-dashboard/`**: The Next.js 14 web app for managing license keys, logs, and devices.
 3. **`vercel-api/`**: The Node.js serverless API designed for Vercel, handling license validation, check-ins, and database queries.
@@ -51,7 +51,7 @@ Zip the entire contents of this folder (`D:\Lovable\ByPass Ai Updated`), which c
 *Copy and paste the entire block below into your AI coding assistant (like Gemini, Claude, Cursor, etc.) along with your project repository link or code folder:*
 
 ```markdown
-You are an expert full-stack developer. I have purchased the source code for the "ByPass Ai" Chrome Extension and Licensing System.
+You are an expert full-stack developer. I have purchased the source code for the "Lovable UltraX" Chrome Extension and Licensing System.
 
 I want you to help me configure, host, and deploy the entire project step-by-step. I have uploaded the files to this folder/repository.
 

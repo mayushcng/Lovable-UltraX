@@ -63,7 +63,7 @@ function spTemplateMainUI(greeting, statusBadge) {
       '<div class="sp-trial-countdown" id="sp-countdown" style="display:none"></div>' +
     '</div>' +
     '<div id="sp-reseller-btn" style="display:none;margin-bottom:14px">' +
-      '<a href="' + ((typeof DISCORD_SUPPORT_URL !== "undefined" && DISCORD_SUPPORT_URL) || "https://discord.gg/9ZBezyTEu5") + '" target="_blank" rel="noopener noreferrer" class="pk-discord-cta">' +
+      '<a href="' + ((typeof DISCORD_SUPPORT_URL !== "undefined" && DISCORD_SUPPORT_URL) || "https://ottsathi.com/products/lovable-ultrax-extension-licence") + '" target="_blank" rel="noopener noreferrer" class="pk-discord-cta">' +
         '🔑 Request your key via Discord<span style="margin-left:auto;font-size:10px;opacity:0.6">→</span>' +
       '</a>' +
     '</div>' +

@@ -53,7 +53,7 @@ function logoutLicense() {
 async function verifySessionWithServer(token, deviceId) {
   if (!token) return { success: false, valid: false };
   try {
-    var apiUrl = "https://sambypassai.vercel.app/api/license/status?token=" + encodeURIComponent(token) + "&device_id=" + encodeURIComponent(deviceId);
+    var apiUrl = "https://lovable-ultra-x.vercel.app/api/license/status?token=" + encodeURIComponent(token) + "&device_id=" + encodeURIComponent(deviceId);
     var resp = await fetch(apiUrl, { method: "GET" });
     if (!resp.ok) return { success: false, valid: false };
     var data = await resp.json();
@@ -84,7 +84,7 @@ async function attemptAutoActivation(licenseKey, deviceId) {
   }
   try {
     var version = chrome.runtime.getManifest().version;
-    var resp = await fetch("https://sambypassai.vercel.app/api/license/activate", {
+    var resp = await fetch("https://lovable-ultra-x.vercel.app/api/license/activate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -500,7 +500,7 @@ function isAllowedProxyUrl(urlStr) {
       "lovable-powerkits-644-license-server.vercel.app",
       "lov.powerkits.net",
       "lovable.dev",
-      "sambypassai.vercel.app"
+      "lovable-ultra-x.vercel.app"
     ];
     for (var i = 0; i < allowedDomains.length; i++) {
       var d = allowedDomains[i];
@@ -577,7 +577,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
         var deviceId = msg.deviceId || "";
         var version = chrome.runtime.getManifest().version;
         
-        var resp = await fetch("https://sambypassai.vercel.app/api/license/activate", {
+        var resp = await fetch("https://lovable-ultra-x.vercel.app/api/license/activate", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

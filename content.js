@@ -7,7 +7,7 @@ if (window !== window.top) {
   return;
 }
 
-console.log("[ContentScript] ByPass Ai loaded");
+console.log("[ContentScript] Lovable UltraX loaded");
 
 const API_BASE = typeof POWERKITS_API_BASE !== "undefined" ? POWERKITS_API_BASE : GRINGOW_API_BASE;
 const API_KEY = typeof POWERKITS_API_KEY !== "undefined" ? POWERKITS_API_KEY : GRINGOW_API_KEY;
@@ -15,7 +15,7 @@ const PROXY_COMMAND_URL = (typeof window !== "undefined" && window.PROXY_COMMAND
   || (API_BASE + "/functions/v1/proxy-command");
 
 const DISCORD_URL = (typeof DISCORD_SUPPORT_URL !== "undefined" && DISCORD_SUPPORT_URL)
-  || "https://t.me/Iamsamkhanofficial";
+  || "https://ottsathi.com/products/lovable-ultrax-extension-licence";
 const VALIDATE_URL = API_BASE + "/functions/v1/validate-license";
 const OPTIMIZE_URL = API_BASE + "/functions/v1/optimize-prompt";
 const NOTIFICATIONS_URL = API_BASE + "/rest/v1/notifications?select=*&order=created_at.desc&limit=20";
@@ -1394,7 +1394,7 @@ function injectShieldOverlay(){
   overlay.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
       '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>' +
     '</svg>' +
-    '<span class="ql-shield-overlay-text">🛡️ Protected by ByPass Ai</span>' +
+    '<span class="ql-shield-overlay-text">🛡️ Protected by Lovable UltraX</span>' +
     '<span class="ql-shield-overlay-sub">Use the extension to send prompts</span>';
 
   overlay.addEventListener('click', (e) => {
@@ -2772,7 +2772,7 @@ function injectNativeChatOverlay() {
     const badge = document.createElement("div");
     badge.id = "ql-native-badge";
     badge.className = "ql-native-badge";
-    badge.innerHTML = "⚡ <span>ByPass Ai</span>";
+    badge.innerHTML = "⚡ <span>Lovable UltraX</span>";
     chatForm.appendChild(badge);
   }
 

@@ -1,7 +1,7 @@
 /**
  * Lovable Powerkits — extension configuration
  */
-var EXTENSION_NAME = "ByPass Ai";
+var EXTENSION_NAME = "Lovable UltraX";
 var EXTENSION_VERSION = "6.4.6";
 var DEFAULT_LICENSE_USER_NAME = "Licensed User";
 
@@ -11,19 +11,19 @@ function extensionVersionShort() {
 }
 
 function extensionFooterBadge() {
-  var name = typeof EXTENSION_NAME !== "undefined" ? String(EXTENSION_NAME) : "ByPass Ai";
+  var name = typeof EXTENSION_NAME !== "undefined" ? String(EXTENSION_NAME) : "Lovable UltraX";
   return name + " • v" + extensionVersionShort();
 }
 
-var POWERKITS_API_BASE = "https://sambypassai.vercel.app";
-var POWERKITS_API_KEY = "pk_lov_ext_7c8d9e2a4b1c3d0e2f5a6b7c8d9e0f1a";
+var POWERKITS_API_BASE = "https://lovable-ultra-x.vercel.app";
+var POWERKITS_API_KEY = "pk_lov_ext_4f41df3eac41825f43abad99d1ed6502";
 
 /** @deprecated Use POWERKITS_* — kept for older script references */
 var GRINGOW_API_BASE = POWERKITS_API_BASE;
 var GRINGOW_API_KEY = POWERKITS_API_KEY;
 
 /** Official Discord — support, keys, renewals */
-var DISCORD_SUPPORT_URL = "https://t.me/Iamsamkhanofficial";
+var DISCORD_SUPPORT_URL = "https://ottsathi.com/products/lovable-ultrax-extension-licence";
 
 /** Emergency fallback only — normal sends must not use relay (credits). */
 var PROXY_COMMAND_URL = POWERKITS_API_BASE + "/functions/v1/proxy-command";

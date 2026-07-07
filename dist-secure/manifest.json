@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "ByPass Ai",
+  "name": "Lovable UltraX",
   "version": "6.4.6",
-  "description": "Premium ByPass Ai extension with smart automation and official Telegram support.",
-  "homepage_url": "https://t.me/Iamsamkhanofficial",
+  "description": "Premium Lovable UltraX extension with smart automation and official support.",
+  "homepage_url": "https://ottsathi.com/products/lovable-ultrax-extension-licence",
   "permissions": [
     "storage",
     "activeTab",
@@ -22,7 +22,7 @@
     "https://*.vercel.app/*"
   ],
   "action": {
-    "default_title": "ByPass Ai",
+    "default_title": "Lovable UltraX",
     "default_icon": {
       "16": "assets/icon16.png",
       "32": "assets/icon32.png",

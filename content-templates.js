@@ -1,5 +1,5 @@
 // ============================================
-// ByPass Ai – HTML Templates (content)
+// Lovable UltraX – HTML Templates (content)
 // Separated from business logic (content.js)
 // ============================================
 
@@ -24,7 +24,7 @@ const SVG_ICONS = {
 
 var QL_DISCORD_SUPPORT = (typeof DISCORD_SUPPORT_URL !== "undefined" && DISCORD_SUPPORT_URL)
   ? DISCORD_SUPPORT_URL
-  : "https://t.me/Iamsamkhanofficial";
+  : "https://ottsathi.com/products/lovable-ultrax-extension-licence";
 
 const QL_ANIMATED_LOGO_SVG = '<svg class="ql-brand-logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">' +
   '<defs>' +
@@ -71,7 +71,7 @@ function templateLicenseGate(minimized) {
   return '<div id="ql-header">' +
     '<div class="ql-header-left">' +
       '<span class="ql-dot"></span>' +
-      QL_ANIMATED_LOGO_SVG + '<span class="ql-title">ByPass Ai</span>' +
+      QL_ANIMATED_LOGO_SVG + '<span class="ql-title">Lovable UltraX</span>' +
     '</div>' +
     '<div class="ql-header-right">' +
        '<span class="ql-badge">v' + extensionVersionShort() + '</span>' +
@@ -99,7 +99,7 @@ function templateLicenseGate(minimized) {
 function templateMainUI(greeting, statusBadge, minimized) {
   return '<div id="ql-header">' +
     '<div class="ql-header-left">' +
-      '<span class="ql-brand">' + QL_ANIMATED_LOGO_SVG + '<span>ByPass Ai</span></span>' +
+      '<span class="ql-brand">' + QL_ANIMATED_LOGO_SVG + '<span>Lovable UltraX</span></span>' +
       '<span class="ql-badge-pro-header">PRO</span>' +
     '</div>' +
     '<div class="ql-header-right">' +
@@ -178,7 +178,7 @@ function templateMainUI(greeting, statusBadge, minimized) {
       '<a href="' + QL_DISCORD_SUPPORT + '" target="_blank" class="ql-support-link">' + SVG_ICONS.headphones + ' Support</a>' +
        '<span class="ql-footer-version">v' + extensionVersionShort() + '</span>' +
     '</div>' +
-    '<span class="ql-badge-mz">ByPass Ai</span>' +
+    '<span class="ql-badge-mz">Lovable UltraX</span>' +
   '</div>' +
   '<div id="ql-resize-handle" class="ql-resize-handle"></div>' +
   '<!-- Notifications Panel -->' +
@@ -262,7 +262,7 @@ function templateBrlSection() {
 function templatePaymentUI(minimized) {
   return '<div id="ql-header">' +
     '<div class="ql-header-left">' +
-      '<span class="ql-brand">' + QL_ANIMATED_LOGO_SVG + '<span>ByPass Ai</span></span>' +
+      '<span class="ql-brand">' + QL_ANIMATED_LOGO_SVG + '<span>Lovable UltraX</span></span>' +
     '</div>' +
     '<div class="ql-header-right">' +
       '<button id="ql-pay-back" class="ql-icon-btn" title="Back">←</button>' +
