@@ -43,50 +43,23 @@ export default function DevicesPage() {
   // Mock data - replace with real API calls
   useEffect(() => {
     const fetchDevices = async () => {
-      setTimeout(() => {
-        setDevices([
-          {
-            id: "dev_1234567890",
-            license_id: "lic_abc123",
-            device_hash: "hash_device_001",
-            browser_fingerprint: { browser: "Chrome", os: "Windows" },
-            ip_address: "192.168.1.100",
-            country: "United States",
-            first_seen: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(),
-            last_seen: new Date().toISOString(),
-            status: "active",
-            license_key: "PK-2024-XXXX",
-            plan_name: "Pro"
-          },
-          {
-            id: "dev_0987654321",
-            license_id: "lic_xyz789",
-            device_hash: "hash_device_002",
-            browser_fingerprint: { browser: "Chrome", os: "MacOS" },
-            ip_address: "10.0.0.50",
-            country: "Canada",
-            first_seen: new Date(Date.now() - 15 * 24 * 60 * 60 * 1000).toISOString(),
-            last_seen: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
-            status: "active",
-            license_key: "PK-2024-YYYY",
-            plan_name: "Enterprise"
-          },
-          {
-            id: "dev_5555555555",
-            license_id: "lic_def456",
-            device_hash: "hash_device_003",
-            browser_fingerprint: { browser: "Chrome", os: "Linux" },
-            ip_address: "172.16.0.10",
-            country: "United Kingdom",
-            first_seen: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString(),
-            last_seen: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(),
-            status: "inactive",
-            license_key: "PK-2024-ZZZZ",
-            plan_name: "Basic"
-          },
-        ])
-        setLoading(false)
-      }, 500)
+      try {
+        const token = localStorage.getItem('admin_token');
+        const res = await fetch(`/api/admin/devices?query=${encodeURIComponent(searchQuery)}&status=${encodeURIComponent(selectedStatus)}`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        const data = await res.json();
+        if (res.ok && data.success) {
+          setDevices(data.devices || []);
+        } else {
+          setDevices([]);
+        }
+      } catch (err) {
+        console.error("Failed to fetch devices:", err);
+        setDevices([]);
+      } finally {
+        setLoading(false);
+      }
     }
 
     fetchDevices()

@@ -22,14 +22,13 @@ export function Header() {
         </div>
       </div>
 
-      {/* Actions */}
       <div className="flex items-center gap-2">
         <Button 
           variant="ghost" 
           size="icon"
           className="relative"
         >
-          <Bell className="h-5 w-5" />
+          <Bell className="h-5 w-5 text-muted-foreground" />
           <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-red-500 animate-pulse" />
         </Button>
         
@@ -38,13 +37,7 @@ export function Header() {
           size="icon"
           onClick={() => setDarkMode(!darkMode)}
         >
-          {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-        </Button>
-
-        <div className="ml-2 h-8 w-px bg-white/10" />
-
-        <Button variant="premium" size="sm">
-          Upgrade Plan
+          {darkMode ? <Sun className="h-5 w-5 text-muted-foreground" /> : <Moon className="h-5 w-5 text-muted-foreground" />}
         </Button>
       </div>
     </header>

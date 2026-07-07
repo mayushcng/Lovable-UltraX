@@ -88,9 +88,6 @@ export async function POST(request: Request) {
       notes: finalNotes,
       status: 'active',
       active: true,
-      admin_message: admin_message || '',
-      support_url: support_url || '',
-      support_telegram: support_telegram || '',
     };
 
     if (customer_name) insertPayload.customer_name = customer_name;
@@ -102,19 +99,6 @@ export async function POST(request: Request) {
       .insert(insertPayload)
       .select('*')
       .single();
-
-    if (insertResult.error && /admin_message|support_url|support_telegram|updated_at/i.test(insertResult.error.message || '')) {
-      const fallbackPayload = { ...insertPayload };
-      delete fallbackPayload.admin_message;
-      delete fallbackPayload.support_url;
-      delete fallbackPayload.support_telegram;
-      delete fallbackPayload.updated_at;
-      insertResult = await supabase
-        .from('licenses')
-        .insert(fallbackPayload)
-        .select('*')
-        .single();
-    }
 
     if (insertResult.error) throw insertResult.error;
     const license = insertResult.data;
@@ -145,9 +129,6 @@ export async function PATCH(request: Request) {
     if (max_devices !== undefined) updates.max_devices = max_devices;
     if (expires_at !== undefined) updates.expires_at = expires_at || null;
     if (notes !== undefined) updates.notes = notes;
-    if (admin_message !== undefined) updates.admin_message = admin_message;
-    if (support_url !== undefined) updates.support_url = support_url;
-    if (support_telegram !== undefined) updates.support_telegram = support_telegram;
     
     if (status !== undefined) {
       updates.status = status;
@@ -164,20 +145,6 @@ export async function PATCH(request: Request) {
       .eq('id', id)
       .select('*')
       .single();
-
-    if (updateResult.error && /admin_message|support_url|support_telegram|updated_at/i.test(updateResult.error.message || '')) {
-      const fallbackUpdates = { ...updates };
-      delete fallbackUpdates.admin_message;
-      delete fallbackUpdates.support_url;
-      delete fallbackUpdates.support_telegram;
-      delete fallbackUpdates.updated_at;
-      updateResult = await supabase
-        .from('licenses')
-        .update(fallbackUpdates)
-        .eq('id', id)
-        .select('*')
-        .single();
-    }
 
     if (updateResult.error) throw updateResult.error;
     const license = updateResult.data;

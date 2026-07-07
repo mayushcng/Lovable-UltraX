@@ -41,6 +41,7 @@ export default function LicensesPage() {
   const [status, setStatus] = useState('active');
   const [customDays, setCustomDays] = useState('');
   const [customMinutes, setCustomMinutes] = useState('');
+  const [activePreset, setActivePreset] = useState('custom');
   const [generatedKey, setGeneratedKey] = useState('');
 
   const formatDatetimeLocal = (dateOrStr: Date | string | null) => {
@@ -55,9 +56,6 @@ export default function LicensesPage() {
     return `${yyyy}-${mm}-${dd}T${hh}:${min}`;
   };
   const [selectedLicense, setSelectedLicense] = useState<License | null>(null);
-  const [adminMessage, setAdminMessage] = useState('');
-  const [supportUrl, setSupportUrl] = useState('');
-  const [supportTelegram, setSupportTelegram] = useState('');
 
   const fetchLicenses = async () => {
     try {
@@ -110,9 +108,6 @@ export default function LicensesPage() {
           max_devices: maxDevices,
           expires_at: parsedExpiry,
           notes,
-          admin_message: adminMessage,
-          support_url: supportUrl,
-          support_telegram: supportTelegram,
         }),
       });
 
@@ -129,9 +124,6 @@ export default function LicensesPage() {
         setMaxDevices(1);
         setExpiresAt('');
         setNotes('');
-        setAdminMessage('');
-        setSupportUrl('');
-        setSupportTelegram('');
       } else {
         alert(data.error || 'Failed to create license key.');
       }
@@ -175,9 +167,6 @@ export default function LicensesPage() {
           expires_at: parsedExpiry,
           notes,
           status,
-          admin_message: adminMessage,
-          support_url: supportUrl,
-          support_telegram: supportTelegram,
         }),
       });
 
@@ -294,9 +283,6 @@ export default function LicensesPage() {
     setCustomDays('');
     setCustomMinutes('');
     setNotes('');
-    setAdminMessage('');
-    setSupportUrl('');
-    setSupportTelegram('');
     setCreateModalOpen(true);
   };
 
@@ -309,9 +295,6 @@ export default function LicensesPage() {
     setExpiresAt(license.expires_at ? formatDatetimeLocal(license.expires_at) : '');
     setNotes(license.notes);
     setStatus(license.status || 'active');
-    setAdminMessage(license.admin_message || '');
-    setSupportUrl(license.support_url || '');
-    setSupportTelegram(license.support_telegram || '');
     setCustomDays('');
     setCustomMinutes('');
     setEditModalOpen(true);
@@ -402,69 +385,46 @@ export default function LicensesPage() {
                       </td>
                       <td className="py-4 px-6 text-muted-foreground max-w-xs" title={lic.notes}>
                         <div className="truncate font-medium">{lic.notes || '—'}</div>
-                        {lic.admin_message && (
-                          <div className="text-[10px] font-mono text-amber-500 font-semibold mt-1 truncate bg-amber-500/10 px-1.5 py-0.5 rounded w-fit" title={lic.admin_message}>
-                            📢 {lic.admin_message}
-                          </div>
-                        )}
-                        {lic.support_url && (
-                          <div className="text-[10px] font-mono text-blue-500 font-semibold mt-1 truncate bg-blue-500/10 px-1.5 py-0.5 rounded w-fit" title={lic.support_url}>
-                            💬 {lic.support_url}
-                          </div>
-                        )}
-                        {lic.support_telegram && (
-                          <div className="text-[10px] font-mono text-sky-500 font-semibold mt-1 truncate bg-sky-500/10 px-1.5 py-0.5 rounded w-fit" title={lic.support_telegram}>
-                            ✈️ {lic.support_telegram}
-                          </div>
-                        )}
                       </td>
                       <td className="py-4 px-6 text-right">
-                        <div className="flex items-center justify-end gap-1.5 opacity-60 group-hover:opacity-100 transition-opacity">
-                          {lic.status === 'active' ? (
+                        <div className="flex flex-col items-end gap-1.5 opacity-60 group-hover:opacity-100 transition-opacity">
+                          <div className="flex items-center gap-1.5">
                             <button
-                              onClick={() => handleStatusUpdate(lic.id, 'suspended')}
-                              title="Suspend Key"
-                              className="p-2 bg-secondary border border-border rounded-lg text-amber-500 hover:bg-amber-500/10 hover:border-amber-500/30 transition-all hover-lift"
+                              onClick={() => openEditModal(lic)}
+                              className="flex items-center gap-1.5 px-3 py-1.5 bg-secondary border border-border rounded-lg text-blue-500 hover:bg-blue-500/10 hover:border-blue-500/30 transition-all hover-lift text-xs font-mono font-bold"
                             >
-                              <Ban className="w-4 h-4" />
+                              <Edit2 className="w-3.5 h-3.5" /> Edit
                             </button>
-                          ) : (
+                            {lic.status === 'active' ? (
+                              <button
+                                onClick={() => handleStatusUpdate(lic.id, 'suspended')}
+                                className="flex items-center gap-1.5 px-3 py-1.5 bg-secondary border border-border rounded-lg text-amber-500 hover:bg-amber-500/10 hover:border-amber-500/30 transition-all hover-lift text-xs font-mono font-bold"
+                              >
+                                <Ban className="w-3.5 h-3.5" /> Suspend
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() => handleStatusUpdate(lic.id, 'active')}
+                                className="flex items-center gap-1.5 px-3 py-1.5 bg-secondary border border-border rounded-lg text-emerald-500 hover:bg-emerald-500/10 hover:border-emerald-500/30 transition-all hover-lift text-xs font-mono font-bold"
+                              >
+                                <ShieldCheck className="w-3.5 h-3.5" /> Activate
+                              </button>
+                            )}
+                          </div>
+                          <div className="flex items-center gap-1.5 mt-1">
                             <button
-                              onClick={() => handleStatusUpdate(lic.id, 'active')}
-                              title="Activate Key"
-                              className="p-2 bg-secondary border border-border rounded-lg text-emerald-500 hover:bg-emerald-500/10 hover:border-emerald-500/30 transition-all hover-lift"
+                              onClick={() => handleResetDevices(lic.id)}
+                              className="flex items-center gap-1.5 px-2 py-1.5 bg-secondary border border-border rounded-lg text-amber-500 hover:bg-amber-500/10 hover:border-amber-500/30 transition-all hover-lift text-[10px] font-mono font-bold uppercase"
                             >
-                              <ShieldCheck className="w-4 h-4" />
+                              <Ban className="w-3 h-3" /> Reset Devices
                             </button>
-                          )}
-                          <button
-                            onClick={() => handleResetDevices(lic.id)}
-                            title="Reset All Devices"
-                            className="p-2 bg-secondary border border-border rounded-lg text-amber-500 hover:bg-amber-500/10 hover:border-amber-500/30 transition-all hover-lift"
-                          >
-                            <Ban className="w-4 h-4" />
-                          </button>
-                          <button
-                            onClick={() => handleRemoveAccess(lic.id)}
-                            title="Remove User Access"
-                            className="p-2 bg-secondary border border-border rounded-lg text-destructive hover:bg-destructive/10 hover:border-destructive/30 transition-all hover-lift"
-                          >
-                            <ShieldAlert className="w-4 h-4" />
-                          </button>
-                          <button
-                            onClick={() => openEditModal(lic)}
-                            title="Edit Info"
-                            className="p-2 bg-secondary border border-border rounded-lg text-blue-500 hover:bg-blue-500/10 hover:border-blue-500/30 transition-all hover-lift"
-                          >
-                            <Edit2 className="w-4 h-4" />
-                          </button>
-                          <button
-                            onClick={() => handleDelete(lic.id)}
-                            title="Delete Key"
-                            className="p-2 bg-secondary border border-border rounded-lg text-destructive hover:bg-destructive/10 hover:border-destructive/30 transition-all hover-lift"
-                          >
-                            <Trash2 className="w-4 h-4" />
-                          </button>
+                            <button
+                              onClick={() => handleDelete(lic.id)}
+                              className="flex items-center gap-1.5 px-2 py-1.5 bg-secondary border border-border rounded-lg text-destructive hover:bg-destructive/10 hover:border-destructive/30 transition-all hover-lift text-[10px] font-mono font-bold uppercase"
+                            >
+                              <Trash2 className="w-3 h-3" /> Delete
+                            </button>
+                          </div>
                         </div>
                       </td>
                     </tr>
@@ -492,8 +452,8 @@ export default function LicensesPage() {
                     <input type="text" value={customerName} onChange={(e) => setCustomerName(e.target.value)} placeholder="John Doe" className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-muted-foreground/50" />
                   </div>
                   <div>
-                    <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Customer Email</label>
-                    <input type="email" value={customerEmail} onChange={(e) => setCustomerEmail(e.target.value)} placeholder="john@example.com" className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-muted-foreground/50" />
+                    <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Email / Phone Number (Identity)</label>
+                    <input type="text" value={customerEmail} onChange={(e) => setCustomerEmail(e.target.value)} placeholder="john@example.com or +1234567890" className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-muted-foreground/50" />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
@@ -506,38 +466,32 @@ export default function LicensesPage() {
                     </div>
                   </div>
                   
-                  <div className="grid grid-cols-2 gap-4 border-t border-border/50 pt-4 mt-2">
-                    <div>
-                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Valid Days</label>
-                      <input type="number" value={customDays} onChange={(e) => handleCustomDaysChange(e.target.value)} placeholder="E.g. 30" min={1} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                  <div className="border-t border-border/50 pt-4 mt-2">
+                    <label className="block text-[11px] font-bold text-muted-foreground mb-2.5 uppercase tracking-wider">License Duration</label>
+                    <div className="grid grid-cols-4 gap-2 mb-4">
+                      <button type="button" onClick={() => { setActivePreset('1d'); handleCustomDaysChange('1'); }} className={`py-2 rounded-xl text-xs font-mono font-bold transition-all border ${activePreset === '1d' ? 'bg-accent text-accent-foreground border-accent shadow-lg' : 'bg-secondary border-border hover:border-accent/50 text-foreground'}`}>1 Day</button>
+                      <button type="button" onClick={() => { setActivePreset('7d'); handleCustomDaysChange('7'); }} className={`py-2 rounded-xl text-xs font-mono font-bold transition-all border ${activePreset === '7d' ? 'bg-accent text-accent-foreground border-accent shadow-lg' : 'bg-secondary border-border hover:border-accent/50 text-foreground'}`}>7 Days</button>
+                      <button type="button" onClick={() => { setActivePreset('1m'); handleCustomDaysChange('30'); }} className={`py-2 rounded-xl text-xs font-mono font-bold transition-all border ${activePreset === '1m' ? 'bg-accent text-accent-foreground border-accent shadow-lg' : 'bg-secondary border-border hover:border-accent/50 text-foreground'}`}>1 Month</button>
+                      <button type="button" onClick={() => { setActivePreset('custom'); setCustomDays(''); setCustomMinutes(''); setExpiresAt(''); }} className={`py-2 rounded-xl text-xs font-mono font-bold transition-all border ${activePreset === 'custom' ? 'bg-accent text-accent-foreground border-accent shadow-lg' : 'bg-secondary border-border hover:border-accent/50 text-foreground'}`}>Custom</button>
                     </div>
-                    <div>
-                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Valid Mins</label>
-                      <input type="number" value={customMinutes} onChange={(e) => handleCustomMinutesChange(e.target.value)} placeholder="E.g. 60" min={1} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Exact Expiry Date</label>
-                    <input type="datetime-local" value={expiresAt} onChange={(e) => setExpiresAt(e.target.value)} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+
+                    {activePreset === 'custom' && (
+                      <div className="grid grid-cols-2 gap-4 animate-in fade-in slide-in-from-top-2 duration-300">
+                        <div>
+                          <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Custom Days</label>
+                          <input type="number" value={customDays} onChange={(e) => handleCustomDaysChange(e.target.value)} placeholder="E.g. 14" min={1} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                        </div>
+                        <div>
+                          <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Custom Mins</label>
+                          <input type="number" value={customMinutes} onChange={(e) => handleCustomMinutesChange(e.target.value)} placeholder="E.g. 120" min={1} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                        </div>
+                      </div>
+                    )}
                   </div>
 
-                  <div className="border-t border-border/50 pt-4 mt-2 space-y-4">
-                    <div>
-                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Global Broadcast Message</label>
-                      <input type="text" value={adminMessage} onChange={(e) => setAdminMessage(e.target.value)} placeholder="Alert for this user..." className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Custom Support URL</label>
-                      <input type="url" value={supportUrl} onChange={(e) => setSupportUrl(e.target.value)} placeholder="https://..." className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Support Telegram</label>
-                      <input type="text" value={supportTelegram} onChange={(e) => setSupportTelegram(e.target.value)} placeholder="@username" className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Internal Admin Notes</label>
-                      <textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={3} placeholder="Private notes..." className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all resize-none" />
-                    </div>
+                  <div className="border-t border-border/50 pt-4 mt-2">
+                    <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Internal Admin Notes</label>
+                    <textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={3} placeholder="Private notes..." className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all resize-none" />
                   </div>
                 </div>
 
@@ -567,8 +521,8 @@ export default function LicensesPage() {
                     <input type="text" value={customerName} onChange={(e) => setCustomerName(e.target.value)} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent transition-all" />
                   </div>
                   <div>
-                    <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Customer Email</label>
-                    <input type="email" value={customerEmail} onChange={(e) => setCustomerEmail(e.target.value)} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent transition-all" />
+                    <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Email / Phone Number (Identity)</label>
+                    <input type="text" value={customerEmail} onChange={(e) => setCustomerEmail(e.target.value)} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent transition-all" />
                   </div>
                   
                   <div className="grid grid-cols-2 gap-4 border-t border-border/50 pt-4 mt-2">
@@ -592,15 +546,29 @@ export default function LicensesPage() {
                       <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Max Devices</label>
                       <input type="number" value={maxDevices} onChange={(e) => setMaxDevices(parseInt(e.target.value))} required min={1} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent transition-all" />
                     </div>
-                    <div>
-                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Add Days</label>
-                      <input type="number" value={customDays} onChange={(e) => handleCustomDaysChange(e.target.value)} placeholder="E.g. 30" min={1} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent transition-all" />
-                    </div>
                   </div>
 
-                  <div>
-                    <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Exact Expiry Date</label>
-                    <input type="datetime-local" value={expiresAt} onChange={(e) => setExpiresAt(e.target.value)} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent transition-all" />
+                  <div className="border-t border-border/50 pt-4 mt-2">
+                    <label className="block text-[11px] font-bold text-muted-foreground mb-2.5 uppercase tracking-wider">Add Duration</label>
+                    <div className="grid grid-cols-4 gap-2 mb-4">
+                      <button type="button" onClick={() => { setActivePreset('1d'); handleCustomDaysChange('1'); }} className={`py-2 rounded-xl text-xs font-mono font-bold transition-all border ${activePreset === '1d' ? 'bg-accent text-accent-foreground border-accent shadow-lg' : 'bg-secondary border-border hover:border-accent/50 text-foreground'}`}>+ 1 Day</button>
+                      <button type="button" onClick={() => { setActivePreset('7d'); handleCustomDaysChange('7'); }} className={`py-2 rounded-xl text-xs font-mono font-bold transition-all border ${activePreset === '7d' ? 'bg-accent text-accent-foreground border-accent shadow-lg' : 'bg-secondary border-border hover:border-accent/50 text-foreground'}`}>+ 7 Days</button>
+                      <button type="button" onClick={() => { setActivePreset('1m'); handleCustomDaysChange('30'); }} className={`py-2 rounded-xl text-xs font-mono font-bold transition-all border ${activePreset === '1m' ? 'bg-accent text-accent-foreground border-accent shadow-lg' : 'bg-secondary border-border hover:border-accent/50 text-foreground'}`}>+ 1 Month</button>
+                      <button type="button" onClick={() => { setActivePreset('custom'); setCustomDays(''); setCustomMinutes(''); setExpiresAt(''); }} className={`py-2 rounded-xl text-xs font-mono font-bold transition-all border ${activePreset === 'custom' ? 'bg-accent text-accent-foreground border-accent shadow-lg' : 'bg-secondary border-border hover:border-accent/50 text-foreground'}`}>Custom</button>
+                    </div>
+
+                    {activePreset === 'custom' && (
+                      <div className="grid grid-cols-2 gap-4 animate-in fade-in slide-in-from-top-2 duration-300">
+                        <div>
+                          <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Add Custom Days</label>
+                          <input type="number" value={customDays} onChange={(e) => handleCustomDaysChange(e.target.value)} placeholder="E.g. 14" min={1} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                        </div>
+                        <div>
+                          <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Add Custom Mins</label>
+                          <input type="number" value={customMinutes} onChange={(e) => handleCustomMinutesChange(e.target.value)} placeholder="E.g. 120" min={1} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   <div className="border-t border-border/50 pt-4 mt-2 space-y-4">
