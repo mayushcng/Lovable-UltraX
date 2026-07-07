@@ -1,9 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import {
   Search,
@@ -102,33 +100,33 @@ export default function DevicesPage() {
     return Monitor
   }
 
-  const getStatusColor = (lastSeen: string) => {
+  const getStatusDetails = (lastSeen: string) => {
     const hoursSince = (Date.now() - new Date(lastSeen).getTime()) / (1000 * 60 * 60)
-    if (hoursSince < 1) return "emerald"
-    if (hoursSince < 24) return "cyan"
-    if (hoursSince < 168) return "amber"
-    return "red"
+    if (hoursSince < 1) return { color: "emerald", label: "Active Now", bg: "bg-emerald-500/10", text: "text-emerald-500", border: "border-emerald-500/20" }
+    if (hoursSince < 24) return { color: "blue", label: "Active Today", bg: "bg-blue-500/10", text: "text-blue-500", border: "border-blue-500/20" }
+    if (hoursSince < 168) return { color: "amber", label: "Inactive", bg: "bg-amber-500/10", text: "text-amber-500", border: "border-amber-500/20" }
+    return { color: "destructive", label: "Offline", bg: "bg-destructive/10", text: "text-destructive", border: "border-destructive/20" }
   }
 
   const stats = [
-    { label: "Total Devices", value: "856", icon: Smartphone, color: "purple" },
-    { label: "Active Now", value: "324", icon: CheckCircle, color: "emerald" },
-    { label: "Inactive", value: "125", icon: AlertTriangle, color: "amber" },
-    { label: "Blocked", value: "12", icon: Ban, color: "red" },
+    { label: "Total Devices", value: "856", icon: Smartphone, bg: "bg-accent/10", text: "text-accent" },
+    { label: "Active Now", value: "324", icon: CheckCircle, bg: "bg-emerald-500/10", text: "text-emerald-500" },
+    { label: "Inactive", value: "125", icon: AlertTriangle, bg: "bg-amber-500/10", text: "text-amber-500" },
+    { label: "Blocked", value: "12", icon: Ban, bg: "bg-destructive/10", text: "text-destructive" },
   ]
 
   return (
-    <div className="space-y-6 animate-fade-in">
+    <div className="space-y-6 animate-fade-in max-w-7xl mx-auto pb-12">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="relative overflow-hidden rounded-[1.5rem] bg-card border border-border p-8 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6 group hover:border-accent/50 transition-colors duration-300">
         <div>
-          <h1 className="text-3xl font-bold text-gradient">Device Management</h1>
-          <p className="text-gray-400 mt-1">Monitor and manage connected devices</p>
+          <h1 className="text-3xl font-bold font-mono tracking-tight text-foreground mb-2">Device Fleet</h1>
+          <p className="text-muted-foreground font-mono">Monitor and manage connected endpoints</p>
         </div>
-        <Button variant="outline" className="gap-2">
+        <button className="flex items-center gap-2 px-5 py-3 bg-secondary hover:bg-secondary/80 border border-border text-sm font-bold font-mono rounded-xl text-foreground transition-all shadow-sm hover-lift active:scale-[0.98]">
           <RefreshCw className="h-4 w-4" />
-          Refresh
-        </Button>
+          Refresh Registry
+        </button>
       </div>
 
       {/* Stats */}
@@ -136,18 +134,18 @@ export default function DevicesPage() {
         {stats.map((stat, i) => {
           const Icon = stat.icon
           return (
-            <Card key={i} className="card-hover">
+            <Card key={i} className="bento-card group">
               <CardContent className="pt-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-gray-400">{stat.label}</p>
-                    <p className="text-2xl font-bold mt-1">{stat.value}</p>
+                    <p className="text-sm font-mono text-muted-foreground">{stat.label}</p>
+                    <p className="text-3xl font-bold font-mono mt-1 text-foreground">{stat.value}</p>
                   </div>
                   <div className={cn(
-                    "flex h-12 w-12 items-center justify-center rounded-full",
-                    `bg-${stat.color}-500/10`
+                    "flex h-12 w-12 items-center justify-center rounded-xl transition-colors",
+                    stat.bg
                   )}>
-                    <Icon className={cn("h-6 w-6", `text-${stat.color}-400`)} />
+                    <Icon className={cn("h-6 w-6 transition-transform group-hover:scale-110", stat.text)} />
                   </div>
                 </div>
               </CardContent>
@@ -157,37 +155,38 @@ export default function DevicesPage() {
       </div>
 
       {/* Filters */}
-      <Card>
+      <Card className="bento-card">
         <CardContent className="pt-6">
           <div className="flex flex-col sm:flex-row gap-4">
             <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
-              <Input
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <input
+                type="text"
                 placeholder="Search by device, IP, country, or license..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10"
+                className="w-full pl-11 pr-4 py-3 bg-secondary/50 border border-border rounded-xl text-sm font-mono placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-all shadow-sm"
               />
             </div>
             <div className="flex gap-2">
-              <Button variant="outline" className="gap-2">
+              <button className="flex items-center gap-2 px-4 py-3 bg-secondary hover:bg-secondary/80 border border-border rounded-xl text-sm font-mono font-bold transition-all shadow-sm hover-lift">
                 <Filter className="h-4 w-4" />
                 Filter
-              </Button>
+              </button>
             </div>
           </div>
 
           {/* Status Filters */}
-          <div className="flex gap-2 mt-4">
+          <div className="flex gap-2 mt-4 overflow-x-auto pb-2 custom-scrollbar">
             {["all", "active", "inactive", "blocked"].map((status) => (
               <button
                 key={status}
                 onClick={() => setSelectedStatus(status)}
                 className={cn(
-                  "px-4 py-1.5 rounded-lg text-sm font-medium transition-all",
+                  "px-4 py-1.5 rounded-lg text-xs font-mono font-bold transition-all whitespace-nowrap",
                   selectedStatus === status
-                    ? "bg-purple-500/20 text-purple-300 border border-purple-500/50"
-                    : "bg-white/5 text-gray-400 hover:bg-white/10 border border-white/10"
+                    ? "bg-accent/10 text-accent border border-accent/20"
+                    : "bg-secondary text-muted-foreground hover:bg-secondary/80 border border-transparent"
                 )}
               >
                 {status.charAt(0).toUpperCase() + status.slice(1)}
@@ -201,97 +200,91 @@ export default function DevicesPage() {
       {loading ? (
         <div className="flex items-center justify-center py-12">
           <div className="flex flex-col items-center gap-3">
-            <RefreshCw className="h-8 w-8 animate-spin text-purple-400" />
-            <p className="text-sm text-gray-400">Loading devices...</p>
+            <RefreshCw className="h-8 w-8 animate-spin text-accent" />
+            <p className="text-sm font-mono text-muted-foreground">Synchronizing registry...</p>
           </div>
         </div>
       ) : (
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {devices.map((device) => {
             const DeviceIcon = getDeviceIcon(device.browser_fingerprint)
-            const statusColor = getStatusColor(device.last_seen)
+            const status = getStatusDetails(device.last_seen)
             
             return (
-              <Card key={device.id} className="card-hover group relative overflow-hidden">
-                {/* Background Gradient */}
-                <div className={cn(
-                  "absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500",
-                  `bg-gradient-to-br from-${statusColor}-500/5 via-transparent to-transparent`
-                )} />
-                
+              <Card key={device.id} className="bento-card group relative overflow-hidden">
                 <CardContent className="pt-6 relative z-10">
                   {/* Device Header */}
                   <div className="flex items-start justify-between mb-4">
                     <div className={cn(
-                      "flex h-12 w-12 items-center justify-center rounded-xl",
-                      `bg-${statusColor}-500/10 border border-${statusColor}-500/20`
+                      "flex h-12 w-12 items-center justify-center rounded-xl shadow-sm",
+                      status.bg, status.border, "border"
                     )}>
-                      <DeviceIcon className={cn("h-6 w-6", `text-${statusColor}-400`)} />
+                      <DeviceIcon className={cn("h-6 w-6", status.text)} />
                     </div>
-                    <div className="flex gap-1">
-                      <button className="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 transition-colors opacity-0 group-hover:opacity-100">
-                        <Ban className="h-4 w-4 text-amber-400" />
+                    <div className="flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <button title="Block Device" className="p-2 rounded-lg bg-secondary border border-border hover:bg-amber-500/10 hover:border-amber-500/30 transition-all hover-lift">
+                        <Ban className="h-4 w-4 text-amber-500" />
                       </button>
-                      <button className="p-1.5 rounded-lg bg-white/5 hover:bg-red-500/20 transition-colors opacity-0 group-hover:opacity-100">
-                        <Trash2 className="h-4 w-4 text-red-400" />
+                      <button title="Delete Device" className="p-2 rounded-lg bg-secondary border border-border hover:bg-destructive/10 hover:border-destructive/30 transition-all hover-lift">
+                        <Trash2 className="h-4 w-4 text-destructive" />
                       </button>
                     </div>
                   </div>
 
                   {/* Device Info */}
-                  <div className="space-y-3">
+                  <div className="space-y-4">
                     <div>
-                      <p className="text-xs text-gray-400 mb-1">License Key</p>
-                      <p className="font-mono text-sm font-medium">{device.license_key}</p>
-                      <Badge variant="default" className="mt-1 text-xs">
-                        {device.plan_name}
-                      </Badge>
+                      <p className="text-[10px] font-bold text-muted-foreground mb-1 uppercase tracking-wider font-mono">License Key</p>
+                      <div className="flex items-center justify-between">
+                        <p className="font-mono text-sm font-bold text-foreground">{device.license_key}</p>
+                        <Badge variant="default" className="bg-accent/5 text-accent border border-accent/20 text-[10px] font-mono px-2 py-0.5 shadow-none">
+                          {device.plan_name}
+                        </Badge>
+                      </div>
                     </div>
 
-                    <div className="flex items-center gap-2 text-sm">
-                      <Chrome className="h-4 w-4 text-gray-400" />
-                      <span className="text-gray-300">
-                        {device.browser_fingerprint?.browser || "Unknown"} • {device.browser_fingerprint?.os || "Unknown"}
+                    <div className="flex items-center gap-3 text-sm font-mono bg-secondary/50 p-2.5 rounded-lg border border-border/50">
+                      <Chrome className="h-4 w-4 text-muted-foreground shrink-0" />
+                      <span className="text-foreground truncate">
+                        {device.browser_fingerprint?.browser || "Unknown"} <span className="text-muted-foreground mx-1">•</span> {device.browser_fingerprint?.os || "Unknown"}
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-2 text-sm">
-                      <MapPin className="h-4 w-4 text-gray-400" />
-                      <span className="text-gray-300">{device.country}</span>
-                      <span className="text-gray-500">({device.ip_address})</span>
+                    <div className="flex items-center gap-3 text-sm font-mono bg-secondary/50 p-2.5 rounded-lg border border-border/50">
+                      <MapPin className="h-4 w-4 text-muted-foreground shrink-0" />
+                      <span className="text-foreground truncate">{device.country}</span>
+                      <span className="text-muted-foreground shrink-0">({device.ip_address})</span>
                     </div>
 
-                    <div className="pt-3 border-t border-white/10">
-                      <div className="flex items-center justify-between text-xs">
-                        <div className="flex items-center gap-1.5 text-gray-400">
-                          <Clock className="h-3 w-3" />
-                          <span>Last seen</span>
+                    <div className="pt-4 border-t border-border/50">
+                      <div className="flex items-center justify-between text-xs font-mono mb-2">
+                        <div className="flex items-center gap-1.5 text-muted-foreground">
+                          <Clock className="h-3.5 w-3.5" />
+                          <span>Last Sync</span>
                         </div>
-                        <span className={cn("font-medium", `text-${statusColor}-400`)}>
+                        <span className={cn("font-bold", status.text)}>
                           {formatDate(device.last_seen)}
                         </span>
                       </div>
-                      <div className="flex items-center justify-between text-xs mt-2">
-                        <span className="text-gray-400">First seen</span>
-                        <span className="text-gray-500">{formatDate(device.first_seen)}</span>
+                      <div className="flex items-center justify-between text-xs font-mono">
+                        <span className="text-muted-foreground">First Seen</span>
+                        <span className="text-foreground/70">{formatDate(device.first_seen)}</span>
                       </div>
                     </div>
 
                     {/* Status Indicator */}
-                    <div className="flex items-center justify-between pt-3 border-t border-white/10">
+                    <div className="flex items-center justify-between pt-4 border-t border-border/50">
                       <div className="flex items-center gap-2">
                         <div className={cn(
-                          "h-2 w-2 rounded-full status-dot",
-                          statusColor === "emerald" ? "bg-emerald-400 active" : `bg-${statusColor}-400`
+                          "h-2 w-2 rounded-full",
+                          status.color === "emerald" ? "bg-emerald-500 animate-pulse" : `bg-${status.color}-500`
                         )} />
-                        <span className="text-xs text-gray-400">
-                          {statusColor === "emerald" ? "Active Now" : 
-                           statusColor === "cyan" ? "Active Today" :
-                           statusColor === "amber" ? "Inactive" : "Offline"}
+                        <span className="text-xs font-bold font-mono text-muted-foreground">
+                          {status.label}
                         </span>
                       </div>
-                      <code className="text-xs font-mono text-gray-600">
-                        {device.device_hash.slice(0, 8)}...
+                      <code className="text-[10px] font-mono text-muted-foreground/50 bg-secondary px-1.5 py-0.5 rounded">
+                        {device.device_hash.slice(0, 8)}
                       </code>
                     </div>
                   </div>

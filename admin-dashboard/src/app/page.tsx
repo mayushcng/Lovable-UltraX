@@ -11,7 +11,10 @@ import {
   DollarSign,
   AlertCircle,
   CheckCircle,
-  Clock
+  Clock,
+  ArrowUpRight,
+  ShieldAlert,
+  Zap
 } from "lucide-react"
 
 export default function DashboardPage() {
@@ -23,7 +26,6 @@ export default function DashboardPage() {
       change: "+12.5%",
       trend: "up",
       icon: Key,
-      color: "from-purple-500 to-pink-500"
     },
     {
       title: "Active Devices",
@@ -31,15 +33,13 @@ export default function DashboardPage() {
       change: "+8.2%",
       trend: "up",
       icon: Smartphone,
-      color: "from-cyan-500 to-blue-500"
     },
     {
-      title: "Revenue",
+      title: "Monthly Revenue",
       value: "$24,531",
       change: "+23.1%",
       trend: "up",
       icon: DollarSign,
-      color: "from-green-500 to-emerald-500"
     },
     {
       title: "Active Users",
@@ -47,7 +47,6 @@ export default function DashboardPage() {
       change: "+5.3%",
       trend: "up",
       icon: Users,
-      color: "from-orange-500 to-red-500"
     },
   ]
 
@@ -59,7 +58,8 @@ export default function DashboardPage() {
       license: "PK-2024-XXXX",
       time: "2 minutes ago",
       icon: CheckCircle,
-      color: "text-emerald-400"
+      color: "text-emerald-500",
+      bg: "bg-emerald-500/10"
     },
     {
       id: 2,
@@ -68,7 +68,8 @@ export default function DashboardPage() {
       license: "PK-2024-YYYY",
       time: "15 minutes ago",
       icon: AlertCircle,
-      color: "text-amber-400"
+      color: "text-amber-500",
+      bg: "bg-amber-500/10"
     },
     {
       id: 3,
@@ -77,7 +78,8 @@ export default function DashboardPage() {
       license: "PK-2024-ZZZZ",
       time: "1 hour ago",
       icon: Smartphone,
-      color: "text-blue-400"
+      color: "text-blue-500",
+      bg: "bg-blue-500/10"
     },
     {
       id: 4,
@@ -86,48 +88,51 @@ export default function DashboardPage() {
       license: "PK-2024-AAAA",
       time: "2 hours ago",
       icon: Clock,
-      color: "text-orange-400"
+      color: "text-accent",
+      bg: "bg-accent/10"
     },
   ]
 
   return (
-    <div className="space-y-6 animate-fade-in">
+    <div className="space-y-6 animate-fade-in max-w-7xl mx-auto pb-12">
       {/* Welcome Section */}
-      <div className="relative overflow-hidden rounded-2xl glass border border-white/10 p-8">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-cyan-500/10" />
-        <div className="relative z-10">
-          <h1 className="text-3xl font-bold text-gradient mb-2">
-            Welcome back, Admin! 👋
-          </h1>
-          <p className="text-gray-400">
-            Here's what's happening with your licensing system today
-          </p>
+      <div className="relative overflow-hidden rounded-[1.5rem] bg-card border border-border p-8 shadow-sm group hover:border-accent/50 transition-colors duration-300">
+        <div className="relative z-10 flex justify-between items-start">
+          <div>
+            <h1 className="text-3xl font-bold font-mono tracking-tight text-foreground mb-2">
+              Overview
+            </h1>
+            <p className="text-muted-foreground font-mono">
+              Real-time monitoring for Lovable UltraX infrastructure
+            </p>
+          </div>
+          <Badge variant="default" className="bg-accent/10 text-accent border border-accent/20 px-3 py-1 font-mono shadow-none">
+            <span className="w-2 h-2 rounded-full bg-accent animate-pulse mr-2 inline-block"></span>
+            System Operational
+          </Badge>
         </div>
-        <div className="absolute -right-10 -bottom-10 h-40 w-40 rounded-full bg-purple-500/20 blur-3xl" />
-        <div className="absolute -left-10 -top-10 h-40 w-40 rounded-full bg-cyan-500/20 blur-3xl" />
       </div>
 
       {/* Stats Grid */}
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {stats.map((stat, index) => {
           const Icon = stat.icon
           return (
-            <Card key={index} className="card-hover relative overflow-hidden">
-              <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-5`} />
+            <Card key={index} className="bento-card group">
               <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
-                <CardTitle className="text-sm font-medium text-gray-400">
+                <CardTitle className="text-sm font-medium font-mono text-muted-foreground">
                   {stat.title}
                 </CardTitle>
-                <div className={`flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br ${stat.color} shadow-lg`}>
-                  <Icon className="h-5 w-5 text-white" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-secondary group-hover:bg-accent/10 transition-colors">
+                  <Icon className="h-5 w-5 text-muted-foreground group-hover:text-accent transition-colors" />
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{stat.value}</div>
-                <div className="flex items-center gap-1 text-xs">
-                  <TrendingUp className="h-3 w-3 text-emerald-400" />
-                  <span className="text-emerald-400 font-medium">{stat.change}</span>
-                  <span className="text-gray-500">from last month</span>
+                <div className="text-3xl font-bold font-mono text-foreground mb-1">{stat.value}</div>
+                <div className="flex items-center gap-1 text-xs font-mono">
+                  <TrendingUp className="h-3 w-3 text-emerald-500" />
+                  <span className="text-emerald-500 font-semibold">{stat.change}</span>
+                  <span className="text-muted-foreground">vs last month</span>
                 </div>
               </CardContent>
             </Card>
@@ -136,42 +141,50 @@ export default function DashboardPage() {
       </div>
 
       {/* Charts and Activity */}
-      <div className="grid gap-6 lg:grid-cols-3">
+      <div className="grid gap-4 lg:grid-cols-3">
         {/* Activity Chart */}
-        <Card className="lg:col-span-2">
+        <Card className="bento-card lg:col-span-2">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Activity className="h-5 w-5 text-purple-400" />
-              License Activity
+            <CardTitle className="flex items-center justify-between font-mono">
+              <span className="flex items-center gap-2">
+                <Activity className="h-5 w-5 text-accent" />
+                Activation Volume
+              </span>
+              <button className="text-xs text-muted-foreground hover:text-foreground flex items-center gap-1">
+                View Report <ArrowUpRight className="h-3 w-3" />
+              </button>
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="flex h-[300px] items-end justify-between gap-2">
+            <div className="flex h-[300px] items-end justify-between gap-3 mt-4">
               {[65, 45, 80, 55, 70, 90, 75, 85, 60, 95, 70, 88].map((height, i) => (
                 <div
                   key={i}
-                  className="flex-1 rounded-t-lg bg-gradient-to-t from-purple-500/50 to-pink-500/50 hover:from-purple-500 hover:to-pink-500 transition-all duration-300 cursor-pointer group relative"
+                  className="flex-1 rounded-sm bg-secondary hover:bg-accent transition-all duration-300 cursor-pointer group relative"
                   style={{ height: `${height}%` }}
                 >
-                  <div className="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-black/80 px-2 py-1 rounded text-xs whitespace-nowrap">
-                    {Math.floor((height / 100) * 150)} activations
+                  <div className="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-foreground text-background font-mono px-2 py-1 rounded text-xs whitespace-nowrap z-10 pointer-events-none">
+                    {Math.floor((height / 100) * 150)}
                   </div>
                 </div>
               ))}
             </div>
-            <div className="mt-4 flex justify-between text-xs text-gray-500">
+            <div className="mt-4 flex justify-between text-xs font-mono text-muted-foreground">
               <span>Jan</span>
+              <span>Jun</span>
               <span>Dec</span>
             </div>
           </CardContent>
         </Card>
 
         {/* Recent Activity */}
-        <Card>
+        <Card className="bento-card">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Clock className="h-5 w-5 text-cyan-400" />
-              Recent Activity
+            <CardTitle className="flex items-center justify-between font-mono">
+              <span className="flex items-center gap-2">
+                <Clock className="h-5 w-5 text-muted-foreground" />
+                Audit Log
+              </span>
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -181,15 +194,17 @@ export default function DashboardPage() {
                 return (
                   <div
                     key={activity.id}
-                    className="flex gap-3 rounded-lg bg-white/5 p-3 hover:bg-white/10 transition-all cursor-pointer"
+                    className="group flex gap-3 rounded-xl bg-secondary/50 p-3 hover:bg-secondary transition-all cursor-pointer border border-transparent hover:border-border"
                   >
-                    <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/10 ${activity.color}`}>
-                      <Icon className="h-4 w-4" />
+                    <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${activity.bg} ${activity.color}`}>
+                      <Icon className="h-5 w-5" />
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium">{activity.message}</p>
-                      <p className="text-xs text-gray-500 truncate">{activity.license}</p>
-                      <p className="text-xs text-gray-600 mt-1">{activity.time}</p>
+                    <div className="flex-1 min-w-0 flex flex-col justify-center">
+                      <p className="text-sm font-semibold text-foreground truncate">{activity.message}</p>
+                      <div className="flex items-center justify-between mt-1">
+                        <p className="text-xs text-muted-foreground font-mono truncate">{activity.license}</p>
+                        <p className="text-[10px] text-muted-foreground font-mono">{activity.time}</p>
+                      </div>
                     </div>
                   </div>
                 )
@@ -199,35 +214,30 @@ export default function DashboardPage() {
         </Card>
       </div>
 
-      {/* Quick Actions */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Quick Actions</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid gap-4 md:grid-cols-4">
-            {[
-              { label: "Create License", icon: Key, color: "purple" },
-              { label: "View Devices", icon: Smartphone, color: "cyan" },
-              { label: "Check Activity", icon: Activity, color: "pink" },
-              { label: "Generate Report", icon: TrendingUp, color: "emerald" },
-            ].map((action, i) => {
-              const Icon = action.icon
-              return (
-                <button
-                  key={i}
-                  className="flex flex-col items-center gap-3 rounded-xl glass-dark border border-white/10 p-6 hover:border-purple-500/50 hover:bg-white/5 transition-all group"
-                >
-                  <div className={`flex h-12 w-12 items-center justify-center rounded-full bg-${action.color}-500/20 group-hover:bg-${action.color}-500/30 transition-all`}>
-                    <Icon className={`h-6 w-6 text-${action.color}-400`} />
-                  </div>
-                  <span className="text-sm font-medium">{action.label}</span>
-                </button>
-              )
-            })}
-          </div>
-        </CardContent>
-      </Card>
+      {/* Quick Actions Grid */}
+      <div className="grid gap-4 md:grid-cols-4">
+        {[
+          { label: "Issue License", icon: Key },
+          { label: "Manage Devices", icon: Smartphone },
+          { label: "Security Audit", icon: ShieldAlert },
+          { label: "System Config", icon: Zap },
+        ].map((action, i) => {
+          const Icon = action.icon
+          return (
+            <button
+              key={i}
+              className="group flex flex-col items-center gap-4 rounded-[1.5rem] bg-card border border-border p-6 hover:border-accent hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-secondary group-hover:bg-accent/10 transition-colors duration-300">
+                <Icon className="h-6 w-6 text-muted-foreground group-hover:text-accent transition-colors duration-300" />
+              </div>
+              <span className="text-sm font-semibold font-mono text-foreground group-hover:text-accent transition-colors duration-300">
+                {action.label}
+              </span>
+            </button>
+          )
+        })}
+      </div>
     </div>
   )
 }

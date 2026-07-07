@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Zap, Mail, Lock, Eye, EyeOff, ArrowRight, Shield } from "lucide-react"
+import { ShieldCheck, Mail, Lock, Eye, EyeOff, ArrowRight, Shield } from "lucide-react"
 
 export default function LoginPage() {
   const router = useRouter()
@@ -39,52 +39,53 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center animated-bg p-4 relative overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-20 h-64 w-64 rounded-full bg-purple-500/10 blur-3xl animate-float" />
-        <div className="absolute bottom-20 right-20 h-80 w-80 rounded-full bg-cyan-500/10 blur-3xl animate-float" style={{ animationDelay: "2s" }} />
-        <div className="absolute top-1/2 left-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-pink-500/5 blur-3xl animate-float" style={{ animationDelay: "4s" }} />
-      </div>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-background p-4 relative overflow-hidden">
+      {/* Background Accent Grid */}
+      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] pointer-events-none mix-blend-overlay"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
+      
+      {/* Glow Effects */}
+      <div className="absolute top-0 right-0 -mt-20 -mr-20 h-96 w-96 rounded-full bg-accent/5 blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 -mb-20 -ml-20 h-96 w-96 rounded-full bg-accent/5 blur-3xl pointer-events-none"></div>
 
       <div className="w-full max-w-md relative z-10">
         {/* Logo */}
         <div className="flex justify-center mb-8 animate-fade-in">
-          <div className="flex items-center gap-3">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 shadow-2xl shadow-purple-500/50 animate-glow">
-              <Zap className="h-8 w-8 text-white" />
+          <div className="flex items-center gap-4">
+            <div className="flex h-16 w-16 items-center justify-center rounded-[1.25rem] bg-card border border-accent/20 shadow-2xl shadow-accent/10">
+              <ShieldCheck className="h-8 w-8 text-accent" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-gradient">PowerKits</h1>
-              <p className="text-xs text-gray-400">Admin Dashboard</p>
+              <h1 className="text-2xl font-bold font-mono tracking-tight text-foreground">Lovable<span className="text-accent">UltraX</span></h1>
+              <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest mt-1">Operations Center</p>
             </div>
           </div>
         </div>
 
         {/* Login Card */}
-        <Card className="glass border-white/10 shadow-2xl animate-slide-in backdrop-blur-xl">
-          <CardHeader className="space-y-1 pb-8">
-            <CardTitle className="text-2xl text-center">Welcome back</CardTitle>
-            <p className="text-center text-sm text-gray-400">
-              Sign in to manage your licensing system
+        <Card className="bento-card animate-slide-in shadow-2xl shadow-black/50 border-border/80">
+          <CardHeader className="space-y-2 pb-8">
+            <CardTitle className="text-2xl text-center font-mono font-bold tracking-tight">Admin Gateway</CardTitle>
+            <p className="text-center text-sm font-mono text-muted-foreground">
+              Authenticate to access the infrastructure
             </p>
           </CardHeader>
           <CardContent>
-            <form onSubmit={handleLogin} className="space-y-4">
+            <form onSubmit={handleLogin} className="space-y-5">
               {/* Email Input */}
               <div className="space-y-2">
-                <label htmlFor="email" className="text-sm font-medium text-gray-300">
+                <label htmlFor="email" className="text-xs font-bold font-mono text-muted-foreground uppercase tracking-wider">
                   Email Address
                 </label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+                  <Mail className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                   <Input
                     id="email"
                     type="email"
-                    placeholder="admin@powerkits.com"
+                    placeholder="admin@lovable.dev"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="pl-10"
+                    className="pl-11 py-6 bg-secondary/50 border-border rounded-xl focus:border-accent font-mono placeholder:text-muted-foreground/50 transition-colors"
                     required
                   />
                 </div>
@@ -92,24 +93,24 @@ export default function LoginPage() {
 
               {/* Password Input */}
               <div className="space-y-2">
-                <label htmlFor="password" className="text-sm font-medium text-gray-300">
+                <label htmlFor="password" className="text-xs font-bold font-mono text-muted-foreground uppercase tracking-wider">
                   Password
                 </label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+                  <Lock className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                   <Input
                     id="password"
                     type={showPassword ? "text" : "password"}
                     placeholder="••••••••"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="pl-10 pr-10"
+                    className="pl-11 pr-11 py-6 bg-secondary/50 border-border rounded-xl focus:border-accent font-mono placeholder:text-muted-foreground/50 transition-colors"
                     required
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-300 transition-colors"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors p-1"
                   >
                     {showPassword ? (
                       <EyeOff className="h-4 w-4" />
@@ -120,38 +121,20 @@ export default function LoginPage() {
                 </div>
               </div>
 
-              {/* Remember & Forgot */}
-              <div className="flex items-center justify-between text-sm">
-                <label className="flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    className="h-4 w-4 rounded border-white/20 bg-white/5 text-purple-500 focus:ring-purple-500 focus:ring-offset-0"
-                  />
-                  <span className="text-gray-400">Remember me</span>
-                </label>
-                <button
-                  type="button"
-                  className="text-purple-400 hover:text-purple-300 transition-colors"
-                >
-                  Forgot password?
-                </button>
-              </div>
-
               {/* Login Button */}
               <Button
                 type="submit"
-                variant="premium"
-                className="w-full h-11 text-base gap-2"
+                className="w-full h-12 text-sm font-bold font-mono gap-2 rounded-xl bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg hover:shadow-accent/20 transition-all hover-lift mt-2"
                 disabled={loading}
               >
                 {loading ? (
                   <>
-                    <div className="h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    Signing in...
+                    <div className="h-4 w-4 border-2 border-accent-foreground/30 border-t-accent-foreground rounded-full animate-spin" />
+                    Authenticating...
                   </>
                 ) : (
                   <>
-                    Sign In
+                    Authorize Access
                     <ArrowRight className="h-4 w-4" />
                   </>
                 )}
@@ -159,13 +142,13 @@ export default function LoginPage() {
             </form>
 
             {/* Security Notice */}
-            <div className="mt-6 p-4 rounded-lg bg-purple-500/10 border border-purple-500/20">
+            <div className="mt-8 p-4 rounded-xl bg-secondary/50 border border-border/50 group hover:border-accent/30 transition-colors">
               <div className="flex items-start gap-3">
-                <Shield className="h-5 w-5 text-purple-400 mt-0.5" />
+                <Shield className="h-5 w-5 text-accent mt-0.5 group-hover:scale-110 transition-transform" />
                 <div>
-                  <p className="text-sm font-medium text-purple-300">Secure Authentication</p>
-                  <p className="text-xs text-gray-400 mt-1">
-                    Your session is encrypted and protected with advanced security measures.
+                  <p className="text-sm font-bold font-mono text-foreground">Secure Connection</p>
+                  <p className="text-xs font-mono text-muted-foreground mt-1 leading-relaxed">
+                    This session is encrypted. Unauthorized access is strictly prohibited and logged.
                   </p>
                 </div>
               </div>
@@ -174,8 +157,8 @@ export default function LoginPage() {
         </Card>
 
         {/* Footer */}
-        <p className="text-center text-xs text-gray-500 mt-8">
-          © 2024 PowerKits. All rights reserved.
+        <p className="text-center text-[10px] font-mono text-muted-foreground/60 mt-8 uppercase tracking-widest">
+          © {new Date().getFullYear()} Lovable UltraX. All rights reserved.
         </p>
       </div>
     </div>

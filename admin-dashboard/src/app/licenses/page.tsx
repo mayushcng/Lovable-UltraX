@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import AdminGuard from '../../components/AdminGuard';
-import { Plus, Trash2, ShieldAlert, CheckCircle, Search, Edit2, Ban, ShieldCheck, X } from 'lucide-react';
+import { Plus, Trash2, ShieldAlert, CheckCircle, Search, Edit2, Ban, ShieldCheck, X, Key } from 'lucide-react';
 
 interface License {
   id: string;
@@ -319,146 +319,153 @@ export default function LicensesPage() {
 
   return (
     <AdminGuard>
-      <div className="p-8 ml-64 bg-[#070b13] min-h-screen text-slate-200">
-        <div className="flex items-center justify-between mb-8">
+      <div className="space-y-6 animate-fade-in max-w-7xl mx-auto pb-12">
+        {/* Header */}
+        <div className="relative overflow-hidden rounded-[1.5rem] bg-card border border-border p-8 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6 group hover:border-accent/50 transition-colors duration-300">
           <div>
-            <h1 className="text-2xl font-bold text-white tracking-tight">License Management</h1>
-            <p className="text-xs text-slate-400 mt-1">Create and manage license keys for your users</p>
+            <h1 className="text-3xl font-bold font-mono tracking-tight text-foreground mb-2">License Management</h1>
+            <p className="text-muted-foreground font-mono">Create and manage license keys for your users</p>
           </div>
           <button
             onClick={openCreateModal}
-            className="flex items-center gap-2 px-4 py-2.5 bg-brand-600 hover:bg-brand-500 text-xs font-bold rounded-xl text-white transition-all shadow-lg shadow-brand-600/25 active:scale-[0.98]"
+            className="flex items-center gap-2 px-5 py-3 bg-accent hover:bg-accent/90 text-sm font-bold font-mono rounded-xl text-accent-foreground transition-all shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5 active:scale-[0.98]"
           >
             <Plus className="w-4 h-4" />
-            Create License
+            Issue License
           </button>
         </div>
 
         {/* Filters */}
-        <div className="flex gap-4 mb-6">
+        <div className="flex gap-4">
           <div className="flex-1 relative">
-            <Search className="w-4 h-4 text-slate-500 absolute left-4 top-3.5" />
+            <Search className="w-4 h-4 text-muted-foreground absolute left-4 top-4" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by license key, plan name, or notes..."
-              className="w-full pl-11 pr-4 py-3 bg-slate-900/60 border border-slate-800 rounded-xl text-sm placeholder-slate-500 focus:outline-none focus:border-brand-500 transition-all"
+              className="w-full pl-11 pr-4 py-3.5 bg-card border border-border rounded-xl text-sm font-mono placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-all shadow-sm"
             />
           </div>
         </div>
 
         {/* Content */}
         {loading ? (
-          <div className="text-center py-20 text-slate-500 text-sm animate-pulse">Loading licenses...</div>
+          <div className="text-center py-20 text-muted-foreground text-sm font-mono animate-pulse">Loading licenses...</div>
         ) : licenses.length === 0 ? (
-          <div className="text-center py-20 bg-slate-900/20 border border-dashed border-slate-800 rounded-2xl">
-            <span className="text-sm text-slate-500">No licenses found matching your filters.</span>
+          <div className="text-center py-20 bg-secondary/50 border border-dashed border-border rounded-[1.5rem]">
+            <span className="text-sm font-mono text-muted-foreground">No licenses found matching your filters.</span>
           </div>
         ) : (
-          <div className="glass-card rounded-2xl border border-slate-800/80 overflow-hidden">
+          <div className="bento-card overflow-hidden">
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs">
+              <table className="w-full text-left text-sm">
                 <thead>
-                  <tr className="border-b border-slate-800 text-slate-400 font-semibold uppercase tracking-wider">
-                    <th className="py-4 px-6">Customer / Plan</th>
+                  <tr className="border-b border-border/50 bg-secondary/50 text-muted-foreground font-mono font-semibold text-xs uppercase tracking-wider">
+                    <th className="py-4 px-6 whitespace-nowrap">Customer / Plan</th>
                     <th className="py-4 px-6">Status</th>
                     <th className="py-4 px-6">Devices (Used/Max)</th>
                     <th className="py-4 px-6">Expires At</th>
-                    <th className="py-4 px-6">Notes</th>
+                    <th className="py-4 px-6">Notes & Details</th>
                     <th className="py-4 px-6 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-850">
+                <tbody className="divide-y divide-border/50">
                   {licenses.map((lic) => (
-                    <tr key={lic.id} className="hover:bg-slate-900/30 transition-colors">
+                    <tr key={lic.id} className="hover:bg-secondary/30 transition-colors group">
                       <td className="py-4 px-6">
-                        <span className="font-bold text-white block">{lic.customer_name || lic.notes?.split('|')[0]?.trim() || '—'}</span>
-                        <span className="text-[10px] text-slate-400 block">{lic.plan_name || lic.plan}</span>
-                        {lic.customer_email && <span className="text-[10px] text-slate-500 block">{lic.customer_email}</span>}
-                        <span className="text-[10px] text-slate-600 font-mono block mt-0.5">{lic.id.slice(0, 8)}…</span>
+                        <span className="font-semibold text-foreground block">{lic.customer_name || lic.notes?.split('|')[0]?.trim() || '—'}</span>
+                        <div className="flex items-center gap-2 mt-1">
+                          <span className="inline-flex px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-accent/10 text-accent border border-accent/20">
+                            {lic.plan_name || lic.plan}
+                          </span>
+                        </div>
+                        {lic.customer_email && <span className="text-xs text-muted-foreground block mt-1">{lic.customer_email}</span>}
+                        <span className="text-[10px] text-muted-foreground/60 font-mono block mt-1" title={lic.id}>{lic.id.slice(0, 8)}…</span>
                       </td>
                       <td className="py-4 px-6">
-                        <span className={`inline-flex px-2 py-0.5 rounded-full font-semibold text-[10px] uppercase ${
+                        <span className={`inline-flex px-2.5 py-1 rounded-full font-bold text-[10px] font-mono uppercase border ${
                           lic.status === 'active'
-                            ? 'bg-emerald-500/10 text-emerald-400'
+                            ? 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20'
                             : lic.status === 'suspended'
-                            ? 'bg-amber-500/10 text-amber-400'
-                            : 'bg-rose-500/10 text-rose-400'
+                            ? 'bg-amber-500/10 text-amber-500 border-amber-500/20'
+                            : 'bg-destructive/10 text-destructive border-destructive/20'
                         }`}>
                           {lic.status}
                         </span>
                       </td>
-                      <td className="py-4 px-6 font-mono text-slate-300">
-                        {lic.activation_count} / {lic.max_devices}
+                      <td className="py-4 px-6 font-mono text-foreground font-medium">
+                        {lic.activation_count} <span className="text-muted-foreground">/ {lic.max_devices}</span>
                       </td>
-                      <td className="py-4 px-6 text-slate-400">
+                      <td className="py-4 px-6 text-muted-foreground font-mono text-xs">
                         {lic.expires_at ? new Date(lic.expires_at).toLocaleDateString() : 'Never'}
                       </td>
-                      <td className="py-4 px-6 text-slate-400 max-w-xs" title={lic.notes}>
-                        <div className="truncate">{lic.notes || '—'}</div>
+                      <td className="py-4 px-6 text-muted-foreground max-w-xs" title={lic.notes}>
+                        <div className="truncate font-medium">{lic.notes || '—'}</div>
                         {lic.admin_message && (
-                          <div className="text-[10px] text-amber-400 font-semibold mt-1 truncate" title={lic.admin_message}>
+                          <div className="text-[10px] font-mono text-amber-500 font-semibold mt-1 truncate bg-amber-500/10 px-1.5 py-0.5 rounded w-fit" title={lic.admin_message}>
                             📢 {lic.admin_message}
                           </div>
                         )}
                         {lic.support_url && (
-                          <div className="text-[10px] text-indigo-450 font-semibold truncate" title={lic.support_url}>
+                          <div className="text-[10px] font-mono text-blue-500 font-semibold mt-1 truncate bg-blue-500/10 px-1.5 py-0.5 rounded w-fit" title={lic.support_url}>
                             💬 {lic.support_url}
                           </div>
                         )}
                         {lic.support_telegram && (
-                          <div className="text-[10px] text-sky-450 font-semibold truncate" title={lic.support_telegram}>
+                          <div className="text-[10px] font-mono text-sky-500 font-semibold mt-1 truncate bg-sky-500/10 px-1.5 py-0.5 rounded w-fit" title={lic.support_telegram}>
                             ✈️ {lic.support_telegram}
                           </div>
                         )}
                       </td>
-                      <td className="py-4 px-6 text-right space-x-2">
-                        {lic.status === 'active' ? (
+                      <td className="py-4 px-6 text-right">
+                        <div className="flex items-center justify-end gap-1.5 opacity-60 group-hover:opacity-100 transition-opacity">
+                          {lic.status === 'active' ? (
+                            <button
+                              onClick={() => handleStatusUpdate(lic.id, 'suspended')}
+                              title="Suspend Key"
+                              className="p-2 bg-secondary border border-border rounded-lg text-amber-500 hover:bg-amber-500/10 hover:border-amber-500/30 transition-all hover-lift"
+                            >
+                              <Ban className="w-4 h-4" />
+                            </button>
+                          ) : (
+                            <button
+                              onClick={() => handleStatusUpdate(lic.id, 'active')}
+                              title="Activate Key"
+                              className="p-2 bg-secondary border border-border rounded-lg text-emerald-500 hover:bg-emerald-500/10 hover:border-emerald-500/30 transition-all hover-lift"
+                            >
+                              <ShieldCheck className="w-4 h-4" />
+                            </button>
+                          )}
                           <button
-                            onClick={() => handleStatusUpdate(lic.id, 'suspended')}
-                            title="Suspend Key"
-                            className="p-1.5 bg-slate-950 border border-slate-800 rounded-lg text-amber-500 hover:bg-amber-500/10 transition-colors inline-block"
+                            onClick={() => handleResetDevices(lic.id)}
+                            title="Reset All Devices"
+                            className="p-2 bg-secondary border border-border rounded-lg text-amber-500 hover:bg-amber-500/10 hover:border-amber-500/30 transition-all hover-lift"
                           >
-                            <Ban className="w-3.5 h-3.5" />
+                            <Ban className="w-4 h-4" />
                           </button>
-                        ) : (
                           <button
-                            onClick={() => handleStatusUpdate(lic.id, 'active')}
-                            title="Activate Key"
-                            className="p-1.5 bg-slate-950 border border-slate-800 rounded-lg text-emerald-400 hover:bg-emerald-400/10 transition-colors inline-block"
+                            onClick={() => handleRemoveAccess(lic.id)}
+                            title="Remove User Access"
+                            className="p-2 bg-secondary border border-border rounded-lg text-destructive hover:bg-destructive/10 hover:border-destructive/30 transition-all hover-lift"
                           >
-                            <ShieldCheck className="w-3.5 h-3.5" />
+                            <ShieldAlert className="w-4 h-4" />
                           </button>
-                        )}
-                        <button
-                          onClick={() => handleResetDevices(lic.id)}
-                          title="Reset All Devices"
-                          className="p-1.5 bg-slate-950 border border-slate-800 rounded-lg text-amber-400 hover:bg-amber-400/10 transition-colors inline-block"
-                        >
-                          <Ban className="w-3.5 h-3.5" />
-                        </button>
-                        <button
-                          onClick={() => handleRemoveAccess(lic.id)}
-                          title="Remove User Access"
-                          className="p-1.5 bg-slate-950 border border-slate-800 rounded-lg text-rose-500 hover:bg-rose-500/10 transition-colors inline-block"
-                        >
-                          <ShieldAlert className="w-3.5 h-3.5" />
-                        </button>
-                        <button
-                          onClick={() => openEditModal(lic)}
-                          title="Edit Info"
-                          className="p-1.5 bg-slate-950 border border-slate-800 rounded-lg text-blue-400 hover:bg-blue-500/10 transition-colors inline-block"
-                        >
-                          <Edit2 className="w-3.5 h-3.5" />
-                        </button>
-                        <button
-                          onClick={() => handleDelete(lic.id)}
-                          title="Delete Key"
-                          className="p-1.5 bg-slate-950 border border-slate-800 rounded-lg text-rose-500 hover:bg-rose-500/15 transition-colors inline-block"
-                        >
-                          <Trash2 className="w-3.5 h-3.5" />
-                        </button>
+                          <button
+                            onClick={() => openEditModal(lic)}
+                            title="Edit Info"
+                            className="p-2 bg-secondary border border-border rounded-lg text-blue-500 hover:bg-blue-500/10 hover:border-blue-500/30 transition-all hover-lift"
+                          >
+                            <Edit2 className="w-4 h-4" />
+                          </button>
+                          <button
+                            onClick={() => handleDelete(lic.id)}
+                            title="Delete Key"
+                            className="p-2 bg-secondary border border-border rounded-lg text-destructive hover:bg-destructive/10 hover:border-destructive/30 transition-all hover-lift"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   ))}
@@ -468,255 +475,143 @@ export default function LicensesPage() {
           </div>
         )}
 
-        {/* Modal: Create License */}
+        {/* Modal: Create/Edit License Form Overlays */}
         {createModalOpen && (
-          <div className="fixed inset-0 bg-black/60 backdrop-filter backdrop-blur-sm flex items-center justify-center p-4 z-50 overflow-y-auto">
-            <div className="w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl p-6 my-8 max-h-[85vh] overflow-y-auto custom-scrollbar">
+          <div className="fixed inset-0 bg-background/80 backdrop-filter backdrop-blur-sm flex items-center justify-center p-4 z-50 overflow-y-auto">
+            <div className="w-full max-w-md bg-card border border-border shadow-2xl rounded-[1.5rem] p-6 my-8 max-h-[85vh] overflow-y-auto custom-scrollbar animate-slide-in">
               <div className="flex items-center justify-between mb-6">
-                <h3 className="font-bold text-white text-base">Generate New License Key</h3>
-                <button onClick={() => setCreateModalOpen(false)} className="text-slate-500 hover:text-slate-350">
+                <h3 className="font-bold text-foreground font-mono text-lg">Issue New License</h3>
+                <button onClick={() => setCreateModalOpen(false)} className="text-muted-foreground hover:text-foreground transition-colors p-2 rounded-lg hover:bg-secondary">
                   <X className="w-4 h-4" />
                 </button>
               </div>
-              <form onSubmit={handleCreate} className="space-y-4 text-sm">
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wide">Customer Name</label>
-                  <input type="text" value={customerName} onChange={(e) => setCustomerName(e.target.value)} placeholder="John Doe" className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl focus:outline-none focus:border-brand-500" />
+              <form onSubmit={handleCreate} className="space-y-5 text-sm font-mono">
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Customer Name</label>
+                    <input type="text" value={customerName} onChange={(e) => setCustomerName(e.target.value)} placeholder="John Doe" className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-muted-foreground/50" />
+                  </div>
+                  <div>
+                    <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Customer Email</label>
+                    <input type="email" value={customerEmail} onChange={(e) => setCustomerEmail(e.target.value)} placeholder="john@example.com" className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-muted-foreground/50" />
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Plan Name</label>
+                      <input type="text" value={planName} onChange={(e) => setPlanName(e.target.value)} required className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Max Devices</label>
+                      <input type="number" value={maxDevices} onChange={(e) => setMaxDevices(parseInt(e.target.value))} required min={1} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-4 border-t border-border/50 pt-4 mt-2">
+                    <div>
+                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Valid Days</label>
+                      <input type="number" value={customDays} onChange={(e) => handleCustomDaysChange(e.target.value)} placeholder="E.g. 30" min={1} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Valid Mins</label>
+                      <input type="number" value={customMinutes} onChange={(e) => handleCustomMinutesChange(e.target.value)} placeholder="E.g. 60" min={1} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Exact Expiry Date</label>
+                    <input type="datetime-local" value={expiresAt} onChange={(e) => setExpiresAt(e.target.value)} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                  </div>
+
+                  <div className="border-t border-border/50 pt-4 mt-2 space-y-4">
+                    <div>
+                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Global Broadcast Message</label>
+                      <input type="text" value={adminMessage} onChange={(e) => setAdminMessage(e.target.value)} placeholder="Alert for this user..." className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Custom Support URL</label>
+                      <input type="url" value={supportUrl} onChange={(e) => setSupportUrl(e.target.value)} placeholder="https://..." className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Support Telegram</label>
+                      <input type="text" value={supportTelegram} onChange={(e) => setSupportTelegram(e.target.value)} placeholder="@username" className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Internal Admin Notes</label>
+                      <textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={3} placeholder="Private notes..." className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all resize-none" />
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wide">Customer Email</label>
-                  <input type="email" value={customerEmail} onChange={(e) => setCustomerEmail(e.target.value)} placeholder="john@example.com" className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl focus:outline-none focus:border-brand-500" />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wide">Plan</label>
-                  <input
-                    type="text"
-                    value={planName}
-                    onChange={(e) => setPlanName(e.target.value)}
-                    required
-                    className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl focus:outline-none focus:border-brand-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wide">Max Devices</label>
-                  <input
-                    type="number"
-                    value={maxDevices}
-                    onChange={(e) => setMaxDevices(parseInt(e.target.value))}
-                    required
-                    min={1}
-                    className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl focus:outline-none focus:border-brand-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wide">Custom Days (Optional)</label>
-                  <input
-                    type="number"
-                    value={customDays}
-                    onChange={(e) => handleCustomDaysChange(e.target.value)}
-                    placeholder="Enter validity days (e.g. 30)"
-                    min={1}
-                    className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl focus:outline-none focus:border-brand-500 text-slate-200"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wide">Custom Minutes (Optional)</label>
-                  <input
-                    type="number"
-                    value={customMinutes}
-                    onChange={(e) => handleCustomMinutesChange(e.target.value)}
-                    placeholder="Enter validity minutes (e.g. 10)"
-                    min={1}
-                    className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl focus:outline-none focus:border-brand-500 text-slate-200"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wide">Expiration Date (Optional)</label>
-                  <input
-                    type="datetime-local"
-                    value={expiresAt}
-                    onChange={(e) => setExpiresAt(e.target.value)}
-                    className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl focus:outline-none focus:border-brand-500 text-slate-200"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wide">Broadcast Message (Realtime)</label>
-                  <input
-                    type="text"
-                    value={adminMessage}
-                    onChange={(e) => setAdminMessage(e.target.value)}
-                    placeholder="E.g., System updates, warning banner..."
-                    className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl focus:outline-none focus:border-brand-500 text-slate-200"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wide">Custom Support URL (Realtime)</label>
-                  <input
-                    type="url"
-                    value={supportUrl}
-                    onChange={(e) => setSupportUrl(e.target.value)}
-                    placeholder="E.g., https://t.me/your_support"
-                    className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl focus:outline-none focus:border-brand-500 text-slate-200"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wide">Support Telegram Username / Link</label>
-                  <input
-                    type="text"
-                    value={supportTelegram}
-                    onChange={(e) => setSupportTelegram(e.target.value)}
-                    placeholder="E.g., @username or https://t.me/username"
-                    className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl focus:outline-none focus:border-brand-500 text-slate-200"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wide">Admin Notes</label>
-                  <textarea
-                    value={notes}
-                    onChange={(e) => setNotes(e.target.value)}
-                    rows={3}
-                    placeholder="E.g. customer name, reseller ref..."
-                    className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl focus:outline-none focus:border-brand-500"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full py-2.5 bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-xl transition-colors"
-                >
-                  Generate Key
+
+                <button type="submit" className="w-full mt-6 py-3.5 bg-accent hover:bg-accent/90 text-accent-foreground font-bold font-mono rounded-xl transition-all shadow-lg hover:-translate-y-0.5">
+                  Generate License Key
                 </button>
               </form>
             </div>
           </div>
         )}
 
-        {/* Modal: Edit License */}
+        {/* Modal: Edit License (Similar to Create) */}
         {editModalOpen && (
-          <div className="fixed inset-0 bg-black/60 backdrop-filter backdrop-blur-sm flex items-center justify-center p-4 z-50 overflow-y-auto">
-            <div className="w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl p-6 my-8 max-h-[85vh] overflow-y-auto custom-scrollbar">
+          <div className="fixed inset-0 bg-background/80 backdrop-filter backdrop-blur-sm flex items-center justify-center p-4 z-50 overflow-y-auto">
+            <div className="w-full max-w-md bg-card border border-border shadow-2xl rounded-[1.5rem] p-6 my-8 max-h-[85vh] overflow-y-auto custom-scrollbar animate-slide-in">
               <div className="flex items-center justify-between mb-6">
-                <h3 className="font-bold text-white text-base">Edit License Details</h3>
-                <button onClick={() => setEditModalOpen(false)} className="text-slate-500 hover:text-slate-350">
+                <h3 className="font-bold text-foreground font-mono text-lg">Edit License</h3>
+                <button onClick={() => setEditModalOpen(false)} className="text-muted-foreground hover:text-foreground transition-colors p-2 rounded-lg hover:bg-secondary">
                   <X className="w-4 h-4" />
                 </button>
               </div>
-              <form onSubmit={handleEdit} className="space-y-4 text-sm">
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wide">Customer Name</label>
-                  <input type="text" value={customerName} onChange={(e) => setCustomerName(e.target.value)} className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl focus:outline-none focus:border-brand-500" />
+              <form onSubmit={handleEdit} className="space-y-5 text-sm font-mono">
+                <div className="space-y-4">
+                  {/* Shared fields with Create Modal (styled identically) */}
+                  <div>
+                    <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Customer Name</label>
+                    <input type="text" value={customerName} onChange={(e) => setCustomerName(e.target.value)} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent transition-all" />
+                  </div>
+                  <div>
+                    <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Customer Email</label>
+                    <input type="email" value={customerEmail} onChange={(e) => setCustomerEmail(e.target.value)} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent transition-all" />
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-4 border-t border-border/50 pt-4 mt-2">
+                    <div>
+                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Plan Name</label>
+                      <input type="text" value={planName} onChange={(e) => setPlanName(e.target.value)} required className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent transition-all" />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Status</label>
+                      <select value={status} onChange={(e) => setStatus(e.target.value)} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent transition-all">
+                        <option value="active">Active</option>
+                        <option value="suspended">Suspended</option>
+                        <option value="revoked">Revoked</option>
+                        <option value="expired">Expired</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Max Devices</label>
+                      <input type="number" value={maxDevices} onChange={(e) => setMaxDevices(parseInt(e.target.value))} required min={1} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent transition-all" />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Add Days</label>
+                      <input type="number" value={customDays} onChange={(e) => handleCustomDaysChange(e.target.value)} placeholder="E.g. 30" min={1} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent transition-all" />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Exact Expiry Date</label>
+                    <input type="datetime-local" value={expiresAt} onChange={(e) => setExpiresAt(e.target.value)} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent transition-all" />
+                  </div>
+
+                  <div className="border-t border-border/50 pt-4 mt-2 space-y-4">
+                    <div>
+                      <label className="block text-[11px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Internal Admin Notes</label>
+                      <textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={3} className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-accent transition-all resize-none" />
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wide">Customer Email</label>
-                  <input type="email" value={customerEmail} onChange={(e) => setCustomerEmail(e.target.value)} className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl focus:outline-none focus:border-brand-500" />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wide">Plan</label>
-                  <input
-                    type="text"
-                    value={planName}
-                    onChange={(e) => setPlanName(e.target.value)}
-                    required
-                    className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl focus:outline-none focus:border-brand-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wide">Max Devices</label>
-                  <input
-                    type="number"
-                    value={maxDevices}
-                    onChange={(e) => setMaxDevices(parseInt(e.target.value))}
-                    required
-                    min={1}
-                    className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl focus:outline-none focus:border-brand-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wide">Custom Days (Optional)</label>
-                  <input
-                    type="number"
-                    value={customDays}
-                    onChange={(e) => handleCustomDaysChange(e.target.value)}
-                    placeholder="Enter validity days (e.g. 30)"
-                    min={1}
-                    className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl focus:outline-none focus:border-brand-500 text-slate-200"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wide">Custom Minutes (Optional)</label>
-                  <input
-                    type="number"
-                    value={customMinutes}
-                    onChange={(e) => handleCustomMinutesChange(e.target.value)}
-                    placeholder="Enter validity minutes (e.g. 10)"
-                    min={1}
-                    className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl focus:outline-none focus:border-brand-500 text-slate-200"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wide">Expiration Date (Optional)</label>
-                  <input
-                    type="datetime-local"
-                    value={expiresAt}
-                    onChange={(e) => setExpiresAt(e.target.value)}
-                    className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl focus:outline-none focus:border-brand-500 text-slate-200"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wide">Status</label>
-                  <select
-                    value={status}
-                    onChange={(e) => setStatus(e.target.value)}
-                    className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl focus:outline-none focus:border-brand-500 text-slate-200"
-                  >
-                    <option value="active">Active</option>
-                    <option value="suspended">Suspended / Inactive</option>
-                    <option value="revoked">Revoked</option>
-                    <option value="expired">Expired</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wide">Broadcast Message (Realtime)</label>
-                  <input
-                    type="text"
-                    value={adminMessage}
-                    onChange={(e) => setAdminMessage(e.target.value)}
-                    placeholder="E.g., System updates, warning banner..."
-                    className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl focus:outline-none focus:border-brand-500 text-slate-200"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wide">Custom Support URL (Realtime)</label>
-                  <input
-                    type="url"
-                    value={supportUrl}
-                    onChange={(e) => setSupportUrl(e.target.value)}
-                    placeholder="E.g., https://t.me/your_support"
-                    className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl focus:outline-none focus:border-brand-500 text-slate-200"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wide">Support Telegram Username / Link</label>
-                  <input
-                    type="text"
-                    value={supportTelegram}
-                    onChange={(e) => setSupportTelegram(e.target.value)}
-                    placeholder="E.g., @username or https://t.me/username"
-                    className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl focus:outline-none focus:border-brand-500 text-slate-200"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wide">Admin Notes</label>
-                  <textarea
-                    value={notes}
-                    onChange={(e) => setNotes(e.target.value)}
-                    rows={3}
-                    className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl focus:outline-none focus:border-brand-500"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full py-2.5 bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-xl transition-colors"
-                >
+
+                <button type="submit" className="w-full mt-6 py-3.5 bg-accent hover:bg-accent/90 text-accent-foreground font-bold font-mono rounded-xl transition-all shadow-lg hover:-translate-y-0.5">
                   Save Changes
                 </button>
               </form>
@@ -726,15 +621,20 @@ export default function LicensesPage() {
 
         {/* Modal: Display Generated Key */}
         {keyModalOpen && (
-          <div className="fixed inset-0 bg-black/60 backdrop-filter backdrop-blur-sm flex items-center justify-center p-4 z-50 overflow-y-auto">
-            <div className="w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-2xl my-8 max-h-[85vh] overflow-y-auto custom-scrollbar">
-              <h3 className="font-bold text-white text-base text-center">New License Key Created!</h3>
-              <p className="text-xs text-slate-400 text-center mt-2">
-                Copy this key now. It is only displayed once and is encrypted in our database.
+          <div className="fixed inset-0 bg-background/80 backdrop-filter backdrop-blur-sm flex items-center justify-center p-4 z-50 overflow-y-auto">
+            <div className="w-full max-w-md bg-card border border-border rounded-[1.5rem] p-8 shadow-2xl my-8 animate-slide-in">
+              <div className="flex justify-center mb-4">
+                <div className="w-16 h-16 rounded-full bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20">
+                  <Key className="w-8 h-8 text-emerald-500" />
+                </div>
+              </div>
+              <h3 className="font-bold text-foreground font-mono text-xl text-center">License Created</h3>
+              <p className="text-xs text-muted-foreground text-center mt-2 font-mono">
+                Copy this key now. It is encrypted in our database and cannot be retrieved later.
               </p>
               
-              <div className="my-6 p-4 bg-slate-950 border border-slate-800 rounded-xl text-center">
-                <span className="font-mono font-bold text-lg text-white select-all select-text tracking-wider">{generatedKey}</span>
+              <div className="my-8 p-6 bg-secondary border border-border rounded-xl text-center shadow-inner group hover:border-accent/50 transition-colors cursor-text">
+                <span className="font-mono font-bold text-xl text-foreground select-all tracking-wider">{generatedKey}</span>
               </div>
 
               <div className="flex gap-4">
@@ -743,13 +643,13 @@ export default function LicensesPage() {
                     navigator.clipboard.writeText(generatedKey);
                     alert('Copied to clipboard!');
                   }}
-                  className="flex-1 py-2.5 bg-slate-950 border border-slate-800 hover:bg-slate-850 font-semibold rounded-xl text-xs transition-colors"
+                  className="flex-1 py-3 bg-secondary border border-border hover:bg-secondary/80 font-bold font-mono rounded-xl text-sm transition-all hover-lift"
                 >
                   Copy Key
                 </button>
                 <button
                   onClick={() => setKeyModalOpen(false)}
-                  className="flex-1 py-2.5 bg-brand-600 hover:bg-brand-500 font-semibold rounded-xl text-xs text-white transition-colors"
+                  className="flex-1 py-3 bg-accent hover:bg-accent/90 font-bold font-mono rounded-xl text-sm text-accent-foreground transition-all hover-lift shadow-lg hover:shadow-accent/25"
                 >
                   Done
                 </button>

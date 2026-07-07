@@ -1,14 +1,24 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Fira_Sans, Fira_Code } from 'next/font/google'
 import './globals.css'
 import { Sidebar } from '@/components/layout/sidebar'
 import { Header } from '@/components/layout/header'
 
-const inter = Inter({ subsets: ['latin'] })
+const firaSans = Fira_Sans({ 
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-fira-sans'
+})
+
+const firaCode = Fira_Code({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-fira-code'
+})
 
 export const metadata: Metadata = {
-  title: 'PowerKits Admin - Licensing Dashboard',
-  description: 'Professional Chrome Extension Licensing System',
+  title: 'Lovable UltraX Admin',
+  description: 'Premium SaaS Dashboard',
 }
 
 export default function RootLayout({
@@ -18,8 +28,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className={inter.className}>
-        <div className="flex h-screen overflow-hidden animated-bg">
+      <body className={`${firaSans.variable} ${firaCode.variable} font-sans`}>
+        <div className="flex h-screen overflow-hidden bg-background">
           <Sidebar />
           <div className="flex flex-1 flex-col overflow-hidden">
             <Header />
