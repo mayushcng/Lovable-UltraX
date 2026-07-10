@@ -160,13 +160,13 @@ function templateMainUI(greeting, statusBadge, minimized) {
       '<span class="ql-shortcuts-title">QUICK SHORTCUTS</span>' +
       '<div class="ql-shortcuts-grid" id="ql-chips"></div>' +
     '</div>' +
-    '<button id="ql-remove-watermark" class="ql-watermark-btn">Remove Watermark</button>' +
     '<button id="ql-shield-btn" class="ql-shield-btn">' +
       '<span id="ql-shield-label">Enable Shield</span>' +
     '</button>' +
     '<button id="ql-native-chat-btn" class="ql-native-chat-btn">' +
       SVG_ICONS.msgSquare + ' Use Native Chat' +
     '</button>' +
+    '<button id="ql-remove-watermark" class="ql-watermark-btn">Remove Watermark</button>' +
     '<button id="ql-download-project" class="ql-watermark-btn sp-btn-feature sp-btn-download">Download Source Code</button>' +
     '<button id="ql-quick-init" class="ql-watermark-btn sp-btn-feature sp-btn-quick-init">Create New Project</button>' +
     '<button id="ql-publish-project" class="ql-watermark-btn sp-btn-feature sp-btn-publish">🌐 Publish Project</button>' +

@@ -191,8 +191,73 @@ chrome.storage.local.get(["ql_session_id", "ql_hw_fingerprint", "ql_license_key"
   }
 });
 
-// Periodic heartbeat verify checks (every 5 minutes)
-var HEARTBEAT_INTERVAL_MS = 5 * 60 * 1000;
+// Periodic heartbeat verify checks (every 2 minutes) + sends device heartbeat to server
+var HEARTBEAT_INTERVAL_MS = 2 * 60 * 1000;
+var _heartbeatStartTime = Date.now();
+
+async function sendDeviceHeartbeat() {
+  try {
+    var stored = await new Promise(function (resolve) {
+      chrome.storage.local.get([
+        "ql_session_id", "ql_hw_fingerprint", "ql_license_key",
+        "ql_device_id", "ql_composite_id"
+      ], resolve);
+    });
+
+    var sessionId = stored.ql_session_id || "";
+    var deviceId = stored.ql_device_id || stored.ql_hw_fingerprint || "";
+    var hwFingerprint = stored.ql_hw_fingerprint || "";
+    var compositeId = stored.ql_composite_id || "";
+    var licenseKey = stored.ql_license_key || "";
+
+    if (!sessionId && !licenseKey) return;
+
+    // Send heartbeat to new endpoint
+    var apiBase = "https://lovable-ultra-x.vercel.app";
+    var uptimeMinutes = Math.round((Date.now() - _heartbeatStartTime) / 60000);
+
+    fetch(apiBase + "/api/extension/heartbeat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        session_id: sessionId,
+        device_id: deviceId,
+        hw_fingerprint: hwFingerprint,
+        composite_id: compositeId,
+        license_key: licenseKey,
+        status: "active",
+        extension_version: chrome.runtime.getManifest().version || "",
+        os_platform: navigator.platform || "",
+        uptime_minutes: uptimeMinutes
+      })
+    }).then(function (resp) {
+      return resp.json();
+    }).then(function (data) {
+      // Check for kill signals from server
+      if (data && data.killed) {
+        console.warn("[Background] Kill signal received:", data.message);
+        logoutLicense();
+        // Broadcast kill to all tabs
+        chrome.tabs.query({ url: ["*://lovable.dev/*", "*://*.lovable.dev/*"] }, function (tabs) {
+          (tabs || []).forEach(function (tab) {
+            if (tab.id) {
+              chrome.tabs.sendMessage(tab.id, {
+                type: "LUX_GLOBAL_DISABLE_STATE",
+                disabled: true,
+                message: data.message || "License revoked by administrator."
+              }).catch(function () {});
+            }
+          });
+        });
+      }
+    }).catch(function () {
+      // Heartbeat failed silently — don't disrupt user
+    });
+  } catch (e) {
+    // Silent
+  }
+}
+
 setInterval(function () {
   chrome.storage.local.get(["ql_session_id", "ql_hw_fingerprint", "ql_license_key"], function (res) {
     var token = res.ql_session_id || "";
@@ -235,7 +300,13 @@ setInterval(function () {
       logoutLicense();
     }
   });
+
+  // Also send device heartbeat
+  sendDeviceHeartbeat();
 }, HEARTBEAT_INTERVAL_MS);
+
+// Send initial heartbeat on startup
+setTimeout(sendDeviceHeartbeat, 5000);
 
 // --- Standard Extension Logic ---
 
@@ -438,7 +509,7 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 
 async function enableActionSidePanel() {
   try {
-    await chrome.sidePanel.setOptions({ path: "sidepanel.html", enabled: true });
+    await chrome.sidePanel.setOptions({ path: "react-ui/index.html", enabled: true });
   } catch (err) {
     console.warn("[Background] sidePanel.setOptions:", err && err.message ? err.message : err);
   }

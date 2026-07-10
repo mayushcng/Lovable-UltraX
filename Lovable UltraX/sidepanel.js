@@ -4,6 +4,20 @@
 // ============================================================
 
 (function(){
+  // --- PREVIEW MODE MOCK ---
+  if (typeof chrome === 'undefined') {
+    window.chrome = {
+      storage: { local: { get: (keys, cb) => { if(cb) cb({}) }, set: (obj, cb) => { if(cb) cb() } }, onChanged: { addListener: () => {}, removeListener: () => {} } },
+      runtime: { sendMessage: (msg, cb) => { if(cb) cb({ok:true, data:{valid:true, session_id:'mock'}}) }, lastError: null, id: "mock" },
+      tabs: { query: (q, cb) => { if(cb) cb([{id: 1}]) }, sendMessage: (id, msg, cb) => { if(cb) cb({ok:true}) } }
+    };
+    // Force show Main UI after a brief delay for preview
+    // Just set a dummy timeout so the script completes without error
+    setTimeout(() => {
+       // DO NOT overwrite body.innerHTML, let the hardcoded sidepanel.html display!
+    }, 500);
+  }
+
   try { chrome.storage.local.set({ ql_sidebar_mode: true }); } catch (e) {}
 
   const API_BASE = typeof POWERKITS_API_BASE !== "undefined" ? POWERKITS_API_BASE : GRINGOW_API_BASE;

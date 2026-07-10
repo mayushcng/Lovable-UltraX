@@ -10,12 +10,14 @@ import {
   Activity, 
   Settings, 
   LogOut,
-  ShieldCheck
+  ShieldCheck,
+  Users
 } from "lucide-react"
 
 const navigation = [
   { name: "Dashboard", href: "/", icon: LayoutDashboard },
   { name: "Licenses", href: "/licenses", icon: Key },
+  { name: "Active Users", href: "/active-users", icon: Users },
   { name: "Devices", href: "/devices", icon: Smartphone },
   { name: "Activity", href: "/activity", icon: Activity },
   { name: "Settings", href: "/settings", icon: Settings },

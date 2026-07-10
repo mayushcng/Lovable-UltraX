@@ -107,18 +107,25 @@ export default function DashboardPage() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {stats.map((stat, index) => {
           const Icon = stat.icon
+          const isCredits = stat.title === "Total Credits Saved";
+          
           return (
-            <Card key={index} className="bento-card group">
-              <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
-                <CardTitle className="text-sm font-medium font-mono text-muted-foreground">
+            <Card key={index} className={`bento-card group relative overflow-hidden transition-all duration-500 ${isCredits ? 'border-amber-500/50 shadow-[0_0_30px_-5px_rgba(245,158,11,0.2)] hover:shadow-[0_0_40px_-5px_rgba(245,158,11,0.4)] hover:-translate-y-1' : ''}`}>
+              {isCredits && (
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 via-orange-500/5 to-transparent pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+              )}
+              <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0 relative z-10">
+                <CardTitle className={`text-sm font-medium font-mono ${isCredits ? 'text-amber-500 font-bold tracking-wide' : 'text-muted-foreground'}`}>
                   {stat.title}
                 </CardTitle>
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-secondary group-hover:bg-accent/10 transition-colors">
-                  <Icon className="h-5 w-5 text-muted-foreground group-hover:text-accent transition-colors" />
+                <div className={`flex h-10 w-10 items-center justify-center rounded-xl transition-colors duration-300 ${isCredits ? 'bg-amber-500/20 group-hover:bg-amber-500/30' : 'bg-secondary group-hover:bg-accent/10'}`}>
+                  <Icon className={`h-5 w-5 transition-all duration-300 ${isCredits ? 'text-amber-500 group-hover:text-amber-400 group-hover:scale-110 drop-shadow-[0_0_8px_rgba(245,158,11,0.8)]' : 'text-muted-foreground group-hover:text-accent'}`} />
                 </div>
               </CardHeader>
-              <CardContent>
-                <div className="text-3xl font-bold font-mono text-foreground mb-1">{stat.value}</div>
+              <CardContent className="relative z-10">
+                <div className={`text-3xl font-bold font-mono mb-1 ${isCredits ? 'text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500 drop-shadow-sm' : 'text-foreground'}`}>
+                  {isCredits && stat.value !== "0" ? `+${stat.value}` : stat.value}
+                </div>
                 {stat.change && (
                   <div className="flex items-center gap-1 text-xs font-mono">
                     <TrendingUp className="h-3 w-3 text-emerald-500" />

@@ -38,6 +38,19 @@ export async function GET(request: Request) {
 
     const totalCreditsSaved = creditsData?.reduce((acc, curr) => acc + (curr.credits_saved || 0), 0) || 0;
 
+    // Count active users (heartbeat within last 3 minutes)
+    let activeUsersNow = 0;
+    try {
+      const threeMinAgo = new Date(Date.now() - 3 * 60 * 1000).toISOString();
+      const { count: onlineCount } = await supabase
+        .from('license_devices')
+        .select('*', { count: 'exact', head: true })
+        .gte('last_seen_at', threeMinAgo);
+      activeUsersNow = onlineCount || 0;
+    } catch {
+      // Table may not exist yet
+    }
+
     // Get recent activity (recent licenses created)
     const { data: recentEvents } = await supabase
       .from('licenses')
@@ -55,6 +68,7 @@ export async function GET(request: Request) {
         expired: expiredLicenses || 0,
         devices: deviceCount || 0,
         credits_saved: totalCreditsSaved,
+        active_users_now: activeUsersNow,
       },
       recentEvents: recentEvents || [],
     });

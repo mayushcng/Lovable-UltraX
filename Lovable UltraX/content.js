@@ -1911,10 +1911,23 @@ function saveChatHistory() {
   chrome.storage.local.set({ [QL_HISTORY_KEY]: qlChatHistory });
 }
 
+var _qlLastHistoryText = '';
+var _qlLastHistoryTime = 0;
+
 function addToChatHistory(text, status) {
+  if (!text || !text.trim()) return;
+  text = text.trim();
+  // Dedup: skip if same text was saved within the last 500ms
+  var now = Date.now();
+  if (text === _qlLastHistoryText && (now - _qlLastHistoryTime) < 500) return;
+  _qlLastHistoryText = text;
+  _qlLastHistoryTime = now;
   qlChatHistory.push({ text: text, timestamp: new Date().toISOString(), status: status || 'ok' });
   saveChatHistory();
   updateHistoryBadge();
+  if (typeof qlActiveTab !== 'undefined' && qlActiveTab === 'history') {
+    renderHistoryView();
+  }
 }
 
 function updateHistoryBadge() {
@@ -2756,6 +2769,17 @@ function deactivateNativeChat() {
   }
 }
 
+function getNativeChatText() {
+  var form = document.querySelector('form#chat-input');
+  if (!form) return '';
+  var editor = form.querySelector('[contenteditable="true"]')
+    || form.querySelector('.tiptap')
+    || form.querySelector('.ProseMirror')
+    || form.querySelector('textarea');
+  if (!editor) return '';
+  return (editor.value || editor.innerText || editor.textContent || '').trim();
+}
+
 function injectNativeChatOverlay() {
   // Wait for chat form to exist
   const chatForm = document.querySelector("form#chat-input");
@@ -2772,7 +2796,7 @@ function injectNativeChatOverlay() {
     const badge = document.createElement("div");
     badge.id = "ql-native-badge";
     badge.className = "ql-native-badge";
-    badge.innerHTML = "⚡ <span>Lovable UltraX</span>";
+    badge.innerHTML = "⚡ <span>LOVABLE ULTRAX</span>";
     chatForm.appendChild(badge);
   }
 
@@ -2781,7 +2805,7 @@ function injectNativeChatOverlay() {
     const returnBtn = document.createElement("button");
     returnBtn.id = "ql-native-return-btn";
     returnBtn.className = "ql-native-return-btn";
-    returnBtn.innerHTML = "← Return to Extension";
+    returnBtn.innerHTML = "← Back to Lovable UltraX";
     returnBtn.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
@@ -2796,38 +2820,70 @@ function injectNativeChatOverlay() {
     sendBtn.classList.add("ql-native-send-active");
   }
 
-  // History tracking only — Lovable native send proceeds (pageHook applies credit bypass).
-  function interceptSend() {
-    if (!qlNativeChatActive) return;
-    const editor = chatForm.querySelector('[contenteditable="true"]');
-    const text = editor ? (editor.innerText || editor.textContent || "").trim() : "";
-    if (text) addToChatHistory(text, "ok");
+  // --- History tracking (matches LAST ZONE approach) ---
+  // Continuously track latest input value so we never lose it
+  if (!window._qlNativeInputTracker) {
+    window._qlLastNativeInput = '';
+    window._qlNativeInputTracker = setInterval(function() {
+      if (!qlNativeChatActive) return;
+      var t = getNativeChatText();
+      if (t) window._qlLastNativeInput = t;
+    }, 80);
   }
 
-  function interceptSubmit() {
+  function saveNativePrompt() {
     if (!qlNativeChatActive) return;
-    const editor = chatForm.querySelector('[contenteditable="true"]');
-    const text = editor ? (editor.innerText || editor.textContent || "").trim() : "";
-    if (text) addToChatHistory(text, "ok");
-  }
-
-  function interceptKeydown(e) {
-    if (!qlNativeChatActive) return;
-    if (e.key === "Enter" && !e.shiftKey) {
-      const editor = chatForm.querySelector('[contenteditable="true"]');
-      const text = editor ? (editor.innerText || editor.textContent || "").trim() : "";
-      if (text) addToChatHistory(text, "ok");
+    var text = getNativeChatText() || window._qlLastNativeInput || '';
+    if (text) {
+      addToChatHistory(text, 'ok');
+      window._qlLastNativeInput = '';
     }
   }
 
-  if (sendBtn) sendBtn.addEventListener("click", interceptSend, true);
-  chatForm.addEventListener("submit", interceptSubmit, true);
-  chatForm.addEventListener("keydown", interceptKeydown, true);
+  // Form-level listeners (capture phase) — LAST ZONE uses click+keydown on form, NOT submit
+  function interceptSend() { saveNativePrompt(); }
+  function interceptFormClick() { saveNativePrompt(); }
+  function interceptKeydown(e) {
+    if (e.key === 'Enter' && !e.shiftKey) saveNativePrompt();
+  }
+
+  if (sendBtn) sendBtn.addEventListener('click', interceptSend, true);
+  chatForm.addEventListener('click', interceptFormClick, true);
+  chatForm.addEventListener('keydown', interceptKeydown, true);
+
+  // Document-level backup listeners (capture phase) — catches events React may prevent
+  if (!window._qlDocNativeListeners) {
+    window._qlDocNativeListeners = true;
+    document.addEventListener('keydown', function(e) {
+      if (!qlNativeChatActive) return;
+      if (e.key === 'Enter' && !e.shiftKey) {
+        var t = getNativeChatText() || window._qlLastNativeInput || '';
+        if (t) { addToChatHistory(t, 'ok'); window._qlLastNativeInput = ''; }
+      }
+    }, true);
+    document.addEventListener('click', function(e) {
+      if (!qlNativeChatActive) return;
+      var el = e.target;
+      if (el && el.closest && (
+        el.closest('#chatinput-send-message-button') ||
+        el.closest('button[type="submit"]') ||
+        el.closest('.ql-native-send-active')
+      )) {
+        var t = getNativeChatText() || window._qlLastNativeInput || '';
+        if (t) { addToChatHistory(t, 'ok'); window._qlLastNativeInput = ''; }
+      }
+    }, true);
+    document.addEventListener('submit', function(e) {
+      if (!qlNativeChatActive) return;
+      var t = getNativeChatText() || window._qlLastNativeInput || '';
+      if (t) { addToChatHistory(t, 'ok'); window._qlLastNativeInput = ''; }
+    }, true);
+  }
 
   qlNativeChatCleanup = function() {
-    if (sendBtn) sendBtn.removeEventListener("click", interceptSend, true);
-    chatForm.removeEventListener("submit", interceptSubmit, true);
-    chatForm.removeEventListener("keydown", interceptKeydown, true);
+    if (sendBtn) sendBtn.removeEventListener('click', interceptSend, true);
+    chatForm.removeEventListener('click', interceptFormClick, true);
+    chatForm.removeEventListener('keydown', interceptKeydown, true);
   };
 }
 

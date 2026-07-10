@@ -10,58 +10,58 @@
   --ql-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --ql-font-mono: 'JetBrains Mono', monospace;
 
-  /* Deep Space Background */
-  --ql-bg: #0a0b14;
-  --ql-bg-elevated: #12131f;
-  --ql-bg-surface: #1a1b2e;
-  --ql-bg-hover: #252741;
+  /* Deep Space Background (OLED Dark) */
+  --ql-bg: #020617; /* Slate 950 */
+  --ql-bg-elevated: #0F172A; /* Slate 900 */
+  --ql-bg-surface: #1E293B; /* Slate 800 */
+  --ql-bg-hover: #334155; /* Slate 700 */
   
   /* Glassmorphic Layers */
-  --ql-glass: rgba(18, 19, 31, 0.75);
-  --ql-glass-light: rgba(26, 27, 46, 0.6);
-  --ql-overlay: rgba(10, 11, 20, 0.92);
+  --ql-glass: rgba(15, 23, 42, 0.75);
+  --ql-glass-light: rgba(30, 41, 59, 0.6);
+  --ql-overlay: rgba(2, 6, 23, 0.95);
   
   /* Neon Borders */
-  --ql-border: rgba(139, 92, 246, 0.15);
-  --ql-border-hover: rgba(139, 92, 246, 0.4);
-  --ql-border-glow: rgba(139, 92, 246, 0.6);
+  --ql-border: rgba(255, 255, 255, 0.1);
+  --ql-border-hover: rgba(255, 255, 255, 0.25);
+  --ql-border-glow: rgba(220, 38, 38, 0.6); /* Red glow */
   
   /* Text Colors */
-  --ql-text-primary: #ffffff;
-  --ql-text-secondary: #cbd5e1;
-  --ql-text-muted: #64748b;
+  --ql-text-primary: #FFFFFF;
+  --ql-text-secondary: #94A3B8; /* Slate 400 */
+  --ql-text-muted: #64748B; /* Slate 500 */
   
-  /* Accent Colors - Purple/Cyan/Pink Gradient */
-  --ql-accent: #8b5cf6;
-  --ql-accent-hover: #a78bfa;
-  --ql-accent-cyan: #06b6d4;
-  --ql-accent-pink: #ec4899;
-  --ql-accent-glow: rgba(139, 92, 246, 0.3);
-  --ql-accent-subtle: rgba(139, 92, 246, 0.1);
-  --ql-link: #a78bfa;
+  /* Accent Colors - Premium Dark + Action Red */
+  --ql-accent: #DC2626; /* Red 600 */
+  --ql-accent-hover: #EF4444; /* Red 500 */
+  --ql-accent-cyan: #7F1D1D; /* Deep Red */
+  --ql-accent-pink: #F87171; /* Bright Red */
+  --ql-accent-glow: rgba(220, 38, 38, 0.3);
+  --ql-accent-subtle: rgba(220, 38, 38, 0.1);
+  --ql-link: #F87171;
   
   /* Premium Gradients */
-  --ql-gradient-primary: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 50%, #ec4899 100%);
-  --ql-gradient-shimmer: linear-gradient(90deg, #06b6d4, #8b5cf6, #ec4899, #8b5cf6, #06b6d4);
-  --ql-gradient-glass: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(236, 72, 153, 0.1) 100%);
+  --ql-gradient-primary: linear-gradient(135deg, #DC2626 0%, #991B1B 100%);
+  --ql-gradient-shimmer: linear-gradient(90deg, #991B1B, #DC2626, #F87171, #DC2626, #991B1B);
+  --ql-gradient-glass: linear-gradient(135deg, rgba(220, 38, 38, 0.15) 0%, rgba(153, 27, 27, 0.1) 100%);
   
   /* Status Colors */
-  --ql-success: #10b981;
+  --ql-success: #10B981;
   --ql-success-bg: rgba(16, 185, 129, 0.1);
-  --ql-warning: #f59e0b;
+  --ql-warning: #F59E0B;
   --ql-warning-bg: rgba(245, 158, 11, 0.1);
-  --ql-danger: #ef4444;
+  --ql-danger: #EF4444;
   --ql-danger-bg: rgba(239, 68, 68, 0.1);
   
   /* Spacing & Borders */
-  --ql-radius: 16px;
-  --ql-radius-sm: 12px;
-  --ql-radius-xs: 8px;
+  --ql-radius: 12px;
+  --ql-radius-sm: 8px;
+  --ql-radius-xs: 6px;
   
   /* Shadows */
-  --ql-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
-  --ql-shadow-hover: 0 20px 50px -12px rgba(139, 92, 246, 0.25), 0 0 0 1px rgba(139, 92, 246, 0.2) inset;
-  --ql-shadow-glow: 0 0 30px rgba(139, 92, 246, 0.4), 0 0 60px rgba(139, 92, 246, 0.2);
+  --ql-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  --ql-shadow-hover: 0 20px 50px -12px rgba(220, 38, 38, 0.25), 0 0 0 1px rgba(220, 38, 38, 0.2) inset;
+  --ql-shadow-glow: 0 0 30px rgba(220, 38, 38, 0.4), 0 0 60px rgba(220, 38, 38, 0.2);
   
   /* Animation */
   --ql-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);

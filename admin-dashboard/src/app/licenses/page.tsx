@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import AdminGuard from '../../components/AdminGuard';
-import { Plus, Trash2, ShieldAlert, CheckCircle, Search, Edit2, Ban, ShieldCheck, X, Key } from 'lucide-react';
+import { Plus, Trash2, ShieldAlert, CheckCircle, Search, Edit2, Ban, ShieldCheck, X, Key, Zap } from 'lucide-react';
 
 interface License {
   id: string;
@@ -382,8 +382,17 @@ export default function LicensesPage() {
                       <td className="py-4 px-6 font-mono text-foreground font-medium">
                         {lic.activation_count} <span className="text-muted-foreground">/ {lic.max_devices}</span>
                       </td>
-                      <td className="py-4 px-6 font-mono text-emerald-500 font-bold">
-                        {lic.credits_saved !== undefined && lic.credits_saved !== null ? lic.credits_saved.toLocaleString() : '0'}
+                      <td className="py-4 px-6 font-mono">
+                        {lic.credits_saved !== undefined && lic.credits_saved !== null && lic.credits_saved > 0 ? (
+                          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/20 shadow-[0_0_15px_-3px_rgba(245,158,11,0.3)] hover:shadow-[0_0_20px_-3px_rgba(245,158,11,0.5)] transition-shadow">
+                            <Zap className="w-3.5 h-3.5 text-amber-500 animate-pulse" />
+                            <span className="text-amber-500 font-bold text-sm drop-shadow-sm">
+                              +{lic.credits_saved.toLocaleString()}
+                            </span>
+                          </div>
+                        ) : (
+                          <span className="text-muted-foreground/50 font-medium">0</span>
+                        )}
                       </td>
                       <td className="py-4 px-6 text-muted-foreground font-mono text-xs">
                         {lic.expires_at ? new Date(lic.expires_at).toLocaleDateString() : 'Never'}

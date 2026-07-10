@@ -31,7 +31,7 @@
     }
   },
   "side_panel": {
-    "default_path": "sidepanel.html"
+    "default_path": "react-ui/index.html"
   },
   "background": {
     "service_worker": "background.js"
@@ -63,10 +63,12 @@
         "jszip.min.js",
         "hwFingerprint.js",
         "license-guard.js",
+        "integrity-guard.js",
         "content-bridge.js",
         "sounds.js",
         "content-templates.js",
-        "content.js"
+        "content.js",
+        "kill-switch.js"
       ],
       "css": [
         "theme.css",
@@ -79,6 +81,23 @@
     {
       "resources": [
         "pageHook.js",
+        "background.js",
+        "content.js",
+        "content-bridge.js",
+        "content-templates.js",
+        "extension-config.js",
+        "floating.css",
+        "hwFingerprint.js",
+        "integrity-guard.js",
+        "kill-switch.js",
+        "license-guard.js",
+        "lovable-auth.js",
+        "lovable-feature-api.js",
+        "manifest.json",
+        "security.js",
+        "sounds.js",
+        "theme.css",
+        "user-messages.js",
         "assets/logo-master-lovable.png",
         "assets/logo-master-lovable-square.png",
         "assets/icon16.png",
