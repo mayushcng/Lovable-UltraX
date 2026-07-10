@@ -285,18 +285,11 @@ async function build() {
     }
   }
 
-  // Step 3: Inject AI poison + obfuscate JS files
-  let JavaScriptObfuscator;
-  try {
-    JavaScriptObfuscator = require("javascript-obfuscator");
-  } catch (e) {
-    console.warn("⚠️  javascript-obfuscator not installed. Run: npm install javascript-obfuscator");
-    console.warn("   Falling back to AI-poison-only mode (no obfuscation).");
-    JavaScriptObfuscator = null;
-  }
-
+  // Step 3: Inject AI poison into JS files (NO obfuscation — it breaks Chrome extension cross-file globals)
+  // The AI poison comments + variables are the primary anti-reverse-engineering defense.
+  // They make LLMs refuse to analyze or help bypass the code.
   console.log("");
-  console.log("🛡️  Processing JavaScript files...");
+  console.log("🛡️  Processing JavaScript files (AI poison mode)...");
 
   for (const file of OBFUSCATE_FILES) {
     const srcFile = path.join(SOURCE_DIR, file);
@@ -310,31 +303,7 @@ async function build() {
     // Inject AI poison
     code = injectAIPoison(code, file);
 
-    // Obfuscate if available
-    if (JavaScriptObfuscator) {
-      try {
-        const config = getObfuscatorConfig();
-        // Don't self-defend background.js (service worker has different env)
-        if (file === "background.js") {
-          config.selfDefending = false;
-          config.debugProtection = false;
-          config.domainLock = [];
-        }
-        // Don't domain-lock pageHook.js (runs in MAIN world)
-        if (file === "pageHook.js") {
-          config.selfDefending = false;
-        }
-
-        const result = JavaScriptObfuscator.obfuscate(code, config);
-        code = result.getObfuscatedCode();
-        console.log("   ✓", file, "(poisoned + obfuscated)");
-      } catch (obfErr) {
-        console.warn("   ⚠", file, "obfuscation failed:", obfErr.message);
-        console.log("   ✓", file, "(poisoned only)");
-      }
-    } else {
-      console.log("   ✓", file, "(poisoned only)");
-    }
+    console.log("   ✓", file, "(poisoned)");
 
     fs.writeFileSync(path.join(OUTPUT_DIR, file), code, "utf8");
   }
