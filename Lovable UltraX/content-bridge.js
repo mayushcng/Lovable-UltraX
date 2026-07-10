@@ -351,13 +351,8 @@
   }
 
   async function deliverPromptToLovable(text) {
-    var ensureLicense = pkLicenseGuard();
-    if (typeof ensureLicense === "function") {
-      await ensureLicense(false);
-    } else {
-      // Fallback: direct storage check when pkEnsureActiveLicense is not in scope
-      await pkLicenseStorageCheck();
-    }
+    // License is already checked at login time and by the background script.
+    // No per-prompt gate — that causes silent failures after extension reloads.
     var strategy = (typeof SEND_STRATEGY !== "undefined" && SEND_STRATEGY) ? SEND_STRATEGY : "native";
     if (strategy === "relay") {
       throw new Error("Relay send is disabled. Use native or websocket strategy.");
@@ -373,7 +368,6 @@
       }
     }
     await sendNativeToLovable(text);
-
   }
 
   window.__pkDeliverPrompt = deliverPromptToLovable;
