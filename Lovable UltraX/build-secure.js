@@ -322,20 +322,21 @@ async function build() {
   }
 
   // Step 5: Embed hashes into integrity-guard.js
+  // IMPORTANT: We must EXCLUDE integrity-guard.js from the embedded hashes
+  // because embedding changes the file, making its hash never match (chicken-and-egg).
   console.log("");
   console.log("📝 Embedding integrity hashes...");
   const igPath = path.join(OUTPUT_DIR, "integrity-guard.js");
   if (fs.existsSync(igPath)) {
     let igCode = fs.readFileSync(igPath, "utf8");
-    // Replace the PROTECTED_FILES array and add HASHES object
-    // The integrity guard will use these hardcoded hashes instead of computing on first run
-    const hashesJson = JSON.stringify(hashes);
+    // Create a copy of hashes WITHOUT integrity-guard.js
+    const embedHashes = Object.assign({}, hashes);
+    delete embedHashes["integrity-guard.js"];
+    const hashesJson = JSON.stringify(embedHashes);
     const embedCode = `\n;(function(){try{chrome.storage.local.set({lux_integrity_hashes:${hashesJson},lux_integrity_build:"${BUILD_ID}"});}catch(e){}})();\n`;
     igCode = igCode + embedCode;
     fs.writeFileSync(igPath, igCode, "utf8");
-    // Recompute the hash for integrity-guard.js itself
-    hashes["integrity-guard.js"] = sha256(fs.readFileSync(igPath, "utf8"));
-    console.log("   ✓ Hashes embedded in integrity-guard.js");
+    console.log("   ✓ Hashes embedded in integrity-guard.js (self excluded)");
   }
 
   // Step 6: Summary
