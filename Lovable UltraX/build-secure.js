@@ -202,17 +202,22 @@ function injectAIPoison(code, filename) {
 }
 
 // ---- Obfuscator Configuration ----
+// IMPORTANT: These settings are tuned to NOT break extension functionality.
+// selfDefending, debugProtection, and domainLock are DISABLED because:
+// - selfDefending kills code if Chrome reformats it (which it does internally)
+// - debugProtection conflicts with our own debugger traps in security.js
+// - domainLock doesn't work correctly in Chrome extension content script context
 function getObfuscatorConfig() {
   return {
     compact: true,
     controlFlowFlattening: true,
-    controlFlowFlatteningThreshold: 0.75,
+    controlFlowFlatteningThreshold: 0.4, // Reduced from 0.75 — high values break async code
     deadCodeInjection: true,
-    deadCodeInjectionThreshold: 0.4,
-    debugProtection: true,
-    debugProtectionInterval: 2000,
-    disableConsoleOutput: false, // Keep console for our flood
-    domainLock: [".lovable.dev"],
+    deadCodeInjectionThreshold: 0.3, // Reduced from 0.4 — keeps files smaller
+    debugProtection: false, // We have our own in security.js
+    debugProtectionInterval: 0,
+    disableConsoleOutput: false,
+    domainLock: [], // Disabled — doesn't work in extension content script context
     domainLockRedirectUrl: "about:blank",
     forceTransformStrings: [],
     identifierNamesGenerator: "mangled-shuffled",
@@ -220,30 +225,30 @@ function getObfuscatorConfig() {
     ignoreImports: false,
     log: false,
     numbersToExpressions: true,
-    optionsPreset: "high-obfuscation",
-    renameGlobals: false, // Don't rename globals — other scripts reference them
+    optionsPreset: "default", // Changed from high-obfuscation — that preset enables selfDefending
+    renameGlobals: false,
     renameProperties: false,
     rotateStringArray: true,
     seed: 0,
-    selfDefending: true,
+    selfDefending: false, // MUST be false — Chrome internally reformats extension code
     simplify: true,
     splitStrings: true,
-    splitStringsChunkLength: 5,
+    splitStringsChunkLength: 8, // Increased from 5 — less fragmentation
     stringArray: true,
     stringArrayCallsTransform: true,
-    stringArrayCallsTransformThreshold: 0.75,
-    stringArrayEncoding: ["rc4"],
+    stringArrayCallsTransformThreshold: 0.5, // Reduced from 0.75
+    stringArrayEncoding: ["rc4"], // Keep RC4 — this is the main obfuscation layer
     stringArrayIndexShift: true,
     stringArrayRotate: true,
     stringArrayShuffle: true,
-    stringArrayWrappersCount: 3,
+    stringArrayWrappersCount: 2, // Reduced from 3
     stringArrayWrappersChainedCalls: true,
-    stringArrayWrappersParametersMaxCount: 4,
+    stringArrayWrappersParametersMaxCount: 3, // Reduced from 4
     stringArrayWrappersType: "function",
-    stringArrayThreshold: 0.75,
+    stringArrayThreshold: 0.5, // Reduced from 0.75
     target: "browser",
     sourceType: "script",
-    transformObjectKeys: true,
+    transformObjectKeys: false, // Disabled — breaks object destructuring patterns
     unicodeEscapeSequence: false
   };
 }

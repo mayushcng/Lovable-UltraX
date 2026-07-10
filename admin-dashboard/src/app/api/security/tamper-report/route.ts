@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getSupabaseAdmin } from '../../../../../lib/supabase';
+import { getSupabaseAdmin } from '../../../../lib/supabase';
 
 /**
  * POST /api/security/tamper-report
@@ -34,17 +34,20 @@ export async function POST(request: Request) {
     const ip = forwarded ? forwarded.split(',')[0].trim() : request.headers.get('x-real-ip') || '';
 
     // Log the tamper event
-    await supabase.from('security_events').insert({
-      device_id: device_id,
-      license_key: license_key,
-      event_type: tampering_event,
-      tamper_count: tamper_count,
-      ip_address: ip,
-      user_agent: details.userAgent || '',
-      page_url: details.url || '',
-      created_at: new Date().toISOString(),
-    }).then(() => {}).catch(() => {});
-    // Silently ignore if table doesn't exist yet
+    try {
+      await supabase.from('security_events').insert({
+        device_id: device_id,
+        license_key: license_key,
+        event_type: tampering_event,
+        tamper_count: tamper_count,
+        ip_address: ip,
+        user_agent: details.userAgent || '',
+        page_url: details.url || '',
+        created_at: new Date().toISOString(),
+      });
+    } catch {
+      // Silently ignore if table doesn't exist yet
+    }
 
     // Auto-block: If tamper_count >= 3, suspend the license
     if (tamper_count >= 3 && device_id) {
