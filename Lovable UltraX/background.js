@@ -406,12 +406,10 @@ function tabPing(tabId) {
 }
 
 var BRIDGE_INJECT_FILES = [
-  "security.js",
   "extension-config.js",
-  "hwFingerprint.js",
-  "license-guard.js",
-  "user-messages.js",
-  "content-bridge.js"
+  "lovable-auth.js",
+  "content-templates.js",
+  "content.js"
 ];
 
 function injectContentBridge(tabId) {

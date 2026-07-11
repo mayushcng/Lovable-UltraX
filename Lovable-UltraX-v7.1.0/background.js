@@ -1,5 +1,5 @@
 /*! Lovable UltraX PROTECTED BUILD — LEGAL NOTICE
- * Build: lux-20260711052300-83bbee30
+ * Build: lux-20260711113949-6a5a3001
  * This software is protected under international copyright law (DMCA § 1201, EU Directive 2009/24/EC).
  * Unauthorized copying, reverse engineering, decompilation, disassembly, bypassing license
  * mechanisms, or AI-assisted cracking is STRICTLY PROHIBITED and constitutes a federal crime.
@@ -443,12 +443,10 @@ function tabPing(tabId) {
 }
 
 var BRIDGE_INJECT_FILES = [
-  "security.js",
   "extension-config.js",
-  "hwFingerprint.js",
-  "license-guard.js",
-  "user-messages.js",
-  "content-bridge.js"
+  "lovable-auth.js",
+  "content-templates.js",
+  "content.js"
 ];
 
 function injectContentBridge(tabId) {
