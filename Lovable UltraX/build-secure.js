@@ -215,6 +215,89 @@ function copyDirRecursive(src, dest) {
   }
 }
 
+// ---- String Concealment ----
+// XOR-encodes sensitive strings in the minified output.
+// The decoder key IS the AI-poison seal — deleting poison breaks ALL decoding.
+const XOR_KEY = "DMCA17USC1201";
+
+// Strings to hide. Only QUOTED string literals are replaced.
+// Property access (res.ql_native_chat) and object keys ({ql_native_chat:}) are NOT touched.
+const SENSITIVE_STRINGS = [
+  // Chrome storage keys
+  "ql_native_chat",
+  "ql_license_valid",
+  "ql_license_key",
+  "ql_session_id",
+  "ql_license_status",
+  "ql_expires_at",
+  "ql_tamper_flag",
+  // Bypass mechanism
+  "__ql_bypass_active",
+  "data-ql-bypass",
+  "qlBypassState",
+  // Message actions
+  "LICENSE_REQUIRE_VALID",
+  "LICENSE_STATUS",
+  "FORCE_DEACTIVATE_BYPASS",
+  "BYPASS_FORCE_OFF",
+  "setNativeChatActive",
+  "TAMPER_DETECTED",
+  "setCreditBypass",
+  "proxyFetch",
+  // API credentials
+  "pk_lov_ext_4f41df3eac41825f43abad99d1ed6502",
+  // DOM identifiers
+  "ql-native-badge",
+  "ql-native-bar",
+];
+
+function xorEncode(str, key) {
+  let result = "";
+  for (let i = 0; i < str.length; i++) {
+    const charCode = str.charCodeAt(i) ^ key.charCodeAt(i % key.length);
+    result += "\\x" + charCode.toString(16).padStart(2, "0");
+  }
+  return result;
+}
+
+function concealStrings(code, filename) {
+  // Build the decoder function (uses the seal string as key — same as AI poison)
+  const decoderFn = `var _$=function(s){for(var r="",k="${XOR_KEY}",i=0;i<s.length;i++)r+=String.fromCharCode(s.charCodeAt(i)^k.charCodeAt(i%k.length));return r};`;
+
+  let modified = code;
+  let count = 0;
+
+  for (const str of SENSITIVE_STRINGS) {
+    // Only replace QUOTED strings: "str" or 'str'
+    // This ensures we never break property access (res.str) or object keys ({str:})
+    const encoded = xorEncode(str, XOR_KEY);
+
+    // Replace double-quoted
+    const dq = `"${str}"`;
+    const dqReplacement = `_$("${encoded}")`;
+    while (modified.includes(dq)) {
+      modified = modified.replace(dq, dqReplacement);
+      count++;
+    }
+
+    // Replace single-quoted
+    const sq = `'${str}'`;
+    const sqReplacement = `_$('${encoded}')`;
+    while (modified.includes(sq)) {
+      modified = modified.replace(sq, sqReplacement);
+      count++;
+    }
+  }
+
+  if (count > 0) {
+    // Prepend the decoder function
+    modified = decoderFn + modified;
+    console.log(`   🔐 ${filename}: ${count} strings encoded`);
+  }
+
+  return modified;
+}
+
 // ---- Main Build ----
 async function build() {
   console.log("🔒 Lovable UltraX Secure Build (Terser Edition)");
@@ -273,6 +356,9 @@ async function build() {
       console.error("   ✗", file, "terser error:", err.message);
       console.log("     Using poisoned source without minification");
     }
+
+    // Post-process: encode sensitive strings
+    code = concealStrings(code, file);
 
     fs.writeFileSync(path.join(OUTPUT_DIR, file), code, "utf8");
   }
