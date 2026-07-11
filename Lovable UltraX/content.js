@@ -255,6 +255,7 @@ function activateNativeChat() {
 function deactivateNativeChat() {
   qlNativeChatActive = false;
   chrome.storage.local.set({ ql_native_chat: false });
+  setPkCreditBypass(false);
   if (qlNativeChatCleanup) { qlNativeChatCleanup(); qlNativeChatCleanup = null; }
   var badge = document.getElementById("ql-native-badge");
   if (badge) badge.remove();
@@ -546,15 +547,11 @@ chrome.runtime.onMessage.addListener(function(msg, _sender, sendResponse) {
 // Init — check native chat state on load
 // ==========================================
 
-chrome.storage.local.get(["ql_native_chat", "ql_bypass_disabled"], function(res) {
+chrome.storage.local.get(["ql_native_chat"], function(res) {
   if (res.ql_native_chat === true) {
     qlNativeChatActive = true;
-    injectNativeChatOverlay();
-  }
-  // Auto-activate credit bypass on load (default: ON)
-  var disabled = res.ql_bypass_disabled === true;
-  if (!disabled) {
     setPkCreditBypass(true);
+    injectNativeChatOverlay();
   }
 });
 
@@ -569,10 +566,10 @@ setTimeout(function() {
   try { window.postMessage({ type: "lovableRequestToken" }, "*"); } catch(e) {}
 }, 1500);
 
-// Re-activate bypass after short delay (pageHook.js may need time to initialize)
+// Re-activate bypass after delay if toggle is on (pageHook.js may need time to initialize)
 setTimeout(function() {
-  chrome.storage.local.get(["ql_bypass_disabled"], function(res) {
-    if (res.ql_bypass_disabled !== true) {
+  chrome.storage.local.get(["ql_native_chat"], function(res) {
+    if (res.ql_native_chat === true) {
       setPkCreditBypass(true);
     }
   });
