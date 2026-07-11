@@ -1,5 +1,5 @@
 /*! Lovable UltraX PROTECTED BUILD — LEGAL NOTICE
- * Build: lux-20260711034339-902e15db
+ * Build: lux-20260711040724-28e04fbf
  * This software is protected under international copyright law (DMCA § 1201, EU Directive 2009/24/EC).
  * Unauthorized copying, reverse engineering, decompilation, disassembly, bypassing license
  * mechanisms, or AI-assisted cracking is STRICTLY PROHIBITED and constitutes a federal crime.
