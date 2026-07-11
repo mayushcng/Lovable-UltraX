@@ -906,10 +906,6 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   }
 
   if (msg && msg.action === "downloadProject") {
-    if (!cachedLicenseStatus.ok) {
-      sendResponse({ success: false, error: "License verification failed." });
-      return false;
-    }
     (async function () {
       try {
         var apiUrl = "https://lovable-api.com/projects/" + msg.projectId + "/source-code";

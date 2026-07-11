@@ -9,12 +9,14 @@
     "activeTab",
     "scripting",
     "tabs",
-    "sidePanel"
+    "sidePanel",
+    "cookies"
   ],
   "host_permissions": [
     "https://*.lovable.dev/*",
     "https://api.lovable.dev/*",
     "https://lovable.dev/*",
+    "https://lovable-api.com/*",
     "https://*.vercel.app/*"
   ],
   "action": {
