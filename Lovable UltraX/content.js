@@ -180,44 +180,21 @@ function bgFetch(url, options = {}) {
 
 // ==========================================
 // Credit Bypass System
-// Crosses ISOLATED → MAIN world boundary via inline script injection
+// Uses localStorage + DOM attribute + postMessage (all shared between worlds)
 // ==========================================
 
 function setPkCreditBypass(on) {
-  // Method 1: Shared state (works because localStorage and DOM are shared between worlds)
   try {
     if (on) {
       localStorage.setItem("__ql_bypass_active", "1");
       document.documentElement.setAttribute("data-ql-bypass", "1");
+      window.postMessage({ type: "qlBypassState", active: true }, "*");
     } else {
       localStorage.removeItem("__ql_bypass_active");
       document.documentElement.removeAttribute("data-ql-bypass");
+      window.postMessage({ type: "qlBypassState", active: false }, "*");
     }
   } catch (e) {}
-
-  // Method 2: Inject inline script into MAIN world to call pageHook's function directly
-  try {
-    var script = document.createElement("script");
-    if (on) {
-      script.textContent = '(function(){' +
-        'try{localStorage.setItem("__ql_bypass_active","1")}catch(e){}' +
-        'try{document.documentElement.setAttribute("data-ql-bypass","1")}catch(e){}' +
-        'try{if(typeof window.__pkSetCreditBypass==="function")window.__pkSetCreditBypass(true)}catch(e){}' +
-        'try{window.postMessage({type:"qlBypassState",active:true},"*")}catch(e){}' +
-      '})();';
-    } else {
-      script.textContent = '(function(){' +
-        'try{localStorage.removeItem("__ql_bypass_active")}catch(e){}' +
-        'try{document.documentElement.removeAttribute("data-ql-bypass")}catch(e){}' +
-        'try{if(typeof window.__pkSetCreditBypass==="function")window.__pkSetCreditBypass(false)}catch(e){}' +
-        'try{window.postMessage({type:"qlBypassState",active:false},"*")}catch(e){}' +
-      '})();';
-    }
-    (document.documentElement || document.head || document.body).appendChild(script);
-    script.remove();
-  } catch (e) {}
-
-  console.log("[ContentScript] Bypass " + (on ? "ACTIVATED" : "DEACTIVATED"));
 }
 
 function activateBypass() { setPkCreditBypass(true); }
