@@ -180,36 +180,55 @@ function bgFetch(url, options = {}) {
 
 // ==========================================
 // Credit Bypass System
+// Crosses ISOLATED → MAIN world boundary via inline script injection
 // ==========================================
 
 function setPkCreditBypass(on) {
-  if (typeof window.__pkSetCreditBypass === "function") {
-    window.__pkSetCreditBypass(!!on);
-    return;
-  }
+  // Method 1: Shared state (works because localStorage and DOM are shared between worlds)
   try {
     if (on) {
       localStorage.setItem("__ql_bypass_active", "1");
       document.documentElement.setAttribute("data-ql-bypass", "1");
-      window.postMessage({ type: "qlBypassState", active: true }, "*");
     } else {
       localStorage.removeItem("__ql_bypass_active");
       document.documentElement.removeAttribute("data-ql-bypass");
-      window.postMessage({ type: "qlBypassState", active: false }, "*");
     }
   } catch (e) {}
+
+  // Method 2: Inject inline script into MAIN world to call pageHook's function directly
+  try {
+    var script = document.createElement("script");
+    if (on) {
+      script.textContent = '(function(){' +
+        'try{localStorage.setItem("__ql_bypass_active","1")}catch(e){}' +
+        'try{document.documentElement.setAttribute("data-ql-bypass","1")}catch(e){}' +
+        'try{if(typeof window.__pkSetCreditBypass==="function")window.__pkSetCreditBypass(true)}catch(e){}' +
+        'try{window.postMessage({type:"qlBypassState",active:true},"*")}catch(e){}' +
+      '})();';
+    } else {
+      script.textContent = '(function(){' +
+        'try{localStorage.removeItem("__ql_bypass_active")}catch(e){}' +
+        'try{document.documentElement.removeAttribute("data-ql-bypass")}catch(e){}' +
+        'try{if(typeof window.__pkSetCreditBypass==="function")window.__pkSetCreditBypass(false)}catch(e){}' +
+        'try{window.postMessage({type:"qlBypassState",active:false},"*")}catch(e){}' +
+      '})();';
+    }
+    (document.documentElement || document.head || document.body).appendChild(script);
+    script.remove();
+  } catch (e) {}
+
+  console.log("[ContentScript] Bypass " + (on ? "ACTIVATED" : "DEACTIVATED"));
 }
 
 function activateBypass() { setPkCreditBypass(true); }
 function deactivateBypass() { setPkCreditBypass(false); }
 
 function syncPkCreditBypassFromStorage() {
-  chrome.storage.local.get(["ql_license_valid", "ql_bypass_disabled"], function(res) {
-    var disabled = res.ql_bypass_disabled === true;
-    if (disabled) {
-      setPkCreditBypass(false);
-    } else {
+  chrome.storage.local.get(["ql_native_chat"], function(res) {
+    if (res.ql_native_chat === true) {
       setPkCreditBypass(true);
+    } else {
+      setPkCreditBypass(false);
     }
   });
 }
@@ -239,7 +258,7 @@ window.addEventListener("message", function(ev) {
 });
 
 // ==========================================
-// Native Chat Feature
+// Native Chat Feature (Badge + Bypass toggle)
 // ==========================================
 
 var qlNativeChatActive = false;
@@ -250,6 +269,7 @@ function activateNativeChat() {
   chrome.storage.local.set({ ql_native_chat: true });
   setPkCreditBypass(true);
   injectNativeChatOverlay();
+  console.log("[ContentScript] Native chat + bypass activated");
 }
 
 function deactivateNativeChat() {
@@ -266,6 +286,7 @@ function deactivateNativeChat() {
     sendBtn.classList.remove("ql-native-send-active");
     sendBtn.style.animation = "";
   }
+  console.log("[ContentScript] Native chat + bypass deactivated");
 }
 
 function getNativeChatText() {
@@ -279,12 +300,27 @@ function getNativeChatText() {
   return (editor.value || editor.innerText || editor.textContent || '').trim();
 }
 
+var _nativeChatRetries = 0;
+var _maxNativeChatRetries = 10;
+
 function injectNativeChatOverlay() {
-  const chatForm = document.querySelector("form#chat-input");
+  // Try multiple selectors to find the chat form
+  const chatForm = document.querySelector("form#chat-input")
+    || document.querySelector('[id^="chat-input"]')
+    || document.querySelector('form[class*="chat"]');
+  
   if (!chatForm) {
-    setTimeout(injectNativeChatOverlay, 500);
+    _nativeChatRetries++;
+    if (_nativeChatRetries < _maxNativeChatRetries) {
+      console.log("[ContentScript] Chat form not found, retrying... (" + _nativeChatRetries + "/" + _maxNativeChatRetries + ")");
+      setTimeout(injectNativeChatOverlay, 800);
+    } else {
+      console.warn("[ContentScript] Chat form not found after " + _maxNativeChatRetries + " retries");
+    }
     return;
   }
+  
+  _nativeChatRetries = 0;
 
   if (!document.getElementById("ql-native-badge")) {
     const existingPos = getComputedStyle(chatForm).position;
@@ -295,6 +331,7 @@ function injectNativeChatOverlay() {
     badge.className = "ql-native-badge";
     badge.innerHTML = "⚡ <span>LOVABLE ULTRAX</span>";
     chatForm.appendChild(badge);
+    console.log("[ContentScript] Badge injected on chat form");
   }
 
   if (!document.getElementById("ql-native-return-btn")) {
@@ -459,7 +496,7 @@ chrome.runtime.onMessage.addListener(function(msg, _sender, sendResponse) {
     return false;
   }
 
-  // Native Chat toggle
+  // Native Chat toggle (Start Bypass)
   if (msg.action === "setNativeChatActive") {
     if (msg.active) activateNativeChat();
     else deactivateNativeChat();
@@ -544,14 +581,20 @@ chrome.runtime.onMessage.addListener(function(msg, _sender, sendResponse) {
 });
 
 // ==========================================
-// Init — check native chat state on load
+// Init — set bypass state from stored toggle
 // ==========================================
 
 chrome.storage.local.get(["ql_native_chat"], function(res) {
   if (res.ql_native_chat === true) {
+    // Toggle was ON — activate bypass and show badge
     qlNativeChatActive = true;
     setPkCreditBypass(true);
     injectNativeChatOverlay();
+    console.log("[ContentScript] Init: bypass ON (toggle was on)");
+  } else {
+    // Toggle was OFF — explicitly DEACTIVATE bypass (clear stale localStorage)
+    setPkCreditBypass(false);
+    console.log("[ContentScript] Init: bypass OFF (toggle was off)");
   }
 });
 
@@ -566,13 +609,33 @@ setTimeout(function() {
   try { window.postMessage({ type: "lovableRequestToken" }, "*"); } catch(e) {}
 }, 1500);
 
-// Re-activate bypass after delay if toggle is on (pageHook.js may need time to initialize)
+// Re-enforce bypass state after pageHook.js has fully initialized
 setTimeout(function() {
   chrome.storage.local.get(["ql_native_chat"], function(res) {
     if (res.ql_native_chat === true) {
       setPkCreditBypass(true);
+      console.log("[ContentScript] Re-enforce: bypass ON");
+    } else {
+      setPkCreditBypass(false);
+      console.log("[ContentScript] Re-enforce: bypass OFF");
     }
   });
 }, 3000);
 
+// Final enforcement at 6 seconds (covers slow page loads)
+setTimeout(function() {
+  chrome.storage.local.get(["ql_native_chat"], function(res) {
+    if (res.ql_native_chat === true) {
+      setPkCreditBypass(true);
+      // Re-inject badge if it was lost during page navigation
+      if (!document.getElementById("ql-native-badge")) {
+        injectNativeChatOverlay();
+      }
+    } else {
+      setPkCreditBypass(false);
+    }
+  });
+}, 6000);
+
 } // end if (window === window.top)
+
