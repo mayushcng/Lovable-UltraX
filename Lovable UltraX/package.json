@@ -11,5 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "javascript-obfuscator": "^5.4.6"
+  },
+  "devDependencies": {
+    "terser": "^5.49.0"
   }
 }
