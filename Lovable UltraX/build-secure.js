@@ -27,17 +27,8 @@ const BUILD_ID = "lux-" + new Date().toISOString().replace(/[^0-9]/g, "").slice(
 
 // Files to obfuscate (JS only)
 const OBFUSCATE_FILES = [
-  "security.js",
   "extension-config.js",
   "lovable-auth.js",
-  "lovable-feature-api.js",
-  "user-messages.js",
-  "hwFingerprint.js",
-  "license-guard.js",
-  "integrity-guard.js",
-  "kill-switch.js",
-  "content-bridge.js",
-  "sounds.js",
   "content-templates.js",
   "content.js",
   "background.js"

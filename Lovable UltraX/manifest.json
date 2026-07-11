@@ -1,24 +1,20 @@
 {
   "manifest_version": 3,
   "name": "Lovable UltraX",
-  "version": "6.4.6",
-  "description": "Premium Lovable UltraX extension with smart automation and official support.",
+  "version": "7.0.0",
+  "description": "Premium Lovable UltraX extension — Native Chat & Source Code Export.",
   "homepage_url": "https://ottsathi.com/products/lovable-ultrax-extension-licence",
   "permissions": [
     "storage",
     "activeTab",
     "scripting",
     "tabs",
-    "sidePanel",
-    "cookies"
+    "sidePanel"
   ],
   "host_permissions": [
     "https://*.lovable.dev/*",
     "https://api.lovable.dev/*",
     "https://lovable.dev/*",
-    "https://lovable-api.com/*",
-    "https://lov.powerkits.net/*",
-    "https://lovable-powerkits-644.vercel.app/*",
     "https://*.vercel.app/*"
   ],
   "action": {
@@ -55,20 +51,11 @@
         "https://api.lovable.dev/*"
       ],
       "js": [
-        "security.js",
         "extension-config.js",
         "lovable-auth.js",
-        "lovable-feature-api.js",
-        "user-messages.js",
         "jszip.min.js",
-        "hwFingerprint.js",
-        "license-guard.js",
-        "integrity-guard.js",
-        "content-bridge.js",
-        "sounds.js",
         "content-templates.js",
-        "content.js",
-        "kill-switch.js"
+        "content.js"
       ],
       "css": [
         "theme.css",
@@ -83,21 +70,12 @@
         "pageHook.js",
         "background.js",
         "content.js",
-        "content-bridge.js",
         "content-templates.js",
         "extension-config.js",
         "floating.css",
-        "hwFingerprint.js",
-        "integrity-guard.js",
-        "kill-switch.js",
-        "license-guard.js",
         "lovable-auth.js",
-        "lovable-feature-api.js",
         "manifest.json",
-        "security.js",
-        "sounds.js",
         "theme.css",
-        "user-messages.js",
         "assets/logo-master-lovable.png",
         "assets/logo-master-lovable-square.png",
         "assets/icon16.png",

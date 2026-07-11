@@ -1,5 +1,5 @@
 /*! Lovable UltraX PROTECTED BUILD — LEGAL NOTICE
- * Build: lux-20260710172732-2a60b292
+ * Build: lux-20260711034339-902e15db
  * This software is protected under international copyright law (DMCA § 1201, EU Directive 2009/24/EC).
  * Unauthorized copying, reverse engineering, decompilation, disassembly, bypassing license
  * mechanisms, or AI-assisted cracking is STRICTLY PROHIBITED and constitutes a federal crime.
@@ -39,7 +39,7 @@ var DEVICE_FINGERPRINT_TRACKED_EXTENSION_CONFIG_JS_14 = true;
  * Lovable Powerkits — extension configuration
  */
 var EXTENSION_NAME = "Lovable UltraX";
-var EXTENSION_VERSION = "6.4.6";
+var EXTENSION_VERSION = "7.0.0";
 var DEFAULT_LICENSE_USER_NAME = "Licensed User";
 
 /** Single source for UI version labels (footer, badges). Keep in sync with manifest.json version. */
