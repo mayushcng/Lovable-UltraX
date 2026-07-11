@@ -1,5 +1,5 @@
 // ============================================
-// Lovable UltraX v7.0.0 – Content Script
+// Lovable UltraX v7.1.0 – Content Script
 // Features: Native Chat + Download Source Code
 // ============================================
 
@@ -9,7 +9,7 @@ if (window !== window.top) {
 
 if (window === window.top) {
 
-console.log("[ContentScript] Lovable UltraX v7.0.0 loaded");
+console.log("[ContentScript] Lovable UltraX v7.1.0 loaded");
 
 const API_BASE = typeof POWERKITS_API_BASE !== "undefined" ? POWERKITS_API_BASE : GRINGOW_API_BASE;
 const API_KEY = typeof POWERKITS_API_KEY !== "undefined" ? POWERKITS_API_KEY : GRINGOW_API_KEY;
@@ -254,7 +254,7 @@ var qlNativeChatActive = false;
 var qlNativeChatCleanup = null;
 var _bypassHeartbeatTimer = null;
 var _BYPASS_HEARTBEAT_MS = 60000; // 60 seconds
-var _OFFLINE_GRACE_MS = 24 * 60 * 60 * 1000; // 24 hours
+var _OFFLINE_GRACE_MS = 6 * 60 * 60 * 1000; // 6 hours
 var _lastSuccessfulLicenseCheck = 0;
 
 // Phase 1: License-gated bypass activation
@@ -524,29 +524,11 @@ async function downloadSourceCode() {
 chrome.runtime.onMessage.addListener(function(msg, _sender, sendResponse) {
   if (!msg) return false;
 
-  // Credit Bypass
-  if (msg.action === "setCreditBypass") {
-    setPkCreditBypass(!!msg.active);
-    sendResponse({ ok: true });
-    return false;
-  }
-  if (msg.action === "qlActivateBypass") {
-    setPkCreditBypass(true);
-    sendResponse({ ok: true });
-    return false;
-  }
-  if (msg.action === "qlDeactivateBypass") {
-    setPkCreditBypass(false);
-    sendResponse({ ok: true });
-    return false;
-  }
-  if (msg.action === "syncCreditBypass") {
-    syncPkCreditBypassFromStorage();
-    sendResponse({ ok: true });
-    return false;
-  }
+  // Credit Bypass — all bypass control goes through setNativeChatActive (license-gated)
+  // Direct bypass commands removed for security — setCreditBypass, qlActivateBypass, etc.
+  // are no longer accepted to prevent unauthorized bypass activation.
 
-  // Native Chat toggle (Start Bypass) — now async with license check
+  // Native Chat toggle (Start Bypass) — async with license check
   if (msg.action === "setNativeChatActive") {
     if (msg.active) {
       activateNativeChat().then(function(ok) {
@@ -742,14 +724,24 @@ setTimeout(function() {
   });
 }, 3000);
 
-// Final enforcement at 6 seconds
+// Final enforcement at 6 seconds (with license verification)
 setTimeout(function() {
   chrome.storage.local.get(["ql_native_chat"], function(res) {
     if (res.ql_native_chat === true && qlNativeChatActive) {
-      setPkCreditBypass(true);
-      if (!document.getElementById("ql-native-badge")) {
-        injectNativeChatOverlay();
-      }
+      // Verify license is still valid before re-enforcing
+      chrome.runtime.sendMessage({ action: "LICENSE_STATUS" }, function(status) {
+        if (chrome.runtime.lastError || !status || !status.ok) {
+          // License invalid — force off
+          setPkCreditBypass(false);
+          chrome.storage.local.set({ ql_native_chat: false });
+          qlNativeChatActive = false;
+        } else {
+          setPkCreditBypass(true);
+          if (!document.getElementById("ql-native-badge")) {
+            injectNativeChatOverlay();
+          }
+        }
+      });
     } else {
       setPkCreditBypass(false);
     }

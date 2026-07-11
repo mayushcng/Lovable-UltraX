@@ -2,7 +2,7 @@
  * Lovable Powerkits — extension configuration
  */
 var EXTENSION_NAME = "Lovable UltraX";
-var EXTENSION_VERSION = "7.0.0";
+var EXTENSION_VERSION = "7.1.0";
 var DEFAULT_LICENSE_USER_NAME = "Licensed User";
 
 /** Single source for UI version labels (footer, badges). Keep in sync with manifest.json version. */

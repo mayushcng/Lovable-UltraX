@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Lovable UltraX",
-  "version": "7.0.0",
-  "description": "Premium Lovable UltraX extension — Native Chat & Source Code Export.",
+  "version": "7.1.0",
+  "description": "Premium Lovable UltraX extension — Smart Bypass & Source Code Export.",
   "homepage_url": "https://ottsathi.com/products/lovable-ultrax-extension-licence",
   "permissions": [
     "storage",
@@ -70,16 +70,9 @@
     {
       "resources": [
         "pageHook.js",
-        "background.js",
-        "content.js",
-        "content-templates.js",
-        "extension-config.js",
         "floating.css",
-        "lovable-auth.js",
-        "manifest.json",
         "theme.css",
-        "assets/logo-master-lovable.png",
-        "assets/logo-master-lovable-square.png",
+        "assets/logo.png",
         "assets/icon16.png",
         "assets/icon32.png",
         "assets/icon48.png",
